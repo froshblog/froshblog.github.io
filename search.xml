@@ -1,6 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo博客的优化补充</title>
+    <url>/2023/12/03/hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%BC%98%E5%8C%96%E8%A1%A5%E5%85%85/</url>
+    <content><![CDATA[<p>前面已经将个人博客搭建起来了并进行了一定的优化，但仍然存在一些问题，如上传后自动生成序号，对于习惯自己排序的人来讲很不好。这篇我认为比较好的优化分享出来，并且补充下如何删除博客文章，如何删除博客。</p>
+<span id="more"></span>
+<h1 id="1、个人博客优化"><a href="#1、个人博客优化" class="headerlink" title="1、个人博客优化"></a>1、个人博客优化</h1><h2 id="1-1-next主题"><a href="#1-1-next主题" class="headerlink" title="1.1 next主题"></a>1.1 next主题</h2><p>next主题主题有四种（可以说成样式吧？）：Muse、Mist、Pisces、Gemini，应为我个人这个博客没有搭建图床，我是尽量有文字文字表述，如果感兴趣的话可以一一尝试，个人看不出后面两个没有什么区别，好像就图标不一样了。  </p>
+<ul>
+<li>选择next样式：<br>进入博客目录，修改主题配置文件：<br>\themes\next_config.yml  </li>
+<li>搜索‘Schemes’，找到下面内容</li>
+</ul>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line">scheme: Muse</span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="comment">#scheme: Gemini</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>根据需要的样式选择即可（只能选一个，需要就将前面的‘#’去掉）</li>
+</ul>
+<h2 id="1-2-站点图标设置"><a href="#1-2-站点图标设置" class="headerlink" title="1.2 站点图标设置"></a>1.2 站点图标设置</h2><p>主题配置文件_config.yml里，favicon 就是站点标签栏的小图标，默认是用的 Hexo 的小图标，如果我们有站点 Logo 的图片的话，我们可以自己定制小图标。</p>
+<h3 id="1-2-1-获取图标"><a href="#1-2-1-获取图标" class="headerlink" title="1.2.1 获取图标"></a>1.2.1 获取图标</h3><p>可以通过PS制作也可以通过下面网站获取</p>
+<p><a href="https://realfavicongenerator.net/">https://realfavicongenerator.net</a></p>
+<h3 id="1-2-2-更换图标"><a href="#1-2-2-更换图标" class="headerlink" title="1.2.2 更换图标"></a>1.2.2 更换图标</h3><p>图标存放位置在博客目录下themes\next\source\images里<br>在主题配置文件里面找到 favicon 配置项，把一些相关路径配置进去即可，示例如下：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  small: /images/favicon<span class="literal">-16x16-next</span>.png</span><br><span class="line">  medium: /images/favicon<span class="literal">-32x32-next</span>.png</span><br><span class="line">  apple_touch_icon: /images/apple<span class="literal">-touch-icon-next</span>.png</span><br><span class="line">  safari_pinned_tab: /images/logo.svg</span><br></pre></td></tr></table></figure>
+<h2 id="1-3-站点头像设置"><a href="#1-3-站点头像设置" class="headerlink" title="1.3 站点头像设置"></a>1.3 站点头像设置</h2><p>将自己的头像图片储存在 themes\next\source\images中；<br>在主题的配置文件中找到‘avatar’，在‘url’后面写上头像位置，将‘false’改为‘true’。</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">avatar:</span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.</span></span><br><span class="line">  url: /images/avatar01.gif <span class="comment">#/images/avatar.gif</span></span><br><span class="line">  <span class="comment"># If true, the avatar will be displayed in circle.</span></span><br><span class="line">  rounded: true <span class="comment">#false </span></span><br><span class="line">  <span class="comment"># If true, the avatar will be rotated with the cursor.</span></span><br><span class="line">  rotated: true <span class="comment">#false</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-4-中英自动添加空格"><a href="#1-4-中英自动添加空格" class="headerlink" title="1.4 中英自动添加空格"></a>1.4 中英自动添加空格</h2><p>修改主题配置文件,将‘false’改为‘ture’即可</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">pangu: true <span class="comment">#false</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-5-pjax"><a href="#1-5-pjax" class="headerlink" title="1.5 pjax"></a>1.5 pjax</h2><p>可能大家听说过 Ajax，没听说过 pjax，这个技术实际上就是利用 Ajax 技术实现了局部页面刷新，既可以实现 URL 的更换，有可以做到无刷新加载。</p>
+<p>要开启这个功能需要先将 pjax 功能开启，然后安装对应的 pjax 依赖库，首先修改主题配置文件 _config.yml 修改如下：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">pjax: true</span><br></pre></td></tr></table></figure>
+<p>然后安装依赖库，切换到 next 主题目录下，右击打开‘git bash’，然后安装依赖库：</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/theme<span class="literal">-next</span>/theme<span class="literal">-next-pjax</span> source/lib/pjax</span><br></pre></td></tr></table></figure>
+<h2 id="1-6-取消文章目录自动编号"><a href="#1-6-取消文章目录自动编号" class="headerlink" title="1.6 取消文章目录自动编号"></a>1.6 取消文章目录自动编号</h2><p>修改主题配置文件中‘wrap’,将‘false’改为‘true’</p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">toc:</span><br><span class="line">  enable: true</span><br><span class="line">  <span class="comment"># Automatically add list number to toc.</span></span><br><span class="line">  number: true</span><br><span class="line">  <span class="comment"># If true, all words will placed on next lines if header width longer then sidebar width.</span></span><br><span class="line">  wrap: true <span class="comment">#false</span></span><br><span class="line">  <span class="comment"># If true, all level of TOC in a post will be displayed, rather than the activated part of it.</span></span><br><span class="line">  expand_all: false</span><br><span class="line">  <span class="comment"># Maximum heading depth of generated toc.</span></span><br><span class="line">  max_depth: <span class="number">6</span></span><br></pre></td></tr></table></figure>
+<h1 id="2、hexo博客文件删除"><a href="#2、hexo博客文件删除" class="headerlink" title="2、hexo博客文件删除"></a>2、hexo博客文件删除</h1><h2 id="2-1-普通删除方式"><a href="#2-1-普通删除方式" class="headerlink" title="2.1 普通删除方式"></a>2.1 普通删除方式</h2><p>直接进入博客目录，找到文章文件直接删除后上传。</p>
+<p>以原始文件：helloworld.md为例：<br>首先进入到source &#x2F; _post 文件夹中，找到helloworld.md文件，在本地直接执行删除。然后依次执行下面命令  </p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-已发布文章删除"><a href="#2-2-已发布文章删除" class="headerlink" title="2.2 已发布文章删除"></a>2.2 已发布文章删除</h2><p>如果你已经将文章git发布了，此时会在本地创建一个名为 .deploy_git的文件夹，并将生成的文件复制到该文件夹。<br>你需要删除本地的文章后，再删除 .deploy_git文件夹。<br>然后执行命令  </p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
+<h2 id="2-3-其他方案"><a href="#2-3-其他方案" class="headerlink" title="2.3 其他方案"></a>2.3 其他方案</h2><p>如果上述方案都不行，那么我们就针对文件夹，备份除了需要删除的文章文件，然后直接删除source文件夹中的_posts文件夹，最后新建一个_posts文件夹。</p>
+<h1 id="3-删除hexo博客"><a href="#3-删除hexo博客" class="headerlink" title="3. 删除hexo博客"></a>3. 删除hexo博客</h1><p>在命令提示符中，执行以下命令：  </p>
+<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo<span class="literal">-cli</span> <span class="literal">-g</span></span><br></pre></td></tr></table></figure>
+<p>然后文件夹中的blog（博客目录），手动删除。</p>
+<p>另外，进行重装之前，如果还是在原来位置，必须手动清理了才能迁移安装。</p>
+<p>然后文件夹中的blog（博客目录），手动删除。</p>
+]]></content>
+      <categories>
+        <category>个人博客</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>kali系统安装与换源</title>
+    <url>/2023/12/02/kali%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8D%A2%E6%BA%90/</url>
+    <content><![CDATA[<p>Kali Linux是一个操作系统(2013-03-13诞生)基于Debian Linux的发行版基于包含了约600个安全工具(- 省去了繁琐的安装、编译、配置、更新步骤)（- 为所有工具运行提供了一个稳定一致的操作系统基础）。本篇文章提供安装2023版的安装，不过，kali的安装大同小异，在选择kali的版本尽量选择最新版本。</p>
+<span id="more"></span>
+
+<h1 id="一、镜像下载"><a href="#一、镜像下载" class="headerlink" title="一、镜像下载"></a>一、镜像下载</h1><p>官网下载：<a href="https://www.kali.org/get-kali/#kali-platforms">https://www.kali.org/get-kali/#kali-platforms</a></p>
+<h1 id="二、环境搭建"><a href="#二、环境搭建" class="headerlink" title="二、环境搭建"></a>二、环境搭建</h1><p>以下环境均为虚拟机环境</p>
+<p>虚拟机软件：VMware Workstation Pro</p>
+<h1 id="三、安装步骤"><a href="#三、安装步骤" class="headerlink" title="三、安装步骤"></a>三、安装步骤</h1><p>一些步骤将省略，根据自己需求和语言提示点击继续即可，以下只展示令人犹豫的配置</p>
+<h2 id="1-kali虚拟机配置"><a href="#1-kali虚拟机配置" class="headerlink" title="1. kali虚拟机配置"></a>1. kali虚拟机配置</h2><p><img src="/pic/kali/01/001.png" alt="kali虚拟机配置"></p>
+<h2 id="2-安装方式选择"><a href="#2-安装方式选择" class="headerlink" title="2. 安装方式选择"></a>2. 安装方式选择</h2><p><img src="/pic/kali/01/002.png" alt="安装方式"></p>
+<h2 id="3-选择安装语言"><a href="#3-选择安装语言" class="headerlink" title="3. 选择安装语言"></a>3. 选择安装语言</h2><p>kali支持简体中文，在这步执行后将直接使用简体中文的kali，后续需要使用其他语言也能在设置里面改</p>
+<p><img src="/pic/kali/01/003.png" alt="选择语言"></p>
+<h2 id="4-主机名与配置网络"><a href="#4-主机名与配置网络" class="headerlink" title="4. 主机名与配置网络"></a>4. 主机名与配置网络</h2><p>主机名根据自己喜好来命名即可，网络配置的域名可要可不要</p>
+<p><img src="/pic/kali/01/004.png" alt="主机名与网络配置"></p>
+<h2 id="5-磁盘分区"><a href="#5-磁盘分区" class="headerlink" title="5. 磁盘分区"></a>5. 磁盘分区</h2><p>刚接触kali或Linux操作系统，循规蹈矩按照语言提示选择，熟练后可以选择自己来分配磁盘空间</p>
+<p><img src="/pic/kali/01/005.png" alt="磁盘分区"></p>
+<h2 id="6-软件安装"><a href="#6-软件安装" class="headerlink" title="6. 软件安装"></a>6. 软件安装</h2><p>下图画框的三个软件皆是桌面管理器（可以理解为主题），全部勾选安装，后续会卡在“正在设定gdm3”这个步骤，故默认即可，或三选一，即（Xfce、KDE、GNOM）</p>
+<p><img src="/pic/kali/01/006.png" alt="软件安装"></p>
+<h2 id="7-安装GRUB启动引导器"><a href="#7-安装GRUB启动引导器" class="headerlink" title="7. 安装GRUB启动引导器"></a>7. 安装GRUB启动引导器</h2><p><img src="/pic/kali/01/007.png" alt="安装GRUB启动"></p>
+<h1 id="四、安装完成"><a href="#四、安装完成" class="headerlink" title="四、安装完成"></a>四、安装完成</h1><p>重启即可正常使用kali，由于环境是虚拟环境，建议做好快照（建议关机后做快照，至于何时做根据自己需求</p>
+<p><img src="/pic/kali/01/008.png" alt="安装完成"></p>
+<h1 id="五、将软件仓库镜像源为国内镜像源"><a href="#五、将软件仓库镜像源为国内镜像源" class="headerlink" title="五、将软件仓库镜像源为国内镜像源"></a>五、将软件仓库镜像源为国内镜像源</h1><p>在使用 kali 进行软件安装和更新的时候总是很慢，是因为 linux 系统默认使用的软件源都是国外源，国内访问速度过慢，所以一般使用 linux 的话都需要建议改为国内镜像源。以下以将镜像源修改为<strong>清华源</strong>为例，如需要更换为其他源直接百度即可。</p>
+<h2 id="1-手动替换"><a href="#1-手动替换" class="headerlink" title="1. 手动替换"></a>1. 手动替换</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">编辑 /etc/apt/sources.list 文件</span></span><br><span class="line">sudo vim /etc/apt/source.list</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在文件最前面添加以下条目</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-sed替换"><a href="#2-sed替换" class="headerlink" title="2. sed替换"></a>2. sed替换</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sed -i &quot;s@http://http.kali.org/kali@https://mirrors.tuna.tsinghua.edu.cn/kali@g&quot; /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
+
+<p>无论你用哪种方法修改镜像源，修改后都需执行以下命令:</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt clean</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
+
+<h1 id="六、使用root用户"><a href="#六、使用root用户" class="headerlink" title="六、使用root用户"></a>六、使用root用户</h1><h2 id="1-通过提权在命令行中切换至root用户"><a href="#1-通过提权在命令行中切换至root用户" class="headerlink" title="1. 通过提权在命令行中切换至root用户"></a>1. 通过提权在命令行中切换至root用户</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo su root</span><br><span class="line">#也能直接使用 sudo su</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-GUI界面登录root"><a href="#2-GUI界面登录root" class="headerlink" title="2. GUI界面登录root"></a>2. GUI界面登录root</h2><p>通过修改root密码后，注销登录root</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#修改密码</span><br><span class="line">sudo passwd root</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>kali学习笔记</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+        <tag>系统安装</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>从零开始学剪辑-day01</title>
+    <url>/2023/11/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E5%89%AA%E8%BE%91-day01/</url>
+    <content><![CDATA[<p>从零开始学习新的事物，如果直接学习其理论后进行运用，这会将自己的学习成本大幅上升，故我们通过一个中介来快速上手，然后通过积累了解它，这可以理解为“道”与”术”。”剪辑”，其中“道”是你对故事的感知和故事的节奏把控，比较依赖于你的经验。对于只是对剪辑感兴趣的我们，从“术”入手会是很不错的选择，即通过如何使用剪辑软件（PR）来入手剪辑。</p>
+<p>首先，我们需要了解一个概念，文件编码，常见视频格式是mp4，它对应的编码方式是H.264，视频编码可是说成一种压缩，因为视频本身是一张张图片闪过的过程，如果图片是原始大小的话，我们的视频将会很大。（H.264对应的视频格式是mp4）<br>其次，在了解了文件编码后，我们就需要对软件(PR)有一定的了解。我们需要了解PR的界面，学会PR的基本操作，记住两个常用快捷键  </p>
+<span id="more"></span>
+
+<h1 id="PR界面一图了解"><a href="#PR界面一图了解" class="headerlink" title="PR界面一图了解"></a>PR界面一图了解</h1><p>从下图可以看出，PR是一个非常综合的一个视频剪辑软件，当然如果PR学的好的话也能实现差不多的效果。<br><img src="/pic/PR%E5%89%AA%E8%BE%91%E5%85%A5%E9%97%A8/01.jpg" alt="PR入门剪辑01"></p>
+<h1 id="时间轴界面"><a href="#时间轴界面" class="headerlink" title="时间轴界面"></a>时间轴界面</h1><p><img src="/pic/PR%E5%89%AA%E8%BE%91%E5%85%A5%E9%97%A8/02.jpg" alt="PR剪辑入门02"><br>其中的“帧”，就得引出一个名词“帧数率”，“帧速率”（fps），每秒中有多少个帧。我们一般会为视频规定”帧数率”，而这个值一般设置为25帧 &#x3D;&#x3D; 1秒（25帧&#x2F;秒）  </p>
+<h1 id="简单的剪辑"><a href="#简单的剪辑" class="headerlink" title="简单的剪辑"></a>简单的剪辑</h1><p>首先按照需要调整视频尺寸大小，即设置缩放帧大小。因为一些视频的帧大小不同，按需要我们需要视频尺寸大小一样。<br>操作：选中时间轴中帧大小不一样的右击–&gt;缩放帧大小<br>通过对应工具进行剪辑，剃刀工具裁剪视频，然后用选择工具选中裁剪后的视频，再与其他视频进行拼接。<br>快捷键“c键”–&gt;剃刀工具<br>快捷键“v”键–&gt;选择工具</p>
+<h1 id="蒙太奇"><a href="#蒙太奇" class="headerlink" title="蒙太奇"></a>蒙太奇</h1><p>蒙太奇是一种剪辑手法，这需要你对素材有一定的理解，联想，将看似不相关的素材通过一定的顺序组合在一起，使人联想到另外的事物（故事），使之具有故事性，做到“1 + 1 &gt; 2”的效果。<br>这种手法，如果你能够卡点的话会让视频节奏变得更棒。</p>
+<p>小技巧：<br>需要将多个视频素材组合在一起的时候，我们常常需要素材的一小段片段，我们可以在pr中双击素材通过裁剪得到我们的小片段。（快捷键“i”和“o”,裁剪开始和结束点）<br>在时间轴中，我们可以使用快捷键“m”标记位置，在多个标记的视频中，用“shift+m”和”ctrl+shift+m”左右跳转标记点。<br>在处理自带音频的素材，将素材拖入轨道后，右击素材-&gt;取消链接，后面就能选中音频删除。<br>导出快捷键“ctrl+m”。</p>
+]]></content>
+      <categories>
+        <category>PR剪辑入门</category>
+      </categories>
+      <tags>
+        <tag>剪辑</tag>
+        <tag>PR</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>个人博客搭建-hexo</title>
     <url>/2023/10/18/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<p>首先，博客从应用层角度看，通常一个博客由4个部分组成：博客生成框架、文件托管平台、站点部署服务和CDN加速服务。（下图）<br>其次，这篇教程的博客架构：hexo + github + github pages，即由hexo生成的博客网站上传至GitHub平台托管，并使用其自带的github pages服务将博客部署在互联网中，从而使用户访问。<br>最后，hexo成本低，不依赖于服务器，但hexo没有后台系统，更新文章依赖环境（node.js、Git）,而且博客网站部署在GitHub上，加载慢，尽量在文章少加入图片，主要从事文字工作。（有人做了hexo的后台，感兴趣可以去看看）</p>
@@ -147,120 +261,6 @@
       <tags>
         <tag>hexo</tag>
         <tag>next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>kali系统安装与换源</title>
-    <url>/2023/12/02/kali%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E4%B8%8E%E6%8D%A2%E6%BA%90/</url>
-    <content><![CDATA[<p>Kali Linux是一个操作系统(2013-03-13诞生)基于Debian Linux的发行版基于包含了约600个安全工具(- 省去了繁琐的安装、编译、配置、更新步骤)（- 为所有工具运行提供了一个稳定一致的操作系统基础）。本篇文章提供安装2023版的安装，不过，kali的安装大同小异，在选择kali的版本尽量选择最新版本。</p>
-<span id="more"></span>
-
-<h1 id="一、镜像下载"><a href="#一、镜像下载" class="headerlink" title="一、镜像下载"></a>一、镜像下载</h1><p>官网下载：<a href="https://www.kali.org/get-kali/#kali-platforms">https://www.kali.org/get-kali/#kali-platforms</a></p>
-<h1 id="二、环境搭建"><a href="#二、环境搭建" class="headerlink" title="二、环境搭建"></a>二、环境搭建</h1><p>以下环境均为虚拟机环境</p>
-<p>虚拟机软件：VMware Workstation Pro</p>
-<h1 id="三、安装步骤"><a href="#三、安装步骤" class="headerlink" title="三、安装步骤"></a>三、安装步骤</h1><p>一些步骤将省略，根据自己需求和语言提示点击继续即可，以下只展示令人犹豫的配置</p>
-<h2 id="1-kali虚拟机配置"><a href="#1-kali虚拟机配置" class="headerlink" title="1. kali虚拟机配置"></a>1. kali虚拟机配置</h2><p><img src="/pic/kali/01/001.png" alt="kali虚拟机配置"></p>
-<h2 id="2-安装方式选择"><a href="#2-安装方式选择" class="headerlink" title="2. 安装方式选择"></a>2. 安装方式选择</h2><p><img src="/pic/kali/01/002.png" alt="安装方式"></p>
-<h2 id="3-选择安装语言"><a href="#3-选择安装语言" class="headerlink" title="3. 选择安装语言"></a>3. 选择安装语言</h2><p>kali支持简体中文，在这步执行后将直接使用简体中文的kali，后续需要使用其他语言也能在设置里面改</p>
-<p><img src="/pic/kali/01/003.png" alt="选择语言"></p>
-<h2 id="4-主机名与配置网络"><a href="#4-主机名与配置网络" class="headerlink" title="4. 主机名与配置网络"></a>4. 主机名与配置网络</h2><p>主机名根据自己喜好来命名即可，网络配置的域名可要可不要</p>
-<p><img src="/pic/kali/01/004.png" alt="主机名与网络配置"></p>
-<h2 id="5-磁盘分区"><a href="#5-磁盘分区" class="headerlink" title="5. 磁盘分区"></a>5. 磁盘分区</h2><p>刚接触kali或Linux操作系统，循规蹈矩按照语言提示选择，熟练后可以选择自己来分配磁盘空间</p>
-<p><img src="/pic/kali/01/005.png" alt="磁盘分区"></p>
-<h2 id="6-软件安装"><a href="#6-软件安装" class="headerlink" title="6. 软件安装"></a>6. 软件安装</h2><p>下图画框的三个软件皆是桌面管理器（可以理解为主题），全部勾选安装，后续会卡在“正在设定gdm3”这个步骤，故默认即可，或三选一，即（Xfce、KDE、GNOM）</p>
-<p><img src="/pic/kali/01/006.png" alt="软件安装"></p>
-<h2 id="7-安装GRUB启动引导器"><a href="#7-安装GRUB启动引导器" class="headerlink" title="7. 安装GRUB启动引导器"></a>7. 安装GRUB启动引导器</h2><p><img src="/pic/kali/01/007.png" alt="安装GRUB启动"></p>
-<h1 id="四、安装完成"><a href="#四、安装完成" class="headerlink" title="四、安装完成"></a>四、安装完成</h1><p>重启即可正常使用kali，由于环境是虚拟环境，建议做好快照（建议关机后做快照，至于何时做根据自己需求</p>
-<p><img src="/pic/kali/01/008.png" alt="安装完成"></p>
-<h1 id="五、将软件仓库镜像源为国内镜像源"><a href="#五、将软件仓库镜像源为国内镜像源" class="headerlink" title="五、将软件仓库镜像源为国内镜像源"></a>五、将软件仓库镜像源为国内镜像源</h1><p>在使用 kali 进行软件安装和更新的时候总是很慢，是因为 linux 系统默认使用的软件源都是国外源，国内访问速度过慢，所以一般使用 linux 的话都需要建议改为国内镜像源。以下以将镜像源修改为<strong>清华源</strong>为例，如需要更换为其他源直接百度即可。</p>
-<h2 id="1-手动替换"><a href="#1-手动替换" class="headerlink" title="1. 手动替换"></a>1. 手动替换</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">编辑 /etc/apt/sources.list 文件</span></span><br><span class="line">sudo vim /etc/apt/source.list</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">在文件最前面添加以下条目</span></span><br><span class="line">deb https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src https://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-sed替换"><a href="#2-sed替换" class="headerlink" title="2. sed替换"></a>2. sed替换</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo sed -i &quot;s@http://http.kali.org/kali@https://mirrors.tuna.tsinghua.edu.cn/kali@g&quot; /etc/apt/sources.list</span><br></pre></td></tr></table></figure>
-
-<p>无论你用哪种方法修改镜像源，修改后都需执行以下命令:</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo apt clean</span><br><span class="line">sudo apt update</span><br><span class="line">sudo apt upgrade</span><br></pre></td></tr></table></figure>
-
-<h1 id="六、使用root用户"><a href="#六、使用root用户" class="headerlink" title="六、使用root用户"></a>六、使用root用户</h1><h2 id="1-通过提权在命令行中切换至root用户"><a href="#1-通过提权在命令行中切换至root用户" class="headerlink" title="1. 通过提权在命令行中切换至root用户"></a>1. 通过提权在命令行中切换至root用户</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">sudo su root</span><br><span class="line">#也能直接使用 sudo su</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-GUI界面登录root"><a href="#2-GUI界面登录root" class="headerlink" title="2. GUI界面登录root"></a>2. GUI界面登录root</h2><p>通过修改root密码后，注销登录root</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">#修改密码</span><br><span class="line">sudo passwd root</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>kali学习笔记</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-        <tag>系统安装</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo博客的优化补充</title>
-    <url>/2023/12/03/hexo%E5%8D%9A%E5%AE%A2%E7%9A%84%E4%BC%98%E5%8C%96%E8%A1%A5%E5%85%85/</url>
-    <content><![CDATA[<p>前面已经将个人博客搭建起来了并进行了一定的优化，但仍然存在一些问题，如上传后自动生成序号，对于习惯自己排序的人来讲很不好。这篇我认为比较好的优化分享出来，并且补充下如何删除博客文章，如何删除博客。</p>
-<span id="more"></span>
-<h1 id="1、个人博客优化"><a href="#1、个人博客优化" class="headerlink" title="1、个人博客优化"></a>1、个人博客优化</h1><h2 id="1-1-next主题"><a href="#1-1-next主题" class="headerlink" title="1.1 next主题"></a>1.1 next主题</h2><p>next主题主题有四种（可以说成样式吧？）：Muse、Mist、Pisces、Gemini，应为我个人这个博客没有搭建图床，我是尽量有文字文字表述，如果感兴趣的话可以一一尝试，个人看不出后面两个没有什么区别，好像就图标不一样了。  </p>
-<ul>
-<li>选择next样式：<br>进入博客目录，修改主题配置文件：<br>\themes\next_config.yml  </li>
-<li>搜索‘Schemes’，找到下面内容</li>
-</ul>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line">scheme: Muse</span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="comment">#scheme: Gemini</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>根据需要的样式选择即可（只能选一个，需要就将前面的‘#’去掉）</li>
-</ul>
-<h2 id="1-2-站点图标设置"><a href="#1-2-站点图标设置" class="headerlink" title="1.2 站点图标设置"></a>1.2 站点图标设置</h2><p>主题配置文件_config.yml里，favicon 就是站点标签栏的小图标，默认是用的 Hexo 的小图标，如果我们有站点 Logo 的图片的话，我们可以自己定制小图标。</p>
-<h3 id="1-2-1-获取图标"><a href="#1-2-1-获取图标" class="headerlink" title="1.2.1 获取图标"></a>1.2.1 获取图标</h3><p>可以通过PS制作也可以通过下面网站获取</p>
-<p><a href="https://realfavicongenerator.net/">https://realfavicongenerator.net</a></p>
-<h3 id="更换图标"><a href="#更换图标" class="headerlink" title="更换图标"></a>更换图标</h3><p>图标存放位置在博客目录下themes\next\source\images里<br>在主题配置文件里面找到 favicon 配置项，把一些相关路径配置进去即可，示例如下：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  small: /images/favicon<span class="literal">-16x16-next</span>.png</span><br><span class="line">  medium: /images/favicon<span class="literal">-32x32-next</span>.png</span><br><span class="line">  apple_touch_icon: /images/apple<span class="literal">-touch-icon-next</span>.png</span><br><span class="line">  safari_pinned_tab: /images/logo.svg</span><br></pre></td></tr></table></figure>
-<h2 id="1-3-站点头像设置"><a href="#1-3-站点头像设置" class="headerlink" title="1.3 站点头像设置"></a>1.3 站点头像设置</h2><p>将自己的头像图片储存在 themes\next\source\images中；<br>在主题的配置文件中找到‘avatar’，在‘url’后面写上头像位置，将‘false’改为‘true’。</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">avatar:</span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.</span></span><br><span class="line">  url: /images/avatar01.gif <span class="comment">#/images/avatar.gif</span></span><br><span class="line">  <span class="comment"># If true, the avatar will be displayed in circle.</span></span><br><span class="line">  rounded: true <span class="comment">#false </span></span><br><span class="line">  <span class="comment"># If true, the avatar will be rotated with the cursor.</span></span><br><span class="line">  rotated: true <span class="comment">#false</span></span><br></pre></td></tr></table></figure>
-<h2 id="1-4-中英自动添加空格"><a href="#1-4-中英自动添加空格" class="headerlink" title="1.4 中英自动添加空格"></a>1.4 中英自动添加空格</h2><p>修改主题配置文件,将‘false’改为‘ture’即可</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">pangu: true <span class="comment">#false</span></span><br></pre></td></tr></table></figure>
-<h2 id="1-5-pjax"><a href="#1-5-pjax" class="headerlink" title="1.5 pjax"></a>1.5 pjax</h2><p>可能大家听说过 Ajax，没听说过 pjax，这个技术实际上就是利用 Ajax 技术实现了局部页面刷新，既可以实现 URL 的更换，有可以做到无刷新加载。</p>
-<p>要开启这个功能需要先将 pjax 功能开启，然后安装对应的 pjax 依赖库，首先修改主题配置文件 _config.yml 修改如下：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">pjax: true</span><br></pre></td></tr></table></figure>
-<p>然后安装依赖库，切换到 next 主题目录下，右击打开‘git bash’，然后安装依赖库：</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/theme<span class="literal">-next</span>/theme<span class="literal">-next-pjax</span> source/lib/pjax</span><br></pre></td></tr></table></figure>
-<h2 id="1-6-取消文章目录自动编号"><a href="#1-6-取消文章目录自动编号" class="headerlink" title="1.6 取消文章目录自动编号"></a>1.6 取消文章目录自动编号</h2><p>修改主题配置文件中‘wrap’,将‘false’改为‘true’</p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">toc:</span><br><span class="line">  enable: true</span><br><span class="line">  <span class="comment"># Automatically add list number to toc.</span></span><br><span class="line">  number: true</span><br><span class="line">  <span class="comment"># If true, all words will placed on next lines if header width longer then sidebar width.</span></span><br><span class="line">  wrap: true <span class="comment">#false</span></span><br><span class="line">  <span class="comment"># If true, all level of TOC in a post will be displayed, rather than the activated part of it.</span></span><br><span class="line">  expand_all: false</span><br><span class="line">  <span class="comment"># Maximum heading depth of generated toc.</span></span><br><span class="line">  max_depth: <span class="number">6</span></span><br></pre></td></tr></table></figure>
-<h1 id="2、hexo博客文件删除"><a href="#2、hexo博客文件删除" class="headerlink" title="2、hexo博客文件删除"></a>2、hexo博客文件删除</h1><h2 id="2-1-普通删除方式"><a href="#2-1-普通删除方式" class="headerlink" title="2.1 普通删除方式"></a>2.1 普通删除方式</h2><p>直接进入博客目录，找到文章文件直接删除后上传。</p>
-<p>以原始文件：helloworld.md为例：<br>首先进入到source &#x2F; _post 文件夹中，找到helloworld.md文件，在本地直接执行删除。然后依次执行下面命令  </p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-<h2 id="2-2-已发布文章删除"><a href="#2-2-已发布文章删除" class="headerlink" title="2.2 已发布文章删除"></a>2.2 已发布文章删除</h2><p>如果你已经将文章git发布了，此时会在本地创建一个名为 .deploy_git的文件夹，并将生成的文件复制到该文件夹。<br>你需要删除本地的文章后，再删除 .deploy_git文件夹。<br>然后执行命令  </p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br><span class="line">hexo deploy</span><br></pre></td></tr></table></figure>
-<h2 id="2-3-其他方案"><a href="#2-3-其他方案" class="headerlink" title="2.3 其他方案"></a>2.3 其他方案</h2><p>如果上述方案都不行，那么我们就针对文件夹，备份除了需要删除的文章文件，然后直接删除source文件夹中的_posts文件夹，最后新建一个_posts文件夹。</p>
-<h1 id="3-删除hexo博客"><a href="#3-删除hexo博客" class="headerlink" title="3. 删除hexo博客"></a>3. 删除hexo博客</h1><p>在命令提示符中，执行以下命令：  </p>
-<figure class="highlight powershell"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo<span class="literal">-cli</span> <span class="literal">-g</span></span><br></pre></td></tr></table></figure>
-<p>然后文件夹中的blog（博客目录），手动删除。</p>
-<p>另外，进行重装之前，如果还是在原来位置，必须手动清理了才能迁移安装。</p>
-<p>然后文件夹中的blog（博客目录），手动删除。</p>
-]]></content>
-      <categories>
-        <category>个人博客</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-        <tag>next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>从零开始学剪辑-day01</title>
-    <url>/2023/11/15/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E5%AD%A6%E5%89%AA%E8%BE%91-day01/</url>
-    <content><![CDATA[<p>从零开始学习新的事物，如果直接学习其理论后进行运用，这会将自己的学习成本大幅上升，故我们通过一个中介来快速上手，然后通过积累了解它，这可以理解为“道”与”术”。”剪辑”，其中“道”是你对故事的感知和故事的节奏把控，比较依赖于你的经验。对于只是对剪辑感兴趣的我们，从“术”入手会是很不错的选择，即通过如何使用剪辑软件（PR）来入手剪辑。</p>
-<p>首先，我们需要了解一个概念，文件编码，常见视频格式是mp4，它对应的编码方式是H.264，视频编码可是说成一种压缩，因为视频本身是一张张图片闪过的过程，如果图片是原始大小的话，我们的视频将会很大。（H.264对应的视频格式是mp4）<br>其次，在了解了文件编码后，我们就需要对软件(PR)有一定的了解。我们需要了解PR的界面，学会PR的基本操作，记住两个常用快捷键  </p>
-<span id="more"></span>
-
-<h1 id="PR界面一图了解"><a href="#PR界面一图了解" class="headerlink" title="PR界面一图了解"></a>PR界面一图了解</h1><p>从下图可以看出，PR是一个非常综合的一个视频剪辑软件，当然如果PR学的好的话也能实现差不多的效果。<br><img src="/pic/PR%E5%89%AA%E8%BE%91%E5%85%A5%E9%97%A8/01.jpg" alt="PR入门剪辑01"></p>
-<h1 id="时间轴界面"><a href="#时间轴界面" class="headerlink" title="时间轴界面"></a>时间轴界面</h1><p><img src="/pic/PR%E5%89%AA%E8%BE%91%E5%85%A5%E9%97%A8/02.jpg" alt="PR剪辑入门02"><br>其中的“帧”，就得引出一个名词“帧数率”，“帧速率”（fps），每秒中有多少个帧。我们一般会为视频规定”帧数率”，而这个值一般设置为25帧 &#x3D;&#x3D; 1秒（25帧&#x2F;秒）  </p>
-<h1 id="简单的剪辑"><a href="#简单的剪辑" class="headerlink" title="简单的剪辑"></a>简单的剪辑</h1><p>首先按照需要调整视频尺寸大小，即设置缩放帧大小。因为一些视频的帧大小不同，按需要我们需要视频尺寸大小一样。<br>操作：选中时间轴中帧大小不一样的右击–&gt;缩放帧大小<br>通过对应工具进行剪辑，剃刀工具裁剪视频，然后用选择工具选中裁剪后的视频，再与其他视频进行拼接。<br>快捷键“c键”–&gt;剃刀工具<br>快捷键“v”键–&gt;选择工具</p>
-<h1 id="蒙太奇"><a href="#蒙太奇" class="headerlink" title="蒙太奇"></a>蒙太奇</h1><p>蒙太奇是一种剪辑手法，这需要你对素材有一定的理解，联想，将看似不相关的素材通过一定的顺序组合在一起，使人联想到另外的事物（故事），使之具有故事性，做到“1 + 1 &gt; 2”的效果。<br>这种手法，如果你能够卡点的话会让视频节奏变得更棒。</p>
-<p>小技巧：<br>需要将多个视频素材组合在一起的时候，我们常常需要素材的一小段片段，我们可以在pr中双击素材通过裁剪得到我们的小片段。（快捷键“i”和“o”,裁剪开始和结束点）<br>在时间轴中，我们可以使用快捷键“m”标记位置，在多个标记的视频中，用“shift+m”和”ctrl+shift+m”左右跳转标记点。<br>在处理自带音频的素材，将素材拖入轨道后，右击素材-&gt;取消链接，后面就能选中音频删除。<br>导出快捷键“ctrl+m”。</p>
-]]></content>
-      <categories>
-        <category>PR剪辑入门</category>
-      </categories>
-      <tags>
-        <tag>剪辑</tag>
-        <tag>PR</tag>
       </tags>
   </entry>
 </search>
