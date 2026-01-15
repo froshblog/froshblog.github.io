@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>hexo个人博客搭建</title>
-    <url>/2026/01/15/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
+    <url>/2026/01/15/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这是一个搭建个人博客的教程，也是我的学习笔记。希望帮助每个人能按照这篇文章的步骤从零开始搭建出一个个人博客。当然，我现在只是一个学习者，正在不断摸索的阶段，如有问题还请斧正。</p>
 <h3 id="关于博客的认识"><a href="#关于博客的认识" class="headerlink" title="关于博客的认识"></a>关于博客的认识</h3><p>现在我所搭建的是一个静态博客。它完全免费，不需要服务器，域名可有可无。<br>现代静态博客从技术实现架构看，有四个核心部分组成：博客生成框架（如Hexo,Hugo等）、文件托管平台（GitHub,gitee等）、站点部署服务（GitHub Pages,GitHub Actions,GitLab CI&#x2F;CD,Vercel&#x2F;Netlify等）、CDN加速服务（Cloudflare CDN、Vercel&#x2F;Netlify等）。<br>这篇博客所使用的技术实现架构：Hexo + GitHub + GitHub Pages。这里站点部署服务之所以选择GitHub Pages而不是GitHub Actions，是因为我的博客是在本地电脑构建出前端文件(HTML&#x2F;CSS&#x2F;JS文件)上传至GitHub的，GitHub Actions的脚本需要运行在源码上；至于为什么没有CDN加速服务，是我还不知道怎么配置加速，后面我会将这个加上的。</p>
 <span id="more"></span>
@@ -60,7 +60,7 @@
 <p>这里提醒一下，后面未标注命令在哪执行，默认都在这个目录执行。</p>
 <h4 id="博客项目目录结构介绍"><a href="#博客项目目录结构介绍" class="headerlink" title="博客项目目录结构介绍"></a>博客项目目录结构介绍</h4><p>本地操作展示结束，现在简单认识博客目录下文件。</p>
 <p>目录结构如下：</p>
-<p><img src="/2026/01/15/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog001.jpg" alt="images001"></p>
+<p><img src="/2026/01/15/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog001.jpg" alt="images001"></p>
 <p>各部分的含义：</p>
 <ul>
 <li>_config.yml<ul>
@@ -84,7 +84,7 @@
 <h4 id="本地预览博客"><a href="#本地预览博客" class="headerlink" title="本地预览博客"></a>本地预览博客</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo server # 本地运行server服务预览，打开http://localhost:4000就可以预览了</span><br><span class="line">Ctrl +c  # 结束预览或者结束服务</span><br></pre></td></tr></table></figure>
 
 <p>本地预览效果如下：</p>
-<p><img src="/2026/01/15/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog002.png" alt="blog002"></p>
+<p><img src="/2026/01/15/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog002.png" alt="blog002"></p>
 <p>目前显示的是hexo的默认主题，后面我们将对博客进行美化和优化。</p>
 <p>以及更详细的hexo命令可以参考官方文档：<a href="https://hexo.io/zh-cn/docs/commands">https://hexo.io/zh-cn/docs/commands</a></p>
 <p>现在一个本地的个人博客已经搭建成功了，接下来我们只要将这个博客静态页面代码托管到GitHub上，再使用GitHub Pages进行建站和部署到互联网上，这样后面只要输入网址就能访问到博客。不过GitHub是国外站点，国内访问时常打不开，所以现在<strong>需要解决GitHub打不开</strong>的问题，然后注册一个账户。</p>
@@ -92,7 +92,7 @@
 <p>使用软件“Watt Toolkit”，原名“steam++”，是一个开源跨平台的多功能Steam工具箱，可以提供本地反代的功能，支持加速Steam、GitHub等平台。下载地址官网如下：</p>
 <p><a href="https://steampp.net/">https://steampp.net/</a></p>
 <p>使用也很简单，按照下面图片标注点击即可：</p>
-<p><img src="/2026/01/15/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog003.png" alt="images003"></p>
+<p><img src="/2026/01/15/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog003.png" alt="images003"></p>
 <h2 id="GitHub项目文件托管"><a href="#GitHub项目文件托管" class="headerlink" title="GitHub项目文件托管"></a>GitHub项目文件托管</h2><p>GitHub的文件托管流程以我的理解如下：</p>
 <h3 id="注册GitHub账号"><a href="#注册GitHub账号" class="headerlink" title="注册GitHub账号"></a>注册GitHub账号</h3><p>访问GitHub官网：<a href="https://github.com/">https://github.com/</a></p>
 <p>注册流程按照要求来就行。</p>
@@ -160,7 +160,7 @@
 </li>
 </ol>
 <p>这里之所以不选则GitHub Actions部署，是因为我们这个博客是在本地构建出静态文件，然后将这些静态文件上传到GitHub上的，actions服务的工作流脚本需要在博客根目录下执行，并且使用’hexo deploy’上传部署是执行的<strong>强制推送</strong>，会覆盖原来的仓库的文件，导致工作流脚本缺失。</p>
-<h2 id="测试站点"><a href="#测试站点" class="headerlink" title="测试站点"></a>测试站点</h2><p>能够正常访问之后，使用<a href="https://www.boce.com/">拨测</a>检测一下域名解析与访问的速度<br><img src="/2026/01/15/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog004.png" alt="images004"></p>
+<h2 id="测试站点"><a href="#测试站点" class="headerlink" title="测试站点"></a>测试站点</h2><p>能够正常访问之后，使用<a href="https://www.boce.com/">拨测</a>检测一下域名解析与访问的速度<br><img src="/2026/01/15/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog004.png" alt="images004"></p>
 <h2 id="博客的简单使用"><a href="#博客的简单使用" class="headerlink" title="博客的简单使用"></a>博客的简单使用</h2><h3 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h3><p>使用以下命令：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new &quot;博客标题&quot; </span><br></pre></td></tr></table></figure>
 
@@ -176,7 +176,207 @@
         <category>个人博客</category>
       </categories>
       <tags>
-        <tag>hexo</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客优化</title>
+    <url>/2026/01/15/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/</url>
+    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这是关于Hexo博客的优化文章，收录了一些常用的插件和设置，自己按需设置即可，附录部分是与之相关的文章，都是很好的文章。</p>
+<span id="more"></span>
+
+<h2 id="博客基本信息"><a href="#博客基本信息" class="headerlink" title="博客基本信息"></a>博客基本信息</h2><p>修改 博客的标题，副标题，描述，等等基本信息。。。</p>
+<p>在 blog根目录下打开<code>博客配置文件_config.yml</code> ，直接修改以下信息即可（看不懂英文的直接有道云翻译即可）</p>
+<p>注意，语言要改成 zh-CN即中国，其他的自己随便改改；yml语言规定冒号后面内容需要先空格</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">Hexo</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">John</span> <span class="string">Doe</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">en</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">&#x27;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="首页只显示部分摘要-不显示全文"><a href="#首页只显示部分摘要-不显示全文" class="headerlink" title="首页只显示部分摘要(不显示全文)"></a>首页只显示部分摘要(不显示全文)</h2><p>前提，修改<code>主题配置文件_config</code>的以下内容（默认开启）</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Use `description` in front-matter to specify post excerpt.</span></span><br><span class="line"><span class="attr">excerpt_description:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="方法一：写概述"><a href="#方法一：写概述" class="headerlink" title="方法一：写概述"></a>方法一：写概述</h3><p>文章的<code>front-matter</code>中添加<code>description</code>，只有其后内容会显示在首页上</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">title: hexo个人博客搭建</span><br><span class="line">date: 2026-01-15 00:32:06</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">-</span> hexo</span><br><span class="line">categories: </span><br><span class="line"><span class="bullet">-</span> 个人博客</span><br><span class="line">description: 这是显示在首页的概述，正文已隐藏。</span><br></pre></td></tr></table></figure>
+
+<h3 id="方法二：文章截断"><a href="#方法二：文章截断" class="headerlink" title="方法二：文章截断"></a>方法二：文章截断</h3><p>需要截断的地方加入：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">&lt;!--more--&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样首页只显示这条以上的内容</p>
+<h2 id="next主题"><a href="#next主题" class="headerlink" title="next主题"></a>next主题</h2><h3 id="next主题文件下载及使用："><a href="#next主题文件下载及使用：" class="headerlink" title="next主题文件下载及使用："></a>next主题文件下载及使用：</h3><p>进入 <a href="https://hexo.io/themes/">hexo 主题网址</a>，搜索 next，点击名称进入 GitHub 项目仓库。<br>每个主题都有操作文档，按照上面的步骤进行部署  </p>
+<p>next文件下载</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/next-theme/hexo-theme-next themes/next</span><br></pre></td></tr></table></figure>
+
+<p>博客使用next主题</p>
+<p>修改<code>博客配置文件_config.yml</code> ，滑到底部，找<code>theme</code>，并修改为以下内容 </p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">next</span></span><br></pre></td></tr></table></figure>
+
+<p>next这个值主要看主题文件夹themes下的文件名称。</p>
+<p>预览效果</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo cl;hexo g -d</span><br></pre></td></tr></table></figure>
+
+<h3 id="next主题样式选择"><a href="#next主题样式选择" class="headerlink" title="next主题样式选择"></a>next主题样式选择</h3><p>next主题有四种样式：Msse、Mist、Pisces、Gemini</p>
+<p>进入博客目录，修改<code>主题配置文件_config.yml</code>：\themes\next_config.yml</p>
+<p>  vscode打开<code>主题配置文件_config.yml</code>，找到<code>Schemes</code></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Schemes</span></span><br><span class="line"><span class="attr">scheme:</span> <span class="string">Muse</span></span><br><span class="line"><span class="comment">#scheme: Mist</span></span><br><span class="line"><span class="comment">#scheme: Pisces</span></span><br><span class="line"><span class="comment">#scheme: Gemini</span></span><br></pre></td></tr></table></figure>
+
+<p>根据你的需要的样式去掉它前面的’#’号，只能选一个</p>
+<h2 id="创建新的菜单页面"><a href="#创建新的菜单页面" class="headerlink" title="创建新的菜单页面"></a>创建新的菜单页面</h2><p>博客菜单选项，默认全关的，需要自己去添加。</p>
+<ol>
+<li><p>执行下面命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new page home #home是你要添加的菜单选项</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>主题配置文件_config.yml</code>，找到<code>menu</code>一栏,，按需取消注释</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="comment">#about: /about/ || fa fa-user</span></span><br><span class="line">  <span class="comment">#tags: /tags/ || fa fa-tags</span></span><br><span class="line">  <span class="comment">#categories: /categories/ || fa fa-th</span></span><br><span class="line">  <span class="comment">#archives: /archives/ || fa fa-archive</span></span><br><span class="line">  <span class="comment">#schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment">#sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment">#commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>注意：需要修改新建页面文件<code>tags</code>和<code>categories</code>，同时修改其<code>.md</code>文件，不然网页无法生效</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="section"># tags.md</span></span><br><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">date: 2019-01-23 23:26:43</span><br><span class="line"><span class="section">type: tags</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line"><span class="section"># categories.md</span></span><br><span class="line">---</span><br><span class="line">title: 类别</span><br><span class="line">date: 2019-01-23 23:27:04</span><br><span class="line"><span class="section">type: categories</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>注意 1：需要手动添加<code>type: xxx</code></strong></p>
+<p><strong>注意 2：需要手动设置中文<code>title</code></strong></p>
+<ol>
+<li><p>预览效果</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo cl;hexo g -d</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>添加成功后，在博客主目录下打开 source 文件夹，就可以看到我们的菜单文件夹。</p>
+<h2 id="搜索功能"><a href="#搜索功能" class="headerlink" title="搜索功能"></a>搜索功能</h2><ol>
+<li><p>下载插件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>主题配置文件_config.yml</code>找到<code>local_serch</code>，将<code>enable</code>输入<code>true</code></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">local_search:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment">#false</span></span><br><span class="line">  <span class="comment"># If auto, trigger search by changing input.</span></span><br><span class="line">  <span class="comment"># If manual, trigger search by pressing enter key or search button.</span></span><br><span class="line">  <span class="attr">trigger:</span> <span class="string">auto</span></span><br><span class="line">  <span class="comment"># Show top n results per article, show all results by setting to -1</span></span><br><span class="line">  <span class="attr">top_n_per_article:</span> <span class="number">1</span></span><br><span class="line">  <span class="comment"># Unescape html strings to the readable one.</span></span><br><span class="line">  <span class="attr">unescape:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Preload the search data when the page loads.</span></span><br><span class="line">  <span class="attr">preload:</span> <span class="literal">false</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开<code>博客配置文件_config.yml</code>，在末尾添加以下内容</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># hexo-generator-searchdb</span></span><br><span class="line"><span class="attr">search:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">search.xml</span></span><br><span class="line">  <span class="attr">field:</span> <span class="string">post</span></span><br><span class="line">  <span class="attr">format:</span> <span class="string">html</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">10</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="博客插入图片"><a href="#博客插入图片" class="headerlink" title="博客插入图片"></a>博客插入图片</h2><ol>
+<li><p>在你的<code>博客配置文件_config.yml</code>中</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post_asset_folder:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>这个操作能在你用<code>hexo new 文章名</code>创建博客时生成一个同名文件夹放置图片</p>
+<p>示例：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">MacGesture2-Publish</span><br><span class="line">├── apppicker.jpg</span><br><span class="line">├── logo.jpg</span><br><span class="line">└── rules.jpg</span><br><span class="line">MacGesture2-Publish.md        </span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>配置渲染器</strong></p>
+<p>在<code>博客配置文件_config.yml</code>中添加以下内容</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Markdown 配置（你可以添加这行注释，便于识别）</span></span><br><span class="line"><span class="attr">marked:</span></span><br><span class="line">  <span class="attr">prependRoot:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postAsset:</span> <span class="literal">true</span>        </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>只需使用<code>![logo](logo.jpg)</code>插入<code>logo.jpg</code>。</p>
+</li>
+<li><p>执行<code>hexo server</code>本地预览验证</p>
+</li>
+</ol>
+<h2 id="设置图片大小"><a href="#设置图片大小" class="headerlink" title="设置图片大小"></a>设置图片大小</h2><p>直接写html代码，比如原来的写法是</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">![<span class="string">支付宝</span>](<span class="link">/images/alipay.png</span>)</span><br></pre></td></tr></table></figure>
+
+<p>可以写成</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;/images/alipay.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;支付宝&quot;</span> <span class="attr">width</span>=<span class="string">&quot;200&quot;</span> <span class="attr">height</span>=<span class="string">&quot;200&quot;</span>/&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="代码块一键复制"><a href="#代码块一键复制" class="headerlink" title="代码块一键复制"></a>代码块一键复制</h2><p>修改<code>主题配置文件_config.yml</code>的<code>copy_button</code>的值为<code>enable</code></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">copy_button:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment">#false</span></span><br><span class="line">    <span class="comment"># Available values: default | flat | mac</span></span><br><span class="line">    <span class="attr">style:</span> <span class="string">flat</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="添加不蒜子统计"><a href="#添加不蒜子统计" class="headerlink" title="添加不蒜子统计"></a>添加不蒜子统计</h2><p>在<code>主题配置文件_config.yml</code>中找到<code>busuanzi_count</code>，直接<code>enable</code>输入<code>true</code>即可。它可以帮助我们<strong>统计网站的观看人数</strong></p>
+<h2 id="阅读时间字数提示"><a href="#阅读时间字数提示" class="headerlink" title="阅读时间字数提示"></a>阅读时间字数提示</h2><ol>
+<li><p>下载插件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-symbols-count-time</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改<code>主题配置文件_config.yml</code>，找到以下内容修改</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 设置博客单词统计</span></span><br><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="comment"># 是否另起一行（true的话不和发表时间等同一行）</span></span><br><span class="line">  <span class="attr">separated_meta:</span> <span class="literal">true</span></span><br><span class="line">   <span class="comment"># 页面底部统计数量前是否显示文字描述（站点总字数、站点阅读时长）</span></span><br><span class="line">  <span class="attr">item_text_total:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 首页文章统计数量前是否显示文字描述（本文字数、阅读时长）</span></span><br><span class="line">  <span class="attr">item_text_post:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在<code>博客配置文件_config.yml</code>的末尾添加以下内容</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="comment"># 每篇文章显示</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 文章底部显示</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># 是否统计代码块</span></span><br><span class="line">  <span class="attr">exclude_codeblock:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">awl:</span> <span class="number">2</span>    </span><br><span class="line">  <span class="attr">wpm:</span> <span class="number">275</span></span><br><span class="line">  <span class="attr">suffix:</span> <span class="string">&quot;mins.&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="隐藏底部由…-强力驱动"><a href="#隐藏底部由…-强力驱动" class="headerlink" title="隐藏底部由… 强力驱动"></a>隐藏底部由… 强力驱动</h2><p>文件位置：<strong>博客主目录\themes\next\layout\ _partials\footer.njk</strong></p>
+<p>使用vscode打开，第82行（一般在末尾）的内容首尾加了 个 &lt;!- - –&gt;用于隐藏中间的内容</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!--&#123;&#123;- __(&#x27;footer.powered&#x27;, next_url(&#x27;https://hexo.io&#x27;, &#x27;Hexo&#x27;) + &#x27; &amp; &#x27; + next_url(next_site, &#x27;NexT.&#x27; + theme.scheme)) &#125;&#125;--&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="中英自动添加空格"><a href="#中英自动添加空格" class="headerlink" title="中英自动添加空格"></a>中英自动添加空格</h2><p>修改<code>主题配置文件_config.yml</code>中<code>pangu</code>的值，将<code>false</code>改为<code>ture</code></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">pangu:</span> <span class="literal">true</span> <span class="comment">#false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="网站建立时间"><a href="#网站建立时间" class="headerlink" title="网站建立时间"></a>网站建立时间</h2><p>编辑<code>主题配置文件_config.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">footer:</span></span><br><span class="line">  <span class="comment"># Specify the year when the site was setup. If not defined, current year will be used.</span></span><br><span class="line">  <span class="attr">since:</span> <span class="number">2026</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="pjax"><a href="#pjax" class="headerlink" title="pjax"></a>pjax</h2><p>可能大家听说过 Ajax，没听说过 pjax，这个技术实际上就是利用 Ajax 技术实现了局部页面刷新，既可以实现 URL 的更换，有可以做到无刷新加载。</p>
+<p>要开启这个功能需要先将 pjax 功能开启，然后安装对应的 pjax 依赖库，首先修改<code>主题配置文件_config.yml</code> 修改如下：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">pjax:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>然后安装依赖库，切换到 <strong>next 主题目录</strong>下，右击打开<code>git bash</code>，然后安装依赖库：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-pjax source/lib/pjax</span><br></pre></td></tr></table></figure>
+
+<h2 id="文末版权声明"><a href="#文末版权声明" class="headerlink" title="文末版权声明"></a>文末版权声明</h2><p><code>主题配置文件_config.yml</code>中直接搜索并且修改以下内容</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">creative_commons:</span></span><br><span class="line">  <span class="attr">license:</span> <span class="string">by-nc-sa</span></span><br><span class="line">  <span class="attr">sidebar:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">post:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="评论区系统"><a href="#评论区系统" class="headerlink" title="评论区系统"></a>评论区系统</h2><p>这里展示国内的比较老的评论插件——畅言云评，需要注册，可以免费存储数据。</p>
+<h3 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h3><ol>
+<li><a href="https://changyan.kuaizhan.com/">畅言云评</a>注册账号</li>
+<li>去官网工作台，创建一个【畅言云评】的应用</li>
+<li>进入应用详情，在后台总览里可以看到应用的id和密钥</li>
+</ol>
+<p>将id和密钥复制出来保存在在<code>主题配置文件_config.yml</code>中</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">post:</span></span><br><span class="line">  <span class="attr">comments:</span>  <span class="comment"># 开启评论</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">changyan</span> <span class="comment"># 选择评论插件类型</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 其他配置可以参考官网</span></span><br><span class="line"><span class="attr">changyan:</span></span><br><span class="line">  <span class="attr">appid:</span> <span class="string">&#x27;id&#x27;</span></span><br><span class="line">  <span class="attr">appkey:</span> <span class="string">&#x27;secret&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里就做个演示，后面附录里有作者做了关于评论系统的评价和部署，可以去他那里看看。</p>
+<h2 id="站点图标设置"><a href="#站点图标设置" class="headerlink" title="站点图标设置"></a>站点图标设置</h2><p><code>主题配置文件_config.yml</code>里，favicon 就是站点标签栏的小图标，默认是用的 Hexo 的小图标，如果我们有站点 Logo 的图片的话，我们可以自己定制小图标。</p>
+<h3 id="获取图标"><a href="#获取图标" class="headerlink" title="获取图标"></a>获取图标</h3><p>可以通过 PS 制作也可以通过下面网站获取</p>
+<p><a href="https://realfavicongenerator.net/">https://realfavicongenerator.net</a></p>
+<h3 id="更换图标"><a href="#更换图标" class="headerlink" title="更换图标"></a>更换图标</h3><p>图标存放位置在博客目录下 <strong>themes\next\source\images</strong> 里<br>在<code>主题配置文件_config.yml</code>里面找到<code>favicon</code>配置项，把一些相关路径配置进去即可，示例如下：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">favicon:</span></span><br><span class="line">  <span class="attr">small:</span> <span class="string">/images/favicon-16x16-next.png</span></span><br><span class="line">  <span class="attr">medium:</span> <span class="string">/images/favicon-32x32-next.png</span></span><br><span class="line">  <span class="attr">apple_touch_icon:</span> <span class="string">/images/apple-touch-icon-next.png</span></span><br><span class="line">  <span class="attr">safari_pinned_tab:</span> <span class="string">/images/logo.svg</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="博客头像设置"><a href="#博客头像设置" class="headerlink" title="博客头像设置"></a>博客头像设置</h2><p>将自己的头像图片储存在 <strong>themes\next\source\images</strong> 中；<br>在<code>主题配置文件_config.yml</code>中找到<code>avatar</code>，在<code>url</code>后面写上头像位置，将<code>false</code>改为<code>true</code>。</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">avatar:</span></span><br><span class="line">  <span class="comment"># Replace the default image and set the url here.</span></span><br><span class="line">  <span class="attr">url:</span> <span class="string">/images/avatar01.gif</span> <span class="comment">#/images/avatar.gif</span></span><br><span class="line">  <span class="comment"># If true, the avatar will be displayed in circle.</span></span><br><span class="line">  <span class="attr">rounded:</span> <span class="literal">true</span> <span class="comment">#false </span></span><br><span class="line">  <span class="comment"># If true, the avatar will be rotated with the cursor.</span></span><br><span class="line">  <span class="attr">rotated:</span> <span class="literal">true</span> <span class="comment">#false</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="GitHub图标"><a href="#GitHub图标" class="headerlink" title="GitHub图标"></a>GitHub图标</h2><p><code>主题配置文件_config.yml</code>中修改<code>github_banner</code>的<code>enable</code>的值</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># `Follow me on GitHub` banner in the top-right corner.</span></span><br><span class="line"><span class="attr">github_banner:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">permalink:</span> <span class="string">https://github.com/luumod</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">Follow</span> <span class="string">me</span> <span class="string">on</span> <span class="string">GitHub</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="取消文章目录自动编号"><a href="#取消文章目录自动编号" class="headerlink" title="取消文章目录自动编号"></a>取消文章目录自动编号</h2><p>修改<code>主题配置文件_config.yml</code>中<code>wrap</code>, 将<code>false</code>改为<code>true</code></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">toc:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># Automatically add list number to toc.</span></span><br><span class="line">  <span class="attr">number:</span> <span class="literal">true</span></span><br><span class="line">  <span class="comment"># If true, all words will placed on next lines if header width longer then sidebar width. </span></span><br><span class="line">  <span class="attr">wrap:</span> <span class="literal">true</span> <span class="comment">#false</span></span><br><span class="line">  <span class="comment"># If true, all level of TOC in a post will be displayed, rather than the activated part of it.</span></span><br><span class="line">  <span class="attr">expand_all:</span> <span class="literal">false</span></span><br><span class="line">  <span class="comment"># Maximum heading depth of generated toc.</span></span><br><span class="line">  <span class="attr">max_depth:</span> <span class="number">6</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="添加RSS订阅"><a href="#添加RSS订阅" class="headerlink" title="添加RSS订阅"></a>添加RSS订阅</h2><p>执行命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-feed</span><br></pre></td></tr></table></figure>
+
+<p>在<code>博客配置文件_config.yml</code>末尾添加以下内容</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line">  <span class="comment"># feed  RSS订阅配置</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/hexojs/hexo-generator-feed</span></span><br><span class="line"><span class="attr">feed:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">atom</span>     <span class="comment"># 类型，可选 atom 或 rss2</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">atom.xml</span> <span class="comment"># 生成的文件路径，默认可不改动</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">20</span>      <span class="comment"># 在RSS中显示的文章数量，设为 0 或 false 则显示全部</span></span><br><span class="line">  <span class="attr">hub:</span></span><br><span class="line">  <span class="attr">content:</span></span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>主题配置文件_config.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">follow_me:</span></span><br><span class="line">  <span class="attr">RSS:</span> <span class="string">/atom.xml</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-rss</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>运行 <code>hexo s</code> 启动本地服务器，在浏览器中访问<code>http://localhost:4000/atom.xml</code>,能看到一个 XML 格式的文档，说明 RSS 已生成成功</p>
+<h2 id="友情链接"><a href="#友情链接" class="headerlink" title="友情链接"></a>友情链接</h2><p>打开<code>主题配置文件_config.yml</code>，搜索关键词<strong>Blog rolls</strong>，设置即可：</p>
+<ul>
+<li>icon：设置图标</li>
+<li>title：标题</li>
+<li>links：输入你的友情链接，可以直接修改或者添加</li>
+</ul>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Blog rolls</span></span><br><span class="line"><span class="attr">links_settings:</span></span><br><span class="line">  <span class="attr">icon:</span> <span class="string">fa</span> <span class="string">fa-link</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">Links</span></span><br><span class="line">  <span class="comment"># Available values: block | inline</span></span><br><span class="line">  <span class="attr">layout:</span> <span class="string">block</span></span><br><span class="line"></span><br><span class="line"><span class="attr">links:</span></span><br><span class="line">  <span class="comment">#Title: https://example.com</span></span><br><span class="line">  <span class="string">我的项目:</span> <span class="string">https://example.com</span></span><br><span class="line">  <span class="string">吉他和弦生成:</span> <span class="string">/guitar</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="打赏功能"><a href="#打赏功能" class="headerlink" title="打赏功能"></a>打赏功能</h2><p>在 <code>主题配置文件_config.yml</code>中找到如下的 <strong>raward功能</strong></p>
+<ol>
+<li>enable选择打开，comment输入文字</li>
+<li>在缀主题的images文件夹中把你的<strong>付款码的图片放到 &#x2F;blog &#x2F;themes &#x2F;next &#x2F;source &#x2F;images&#x2F; 中</strong>，它会按照这个路径寻找图片</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Reward(Donate)</span></span><br><span class="line"><span class="comment"># Front-matter variable (unsupport animation).</span></span><br><span class="line"><span class="attr">reward_settings:</span></span><br><span class="line">  <span class="comment"># if true,reward will be displayed in every article by default.</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">animation:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">comment:</span> <span class="string">&quot;您的支持将鼓励我继续创作！&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="attr">reward:</span></span><br><span class="line">  <span class="attr">wechatpay:</span> <span class="string">/images/wechat.png</span></span><br><span class="line">  <span class="attr">alipay:</span> <span class="string">/images/zhifubao.jpg</span></span><br><span class="line"><span class="comment"># paypal:/images/paypal png</span></span><br><span class="line"><span class="comment"># bitcoin:/images/bitcoin.png</span></span><br></pre></td></tr></table></figure>
+
+<p>这里你可以发现，这个images文件夹里面的图片都是可以修改的，找到合适的地点，然后更改你的图片即可换成你想要的图片了</p>
+<h2 id="删除-hexo-博客"><a href="#删除-hexo-博客" class="headerlink" title="删除 hexo 博客"></a>删除 hexo 博客</h2><p>在命令提示符中，执行以下命令：  </p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm uninstall hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>然后文件夹中的 blog（博客目录），手动删除。</p>
+<p>另外，进行重装之前，如果还是在原来位置，必须手动清理了才能迁移安装。</p>
+<p>然后文件夹中的 blog（博客目录），手动删除。</p>
+<h2 id="附录："><a href="#附录：" class="headerlink" title="附录："></a>附录：</h2><p><a href="https://www.hancher.top/2025/01/09/site-hexo-comment-feature/">hexo建站增加自己的评论模块 - 寒澈笔记</a></p>
+]]></content>
+      <categories>
+        <category>个人博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
       </tags>
   </entry>
 </search>
