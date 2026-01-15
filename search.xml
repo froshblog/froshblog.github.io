@@ -1,28 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2026/01/14/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>hexo个人博客搭建</title>
     <url>/2026/01/15/hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这是一个搭建个人博客的教程，也是我的学习笔记。希望帮助每个人能按照这篇文章的步骤从零开始搭建出一个个人博客。当然，我现在只是一个学习者，正在不断摸索的阶段，如有问题还请斧正。</p>
 <h3 id="关于博客的认识"><a href="#关于博客的认识" class="headerlink" title="关于博客的认识"></a>关于博客的认识</h3><p>现在我所搭建的是一个静态博客。它完全免费，不需要服务器，域名可有可无。<br>现代静态博客从技术实现架构看，有四个核心部分组成：博客生成框架（如Hexo,Hugo等）、文件托管平台（GitHub,gitee等）、站点部署服务（GitHub Pages,GitHub Actions,GitLab CI&#x2F;CD,Vercel&#x2F;Netlify等）、CDN加速服务（Cloudflare CDN、Vercel&#x2F;Netlify等）。<br>这篇博客所使用的技术实现架构：Hexo + GitHub + GitHub Pages。这里站点部署服务之所以选择GitHub Pages而不是GitHub Actions，是因为我的博客是在本地电脑构建出前端文件(HTML&#x2F;CSS&#x2F;JS文件)上传至GitHub的，GitHub Actions的脚本需要运行在源码上；至于为什么没有CDN加速服务，是我还不知道怎么配置加速，后面我会将这个加上的。</p>
+<span id="more"></span>
+
 <h3 id="写博客的好处"><a href="#写博客的好处" class="headerlink" title="写博客的好处"></a>写博客的好处</h3><p>首先，博客是可以作为一个知识输出的端口，正所谓“学然后知不足，教然后知困”，写博客就是对知识的重新认识和回顾，加深对知识的理解；其次，博客输出是一个搭建个人数字资产，一个知识库，可以作为自己日后的重要材料；最后，博客可以帮助正在学习相关知识的人，结交志同道合的伙伴。</p>
 <h3 id="使用的工具及系统环境"><a href="#使用的工具及系统环境" class="headerlink" title="使用的工具及系统环境"></a>使用的工具及系统环境</h3><p>这个教程的博客结构：hexo + github + github pages，没有使用CDN加速用户的访问，主要现在我还没有去学。使用hexo生成博客目录，再上传到GitHub托管代码，然后使用GitHub的免费静态网页托管服务-GitHub Pages将网站部署。</p>
 <p>我个人的系统环境是Windows11，需要使用git命令。</p>
