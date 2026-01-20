@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo</title>
+    <url>/2026/01/19/hexo/</url>
+    <content><![CDATA[<p>hexo heo</p>
+<span id="more"></span>
+
+
+<p><img src="/2026/01/19/hexo/infinity-3605284.jpg"></p>
+<p><img src="/2026/01/19/hexo/%E5%BD%A9%E8%99%B9%E9%85%B1%E5%93%87.jpg"><img src="/2026/01/19/hexo/%7BD5D15FAD-3D30-46D7-80B2-0E05A612EAC7%7D.png"><img src="/2026/01/19/hexo/%7B63FAFA06-A59F-4804-8C2B-C4D708B9CA18%7D.png"><img src="/source/_posts/hexo/infinity-1040323.jpg"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Hexo个人博客搭建</title>
     <url>/2026/01/15/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这是一个搭建个人博客的教程，也是我的学习笔记。希望帮助每个人能按照这篇文章的步骤从零开始搭建出一个个人博客。当然，我现在只是一个学习者，正在不断摸索的阶段，如有问题还请斧正。</p>
@@ -378,16 +389,5 @@
       <tags>
         <tag>Hexo</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>hexo</title>
-    <url>/2026/01/19/hexo/</url>
-    <content><![CDATA[<p>hexo heo</p>
-<span id="more"></span>
-
-
-<p><img src="/2026/01/19/hexo/infinity-3605284.jpg"></p>
-<p><img src="/2026/01/19/hexo/%E5%BD%A9%E8%99%B9%E9%85%B1%E5%93%87.jpg"><img src="/2026/01/19/hexo/%7BD5D15FAD-3D30-46D7-80B2-0E05A612EAC7%7D.png"><img src="/2026/01/19/hexo/%7B63FAFA06-A59F-4804-8C2B-C4D708B9CA18%7D.png"><img src="/source/_posts/hexo/infinity-1040323.jpg"></p>
-]]></content>
   </entry>
 </search>
