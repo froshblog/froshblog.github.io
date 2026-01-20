@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>hexo</title>
-    <url>/2026/01/19/hexo/</url>
-    <content><![CDATA[<p>hexo heo</p>
-<span id="more"></span>
-
-
-<p><img src="/2026/01/19/hexo/infinity-3605284.jpg"></p>
-<p><img src="/2026/01/19/hexo/%E5%BD%A9%E8%99%B9%E9%85%B1%E5%93%87.jpg"><img src="/2026/01/19/hexo/%7BD5D15FAD-3D30-46D7-80B2-0E05A612EAC7%7D.png"><img src="/2026/01/19/hexo/%7B63FAFA06-A59F-4804-8C2B-C4D708B9CA18%7D.png"><img src="/2026/01/19/hexo/infinity-1040323.jpg"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Hexo个人博客搭建</title>
-    <url>/2026/01/15/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
+    <url>/2026/01/20/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这是一个搭建个人博客的教程，也是我的学习笔记。希望帮助每个人能按照这篇文章的步骤从零开始搭建出一个个人博客。当然，我现在只是一个学习者，正在不断摸索的阶段，如有问题还请斧正。</p>
 <h3 id="关于博客的认识"><a href="#关于博客的认识" class="headerlink" title="关于博客的认识"></a>关于博客的认识</h3><p>现在我所搭建的是一个静态博客。它完全免费，不需要服务器，域名可有可无。<br>现代静态博客从技术实现架构看，有四个核心部分组成：博客生成框架（如Hexo,Hugo等）、文件托管平台（GitHub,gitee等）、站点部署服务（GitHub Pages,GitHub Actions,GitLab CI&#x2F;CD,Vercel&#x2F;Netlify等）、CDN加速服务（Cloudflare CDN、Vercel&#x2F;Netlify等）。<br>这篇博客所使用的技术实现架构：Hexo + GitHub + GitHub Pages。这里站点部署服务之所以选择GitHub Pages而不是GitHub Actions，是因为我的博客是在本地电脑构建出前端文件(HTML&#x2F;CSS&#x2F;JS文件)上传至GitHub的，GitHub Actions的脚本需要运行在源码上；至于为什么没有CDN加速服务，是我还不知道怎么配置加速，后面我会将这个加上的。</p>
 <span id="more"></span>
@@ -71,7 +60,7 @@
 <p>这里提醒一下，后面未标注命令在哪执行，默认都在这个目录执行。</p>
 <h4 id="博客项目目录结构介绍"><a href="#博客项目目录结构介绍" class="headerlink" title="博客项目目录结构介绍"></a>博客项目目录结构介绍</h4><p>本地操作展示结束，现在简单认识博客目录下文件。</p>
 <p>目录结构如下：</p>
-<p><img src="/2026/01/15/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog001.jpg" alt="images001"></p>
+<p><img src="/2026/01/20/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog001.jpg" alt="images001"></p>
 <p>各部分的含义：</p>
 <ul>
 <li>_config.yml<ul>
@@ -95,7 +84,7 @@
 <h4 id="本地预览博客"><a href="#本地预览博客" class="headerlink" title="本地预览博客"></a>本地预览博客</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo server # 本地运行server服务预览，打开http://localhost:4000就可以预览了</span><br><span class="line">Ctrl +c  # 结束预览或者结束服务</span><br></pre></td></tr></table></figure>
 
 <p>本地预览效果如下：</p>
-<p><img src="/2026/01/15/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog002.png" alt="blog002"></p>
+<p><img src="/2026/01/20/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog002.png" alt="blog002"></p>
 <p>目前显示的是hexo的默认主题，后面我们将对博客进行美化和优化。</p>
 <p>以及更详细的hexo命令可以参考官方文档：<a href="https://hexo.io/zh-cn/docs/commands">https://hexo.io/zh-cn/docs/commands</a></p>
 <p>现在一个本地的个人博客已经搭建成功了，接下来我们只要将这个博客静态页面代码托管到GitHub上，再使用GitHub Pages进行建站和部署到互联网上，这样后面只要输入网址就能访问到博客。不过GitHub是国外站点，国内访问时常打不开，所以现在<strong>需要解决GitHub打不开</strong>的问题，然后注册一个账户。</p>
@@ -103,7 +92,7 @@
 <p>使用软件“Watt Toolkit”，原名“steam++”，是一个开源跨平台的多功能Steam工具箱，可以提供本地反代的功能，支持加速Steam、GitHub等平台。下载地址官网如下：</p>
 <p><a href="https://steampp.net/">https://steampp.net/</a></p>
 <p>使用也很简单，按照下面图片标注点击即可：</p>
-<p><img src="/2026/01/15/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog003.png" alt="images003"></p>
+<p><img src="/2026/01/20/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog003.png" alt="images003"></p>
 <h2 id="GitHub项目文件托管"><a href="#GitHub项目文件托管" class="headerlink" title="GitHub项目文件托管"></a>GitHub项目文件托管</h2><p>GitHub的文件托管流程以我的理解如下：</p>
 <h3 id="注册GitHub账号"><a href="#注册GitHub账号" class="headerlink" title="注册GitHub账号"></a>注册GitHub账号</h3><p>访问GitHub官网：<a href="https://github.com/">https://github.com/</a></p>
 <p>注册流程按照要求来就行。</p>
@@ -171,11 +160,11 @@
 </li>
 </ol>
 <p>这里之所以不选则GitHub Actions部署，是因为我们这个博客是在本地构建出静态文件，然后将这些静态文件上传到GitHub上的，actions服务的工作流脚本需要在博客根目录下执行，并且使用’hexo deploy’上传部署是执行的<strong>强制推送</strong>，会覆盖原来的仓库的文件，导致工作流脚本缺失。</p>
-<h2 id="测试站点"><a href="#测试站点" class="headerlink" title="测试站点"></a>测试站点</h2><p>能够正常访问之后，使用<a href="https://www.boce.com/">拨测</a>检测一下域名解析与访问的速度<br><img src="/2026/01/15/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog004.png" alt="images004"></p>
+<h2 id="测试站点"><a href="#测试站点" class="headerlink" title="测试站点"></a>测试站点</h2><p>能够正常访问之后，使用<a href="https://www.boce.com/">拨测</a>检测一下域名解析与访问的速度<br><img src="/2026/01/20/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/blog004.png" alt="images004"></p>
 <h2 id="博客的简单使用"><a href="#博客的简单使用" class="headerlink" title="博客的简单使用"></a>博客的简单使用</h2><h3 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h3><p>使用以下命令：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new &quot;博客标题&quot; </span><br></pre></td></tr></table></figure>
 
-<h3 id="上传博客"><a href="#上传博客" class="headerlink" title="上传博客"></a>上传博客</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">清除缓存文件 (db.json) 和已生成的静态文件 (public)。</span></span><br><span class="line">hexo clean       # 简写 hexo cl</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成静态文件。</span></span><br><span class="line">hexo generate    # 简写 hexo g</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">部署你的网站。</span></span><br><span class="line">hexo deploy      # 简写 hexo d</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">三条命令同时执行</span></span><br><span class="line">hexo cl;hexo g -d # powershell7+以下可用</span><br><span class="line">hexo cl &amp;&amp; g -d  # 仅限powershell7+的版本</span><br></pre></td></tr></table></figure>
+<h3 id="上传博客"><a href="#上传博客" class="headerlink" title="上传博客"></a>上传博客</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">清除缓存文件 (db.json) 和已生成的静态文件 (public)。</span></span><br><span class="line">hexo clean       # 简写 hexo cl</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成静态文件。</span></span><br><span class="line">hexo generate    # 简写 hexo g</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">部署你的网站。</span></span><br><span class="line">hexo deploy      # 简写 hexo d</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">三条命令同时执行</span></span><br><span class="line">hexo cl;hexo g -d # powershell7+以下可用</span><br><span class="line">hexo cl &amp;&amp; g -d  # &amp;&amp;，仅限powershell7+的版本</span><br></pre></td></tr></table></figure>
 
 <p>访问博客验证是否上传成功，可能存在延迟，需要等一会</p>
 <h3 id="删除博客"><a href="#删除博客" class="headerlink" title="删除博客"></a>删除博客</h3><p>进入存放博客文章的目录source_posts中，将你要删除的文章删除，然后执行以下命令：</p>
@@ -190,6 +179,17 @@
         <tag>Hexo</tag>
         <tag>git</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>hexo</title>
+    <url>/2026/01/19/hexo/</url>
+    <content><![CDATA[<p>hexo heo</p>
+<span id="more"></span>
+
+
+<p><img src="/2026/01/19/hexo/infinity-3605284.jpg"></p>
+<p><img src="/2026/01/19/hexo/%E5%BD%A9%E8%99%B9%E9%85%B1%E5%93%87.jpg"><img src="/2026/01/19/hexo/%7BD5D15FAD-3D30-46D7-80B2-0E05A612EAC7%7D.png"><img src="/2026/01/19/hexo/%7B63FAFA06-A59F-4804-8C2B-C4D708B9CA18%7D.png"><img src="/2026/01/19/hexo/infinity-1040323.jpg"></p>
+]]></content>
   </entry>
   <entry>
     <title>Hexo博客优化</title>
