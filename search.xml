@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>hexo</title>
+    <url>/2026/01/19/hexo/</url>
+    <content><![CDATA[<p>hexo heo</p>
+<span id="more"></span>
+
+
+<p><img src="/2026/01/19/hexo/infinity-3605284.jpg"></p>
+<p><img src="/2026/01/19/hexo/%E5%BD%A9%E8%99%B9%E9%85%B1%E5%93%87.jpg"><img src="/2026/01/19/hexo/%7BD5D15FAD-3D30-46D7-80B2-0E05A612EAC7%7D.png"><img src="/2026/01/19/hexo/%7B63FAFA06-A59F-4804-8C2B-C4D708B9CA18%7D.png"><img src="/2026/01/19/hexo/infinity-1040323.jpg"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Hexo个人博客搭建</title>
     <url>/2026/01/15/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/</url>
     <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这是一个搭建个人博客的教程，也是我的学习笔记。希望帮助每个人能按照这篇文章的步骤从零开始搭建出一个个人博客。当然，我现在只是一个学习者，正在不断摸索的阶段，如有问题还请斧正。</p>
@@ -181,21 +192,11 @@
       </tags>
   </entry>
   <entry>
-    <title>hexo</title>
-    <url>/2026/01/19/hexo/</url>
-    <content><![CDATA[<p>hexo heo</p>
-<span id="more"></span>
-
-
-<p><img src="/2026/01/19/hexo/infinity-3605284.jpg"></p>
-<p><img src="/2026/01/19/hexo/%E5%BD%A9%E8%99%B9%E9%85%B1%E5%93%87.jpg"><img src="/2026/01/19/hexo/%7BD5D15FAD-3D30-46D7-80B2-0E05A612EAC7%7D.png"><img src="/2026/01/19/hexo/%7B63FAFA06-A59F-4804-8C2B-C4D708B9CA18%7D.png"><img src="/2026/01/19/hexo/infinity-1040323.jpg"></p>
-]]></content>
-  </entry>
-  <entry>
     <title>Hexo博客优化</title>
     <url>/2026/01/15/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/</url>
     <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这是关于Hexo博客的优化文章，收录了一些常用的插件和设置，自己按需设置即可，附录部分是与之相关的文章，都是很好的文章。</p>
 <span id="more"></span>
+
 
 <h2 id="博客基本信息"><a href="#博客基本信息" class="headerlink" title="博客基本信息"></a>博客基本信息</h2><p>修改 博客的标题，副标题，描述，等等基本信息。。。</p>
 <p>在 blog根目录下打开<code>博客配置文件_config.yml</code> ，直接修改以下信息即可（看不懂英文的直接有道云翻译即可）</p>
