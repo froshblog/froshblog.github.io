@@ -238,9 +238,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-01-21 23:29:53 / 修改时间：23:29:58" itemprop="dateCreated datePublished" datetime="2026-01-21T23:29:53+08:00">2026-01-21</time>
+      <time title="创建时间：2026-01-21 23:29:53" itemprop="dateCreated datePublished" datetime="2026-01-21T23:29:53+08:00">2026-01-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-01-23 11:41:06" itemprop="dateModified" datetime="2026-01-23T11:41:06+08:00">2026-01-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -277,7 +283,8 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这是关于Hexo博客的优化文章，收录了一些常用的插件和设置，自己按需设置即可，附录部分是与之相关的文章，都是很好的文章。</p>
+          <h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>2026年1月23日<br>添加不蒜子统计，停止服务。</p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这是关于Hexo博客的优化文章，收录了一些常用的插件和设置，自己按需设置即可，附录部分是与之相关的文章，都是很好的文章。</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2026/01/21/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/#more" rel="contents">
@@ -339,9 +346,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
-      
 
-      <time title="创建时间：2026-01-21 23:29:40 / 修改时间：23:29:50" itemprop="dateCreated datePublished" datetime="2026-01-21T23:29:40+08:00">2026-01-21</time>
+      <time title="创建时间：2026-01-21 23:29:40" itemprop="dateCreated datePublished" datetime="2026-01-21T23:29:40+08:00">2026-01-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-01-23 11:38:21" itemprop="dateModified" datetime="2026-01-23T11:38:21+08:00">2026-01-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -360,7 +373,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>5.9k</span>
+      <span>6k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -569,6 +582,34 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"froshblog/blog_discussion","repo_id":"R_kgDOQ_yHQA","category":"Announcements","category_id":"DIC_kwDOQ_yHQM4C1VOo","mapping":"pathname","strict":0,"reactions_enabled":1,"emit_metadata":1,"theme":"preferred_color_scheme","lang":"zh-CN","crossorigin":"anonymous","input_position":"bottom","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-strict'           : CONFIG.giscus.strict,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
 
 </body>
 </html>

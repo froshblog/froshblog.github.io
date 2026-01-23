@@ -202,6 +202,7 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo cl;hexo g -d</span><br></pre></td></tr></table></figure>
 
 <p>访问博客地址验证</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><a href="https://blog.cuijiacai.com/blog-building/">个人博客搭建教程-爱扑bug的熊</a><br><a href="https://www.bilibili.com/video/BV12H4y1N7Q4/?spm_id_from=333.788.top_right_bar_window_custom_collection.content.click&vd_source=ff90d309a66060821e097736f479cb41"># Github王炸功能Pages,免费免服务器上线网站,详细教程-技术爬爬虾</a><br><a href="https://www.bilibili.com/video/BV13g41147yV/?spm_id_from=333.337.search-card.all.click&vd_source=ff90d309a66060821e097736f479cb41">备份和迁移hexo博客-佳豪君z</a></p>
 ]]></content>
       <categories>
         <category>个人博客</category>
@@ -214,7 +215,8 @@
   <entry>
     <title>Hexo博客优化</title>
     <url>/2026/01/21/Hexo%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/</url>
-    <content><![CDATA[<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这是关于Hexo博客的优化文章，收录了一些常用的插件和设置，自己按需设置即可，附录部分是与之相关的文章，都是很好的文章。</p>
+    <content><![CDATA[<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>2026年1月23日<br>添加不蒜子统计，停止服务。</p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这是关于Hexo博客的优化文章，收录了一些常用的插件和设置，自己按需设置即可，附录部分是与之相关的文章，都是很好的文章。</p>
 <span id="more"></span>
 
 <h2 id="博客基本信息"><a href="#博客基本信息" class="headerlink" title="博客基本信息"></a>博客基本信息</h2><p>修改 博客的标题，副标题，描述，等等基本信息。。。</p>
@@ -323,7 +325,7 @@
 <h2 id="代码块一键复制"><a href="#代码块一键复制" class="headerlink" title="代码块一键复制"></a>代码块一键复制</h2><p>修改<code>主题配置文件_config.yml</code>的<code>copy_button</code>的值为<code>enable</code></p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">copy_button:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment">#false</span></span><br><span class="line">    <span class="comment"># Available values: default | flat | mac</span></span><br><span class="line">    <span class="attr">style:</span> <span class="string">flat</span></span><br></pre></td></tr></table></figure>
 
-<h2 id="添加不蒜子统计"><a href="#添加不蒜子统计" class="headerlink" title="添加不蒜子统计"></a>添加不蒜子统计</h2><p>在<code>主题配置文件_config.yml</code>中找到<code>busuanzi_count</code>，直接<code>enable</code>输入<code>true</code>即可。它可以帮助我们<strong>统计网站的观看人数</strong></p>
+<h2 id="添加不蒜子统计"><a href="#添加不蒜子统计" class="headerlink" title="添加不蒜子统计"></a>添加不蒜子统计</h2><p>停止服务。<br>在<code>主题配置文件_config.yml</code>中找到<code>busuanzi_count</code>，直接<code>enable</code>输入<code>true</code>即可。它可以帮助我们<strong>统计网站的观看人数</strong></p>
 <h2 id="阅读时间字数提示"><a href="#阅读时间字数提示" class="headerlink" title="阅读时间字数提示"></a>阅读时间字数提示</h2><ol>
 <li><p>下载插件</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-symbols-count-time</span><br></pre></td></tr></table></figure>
