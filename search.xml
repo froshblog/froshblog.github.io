@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>CND加速</title>
-    <url>/posts/20260121cuidLLpIiFWfhjXPNBX48_knW.html</url>
+    <url>/posts/20260121cuidGuPYqsscajms9lOss9N8r.html</url>
     <content><![CDATA[<hr>
 <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
 <p>CDN，全称<strong>内容分发网路（Content Delivery Network）</strong>，是一种通过在现有互联网基础上构建的、由遍布全球的分布式节点服务器组成的智能虚拟网络，目的是使用户能够就近、快速、可靠地获取所需内容。</p>
@@ -34,7 +34,7 @@
   </entry>
   <entry>
     <title>Hexo博客优化</title>
-    <url>/posts/20260121cuid9_mvr0IjgP8GVC3gQbN-h.html</url>
+    <url>/posts/20260121cuidVML5nt7ozmoAzemF_Rcez.html</url>
     <content><![CDATA[<hr>
 <h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>2026年1月24日<br>添加了Giscus评论模块<br>图片懒加载插件</p>
 <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这是关于Hexo博客的优化文章，收录了一些常用的插件和设置，自己按需设置即可，附录部分是与之相关的文章，都是很好的文章。</p>
@@ -188,7 +188,7 @@
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">giscus:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">repo:</span>   <span class="comment"># Github repository name;你的 GitHub 仓库，格式：用户名/仓库名</span></span><br><span class="line">  <span class="attr">repo_id:</span>  <span class="comment"># Github repository id; 从 giscus.app 获取的仓库ID</span></span><br><span class="line">  <span class="attr">category:</span> <span class="string">Announcements</span> <span class="comment"># Github discussion category;分类名</span></span><br><span class="line">  <span class="attr">category_id:</span>  <span class="comment"># Github discussion category id;从 giscus.app 获取的分类ID</span></span><br><span class="line">  <span class="comment"># Available values: pathname | url | title | og:title</span></span><br><span class="line">  <span class="attr">mapping:</span> <span class="string">title</span> <span class="comment"># 页面与Discussion的映射关系，推荐pathname或title</span></span><br><span class="line">  <span class="attr">strict:</span> <span class="number">0</span></span><br><span class="line">  <span class="comment"># Available values: 0 | 1</span></span><br><span class="line">  <span class="attr">reactions_enabled:</span> <span class="number">1</span> <span class="comment"># 是否开启表情反应</span></span><br><span class="line">   <span class="comment"># Available values: 0 | 1</span></span><br><span class="line">  <span class="attr">emit_metadata:</span> <span class="number">0</span></span><br><span class="line">  <span class="attr">input_position:</span> <span class="string">top</span> <span class="comment">#另加; 评论输入框位置：top 或 bottom</span></span><br><span class="line">  <span class="comment"># Available values: light | dark | dark_high_contrast | transparent_dark | preferred-color-scheme</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">preferred_color_scheme</span> <span class="comment">#light ;主题，可设为 light, dark, preferred_color_scheme 等</span></span><br><span class="line">  <span class="comment"># Available values: en | zh-C</span></span><br><span class="line">  <span class="attr">lang:</span> <span class="string">zh-CN</span>  <span class="comment"># 界面语言</span></span><br><span class="line">  <span class="attr">loading:</span> <span class="string">lazy</span> <span class="comment"># 另加 懒加载</span></span><br><span class="line">  <span class="comment"># Available value: anonymous</span></span><br><span class="line">  <span class="attr">crossorigin:</span> <span class="string">anonymous</span></span><br></pre></td></tr></table></figure>
 <p>上面的值按照得到的的添加就行。</p>
 <p><strong>第三步：在主题配置文件中添加Giscus 配置</strong><br>在主题配置文件中的comments部分，添加Giscus 配置，即第二部的yaml代码，不能留空哦。</p>
-<h3 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h3><p>博客页面：<br><img src="/posts/20260121cuid9_mvr0IjgP8GVC3gQbN-h/%7BD78D1E34-6764-48D2-AA50-D13BF241D8D5%7D.png"><br>仓库里的内容：<br><img src="/posts/20260121cuid9_mvr0IjgP8GVC3gQbN-h/%7BFCFD4B0C-B609-4CD3-89B3-B0A887435C00%7D.png"></p>
+<h3 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h3><p>博客页面：<br><img src="/posts/20260121cuidVML5nt7ozmoAzemF_Rcez/%7BD78D1E34-6764-48D2-AA50-D13BF241D8D5%7D.png"><br>仓库里的内容：<br><img src="/posts/20260121cuidVML5nt7ozmoAzemF_Rcez/%7BFCFD4B0C-B609-4CD3-89B3-B0A887435C00%7D.png"></p>
 <h3 id="页面取消评论区"><a href="#页面取消评论区" class="headerlink" title="页面取消评论区"></a>页面取消评论区</h3><p>上述设置完成后，各个页面都会显示评论区。而我们希望它不要子在一些网页显示评论区，如：标签页。而解决的方法就是在页面文件的<strong>Front-matter</strong> 部分（即开头以 <code>---</code> 包裹的区域）添加comments: false&#96;配置项。<br>示例：取消标签页面的评论区</p>
 <ol>
 <li>定位文件：博客目录&#x2F;source&#x2F;tags&#x2F;index.md</li>
@@ -264,7 +264,7 @@
   </entry>
   <entry>
     <title>Hexo个人博客搭建</title>
-    <url>/posts/20260121cuidx4HEldD0Ts1l59nto34Uv.html</url>
+    <url>/posts/20260121cuid1dqBdHnV5ZKs7TxbMmCG2.html</url>
     <content><![CDATA[<hr>
 <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这是一个搭建个人博客的教程，也是我的学习笔记。希望帮助每个人能按照这篇文章的步骤从零开始搭建出一个个人博客。当然，我现在只是一个学习者，正在不断摸索的阶段，如有问题还请斧正。</p>
 <h3 id="关于博客的认识"><a href="#关于博客的认识" class="headerlink" title="关于博客的认识"></a>关于博客的认识</h3><p>现在我所搭建的是一个静态博客。它完全免费，不需要服务器，域名可有可无。<br>现代静态博客从技术实现架构看，有四个核心部分组成：博客生成框架（如Hexo,Hugo等）、文件托管平台（GitHub,gitee等）、站点部署服务（GitHub Pages,GitHub Actions,GitLab CI&#x2F;CD,Vercel&#x2F;Netlify等）、CDN加速服务（Cloudflare CDN、Vercel&#x2F;Netlify等）。<br>这篇博客所使用的技术实现架构：Hexo + GitHub + GitHub Pages。这里站点部署服务之所以选择GitHub Pages而不是GitHub Actions，是因为我的博客是在本地电脑构建出前端文件(HTML&#x2F;CSS&#x2F;JS文件)上传至GitHub的，GitHub Actions的脚本需要运行在源码上；至于为什么没有CDN加速服务，是我还不知道怎么配置加速，后面我会将这个加上的。</p>
@@ -323,7 +323,7 @@
 <p>这里提醒一下，后面未标注命令在哪执行，默认都在这个目录执行。</p>
 <h4 id="博客项目目录结构介绍"><a href="#博客项目目录结构介绍" class="headerlink" title="博客项目目录结构介绍"></a>博客项目目录结构介绍</h4><p>本地操作展示结束，现在简单认识博客目录下文件。</p>
 <p>目录结构如下：</p>
-<p><img src="/posts/20260121cuidx4HEldD0Ts1l59nto34Uv/blog001.jpg" alt="images001"></p>
+<p><img src="/posts/20260121cuid1dqBdHnV5ZKs7TxbMmCG2/blog001.jpg" alt="images001"></p>
 <p>各部分的含义：</p>
 <ul>
 <li>_config.yml<ul>
@@ -347,7 +347,7 @@
 <h4 id="本地预览博客"><a href="#本地预览博客" class="headerlink" title="本地预览博客"></a>本地预览博客</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo server # 本地运行server服务预览，打开http://localhost:4000就可以预览了</span><br><span class="line">Ctrl +c  # 结束预览或者结束服务</span><br></pre></td></tr></table></figure>
 
 <p>本地预览效果如下：</p>
-<p><img src="/posts/20260121cuidx4HEldD0Ts1l59nto34Uv/blog002.png" alt="blog002"></p>
+<p><img src="/posts/20260121cuid1dqBdHnV5ZKs7TxbMmCG2/blog002.png" alt="blog002"></p>
 <p>目前显示的是hexo的默认主题，后面我们将对博客进行美化和优化。</p>
 <p>以及更详细的hexo命令可以参考官方文档：<a href="https://hexo.io/zh-cn/docs/commands">https://hexo.io/zh-cn/docs/commands</a></p>
 <p>现在一个本地的个人博客已经搭建成功了，接下来我们只要将这个博客静态页面代码托管到GitHub上，再使用GitHub Pages进行建站和部署到互联网上，这样后面只要输入网址就能访问到博客。不过GitHub是国外站点，国内访问时常打不开，所以现在<strong>需要解决GitHub打不开</strong>的问题，然后注册一个账户。</p>
@@ -355,7 +355,7 @@
 <p>使用软件“Watt Toolkit”，原名“steam++”，是一个开源跨平台的多功能Steam工具箱，可以提供本地反代的功能，支持加速Steam、GitHub等平台。下载地址官网如下：</p>
 <p><a href="https://steampp.net/">https://steampp.net/</a></p>
 <p>使用也很简单，按照下面图片标注点击即可：</p>
-<p><img src="/posts/20260121cuidx4HEldD0Ts1l59nto34Uv/blog003.png" alt="images003"></p>
+<p><img src="/posts/20260121cuid1dqBdHnV5ZKs7TxbMmCG2/blog003.png" alt="images003"></p>
 <h2 id="GitHub项目文件托管"><a href="#GitHub项目文件托管" class="headerlink" title="GitHub项目文件托管"></a>GitHub项目文件托管</h2><p>GitHub的文件托管流程以我的理解如下：</p>
 <h3 id="注册GitHub账号"><a href="#注册GitHub账号" class="headerlink" title="注册GitHub账号"></a>注册GitHub账号</h3><p>访问GitHub官网：<a href="https://github.com/">https://github.com/</a></p>
 <p>注册流程按照要求来就行。</p>
@@ -423,7 +423,7 @@
 </li>
 </ol>
 <p>这里之所以不选则GitHub Actions部署，是因为我们这个博客是在本地构建出静态文件，然后将这些静态文件上传到GitHub上的，actions服务的工作流脚本需要在博客根目录下执行，并且使用’hexo deploy’上传部署是执行的<strong>强制推送</strong>，会覆盖原来的仓库的文件，导致工作流脚本缺失。</p>
-<h2 id="测试站点"><a href="#测试站点" class="headerlink" title="测试站点"></a>测试站点</h2><p>能够正常访问之后，使用<a href="https://www.boce.com/">拨测</a>检测一下域名解析与访问的速度<br><img src="/posts/20260121cuidx4HEldD0Ts1l59nto34Uv/blog004.png" alt="images004"></p>
+<h2 id="测试站点"><a href="#测试站点" class="headerlink" title="测试站点"></a>测试站点</h2><p>能够正常访问之后，使用<a href="https://www.boce.com/">拨测</a>检测一下域名解析与访问的速度<br><img src="/posts/20260121cuid1dqBdHnV5ZKs7TxbMmCG2/blog004.png" alt="images004"></p>
 <h2 id="博客的简单使用"><a href="#博客的简单使用" class="headerlink" title="博客的简单使用"></a>博客的简单使用</h2><h3 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h3><p>使用以下命令：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new &quot;博客标题&quot; </span><br></pre></td></tr></table></figure>
 
@@ -446,7 +446,7 @@
   </entry>
   <entry>
     <title>图片</title>
-    <url>/posts/20260124cuidkuVHO39TX5uADytQlR09V.html</url>
+    <url>/posts/20260124cuid4Zo4SfMliJQecTeESaJos.html</url>
     <content><![CDATA[<hr>
 <p><img src="/source/_posts/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E7%89%87/%E5%BD%A9%E8%99%B9%E9%85%B1%E5%93%87.jpg"></p>
 <span id="more"></span>
