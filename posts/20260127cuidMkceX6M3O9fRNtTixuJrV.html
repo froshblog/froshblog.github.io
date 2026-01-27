@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 8.1.1">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/themes/green/pace-theme-minimal.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pace/1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous" defer></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"frosh.dpdns.org","root":"/","images":"/images","scheme":"Mist","darkmode":true,"version":"8.27.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="通过学习他人的自定义配置，逐渐学会自定义配置的操作，未来你也可能打造自己的博客。   在配置过程中，如果你发现你没有这个文件，大概率是需要你在指定位置创建文件。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="next自定义样式">
+<meta property="og:url" content="https://frosh.dpdns.org/posts/20260127cuidMkceX6M3O9fRNtTixuJrV.html">
+<meta property="og:site_name" content="FROSH">
+<meta property="og:description" content="通过学习他人的自定义配置，逐渐学会自定义配置的操作，未来你也可能打造自己的博客。   在配置过程中，如果你发现你没有这个文件，大概率是需要你在指定位置创建文件。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-01-27T08:16:30.000Z">
+<meta property="article:modified_time" content="2026-01-27T18:24:45.407Z">
+<meta property="article:author" content="kumiao">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="next">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://frosh.dpdns.org/posts/20260127cuidMkceX6M3O9fRNtTixuJrV.html">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://frosh.dpdns.org/posts/20260127cuidMkceX6M3O9fRNtTixuJrV.html","path":"posts/20260127cuidMkceX6M3O9fRNtTixuJrV.html","title":"next自定义样式"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>next自定义样式 | FROSH</title><meta name="robots" content="noindex">
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pangu/7.2.0/pangu.umd.js" integrity="sha256-JnmRRnJK7DC6RQJbAJb6AXOM9OmWzS6z8eYultk/48Y=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script><script src="/js/pjax.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+  <script src="/js/third-party/pace.js" defer></script>
+
+
+  
+
+
+
+
+<link rel="stylesheet" type="text/css" href="/css/injector/main.css" /><link rel="preload" as="style" href="/css/injector/light.css" /><link rel="preload" as="style" href="/css/injector/dark.css" />
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+<link rel="alternate" href="/atom.xml" title="FROSH" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">FROSH</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">时刻准备着</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E9%98%B4%E5%BD%B1%E5%A4%84%E7%90%86"><span class="nav-number">1.</span> <span class="nav-text">文章阴影处理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89-permalink-%E5%B1%9E%E6%80%A7"><span class="nav-number">1.1.</span> <span class="nav-text">自定义 permalink 属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-hexo-abbrlink-%E6%8F%92%E4%BB%B6"><span class="nav-number">1.1.1.</span> <span class="nav-text">使用 hexo-abbrlink 插件</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9B%B4%E6%94%B9%E6%96%87%E7%AB%A0%E5%BA%95%E9%83%A8%E6%A0%87%E7%AD%BE%E5%9B%BE%E6%A0%87"><span class="nav-number">1.2.</span> <span class="nav-text">更改文章底部标签图标</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E6%B7%BB%E5%8A%A0%E7%89%88%E6%9D%83%E8%AF%B4%E6%98%8E-%E6%B2%A1%E5%81%9Ayo"><span class="nav-number">1.3.</span> <span class="nav-text">文章添加版权说明 没做yo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E7%89%88%E6%9D%83%E6%A0%B7%E5%BC%8F%E8%87%AA%E5%AE%9A%E4%B9%89"><span class="nav-number">1.4.</span> <span class="nav-text">文章版权样式自定义</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E9%A6%96%E9%A1%B5%E5%88%86%E9%A1%B5%E6%96%87%E7%AB%A0%E6%95%B0"><span class="nav-number">1.5.</span> <span class="nav-text">修改首页分页文章数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E9%97%AD%E9%A6%96%E9%A1%B5%E2%80%9C%E9%98%85%E8%AF%BB%E6%9B%B4%E5%A4%9A%E2%80%9D%E6%8C%89%E9%92%AE"><span class="nav-number">1.6.</span> <span class="nav-text">关闭首页“阅读更多”按钮</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%BB%BA%E7%AB%99%E6%97%B6%E9%97%B4%E5%92%8C%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4"><span class="nav-number">1.7.</span> <span class="nav-text">设置建站时间和网站运行时间</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%BB%BA%E7%AB%99%E6%97%B6%E9%97%B4"><span class="nav-number">1.7.1.</span> <span class="nav-text">设置建站时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%A1%B5%E8%84%9A%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4"><span class="nav-number">1.7.2.</span> <span class="nav-text">页脚添加网站运行时间</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#29-%E4%BE%A7%E8%BE%B9%E6%A0%8F%E6%8E%A8%E8%8D%90%E9%98%85%E8%AF%BB"><span class="nav-number">2.</span> <span class="nav-text">29. 侧边栏推荐阅读</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#27-%E4%BF%AE%E6%94%B9%E5%AD%97%E4%BD%93%E5%A4%A7%E5%B0%8F-%E6%B2%A1%E5%81%9A"><span class="nav-number">3.</span> <span class="nav-text">27. 修改字体大小(没做)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E7%AB%A0%E6%A0%87%E7%AD%BE%E5%B1%85%E4%B8%AD"><span class="nav-number">3.1.</span> <span class="nav-text">文章标签居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E7%A5%9E%E5%B0%86"><span class="nav-number">3.2.</span> <span class="nav-text">快速神将</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A1%B5%E8%84%9A%E5%B1%85%E4%B8%AD"><span class="nav-number">3.3.</span> <span class="nav-text">页脚居中</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="kumiao"
+      src="/images/ceshi.png">
+  <p class="site-author-name" itemprop="name">kumiao</p>
+  <div class="site-description" itemprop="description">要做的事还有很多，一件一件地来~</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/froshblog" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;froshblog" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/atom.xml" title="RSS → &#x2F;atom.xml" rel="noopener me"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="sidebar-inner sidebar-blogroll">
+      <div class="links-of-blogroll animated">
+        <div class="links-of-blogroll-title"><i class="fa fa-globe fa-fw"></i>
+          链接
+        </div>
+        <ul class="links-of-blogroll-list">
+            <li class="links-of-blogroll-item">
+              <a href="http://www.uisdc.com/" title="http:&#x2F;&#x2F;www.uisdc.com&#x2F;" rel="noopener" target="_blank">优设</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.zhangxinxu.com/" title="http:&#x2F;&#x2F;www.zhangxinxu.com&#x2F;" rel="noopener" target="_blank">张鑫旭</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.alloyteam.com/nav/" title="http:&#x2F;&#x2F;www.alloyteam.com&#x2F;nav&#x2F;" rel="noopener" target="_blank">Web前端导航</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://www.36zhen.com/t?id=3448" title="http:&#x2F;&#x2F;www.36zhen.com&#x2F;t?id&#x3D;3448" rel="noopener" target="_blank">前端书籍资料</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://ife.baidu.com/" title="http:&#x2F;&#x2F;ife.baidu.com&#x2F;" rel="noopener" target="_blank">百度前端技术学院</a>
+            </li>
+            <li class="links-of-blogroll-item">
+              <a href="http://wf.uisdc.com/cn/" title="http:&#x2F;&#x2F;wf.uisdc.com&#x2F;cn&#x2F;" rel="noopener" target="_blank">google前端开发基础</a>
+            </li>
+        </ul>
+      </div>
+    </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://frosh.dpdns.org/posts/20260127cuidMkceX6M3O9fRNtTixuJrV.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ceshi.png">
+      <meta itemprop="name" content="kumiao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FROSH">
+      <meta itemprop="description" content="要做的事还有很多，一件一件地来~">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="next自定义样式 | FROSH">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          next自定义样式
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2026-01-27 16:16:30" itemprop="dateCreated datePublished" datetime="2026-01-27T16:16:30+08:00">2026-01-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2026-01-28 02:24:45" itemprop="dateModified" datetime="2026-01-28T02:24:45+08:00">2026-01-28</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">个人博客</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>8.7k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>8 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><hr>
+<blockquote>
+<p>通过学习他人的自定义配置，逐渐学会自定义配置的操作，未来你也可能打造自己的博客。</p>
+</blockquote>
+<blockquote>
+<p>在配置过程中，如果你发现你没有这个文件，大概率是需要你在指定位置创建文件。</p>
+</blockquote>
+<span id="more"></span>
+
+<blockquote>
+<p>主要信息：</p>
+<ul>
+<li>Hexo version：8.1.1，NEXT version：8.27.0，分别通过博客目录和主题目录的package.json查看；</li>
+<li><mark>博客配置文件</mark>指的是博客根目录下的<code>_config.yml</code>文件：<code>博客目录\_config.yml</code>；</li>
+<li><mark>主题配置文件</mark>指的是主题文件夹下的<code>_config.yml</code>文件：<code>博客目录\themes/next/_config.yml</code>；</li>
+<li>书写规范：yaml语言规定“:“后面必须空格后写内容；</li>
+<li>预览效果：分别执行<mark>hexo cl</mark> ，<mark>hexo g</mark>，<mark>hexo s</mark>命令实现本地预览。</li>
+</ul>
+</blockquote>
+<h2 id="文章阴影处理"><a href="#文章阴影处理" class="headerlink" title="文章阴影处理"></a>文章阴影处理</h2><p>自定义样式文件应该放在博客根目录下的 <code>source</code> 文件夹里，而不是主题的 <code>source</code> 文件夹里<br><em>注意：根据Next主题v8.x的常见配置，自定义样式文件的默认位置通常是 <code>source/_data/styles.styl</code>，而不是 <code>source/css/_custom/custom.styl</code></em></p>
+<p>cuowu<br>ERROR Asset render failed: css&#x2F;main.css</p>
+<h3 id="自定义-permalink-属性"><a href="#自定义-permalink-属性" class="headerlink" title="自定义 permalink 属性"></a>自定义 permalink 属性</h3><p>我用的第一个<br>1.在站点配置文件找到 permalink，设置如下：  </p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:year:month:day:id.html</span></span><br></pre></td></tr></table></figure>
+<p>2.在 md 文件里给文章添加一个 id 属性以区分同一天发表的文章：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: </span><br><span class="line">date: </span><br><span class="line">id: a1</span><br><span class="line"><span class="section">tags: </span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="使用-hexo-abbrlink-插件"><a href="#使用-hexo-abbrlink-插件" class="headerlink" title="使用 hexo-abbrlink 插件"></a>使用 hexo-abbrlink 插件</h4><p>1.插件下载：<br><code>npm install hexo-abbrlink --save</code><br>2.在站点配置文件找到 permalink，设置如下：  </p>
+<table>
+<thead>
+<tr>
+<th>yaml</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>permalink: posts&#x2F;abbrlink.html  <br>  <br>abbrlink:   <br>	alg: crc32	# 算法 crc16(defualt) and crc32  <br>	rep: hex	# 进制 dec(default) and hex</td>
+</tr>
+</tbody></table>
+<h3 id="更改文章底部标签图标"><a href="#更改文章底部标签图标" class="headerlink" title="更改文章底部标签图标"></a>更改文章底部标签图标</h3><p>修改主题配置文件的 tag_icon：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>tag_icon: fa-tag</td>
+</tr>
+</tbody></table>
+<h3 id="文章添加版权说明-没做yo"><a href="#文章添加版权说明-没做yo" class="headerlink" title="文章添加版权说明 没做yo"></a>文章添加版权说明 没做yo</h3><p>在主题配置文件中找到 creative_commons 进行修改：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">creative_commons:</span></span><br><span class="line">  <span class="attr">license:</span> <span class="string">by-nc-sa</span></span><br><span class="line">  <span class="attr">sidebar:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">post:</span> <span class="literal">true</span>  		<span class="comment"># 将false改为true即可显示版权信息</span></span><br><span class="line">  <span class="attr">language:</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="文章版权样式自定义"><a href="#文章版权样式自定义" class="headerlink" title="文章版权样式自定义"></a>文章版权样式自定义</h3><p>1.在目录 root&#x2F;themes&#x2F;next&#x2F;layout&#x2F;_macro&#x2F; 下添加 my-copyright.njk，内容如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if <span class="attribute">page</span><span class="selector-class">.copyright</span> %&#125;</span><br><span class="line">&lt;<span class="selector-tag">div</span> class=&quot;my_post_copyright&quot;&gt;</span><br><span class="line">  &lt;script <span class="attribute">src</span>=&quot;//cdn<span class="selector-class">.bootcss</span><span class="selector-class">.com</span>/clipboard<span class="selector-class">.js</span>/<span class="number">1.5</span>.<span class="number">10</span>/clipboard<span class="selector-class">.min</span><span class="selector-class">.js</span>&quot;&gt;&lt;/script&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;!-- JS库 sweetalert 可修改路径 --&gt;</span><br><span class="line">  &lt;script type=&quot;<span class="selector-tag">text</span>/javascript&quot; <span class="attribute">src</span>=&quot;http://jslibs.wuxubj.cn/sweetalert_mini/jquery-<span class="number">1.7</span>.<span class="number">1</span>.min.js<span class="string">&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">  &lt;script src=&quot;</span>http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js<span class="string">&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">  &lt;link rel=&quot;</span>stylesheet<span class="string">&quot; type=&quot;</span>text/css<span class="string">&quot; href=&quot;</span>http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css<span class="string">&quot;&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  &lt;p&gt;&lt;span&gt;本文标题:&lt;/span&gt;&#123;&#123; page.title &#125;&#125;&lt;/a&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string">  &lt;p&gt;&lt;span&gt;文章作者:&lt;/span&gt;&#123;&#123; author &#125;&#125;&lt;/a&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string">  &lt;p&gt;&lt;span&gt;发布时间:&lt;/span&gt;&#123;&#123; page.date.format(&quot;</span>YYYY年MM月DD日 - HH:mm:ss<span class="string">&quot;) &#125;&#125;&lt;/p&gt;</span></span><br><span class="line"><span class="string">  &lt;p&gt;&lt;span&gt;最后更新:&lt;/span&gt;&#123;&#123; page.updated.format(&quot;</span>YYYY年MM月DD日 - HH:mm:ss<span class="string">&quot;) &#125;&#125;&lt;/p&gt;</span></span><br><span class="line"><span class="string">  &lt;p&gt;&lt;span&gt;原始链接:&lt;/span&gt;&lt;a href=&quot;</span>&#123;&#123; url_for(<span class="attribute">page</span><span class="selector-class">.path</span>) &#125;&#125;&quot; title=&quot;&#123;&#123; <span class="attribute">page</span><span class="selector-class">.title</span> &#125;&#125;&quot;&gt;&#123;&#123; <span class="attribute">page</span><span class="selector-class">.permalink</span> &#125;&#125;&lt;/<span class="selector-tag">a</span>&gt;</span><br><span class="line">    &lt;<span class="selector-tag">span</span> class=&quot;copy-<span class="selector-tag">path</span>&quot;  title=&quot;点击复制文章链接&quot;&gt;&lt;<span class="selector-tag">i</span> class=&quot;fa fa-clipboard&quot; data-clipboard-<span class="selector-tag">text</span>=&quot;&#123;&#123; <span class="attribute">page</span><span class="selector-class">.permalink</span> &#125;&#125;&quot;  aria-<span class="selector-tag">label</span>=&quot;复制成功！&quot;&gt;&lt;/<span class="selector-tag">i</span>&gt;&lt;/<span class="selector-tag">span</span>&gt;</span><br><span class="line">  &lt;/<span class="selector-tag">p</span>&gt;</span><br><span class="line">  &lt;<span class="selector-tag">p</span>&gt;&lt;<span class="selector-tag">span</span>&gt;许可协议:&lt;/span&gt;&lt;i class=<span class="string">&quot;fa fa-creative-commons&quot;</span>&gt;&lt;/i&gt; &lt;a rel=<span class="string">&quot;license&quot;</span> href=<span class="string">&quot;https://creativecommons.org/licenses/by-nc-nd/4.0/&quot;</span> target=<span class="string">&quot;_blank&quot;</span> title=<span class="string">&quot;Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)&quot;</span>&gt;署名-非商业性使用-禁止演绎 <span class="number">4.0</span> 国际&lt;/a&gt; 转载请保留原文链接及作者。&lt;/p&gt;  </span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt; </span><br><span class="line">    var clipboard = new <span class="built_in">Clipboard</span>(<span class="string">&#x27;.fa-clipboard&#x27;</span>);</span><br><span class="line">    clipboard<span class="selector-class">.on</span>(&#x27;success&#x27;, $(function()&#123;</span><br><span class="line">      $(&quot;<span class="selector-class">.fa-clipboard</span>&quot;)<span class="selector-class">.click</span>(function()&#123;</span><br><span class="line">        swal(&#123;   </span><br><span class="line">          title: <span class="string">&quot;&quot;</span>,   </span><br><span class="line">          text: <span class="string">&#x27;复制成功&#x27;</span>,   </span><br><span class="line">          html: false,</span><br><span class="line">          timer: <span class="number">500</span>,   </span><br><span class="line">          showConfirmButton: false</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;));  </span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="修改首页分页文章数"><a href="#修改首页分页文章数" class="headerlink" title="修改首页分页文章数"></a>修改首页分页文章数</h3><p>在站点配置文件中找到 index_generator，修改 per_page 项：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">index_generator:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="number">5</span></span><br><span class="line">  <span class="attr">order_by:</span> <span class="string">-date</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="关闭首页“阅读更多”按钮"><a href="#关闭首页“阅读更多”按钮" class="headerlink" title="关闭首页“阅读更多”按钮"></a>关闭首页“阅读更多”按钮</h3><p>在主题配置文件中找到 read_more_btn，修改其值为 false，即可关闭。</p>
+<h3 id="设置建站时间和网站运行时间"><a href="#设置建站时间和网站运行时间" class="headerlink" title="设置建站时间和网站运行时间"></a>设置建站时间和网站运行时间</h3><h4 id="设置建站时间"><a href="#设置建站时间" class="headerlink" title="设置建站时间"></a>设置建站时间</h4><p>打开主题配置文件，在 since 后添加建站时间：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">footer:</span></span><br><span class="line">  <span class="comment"># Specify the year when the site was setup. If not defined, current year will be used.</span></span><br><span class="line">  <span class="attr">since:</span> <span class="number">2026-01-14</span>	<span class="comment">#建站时间</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="页脚添加网站运行时间"><a href="#页脚添加网站运行时间" class="headerlink" title="页脚添加网站运行时间"></a>页脚添加网站运行时间</h4><p>将下面代码添加到 root&#x2F;themes&#x2F;next&#x2F;layout&#x2F;_partials&#x2F;footer.njk 文件的合适位置，修改<code>var t1 = Date.UTC(2021,08,11,00,00,00);</code>为自己的建站时间。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">span</span> id=&quot;sitetime&quot;&gt;&lt;/<span class="selector-tag">span</span>&gt;</span><br><span class="line">&lt;script language=javascript&gt;</span><br><span class="line">	function siteTime()&#123;</span><br><span class="line">		window<span class="selector-class">.setTimeout</span>(&quot;siteTime()&quot;, <span class="number">1000</span>);</span><br><span class="line">		<span class="selector-tag">var</span> seconds = <span class="number">1000</span>;</span><br><span class="line">		<span class="selector-tag">var</span> minutes = seconds * <span class="number">60</span>;</span><br><span class="line">		<span class="selector-tag">var</span> hours = minutes * <span class="number">60</span>;</span><br><span class="line">		<span class="selector-tag">var</span> days = hours * <span class="number">24</span>;</span><br><span class="line">		<span class="selector-tag">var</span> years = days * <span class="number">365</span>;</span><br><span class="line">		<span class="selector-tag">var</span> today = new Date();</span><br><span class="line">		<span class="selector-tag">var</span> todayYear = today<span class="selector-class">.getFullYear</span>();</span><br><span class="line">		<span class="selector-tag">var</span> todayMonth = today<span class="selector-class">.getMonth</span>()+<span class="number">1</span>;</span><br><span class="line">		<span class="selector-tag">var</span> todayDate = today<span class="selector-class">.getDate</span>();</span><br><span class="line">		<span class="selector-tag">var</span> todayHour = today<span class="selector-class">.getHours</span>();</span><br><span class="line">		<span class="selector-tag">var</span> todayMinute = today<span class="selector-class">.getMinutes</span>();</span><br><span class="line">		<span class="selector-tag">var</span> todaySecond = today<span class="selector-class">.getSeconds</span>();</span><br><span class="line">		<span class="comment">/* </span></span><br><span class="line"><span class="comment">		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)</span></span><br><span class="line"><span class="comment">		year - 作为date对象的年份，为4位年份值</span></span><br><span class="line"><span class="comment">		month - 0-11之间的整数，做为date对象的月份</span></span><br><span class="line"><span class="comment">		day - 1-31之间的整数，做为date对象的天数</span></span><br><span class="line"><span class="comment">		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数</span></span><br><span class="line"><span class="comment">		minutes - 0-59之间的整数，做为date对象的分钟数</span></span><br><span class="line"><span class="comment">		seconds - 0-59之间的整数，做为date对象的秒数</span></span><br><span class="line"><span class="comment">		microseconds - 0-999之间的整数，做为date对象的毫秒数</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">		<span class="selector-tag">var</span> t1 = Date<span class="selector-class">.UTC</span>(<span class="number">2021</span>,<span class="number">08</span>,<span class="number">11</span>,<span class="number">00</span>,<span class="number">00</span>,<span class="number">00</span>); //北京时间<span class="number">2021</span>-<span class="number">8</span>-<span class="number">11</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">		var t2 = Date.<span class="built_in">UTC</span>(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);</span><br><span class="line">		<span class="selector-tag">var</span> diff = t2-t1;</span><br><span class="line">		<span class="selector-tag">var</span> diffYears = Math<span class="selector-class">.floor</span>(diff/years);</span><br><span class="line">		<span class="selector-tag">var</span> diffDays = Math<span class="selector-class">.floor</span>((diff/days)-diffYears*<span class="number">365</span>);</span><br><span class="line">		<span class="selector-tag">var</span> diffHours = Math<span class="selector-class">.floor</span>((diff-(diffYears*<span class="number">365</span>+diffDays)*days)/hours);</span><br><span class="line">		<span class="selector-tag">var</span> diffMinutes = Math<span class="selector-class">.floor</span>((diff-(diffYears*<span class="number">365</span>+diffDays)*days-diffHours*hours)/minutes);</span><br><span class="line">		<span class="selector-tag">var</span> diffSeconds = Math<span class="selector-class">.floor</span>((diff-(diffYears*<span class="number">365</span>+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);</span><br><span class="line">		document<span class="selector-class">.getElementById</span>(&quot;sitetime&quot;)<span class="selector-class">.innerHTML</span>=&quot; 本站已悄悄运行&quot;+<span class="comment">/*diffYears+&quot; 年 &quot;+*/</span>diffDays+&quot; 天 &quot;+diffHours+&quot; 小时 &quot;+diffMinutes+&quot; 分钟 &quot;+diffSeconds+&quot; 秒&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	siteTime();</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>deep<br><strong>第一步：创建运行时间计算脚本</strong><br>在你的Hexo博客的 <code>source/js/</code> 目录下（如果没有就新建），创建一个名为 <code>site_runtime.js</code> 的文件，并填入以下内容：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 请将这里的日期修改为你博客的创建日期（年, 月-1, 日, 时, 分, 秒）</span></span><br><span class="line"><span class="comment">// 例如：如果你的博客在 2023年10月1日 08:00:00 上线，则写 (2023, 9, 1, 8, 0, 0)</span></span><br><span class="line"><span class="comment">// 注意：JavaScript中月份从0开始计数（0=一月，9=十月）</span></span><br><span class="line"><span class="keyword">var</span> create_time = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="number">2023</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">updateRuntime</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">    <span class="keyword">var</span> diff = now.<span class="title function_">getTime</span>() - create_time.<span class="title function_">getTime</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算天数、小时、分钟和秒</span></span><br><span class="line">    <span class="keyword">var</span> days = <span class="title class_">Math</span>.<span class="title function_">floor</span>(diff / (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>));</span><br><span class="line">    <span class="keyword">var</span> hours = <span class="title class_">Math</span>.<span class="title function_">floor</span>((diff % (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>)) / (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span>));</span><br><span class="line">    <span class="keyword">var</span> minutes = <span class="title class_">Math</span>.<span class="title function_">floor</span>((diff % (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span>)) / (<span class="number">1000</span> * <span class="number">60</span>));</span><br><span class="line">    <span class="keyword">var</span> seconds = <span class="title class_">Math</span>.<span class="title function_">floor</span>((diff % (<span class="number">1000</span> * <span class="number">60</span>)) / <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构建显示字符串，你可以自定义这里的格式</span></span><br><span class="line">    <span class="keyword">var</span> runtimeStr = <span class="string">&quot;🏃 本站已运行: &quot;</span> + days + <span class="string">&quot; 天 &quot;</span> + hours + <span class="string">&quot; 时 &quot;</span> + minutes + <span class="string">&quot; 分 &quot;</span> + seconds + <span class="string">&quot; 秒&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 找到显示运行时间的元素并更新内容</span></span><br><span class="line">    <span class="keyword">var</span> runtimeElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;site-runtime&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span> (runtimeElement) &#123;</span><br><span class="line">        runtimeElement.<span class="property">innerHTML</span> = runtimeStr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 页面加载后立即执行一次，然后每秒更新一次</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">updateRuntime</span>();</span><br><span class="line">    <span class="built_in">setInterval</span>(updateRuntime, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>第二步：在页脚模板中添加显示容器</strong><br>你需要编辑Next主题的页脚模板文件，位置通常在 <code>themes/next/layout/_partials/footer.njk</code>（也可能是 <code>.swig</code> 文件）。</p>
+<ol>
+<li><p>找到合适的位置（例如，在 <code>&#123;% if theme.footer.copyright %&#125;</code> 区块附近）。</p>
+</li>
+<li><p>插入以下代码来调用脚本并创建显示容器：</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 网站运行时间显示 --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/site_runtime.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;site-runtime&quot;</span> <span class="attr">style</span>=<span class="string">&quot;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    margin: 10px 0;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    font-size: 0.9em;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    color: inherit; /* 继承页脚颜色以适配主题 */</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    text-align: center; /* 如果你页脚内容居中 */</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h1 id="29-侧边栏推荐阅读"><a href="#29-侧边栏推荐阅读" class="headerlink" title="29. 侧边栏推荐阅读"></a>29. 侧边栏推荐阅读</h1><p>今天有位网友问推荐阅读是怎么弄，其实挺简单的，打开主题配置文件修改成这样就行了(links里面写你想要的链接):</p>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td># Blogrolls<br><br>links_title: 推荐阅读<br><br>#links_layout: block<br><br>links_layout: inline<br><br>links:<br><br>  优设: <a target="_blank" rel="noopener" href="http://www.uisdc.com/">http://www.uisdc.com/</a><br><br>  张鑫旭: <a target="_blank" rel="noopener" href="http://www.zhangxinxu.com/">http://www.zhangxinxu.com/</a><br><br>  Web前端导航: <a target="_blank" rel="noopener" href="http://www.alloyteam.com/nav/">http://www.alloyteam.com/nav/</a><br><br>  前端书籍资料: <a target="_blank" rel="noopener" href="http://www.36zhen.com/t?id=3448">http://www.36zhen.com/t?id=3448</a><br><br>  百度前端技术学院: <a target="_blank" rel="noopener" href="http://ife.baidu.com/">http://ife.baidu.com/</a><br><br>  google前端开发基础: <a target="_blank" rel="noopener" href="http://wf.uisdc.com/cn/">http://wf.uisdc.com/cn/</a></td>
+</tr>
+</tbody></table>
+<h1 id="27-修改字体大小-没做"><a href="#27-修改字体大小-没做" class="headerlink" title="27. 修改字体大小(没做)"></a>27. 修改字体大小(没做)</h1><p>打开<code>\themes\next\source\css\ _variables\base.styl</code>文件，将<code>$font-size-base</code>改成<code>16px</code>，如下所示：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$font-size-base            &#x3D;16px</td>
+</tr>
+</tbody></table>
+<h3 id="文章标签居中"><a href="#文章标签居中" class="headerlink" title="文章标签居中"></a>文章标签居中</h3><p>deep</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 控制文章页末尾的标签容器居中 */</span></span><br><span class="line">.<span class="property">post</span>-tags &#123;</span><br><span class="line">  text-<span class="attr">align</span>: center !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 确保标签链接本身在容器内居中显示 */</span></span><br><span class="line">.<span class="property">post</span>-tags a &#123;</span><br><span class="line">  <span class="attr">display</span>: inline-block;</span><br><span class="line">  <span class="attr">margin</span>: <span class="number">0</span> 4px 6px; <span class="comment">/* 上下、左右间距，可调整 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 如果标签容器是Flex布局，则用此方法（更常见） */</span></span><br><span class="line">.<span class="property">post</span>-tags &#123;</span><br><span class="line">  <span class="attr">display</span>: flex !important;</span><br><span class="line">  justify-<span class="attr">content</span>: center !important;</span><br><span class="line">  flex-<span class="attr">wrap</span>: wrap; <span class="comment">/* 允许标签换行 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="快速神将"><a href="#快速神将" class="headerlink" title="快速神将"></a>快速神将</h2><p>安装差价</p>
+<p>改在左边deep</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 尝试将固定定位的按钮移到左下角 */</span></span><br><span class="line">.<span class="property">moon</span>-menu,.<span class="property">moon</span>-menu-items,.<span class="property">moon</span>-menu-item,.<span class="property">fas</span> fa-chevron-up,.<span class="property">moon</span>-menu-button,.<span class="property">moon</span>-menu-bg,.<span class="property">moon</span>-menu-content,.<span class="property">moon</span>-menu-icon,.<span class="property">fas</span> fa-ellipsis-v,.<span class="property">moon</span>-menu-text &#123;</span><br><span class="line">  <span class="attr">right</span>: auto !important; <span class="comment">/* 取消原来的右侧定位 */</span></span><br><span class="line">  <span class="attr">left</span>: 20px !important;  <span class="comment">/* 设置距离左侧20像素 */</span></span><br><span class="line">  <span class="attr">bottom</span>: 20px !important; <span class="comment">/* 保持距离底部20像素 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="页脚居中"><a href="#页脚居中" class="headerlink" title="页脚居中"></a>页脚居中</h2><p>deep</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* ========== 首页文章列表居中 ========== */</span></span><br><span class="line"><span class="comment">/* 核心：控制文章容器 */</span></span><br><span class="line">.<span class="property">posts</span>-expand &#123;</span><br><span class="line">  text-<span class="attr">align</span>: center; <span class="comment">/* 使内部行内内容（如摘要）也居中 */</span></span><br><span class="line">  padding-<span class="attr">top</span>: 40px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 关键：使每篇文章卡片居中 */</span></span><br><span class="line">.<span class="property">post</span>-block &#123;</span><br><span class="line">  margin-<span class="attr">left</span>: auto !important;</span><br><span class="line">  margin-<span class="attr">right</span>: auto !important;</span><br><span class="line">  <span class="attr">float</span>: none !important; <span class="comment">/* 清除浮动布局 */</span></span><br><span class="line">  text-<span class="attr">align</span>: left; <span class="comment">/* 文章内部文字保持左对齐阅读 */</span></span><br><span class="line">  box-<span class="attr">sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 可选：为文章卡片设置一个最大宽度，看起来更协调 */</span></span><br><span class="line">.<span class="property">post</span>-block &#123;</span><br><span class="line">  max-<span class="attr">width</span>: 700px; <span class="comment">/* 你可以根据喜好调整这个值，例如 700px 或 900px */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* ========== 页脚内容居中 ========== */</span></span><br><span class="line"><span class="comment">/* 控制整个页脚容器 */</span></span><br><span class="line">.<span class="property">footer</span>-inner &#123;</span><br><span class="line">  text-<span class="attr">align</span>: center !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 使页脚内的所有行内元素（如文字、链接、图标）都居中 */</span></span><br><span class="line">.<span class="property">footer</span>-inner &gt; * &#123;</span><br><span class="line">  <span class="attr">display</span>: inline-block;</span><br><span class="line">  <span class="attr">margin</span>: <span class="number">0</span> 3px; <span class="comment">/* 可选：调整元素间的小间距 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 单独确保站点运行时间、访客统计等文本块居中 */</span></span><br><span class="line">.<span class="property">copyright</span>,</span><br><span class="line">.<span class="property">busuanzi</span>-count &#123;</span><br><span class="line">  <span class="attr">display</span>: block;</span><br><span class="line">  <span class="attr">width</span>: <span class="number">100</span>%;</span><br><span class="line">  text-<span class="attr">align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>&#x2F;&#x2F;首页顶部留白<br>.main{margin-top:10px;} </p>
+<!-- flag of hidden posts -->
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/next/" rel="tag"><i class="fa fa-tag"></i> next</a>
+              <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
+          </div>
+
+        
+
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
+  </div>
+  
+  
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<!-- 网站运行时间显示 -->
+<script type="text/javascript" src="/js/site_runtime.js"></script>
+<div id="site-runtime" style="
+    margin: 10px 0;
+    font-size: 0.9em;
+    color: inherit; /* 继承页脚颜色以适配主题 */
+    text-align: center; /* 如果你页脚内容居中 */
+"></div>
+  <div class="copyright">
+    &copy; Wed Jan 14 2026 08:00:00 GMT+0800 (中国标准时间) – 
+    <span itemprop="copyrightYear">2026</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">kumiao</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+      <span>站点总字数：</span>
+    <span title="站点总字数">17k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+      <span>站点阅读时长 &asymp;</span>
+    <span title="站点阅读时长">15 分钟</span>
+  </span>
+</div>
+  <div class="powered-by">
+    <!--由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动-->
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+  <a href="https://github.com/froshblog" class="github-corner" title="在 GitHub 上关注我" aria-label="在 GitHub 上关注我" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"froshblog/blog_discussion","repo_id":"R_kgDOQ_yHQA","category":"Announcements","category_id":"DIC_kwDOQ_yHQM4C1VOo","mapping":"title","strict":0,"reactions_enabled":1,"emit_metadata":0,"theme":"preferred_color_scheme","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
+
+<script>
+document.addEventListener('page:loaded', () => {
+  if (!CONFIG.page.comments) return;
+
+  NexT.utils.loadComments('.giscus-container')
+    .then(() => NexT.utils.getScript('https://giscus.app/client.js', {
+      attributes: {
+        async                   : true,
+        crossOrigin             : 'anonymous',
+        'data-repo'             : CONFIG.giscus.repo,
+        'data-repo-id'          : CONFIG.giscus.repo_id,
+        'data-category'         : CONFIG.giscus.category,
+        'data-category-id'      : CONFIG.giscus.category_id,
+        'data-mapping'          : CONFIG.giscus.mapping,
+        'data-strict'           : CONFIG.giscus.strict,
+        'data-reactions-enabled': CONFIG.giscus.reactions_enabled,
+        'data-emit-metadata'    : CONFIG.giscus.emit_metadata,
+        'data-theme'            : CONFIG.giscus.theme,
+        'data-lang'             : CONFIG.giscus.lang,
+        'data-input-position'   : CONFIG.giscus.input_position,
+        'data-loading'          : CONFIG.giscus.loading
+      },
+      parentNode: document.querySelector('.giscus-container')
+    }));
+});
+</script>
+<div class="moon-menu">
+  <div class="moon-menu-items">
+    
+    <div id="moon-menu-item-back2bottom" class="moon-menu-item">
+      <i class='fas fa-chevron-down'></i>    </div>
+    
+    <div id="moon-menu-item-back2top" class="moon-menu-item">
+      <i class='fas fa-chevron-up'></i>    </div>
+    
+  </div>
+  <div class="moon-menu-button">
+    <svg class="moon-menu-bg">
+      <circle class="moon-menu-cricle" cx="50%" cy="50%" r="44%"></circle>
+      <circle class="moon-menu-border" cx="50%" cy="50%" r="48%"></circle>
+    </svg>
+    <div class="moon-menu-content">
+      <div class="moon-menu-icon"><i class='fas fa-ellipsis-v'></i></div>
+      <div class="moon-menu-text"></div>
+    </div>
+  </div>
+</div><script src="/js/injector.js"></script>
+
+        <style>
+            [bg-lazy] {
+                background-image: none !important;
+                background-color: #eee !important;
+            }
+        </style>
+        <script>
+            window.imageLazyLoadSetting = {
+                isSPA: true,
+                preloadRatio: 1,
+                processImages: null,
+            };
+        </script><script>window.addEventListener("load",function(){var t=/\.(gif|jpg|jpeg|tiff|png)$/i,r=/^data:image\/[a-z\d\-\.\+]+;base64,/;Array.prototype.slice.call(document.querySelectorAll("img[data-original]")).forEach(function(a){var e=a.parentNode;"A"===e.tagName&&(t.test(e.href)||r.test(e.href))&&(e.href=a.dataset.original)})});</script><script>(r=>{r.imageLazyLoadSetting.processImages=t;var a=r.imageLazyLoadSetting.isSPA,o=r.imageLazyLoadSetting.preloadRatio||1,d=i();function i(){var t=Array.prototype.slice.call(document.querySelectorAll("img[data-original]")),e=Array.prototype.slice.call(document.querySelectorAll("[bg-lazy]"));return t.concat(e)}function t(t){(a||t)&&(d=i());for(var e,n=0;n<d.length;n++)0<=(e=(e=d[n]).getBoundingClientRect()).bottom&&0<=e.left&&e.top<=(r.innerHeight*o||document.documentElement.clientHeight*o)&&(()=>{var t,e,a,o,i=d[n];e=function(){d=d.filter(function(t){return i!==t}),r.imageLazyLoadSetting.onImageLoaded&&r.imageLazyLoadSetting.onImageLoaded(i)},(t=i).dataset.loaded||(t.hasAttribute("bg-lazy")?(t.removeAttribute("bg-lazy"),e&&e()):(a=new Image,o=t.getAttribute("data-original"),a.onload=function(){t.src=o,t.removeAttribute("data-original"),t.setAttribute("data-loaded",!0),e&&e()},a.onerror=function(){t.removeAttribute("data-original"),t.setAttribute("data-loaded",!1),t.src=o},t.src!==o&&(a.src=o)))})()}function e(){clearTimeout(t.tId),t.tId=setTimeout(t,500)}t(),document.addEventListener("scroll",e),r.addEventListener("resize",e),r.addEventListener("orientationchange",e)})(this);</script></body>
+</html>

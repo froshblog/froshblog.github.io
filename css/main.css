@@ -1452,7 +1452,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #405efa;
+  background: #deff16;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -1755,6 +1755,9 @@ pre code {
 .links-of-author a {
   font-size: 0.8125em;
 }
+.links-of-author i[class^='fa'] {
+  margin-right: 2px;
+}
 .cc-license .cc-opacity {
   border-bottom: 0;
   opacity: 0.7;
@@ -1780,7 +1783,6 @@ pre code {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  flex-direction: column;
 }
 .links-of-blogroll-item {
   max-width: 100%;
@@ -2986,4 +2988,101 @@ header.header {
 .giscus {
   max-width: unset;
   box-sizing: border-box;
+}
+.main {
+  margin-top: 10px;
+}
+/*
+ .post {
+   margin-top: 60px;
+   margin-bottom: 60px;
+   padding: 25px;
+   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
+   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
+  }	*/
+/* 控制文章页末尾的标签容器居中 */
+.post-tags {
+  text-align: center !important;
+}
+/* 确保标签链接本身在容器内居中显示 */
+.post-tags a {
+  display: inline-block;
+  margin: 0 4px 6px; /* 上下、左右间距，可调整 */
+}
+/* 如果标签容器是Flex布局，则用此方法（更常见） */
+.post-tags {
+  display: flex !important;
+  justify-content: center !important;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* 允许标签换行 */
+}
+/* ========== 首页文章列表居中 ========== */
+/* 核心：控制文章容器 */
+.posts-expand {
+  text-align: center; /* 使内部行内内容（如摘要）也居中 */
+  padding-top: 40px;
+}
+/* 关键：使每篇文章卡片居中 */
+.post-block {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  float: none !important; /* 清除浮动布局 */
+  text-align: left; /* 文章内部文字保持左对齐阅读 */
+  box-sizing: border-box;
+}
+/* 可选：为文章卡片设置一个最大宽度，看起来更协调 */
+.post-block {
+  max-width: 700px; /* 你可以根据喜好调整这个值，例如 700px 或 900px */
+}
+/* ========== 页脚内容居中 ========== */
+/* 控制整个页脚容器 */
+.footer-inner {
+  text-align: center !important;
+}
+/* 使页脚内的所有行内元素（如文字、链接、图标）都居中 */
+.footer-inner > * {
+  display: inline-block;
+  margin: 0 3px; /* 可选：调整元素间的小间距 */
+}
+/* 单独确保站点运行时间、访客统计等文本块居中 */
+.copyright,
+.busuanzi-count {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
+/*等解决图片与文字怎么结合在弄
+body {
+      background: url(/images/infinity-1167546.jpg);	// 可以是路径也可以是链接
+      background-size: cover			// 设置保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小
+      background-repeat: no-repeat;		// 设定背景图片非重复填充
+      background-attachment: fixed;		// 设置背景图片不随页面滚动
+      background-position: 50% 50%;		// 图片位置：居中
+}*/
+.sidebar {
+  opacity: 0.9;
+}
+​,
+.post-block {
+  opacity: 0.9;
+}
+/*可能后面设置背景有用，但现在没有
+.posts-expand .post-meta-container {
+    color: #060606;
+}*/
+/* 尝试将固定定位的按钮移到左下角 */
+.moon-menu,
+.moon-menu-items,
+.moon-menu-item,
+.fas fa-chevron-up,
+.moon-menu-button,
+.moon-menu-bg,
+.moon-menu-content,
+.moon-menu-icon,
+.fas fa-ellipsis-v,
+.moon-menu-text {
+  right: auto !important; /* 取消原来的右侧定位 */
+  left: 20px !important; /* 设置距离左侧20像素 */
+  bottom: 20px !important; /* 保持距离底部20像素 */
 }

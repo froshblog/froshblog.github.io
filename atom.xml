@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>FROSH</title>
+  
+  <subtitle>时刻准备着</subtitle>
+  <link href="https://frosh.dpdns.org/atom.xml" rel="self"/>
+  
+  <link href="https://frosh.dpdns.org/"/>
+  <updated>2026-01-27T04:24:08.758Z</updated>
+  <id>https://frosh.dpdns.org/</id>
+  
+  <author>
+    <name>kumiao</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>图片</title>
+    <link href="https://frosh.dpdns.org/posts/20260124cuidkuVHO39TX5uADytQlR09V.html"/>
+    <id>https://frosh.dpdns.org/posts/20260124cuidkuVHO39TX5uADytQlR09V.html</id>
+    <published>2026-01-24T14:46:32.000Z</published>
+    <updated>2026-01-27T04:24:08.758Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;
+&lt;p&gt;&lt;img src=&quot;/source/_posts/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E7%89%87/%E5%BD%A9%E8%99%B9%E9%85%B1%E5%93%87.jpg&quot;&gt;&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="个人笔记" scheme="https://frosh.dpdns.org/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="Hexo" scheme="https://frosh.dpdns.org/tags/Hexo/"/>
+    
+    <category term="next" scheme="https://frosh.dpdns.org/tags/next/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo博客优化</title>
+    <link href="https://frosh.dpdns.org/posts/20260121cuid9_mvr0IjgP8GVC3gQbN-h.html"/>
+    <id>https://frosh.dpdns.org/posts/20260121cuid9_mvr0IjgP8GVC3gQbN-h.html</id>
+    <published>2026-01-21T15:29:53.000Z</published>
+    <updated>2026-01-27T17:18:58.865Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;
+&lt;h2 id=&quot;更新&quot;&gt;&lt;a href=&quot;#更新&quot; class=&quot;headerlink&quot; title=&quot;更新&quot;&gt;&lt;/a&gt;更新&lt;/h2&gt;&lt;p&gt;2026年1月24日&lt;br&gt;添加了Giscus评论模块&lt;br&gt;图片懒加载插件&lt;/p&gt;
+&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;这是关于Hexo博客的优化文章，收录了一些常用的插件和设置，自己按需设置即可，附录部分是与之相关的文章，都是很好的文章。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="个人博客" scheme="https://frosh.dpdns.org/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="Hexo" scheme="https://frosh.dpdns.org/tags/Hexo/"/>
+    
+    <category term="next" scheme="https://frosh.dpdns.org/tags/next/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo个人博客搭建</title>
+    <link href="https://frosh.dpdns.org/posts/20260121cuidx4HEldD0Ts1l59nto34Uv.html"/>
+    <id>https://frosh.dpdns.org/posts/20260121cuidx4HEldD0Ts1l59nto34Uv.html</id>
+    <published>2026-01-21T15:29:40.000Z</published>
+    <updated>2026-01-25T12:03:28.741Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;
+&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;这是一个搭建个人博客的教程，也是我的学习笔记。希望帮助每个人能按照这篇文章的步骤从零开始搭建出一个个人博客。当然，我现在只是一个学习者，正在不断摸索的阶段，如有问题还请斧正。&lt;/p&gt;
+&lt;h3 id=&quot;关于博客的认识&quot;&gt;&lt;a href=&quot;#关于博客的认识&quot; class=&quot;headerlink&quot; title=&quot;关于博客的认识&quot;&gt;&lt;/a&gt;关于博客的认识&lt;/h3&gt;&lt;p&gt;现在我所搭建的是一个静态博客。它完全免费，不需要服务器，域名可有可无。&lt;br&gt;现代静态博客从技术实现架构看，有四个核心部分组成：博客生成框架（如Hexo,Hugo等）、文件托管平台（GitHub,gitee等）、站点部署服务（GitHub Pages,GitHub Actions,GitLab CI&amp;#x2F;CD,Vercel&amp;#x2F;Netlify等）、CDN加速服务（Cloudflare CDN、Vercel&amp;#x2F;Netlify等）。&lt;br&gt;这篇博客所使用的技术实现架构：Hexo + GitHub + GitHub Pages。这里站点部署服务之所以选择GitHub Pages而不是GitHub Actions，是因为我的博客是在本地电脑构建出前端文件(HTML&amp;#x2F;CSS&amp;#x2F;JS文件)上传至GitHub的，GitHub Actions的脚本需要运行在源码上；至于为什么没有CDN加速服务，是我还不知道怎么配置加速，后面我会将这个加上的。&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="个人博客" scheme="https://frosh.dpdns.org/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="Hexo" scheme="https://frosh.dpdns.org/tags/Hexo/"/>
+    
+    <category term="git" scheme="https://frosh.dpdns.org/tags/git/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>CND加速</title>
+    <link href="https://frosh.dpdns.org/posts/20260121cuidLLpIiFWfhjXPNBX48_knW.html"/>
+    <id>https://frosh.dpdns.org/posts/20260121cuidLLpIiFWfhjXPNBX48_knW.html</id>
+    <published>2026-01-21T15:29:02.000Z</published>
+    <updated>2026-01-25T12:04:32.074Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;
+&lt;h2 id=&quot;概念&quot;&gt;&lt;a href=&quot;#概念&quot; class=&quot;headerlink&quot; title=&quot;概念&quot;&gt;&lt;/a&gt;概念&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;CDN，全称&lt;strong&gt;内容分发网路（Content Delivery Network）&lt;/strong&gt;，是一种通过在现有互联网基础上构建的、由遍布全球的分布式节点服务器组成的智能虚拟网络，目的是使用户能够就近、快速、可靠地获取所需内容。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="个人笔记" scheme="https://frosh.dpdns.org/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="CDN" scheme="https://frosh.dpdns.org/tags/CDN/"/>
+    
+  </entry>
+  
+</feed>
