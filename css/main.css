@@ -26,45 +26,6 @@
   --highlight-gutter-foreground: #555;
   color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root {
-    --body-bg-color: #282828;
-    --content-bg-color: #333;
-    --card-bg-color: #555;
-    --text-color: #ccc;
-    --selection-bg: #bbb;
-    --selection-color: #333;
-    --blockquote-color: #bbb;
-    --link-color: #ccc;
-    --link-hover-color: #eee;
-    --brand-color: #ddd;
-    --brand-hover-color: #ddd;
-    --table-row-odd-bg-color: #282828;
-    --table-row-hover-bg-color: #363636;
-    --menu-item-bg-color: #555;
-    --theme-color: #222;
-    --btn-default-bg: #222;
-    --btn-default-color: #ccc;
-    --btn-default-border-color: #555;
-    --btn-default-hover-bg: #666;
-    --btn-default-hover-color: #ccc;
-    --btn-default-hover-border-color: #666;
-    --highlight-background: #1c1b1b;
-    --highlight-foreground: #fff;
-    --highlight-gutter-background: #323131;
-    --highlight-gutter-foreground: #e8e8e8;
-    color-scheme: dark;
-  }
-  img {
-    opacity: 0.75;
-  }
-  img:hover {
-    opacity: 0.9;
-  }
-  iframe {
-    color-scheme: light;
-  }
-}
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
@@ -519,125 +480,6 @@ code.hljs {
 .hljs-strong {
   font-weight: bold
 }
-@media (prefers-color-scheme: dark) {
-pre code.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 1em
-}
-code.hljs {
-  padding: 3px 5px
-}
-/*!
-  Theme: StackOverflow Dark
-  Description: Dark theme as used on stackoverflow.com
-  Author: stackoverflow.com
-  Maintainer: @Hirse
-  Website: https://github.com/StackExchange/Stacks
-  License: MIT
-  Updated: 2021-05-15
-
-  Updated for @stackoverflow/stacks v0.64.0
-  Code Blocks: /blob/v0.64.0/lib/css/components/_stacks-code-blocks.less
-  Colors: /blob/v0.64.0/lib/css/exports/_stacks-constants-colors.less
-*/
-.hljs {
-  /* var(--highlight-color) */
-  color: #ffffff;
-  /* var(--highlight-bg) */
-  background: #1c1b1b
-}
-.hljs-subst {
-  /* var(--highlight-color) */
-  color: #ffffff
-}
-.hljs-comment {
-  /* var(--highlight-comment) */
-  color: #999999
-}
-.hljs-keyword,
-.hljs-selector-tag,
-.hljs-meta .hljs-keyword,
-.hljs-doctag,
-.hljs-section {
-  /* var(--highlight-keyword) */
-  color: #88aece
-}
-.hljs-attr {
-  /* var(--highlight-attribute); */
-  color: #88aece
-}
-.hljs-attribute {
-  /* var(--highlight-symbol) */
-  color: #c59bc1
-}
-.hljs-name,
-.hljs-type,
-.hljs-number,
-.hljs-selector-id,
-.hljs-quote,
-.hljs-template-tag {
-  /* var(--highlight-namespace) */
-  color: #f08d49
-}
-.hljs-selector-class {
-  /* var(--highlight-keyword) */
-  color: #88aece
-}
-.hljs-string,
-.hljs-regexp,
-.hljs-symbol,
-.hljs-variable,
-.hljs-template-variable,
-.hljs-link,
-.hljs-selector-attr {
-  /* var(--highlight-variable) */
-  color: #b5bd68
-}
-.hljs-meta,
-.hljs-selector-pseudo {
-  /* var(--highlight-keyword) */
-  color: #88aece
-}
-.hljs-built_in,
-.hljs-title,
-.hljs-literal {
-  /* var(--highlight-literal) */
-  color: #f08d49
-}
-.hljs-bullet,
-.hljs-code {
-  /* var(--highlight-punctuation) */
-  color: #cccccc
-}
-.hljs-meta .hljs-string {
-  /* var(--highlight-variable) */
-  color: #b5bd68
-}
-.hljs-deletion {
-  /* var(--highlight-deletion) */
-  color: #de7176
-}
-.hljs-addition {
-  /* var(--highlight-addition) */
-  color: #76c490
-}
-.hljs-emphasis {
-  font-style: italic
-}
-.hljs-strong {
-  font-weight: bold
-}
-.hljs-formula,
-.hljs-operator,
-.hljs-params,
-.hljs-property,
-.hljs-punctuation,
-.hljs-tag {
-  /* purposely ignored */
-  
-}
-}
 .highlight:hover .copy-btn,
 .code-container:hover .copy-btn {
   opacity: 1;
@@ -721,11 +563,6 @@ figure.highlight {
   overflow: auto;
   position: relative;
   color-scheme: light;
-}
-@media (prefers-color-scheme: dark) {
-  figure.highlight {
-    color-scheme: dark;
-  }
 }
 figure.highlight pre {
   border: 0;
@@ -1452,7 +1289,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #e2f424;
+  background: #ffff9c;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -1869,49 +1706,6 @@ pre code {
   50%, 70% {
     transform: scale(1.1);
   }
-}
-.back-to-top {
-  font-size: 12px;
-  align-items: center;
-  bottom: -100px;
-  color: #fff;
-  display: flex;
-  height: 26px;
-  transition: 0.2s ease-in-out;
-  transition-property: bottom;
-  background: #222;
-  cursor: pointer;
-  opacity: 0.8;
-  position: fixed;
-  z-index: 30;
-  right: 30px;
-}
-.back-to-top span {
-  margin-right: 8px;
-  display: none;
-}
-.back-to-top .fa {
-  text-align: center;
-  width: 26px;
-}
-@media (max-width: 991px) {
-  .back-to-top {
-    right: 20px;
-  }
-}
-.back-to-top:hover {
-  opacity: 1;
-}
-@media (max-width: 991px) {
-  .back-to-top {
-    opacity: 1;
-  }
-}
-.back-to-top:hover {
-  color: #87daff;
-}
-.back-to-top.back-to-top-on {
-  bottom: 30px;
 }
 .rtl.post-body p,
 .rtl.post-body a,
@@ -2585,52 +2379,6 @@ ul.breadcrumb li:last-child {
   border-bottom-color: #111;
   color: #111;
 }
-@media (prefers-color-scheme: dark) {
-  .tag-cloud-0 {
-    border-bottom-color: #555;
-    color: #555;
-  }
-  .tag-cloud-1 {
-    border-bottom-color: #646464;
-    color: #646464;
-  }
-  .tag-cloud-2 {
-    border-bottom-color: #737373;
-    color: #737373;
-  }
-  .tag-cloud-3 {
-    border-bottom-color: #828282;
-    color: #828282;
-  }
-  .tag-cloud-4 {
-    border-bottom-color: #929292;
-    color: #929292;
-  }
-  .tag-cloud-5 {
-    border-bottom-color: #a1a1a1;
-    color: #a1a1a1;
-  }
-  .tag-cloud-6 {
-    border-bottom-color: #b0b0b0;
-    color: #b0b0b0;
-  }
-  .tag-cloud-7 {
-    border-bottom-color: #c0c0c0;
-    color: #c0c0c0;
-  }
-  .tag-cloud-8 {
-    border-bottom-color: #cfcfcf;
-    color: #cfcfcf;
-  }
-  .tag-cloud-9 {
-    border-bottom-color: #dedede;
-    color: #dedede;
-  }
-  .tag-cloud-10 {
-    border-bottom-color: #eee;
-    color: #eee;
-  }
-}
 .search-active {
   overflow: hidden;
   margin-right: var(--dialog-scrollgutter, 0);
@@ -2688,11 +2436,6 @@ ul.breadcrumb li:last-child {
   border-top-right-radius: 5px;
   display: flex;
   padding: 5px;
-}
-@media (prefers-color-scheme: dark) {
-  .search-popup .search-header {
-    background: #666;
-  }
 }
 .search-popup input.search-input {
   background: transparent;
@@ -2989,6 +2732,7 @@ header.header {
   max-width: unset;
   box-sizing: border-box;
 }
+/*自定义文件，自建*/
 .main {
   margin-top: 10px;
 }
@@ -3074,18 +2818,71 @@ body {
 .posts-expand .post-meta-container {
     color: #060606;
 }*/
-/* 尝试将固定定位的按钮移到左下角 */
-.moon-menu,
-.moon-menu-items,
-.moon-menu-item,
-.fas fa-chevron-up,
-.moon-menu-button,
-.moon-menu-bg,
-.moon-menu-content,
-.moon-menu-icon,
-.fas fa-ellipsis-v,
+/* moon-menu尝试将固定定位的按钮移到左下角,虽然实现了但还是用他们的，学习学习
+.moon-menu,.moon-menu-items,.moon-menu-item,.fas fa-chevron-up,.moon-menu-button,.moon-menu-bg,.moon-menu-content,.moon-menu-icon,.fas fa-ellipsis-v,.moon-menu-text {
+  right: auto !important; // 取消原来的右侧定位 
+  left: 20px !important;  // 设置距离左侧20像素 
+  bottom: 20px !important; // 保持距离底部20像素 
+}*/
+/*导航插件样式*/
+.moon-menu-item {
+  left: 0.4em !important;
+}
+.moon-menu {
+  --moon-cricle: #282828 !important;
+  --moon-item-bg-color: #282828 !important;
+}
+.moon-menu-icon {
+  font-size: 1.7em !important;
+  line-height: 2.1em !important;
+}
 .moon-menu-text {
-  right: auto !important; /* 取消原来的右侧定位 */
-  left: 20px !important; /* 设置距离左侧20像素 */
-  bottom: 20px !important; /* 保持距离底部20像素 */
+  font-size: 1em !important;
+  line-height: 3.5em !important;
+}
+/*控制着moon-menu整个插件的定位*/
+.moon-menu,
+.moon-menu-bg,
+.moon-menu-content {
+  left: 27px !important;
+  bottom: 120px !important;
+  width: 3.5em !important;
+  height: 3.5em !important;
+}
+/*暗黑模式样式*/
+.darkmode--activated .tipue_search_content_text {
+  color: #fff;
+}
+.darkmode--activated .tipue_search_content_title a {
+  color: #fff;
+}
+.darkmode--activated .v[data-class='v'] code {
+  color: #ccc;
+  background-color: #282c34;
+}
+.darkmode--activated .admonition {
+  text-color: #ccc;
+  background-color: #333;
+}
+.darkmode--activated blockquote {
+  text-color: #ccc;
+  background-color: #333;
+}
+.darkmode--activated .moon-menu {
+  --moon-cricle: #fff !important;
+  --moon-item-bg-color: #fff !important;
+}
+.darkmode--activated .moon-menu-icon,
+.darkmode--activated .moon-menu-item,
+.darkmode--activated .moon-menu-text {
+  color: #000;
+}
+/*自定义博文内链接颜色*/
+.post-body p a {
+  color: #ba2f7b;
+  border-bottom: none;
+}
+.post-body p a:hover {
+  color: #815c94;
+  text-decoration: underline;
 }
