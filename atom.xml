@@ -6,7 +6,7 @@
   <link href="https://frosh.dpdns.org/atom.xml" rel="self"/>
   
   <link href="https://frosh.dpdns.org/"/>
-  <updated>2026-01-27T04:24:08.758Z</updated>
+  <updated>2026-01-28T08:24:12.878Z</updated>
   <id>https://frosh.dpdns.org/</id>
   
   <author>
@@ -17,9 +17,36 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>next自定义样式</title>
+    <link href="https://frosh.dpdns.org/posts/abbrlink.html"/>
+    <id>https://frosh.dpdns.org/posts/abbrlink.html</id>
+    <published>2026-01-27T08:16:30.000Z</published>
+    <updated>2026-01-28T08:24:12.878Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;通过学习他人的自定义配置，逐渐学会自定义配置的操作，未来你也可以自定义你的博客。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;在配置过程中，如果你发现你没有这个文件，大概率是需要你在指定位置创建文件。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="个人博客" scheme="https://frosh.dpdns.org/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="next" scheme="https://frosh.dpdns.org/tags/next/"/>
+    
+    <category term="css" scheme="https://frosh.dpdns.org/tags/css/"/>
+    
+  </entry>
+  
+  <entry>
     <title>图片</title>
-    <link href="https://frosh.dpdns.org/posts/20260124cuid4Zo4SfMliJQecTeESaJos.html"/>
-    <id>https://frosh.dpdns.org/posts/20260124cuid4Zo4SfMliJQecTeESaJos.html</id>
+    <link href="https://frosh.dpdns.org/posts/abbrlink.html"/>
+    <id>https://frosh.dpdns.org/posts/abbrlink.html</id>
     <published>2026-01-24T14:46:32.000Z</published>
     <updated>2026-01-27T04:24:08.758Z</updated>
     
@@ -40,10 +67,10 @@
   
   <entry>
     <title>Hexo博客优化</title>
-    <link href="https://frosh.dpdns.org/posts/20260121cuidVML5nt7ozmoAzemF_Rcez.html"/>
-    <id>https://frosh.dpdns.org/posts/20260121cuidVML5nt7ozmoAzemF_Rcez.html</id>
+    <link href="https://frosh.dpdns.org/posts/abbrlink.html"/>
+    <id>https://frosh.dpdns.org/posts/abbrlink.html</id>
     <published>2026-01-21T15:29:53.000Z</published>
-    <updated>2026-01-27T17:18:58.865Z</updated>
+    <updated>2026-01-28T03:27:13.740Z</updated>
     
     
     <summary type="html">&lt;hr&gt;
@@ -63,8 +90,8 @@
   
   <entry>
     <title>Hexo个人博客搭建</title>
-    <link href="https://frosh.dpdns.org/posts/20260121cuid1dqBdHnV5ZKs7TxbMmCG2.html"/>
-    <id>https://frosh.dpdns.org/posts/20260121cuid1dqBdHnV5ZKs7TxbMmCG2.html</id>
+    <link href="https://frosh.dpdns.org/posts/abbrlink.html"/>
+    <id>https://frosh.dpdns.org/posts/abbrlink.html</id>
     <published>2026-01-21T15:29:40.000Z</published>
     <updated>2026-01-25T12:03:28.741Z</updated>
     
@@ -86,8 +113,8 @@
   
   <entry>
     <title>CND加速</title>
-    <link href="https://frosh.dpdns.org/posts/20260121cuidGuPYqsscajms9lOss9N8r.html"/>
-    <id>https://frosh.dpdns.org/posts/20260121cuidGuPYqsscajms9lOss9N8r.html</id>
+    <link href="https://frosh.dpdns.org/posts/abbrlink.html"/>
+    <id>https://frosh.dpdns.org/posts/abbrlink.html</id>
     <published>2026-01-21T15:29:02.000Z</published>
     <updated>2026-01-25T12:04:32.074Z</updated>
     

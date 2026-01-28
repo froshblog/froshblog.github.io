@@ -1,40 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>CND加速</title>
-    <url>/posts/20260121cuidGuPYqsscajms9lOss9N8r.html</url>
-    <content><![CDATA[<hr>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
-<p>CDN，全称<strong>内容分发网路（Content Delivery Network）</strong>，是一种通过在现有互联网基础上构建的、由遍布全球的分布式节点服务器组成的智能虚拟网络，目的是使用户能够就近、快速、可靠地获取所需内容。</p>
-</blockquote>
-<span id="more"></span>
-
-<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p><strong>加速网站的访问速度</strong><br>因距离近而访问速度提升；CDN服务器会将文件最小化或压缩文档，传输内容变小而速度提升；CDN服务器的硬件和软件好。</p>
-<p><strong>提高网站的安全性</strong><br>没有使用CDN加速服务时，用户都是通过源服务器IP获取内容，暴露了源站的IP，而通过CDN时，用户是从CDN中获取内容，<em>隐藏了源服务器IP</em>，从而减小了源服务器的DDos等攻击的可能性</p>
-<p><strong>减少源站的带宽</strong><br>大部分网站是由主机商托管的，网站主需要向主机商支付费用，其中网路带宽费是其中一项费用。因为使用CDN，就近服务用户，减少了用户到源服务器之间带宽的占用和使用</p>
-<h2 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h2><p><strong>第一步：智能调度</strong><br>当用户输入网址，CDN的<strong>智能DNS系统</strong>会根据用户IP等信息，计算出最优边缘节点IP并返回<br><strong>第二步：边缘判读</strong><br>用户浏览器直接向该边缘节点请求内容。<br><strong>第三步：缓存判断</strong><br>节点煎炒是否缓存：</p>
-<ul>
-<li>有缓存：立即将内容返回给用户，速度最快</li>
-<li>无缓冲：节点向源站请求资源，缓存到本地后再返回用户</li>
-</ul>
-<h2 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a>核心原理</h2><p>在用户与源服务器之间，添加数个服务器（各地）作为<strong>边缘节点</strong>，边缘节点就近服务用户返回用户内容，及通过就近获取资源加速访问速率，同时因用户是访问边缘节点ip获取的内容，这样可以隐藏源服务器ip，减少对源服务器的DDos等攻击的可能性。</p>
-<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><h3 id="缓存内容"><a href="#缓存内容" class="headerlink" title="缓存内容"></a>缓存内容</h3><p>我们访问边缘节点获取内容，那么边缘节点就应该有源服务器的内容。缓存内容是静态内容还是动态内容？<br>边缘节点提前缓存的内容为静态内容，动态内容是根据用户操作或时间而改变，源服务器无法提前预测结果，备份给边缘节点<br>用户访问静态内容，CDN边缘节点提前备份源服务器的静态内容(push)，有人访问就直接从边缘节点获取；CDN未备份源服务器内容就需要CDN先从源服务器获取(pull)，再进行备份，然后给用户静态内容</p>
-<h3 id="动态内容加速"><a href="#动态内容加速" class="headerlink" title="动态内容加速"></a>动态内容加速</h3><p>用户访问动态内容，用户访问时边缘节点再从源服务器索取，然后返回用户，这样CDN不能提供多少加速服务，CDN也就没意义了。对于动态内容CDN如何进行加速？<br>CDN边缘节点提供可以运行在CDN边缘节点上的接口，让源服务器用边缘节点接口，而不是源服务器自己的代码，这样用户就可以直接从边缘节点上获取内容，而不是从源服务器上获取</p>
-<h3 id="CDN流量承受"><a href="#CDN流量承受" class="headerlink" title="CDN流量承受"></a>CDN流量承受</h3><h4 id="网络攻击防护"><a href="#网络攻击防护" class="headerlink" title="网络攻击防护"></a>网络攻击防护</h4><p>因其工作流程，让用户与源服务器之间多了一道墙，用户必须通过访问CDN边缘节点沟通，这样不用担心恶意DDos攻击。CDN虽然减小了源服务器的DDos等的攻击，但攻击对象变成了CDN边缘节点，这样它能承受吗？<br>布局多个CDN边缘节点，然后监管这些CDN服务器的负载情况，若有一个超载了，就将用户的请求转移到没有超载的CDN服务器那边，为了就是平均分配网络流量，即<strong>负载均衡</strong></p>
-<h4 id="流量转移"><a href="#流量转移" class="headerlink" title="流量转移"></a>流量转移</h4><p><strong>CDN如何转移流量的？</strong><br>方法和DNS域名解析里根服务器的做法有着异曲同工之妙，就是才采用任播的技术。<br>用任播通信方式后，服务器对外都有一个同样的IP地址， 如果这个IP地址收到用户的请求后，请求就会由距离用户最近的服务器来响应，同样的道理，不管你的攻击来的多猛烈，利用任播的技术把流量转移到另外没超载的服务器就可以缓解了</p>
-<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><a href="https://www.bilibili.com/video/BV1jS4y197zi/?share_source=copy_web&vd_source=4358eac15abdea87e60e9e500f1898e4">什么是CDN？CDN能为我们做什么？我们为什么要了解他？</a></p>
-<p><a href="https://cloud.tencent.com/developer/article/1779335">开发者社区-什么是CDN？</a></p>
-]]></content>
-      <categories>
-        <category>个人笔记</category>
-      </categories>
-      <tags>
-        <tag>CDN</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo博客优化</title>
-    <url>/posts/20260121cuidVML5nt7ozmoAzemF_Rcez.html</url>
+    <url>/posts/abbrlink.html</url>
     <content><![CDATA[<hr>
 <h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>2026年1月24日<br>添加了Giscus评论模块<br>图片懒加载插件</p>
 <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这是关于Hexo博客的优化文章，收录了一些常用的插件和设置，自己按需设置即可，附录部分是与之相关的文章，都是很好的文章。</p>
@@ -188,7 +156,7 @@
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">giscus:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">repo:</span>   <span class="comment"># Github repository name;你的 GitHub 仓库，格式：用户名/仓库名</span></span><br><span class="line">  <span class="attr">repo_id:</span>  <span class="comment"># Github repository id; 从 giscus.app 获取的仓库ID</span></span><br><span class="line">  <span class="attr">category:</span> <span class="string">Announcements</span> <span class="comment"># Github discussion category;分类名</span></span><br><span class="line">  <span class="attr">category_id:</span>  <span class="comment"># Github discussion category id;从 giscus.app 获取的分类ID</span></span><br><span class="line">  <span class="comment"># Available values: pathname | url | title | og:title</span></span><br><span class="line">  <span class="attr">mapping:</span> <span class="string">title</span> <span class="comment"># 页面与Discussion的映射关系，推荐pathname或title</span></span><br><span class="line">  <span class="attr">strict:</span> <span class="number">0</span></span><br><span class="line">  <span class="comment"># Available values: 0 | 1</span></span><br><span class="line">  <span class="attr">reactions_enabled:</span> <span class="number">1</span> <span class="comment"># 是否开启表情反应</span></span><br><span class="line">   <span class="comment"># Available values: 0 | 1</span></span><br><span class="line">  <span class="attr">emit_metadata:</span> <span class="number">0</span></span><br><span class="line">  <span class="attr">input_position:</span> <span class="string">top</span> <span class="comment">#另加; 评论输入框位置：top 或 bottom</span></span><br><span class="line">  <span class="comment"># Available values: light | dark | dark_high_contrast | transparent_dark | preferred-color-scheme</span></span><br><span class="line">  <span class="attr">theme:</span> <span class="string">preferred_color_scheme</span> <span class="comment">#light ;主题，可设为 light, dark, preferred_color_scheme 等</span></span><br><span class="line">  <span class="comment"># Available values: en | zh-C</span></span><br><span class="line">  <span class="attr">lang:</span> <span class="string">zh-CN</span>  <span class="comment"># 界面语言</span></span><br><span class="line">  <span class="attr">loading:</span> <span class="string">lazy</span> <span class="comment"># 另加 懒加载</span></span><br><span class="line">  <span class="comment"># Available value: anonymous</span></span><br><span class="line">  <span class="attr">crossorigin:</span> <span class="string">anonymous</span></span><br></pre></td></tr></table></figure>
 <p>上面的值按照得到的的添加就行。</p>
 <p><strong>第三步：在主题配置文件中添加Giscus 配置</strong><br>在主题配置文件中的comments部分，添加Giscus 配置，即第二部的yaml代码，不能留空哦。</p>
-<h3 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h3><p>博客页面：<br><img src="/posts/20260121cuidVML5nt7ozmoAzemF_Rcez/%7BD78D1E34-6764-48D2-AA50-D13BF241D8D5%7D.png"><br>仓库里的内容：<br><img src="/posts/20260121cuidVML5nt7ozmoAzemF_Rcez/%7BFCFD4B0C-B609-4CD3-89B3-B0A887435C00%7D.png"></p>
+<h3 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h3><p>博客页面：<br><img src="/posts/abbrlink/%7BD78D1E34-6764-48D2-AA50-D13BF241D8D5%7D.png"><br>仓库里的内容：<br><img src="/posts/abbrlink/%7BFCFD4B0C-B609-4CD3-89B3-B0A887435C00%7D.png"></p>
 <h3 id="页面取消评论区"><a href="#页面取消评论区" class="headerlink" title="页面取消评论区"></a>页面取消评论区</h3><p>上述设置完成后，各个页面都会显示评论区。而我们希望它不要子在一些网页显示评论区，如：标签页。而解决的方法就是在页面文件的<strong>Front-matter</strong> 部分（即开头以 <code>---</code> 包裹的区域）添加comments: false&#96;配置项。<br>示例：取消标签页面的评论区</p>
 <ol>
 <li>定位文件：博客目录&#x2F;source&#x2F;tags&#x2F;index.md</li>
@@ -220,7 +188,7 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-feed</span><br></pre></td></tr></table></figure>
 
 <p>在<code>博客配置文件_config.yml</code>末尾添加以下内容</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line">  <span class="comment"># feed  RSS订阅配置</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/hexojs/hexo-generator-feed</span></span><br><span class="line"><span class="attr">feed:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">atom</span> <span class="comment"># 或 rss2</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">atom.xml</span> <span class="comment"># 输出的文件路径</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">20</span> <span class="comment"># 最多包含的文章数，设为 0 或 false 表示全部</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">false</span> <span class="comment"># 是否包含文章全文，建议设为 false，仅输出摘要</span></span><br><span class="line"></span><br><span class="line"><span class="attr">feed:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">atom</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">atom.xml</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">20</span></span><br><span class="line">  <span class="attr">hub:</span></span><br><span class="line">  <span class="attr">content:</span></span><br><span class="line">  <span class="attr">content_limit:</span> <span class="number">140</span></span><br><span class="line">  <span class="attr">content_limit_delim:</span> <span class="string">&#x27; &#x27;</span></span><br><span class="line">  <span class="attr">order_by:</span> <span class="string">-date</span></span><br><span class="line">  <span class="attr">icon:</span> <span class="string">icon.png</span></span><br><span class="line">  <span class="attr">autodiscovery:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">template:</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line">  <span class="comment"># feed  RSS订阅配置</span></span><br><span class="line"><span class="comment"># Dependencies: https://github.com/hexojs/hexo-generator-feed</span></span><br><span class="line"><span class="attr">feed:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">atom</span> <span class="comment"># 或 rss2</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">atom.xml</span> <span class="comment"># 输出的文件路径</span></span><br><span class="line">  <span class="attr">limit:</span> <span class="number">20</span> <span class="comment"># 最多包含的文章数，设为 0 或 false 表示全部</span></span><br><span class="line">  <span class="attr">content:</span> <span class="literal">false</span> <span class="comment"># 是否包含文章全文，建议设为 false，仅输出摘要</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>编辑<code>主题配置文件_config.yml</code></p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">follow_me:</span></span><br><span class="line">  <span class="attr">RSS:</span> <span class="string">/atom.xml</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-rss</span></span><br></pre></td></tr></table></figure>
@@ -263,8 +231,191 @@
       </tags>
   </entry>
   <entry>
+    <title>next自定义样式</title>
+    <url>/posts/abbrlink.html</url>
+    <content><![CDATA[<hr>
+<blockquote>
+<p>通过学习他人的自定义配置，逐渐学会自定义配置的操作，未来你也可以自定义你的博客。</p>
+</blockquote>
+<blockquote>
+<p>在配置过程中，如果你发现你没有这个文件，大概率是需要你在指定位置创建文件。</p>
+</blockquote>
+<span id="more"></span>
+
+<blockquote>
+<p>主要信息：</p>
+<ul>
+<li>Hexo version：8.1.1，NEXT version：8.27.0，分别通过博客目录和主题目录的package.json查看；</li>
+<li><mark>博客配置文件</mark>指的是博客根目录下的<code>_config.yml</code>文件：<code>博客目录\_config.yml</code>；</li>
+<li><mark>主题配置文件</mark>指的是主题文件夹下的<code>_config.yml</code>文件：<code>博客目录\themes/next/_config.yml</code>；</li>
+<li>书写规范：yaml语言规定“:“后面必须空格后写内容；</li>
+<li>预览效果：分别执行<mark>hexo cl</mark> ，<mark>hexo g</mark>，<mark>hexo s</mark>命令实现本地预览。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>自定义样式文件应该放在博客根目录下的 <code>source</code> 文件夹里，而不是主题的 <code>source</code> 文件夹里<br>注意：根据Next主题v8.x的常见配置，自定义样式文件的默认位置通常是<code>source/_data/styles.styl</code>，而不是 <code>source/css/_custom/custom.styl</code></p>
+</blockquote>
+<h2 id="自定义-permalink-属性"><a href="#自定义-permalink-属性" class="headerlink" title="自定义 permalink 属性"></a>自定义 permalink 属性</h2><h3 id="Hexo自带"><a href="#Hexo自带" class="headerlink" title="Hexo自带"></a>Hexo自带</h3><p>1.在博客配置文件找到 permalink，设置如下：  </p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/:year:month:day:id.html</span></span><br></pre></td></tr></table></figure>
+<p>2.在 md 文件里给文章添加一个 id 属性以区分同一天发表的文章：</p>
+<figure class="highlight markdown"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: </span><br><span class="line">date: </span><br><span class="line">id: a1</span><br><span class="line"><span class="section">tags: </span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-hexo-abbrlink-插件"><a href="#使用-hexo-abbrlink-插件" class="headerlink" title="使用 hexo-abbrlink 插件"></a>使用 hexo-abbrlink 插件</h3><ol>
+<li>插件下载：</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="string">npm</span> <span class="string">install</span> <span class="string">hexo-abbrlink</span> <span class="string">--save</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>在博客配置文件找到 permalink，设置如下：</li>
+</ol>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">permalink:</span> <span class="string">posts/abbrlink.html</span></span><br><span class="line"><span class="attr">abbrlink:</span></span><br><span class="line">  <span class="attr">alg:</span> <span class="string">crc32</span> <span class="comment"># 算法 crc16(defualt) and crc32</span></span><br><span class="line">  <span class="attr">rep:</span> <span class="string">hex</span>   <span class="comment"># 进制 dec(default) and hex</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="更改文章底部标签图标"><a href="#更改文章底部标签图标" class="headerlink" title="更改文章底部标签图标"></a>更改文章底部标签图标</h2><p>修改主题配置文件的 tag_icon：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">tag_icon:</span> <span class="string">fa-tags</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="文章页末尾标签居中"><a href="#文章页末尾标签居中" class="headerlink" title="文章页末尾标签居中"></a>文章页末尾标签居中</h2><p>Next主题的Mist样式的布局整体都是左对齐，想要文章页标签居中，需要修改css。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 控制文章页末尾的标签容器居中 */</span></span><br><span class="line"><span class="selector-class">.post-tags</span> &#123;</span><br><span class="line">  <span class="attribute">text-align</span>: center <span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 确保标签链接本身在容器内居中显示 */</span></span><br><span class="line"><span class="selector-class">.post-tags</span> <span class="selector-tag">a</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: inline-block;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">4px</span> <span class="number">6px</span>; <span class="comment">/* 上下、左右间距，可调整 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 如果标签容器是Flex布局，则用此方法（更常见） */</span></span><br><span class="line"><span class="selector-class">.post-tags</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: flex <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">justify-content</span>: center <span class="meta">!important</span>;</span><br><span class="line">  <span class="attribute">flex-wrap</span>: wrap; <span class="comment">/* 允许标签换行 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="文章添加版权说明-没做yo"><a href="#文章添加版权说明-没做yo" class="headerlink" title="文章添加版权说明 没做yo"></a>文章添加版权说明 没做yo</h2><p>在主题配置文件中找到 creative_commons 进行修改：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">creative_commons:</span></span><br><span class="line">  <span class="attr">license:</span> <span class="string">by-nc-sa</span></span><br><span class="line">  <span class="attr">sidebar:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">post:</span> <span class="literal">true</span>  		<span class="comment"># 将false改为true即可显示版权信息</span></span><br><span class="line">  <span class="attr">language:</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="文章版权样式自定义"><a href="#文章版权样式自定义" class="headerlink" title="文章版权样式自定义"></a>文章版权样式自定义</h2><p>1.在目录 root&#x2F;themes&#x2F;next&#x2F;layout&#x2F;_macro&#x2F; 下添加 my-copyright.njk，内容如下：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&#123;% if <span class="attribute">page</span><span class="selector-class">.copyright</span> %&#125;</span><br><span class="line">&lt;<span class="selector-tag">div</span> class=&quot;my_post_copyright&quot;&gt;</span><br><span class="line">  &lt;script <span class="attribute">src</span>=&quot;//cdn<span class="selector-class">.bootcss</span><span class="selector-class">.com</span>/clipboard<span class="selector-class">.js</span>/<span class="number">1.5</span>.<span class="number">10</span>/clipboard<span class="selector-class">.min</span><span class="selector-class">.js</span>&quot;&gt;&lt;/script&gt;</span><br><span class="line">  </span><br><span class="line">  &lt;!-- JS库 sweetalert 可修改路径 --&gt;</span><br><span class="line">  &lt;script type=&quot;<span class="selector-tag">text</span>/javascript&quot; <span class="attribute">src</span>=&quot;http://jslibs.wuxubj.cn/sweetalert_mini/jquery-<span class="number">1.7</span>.<span class="number">1</span>.min.js<span class="string">&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">  &lt;script src=&quot;</span>http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js<span class="string">&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">  &lt;link rel=&quot;</span>stylesheet<span class="string">&quot; type=&quot;</span>text/css<span class="string">&quot; href=&quot;</span>http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css<span class="string">&quot;&gt;</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">  &lt;p&gt;&lt;span&gt;本文标题:&lt;/span&gt;&#123;&#123; page.title &#125;&#125;&lt;/a&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string">  &lt;p&gt;&lt;span&gt;文章作者:&lt;/span&gt;&#123;&#123; author &#125;&#125;&lt;/a&gt;&lt;/p&gt;</span></span><br><span class="line"><span class="string">  &lt;p&gt;&lt;span&gt;发布时间:&lt;/span&gt;&#123;&#123; page.date.format(&quot;</span>YYYY年MM月DD日 - HH:mm:ss<span class="string">&quot;) &#125;&#125;&lt;/p&gt;</span></span><br><span class="line"><span class="string">  &lt;p&gt;&lt;span&gt;最后更新:&lt;/span&gt;&#123;&#123; page.updated.format(&quot;</span>YYYY年MM月DD日 - HH:mm:ss<span class="string">&quot;) &#125;&#125;&lt;/p&gt;</span></span><br><span class="line"><span class="string">  &lt;p&gt;&lt;span&gt;原始链接:&lt;/span&gt;&lt;a href=&quot;</span>&#123;&#123; url_for(<span class="attribute">page</span><span class="selector-class">.path</span>) &#125;&#125;&quot; title=&quot;&#123;&#123; <span class="attribute">page</span><span class="selector-class">.title</span> &#125;&#125;&quot;&gt;&#123;&#123; <span class="attribute">page</span><span class="selector-class">.permalink</span> &#125;&#125;&lt;/<span class="selector-tag">a</span>&gt;</span><br><span class="line">    &lt;<span class="selector-tag">span</span> class=&quot;copy-<span class="selector-tag">path</span>&quot;  title=&quot;点击复制文章链接&quot;&gt;&lt;<span class="selector-tag">i</span> class=&quot;fa fa-clipboard&quot; data-clipboard-<span class="selector-tag">text</span>=&quot;&#123;&#123; <span class="attribute">page</span><span class="selector-class">.permalink</span> &#125;&#125;&quot;  aria-<span class="selector-tag">label</span>=&quot;复制成功！&quot;&gt;&lt;/<span class="selector-tag">i</span>&gt;&lt;/<span class="selector-tag">span</span>&gt;</span><br><span class="line">  &lt;/<span class="selector-tag">p</span>&gt;</span><br><span class="line">  &lt;<span class="selector-tag">p</span>&gt;&lt;<span class="selector-tag">span</span>&gt;许可协议:&lt;/span&gt;&lt;i class=<span class="string">&quot;fa fa-creative-commons&quot;</span>&gt;&lt;/i&gt; &lt;a rel=<span class="string">&quot;license&quot;</span> href=<span class="string">&quot;https://creativecommons.org/licenses/by-nc-nd/4.0/&quot;</span> target=<span class="string">&quot;_blank&quot;</span> title=<span class="string">&quot;Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)&quot;</span>&gt;署名-非商业性使用-禁止演绎 <span class="number">4.0</span> 国际&lt;/a&gt; 转载请保留原文链接及作者。&lt;/p&gt;  </span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;script&gt; </span><br><span class="line">    var clipboard = new <span class="built_in">Clipboard</span>(<span class="string">&#x27;.fa-clipboard&#x27;</span>);</span><br><span class="line">    clipboard<span class="selector-class">.on</span>(&#x27;success&#x27;, $(function()&#123;</span><br><span class="line">      $(&quot;<span class="selector-class">.fa-clipboard</span>&quot;)<span class="selector-class">.click</span>(function()&#123;</span><br><span class="line">        swal(&#123;   </span><br><span class="line">          title: <span class="string">&quot;&quot;</span>,   </span><br><span class="line">          text: <span class="string">&#x27;复制成功&#x27;</span>,   </span><br><span class="line">          html: false,</span><br><span class="line">          timer: <span class="number">500</span>,   </span><br><span class="line">          showConfirmButton: false</span><br><span class="line">        &#125;);</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;));  </span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="修改首页分页文章数"><a href="#修改首页分页文章数" class="headerlink" title="修改首页分页文章数"></a>修改首页分页文章数</h2><p>在站点配置文件中找到 index_generator，修改 per_page 项：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">index_generator:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="number">5</span></span><br><span class="line">  <span class="attr">order_by:</span> <span class="string">-date</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="关闭首页“阅读更多”按钮"><a href="#关闭首页“阅读更多”按钮" class="headerlink" title="关闭首页“阅读更多”按钮"></a>关闭首页“阅读更多”按钮</h2><p>在主题配置文件中找到 read_more_btn，修改其值为 false，即可关闭。</p>
+<h2 id="设置建站时间和网站运行时间"><a href="#设置建站时间和网站运行时间" class="headerlink" title="设置建站时间和网站运行时间"></a>设置建站时间和网站运行时间</h2><h3 id="设置建站时间"><a href="#设置建站时间" class="headerlink" title="设置建站时间"></a>设置建站时间</h3><p>打开主题配置文件，在 since 后添加建站时间：</p>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="attr">footer:</span></span><br><span class="line">  <span class="comment"># Specify the year when the site was setup. If not defined, current year will be used.</span></span><br><span class="line">  <span class="attr">since:</span> <span class="number">2026-01-14</span>	<span class="comment">#建站时间</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="页脚添加网站运行时间"><a href="#页脚添加网站运行时间" class="headerlink" title="页脚添加网站运行时间"></a>页脚添加网站运行时间</h3><p>将下面代码添加到 root&#x2F;themes&#x2F;next&#x2F;layout&#x2F;_partials&#x2F;footer.njk 文件的合适位置，修改<code>var t1 = Date.UTC(2021,08,11,00,00,00);</code>为自己的建站时间。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">&lt;<span class="selector-tag">span</span> id=&quot;sitetime&quot;&gt;&lt;/<span class="selector-tag">span</span>&gt;</span><br><span class="line">&lt;script language=javascript&gt;</span><br><span class="line">	function siteTime()&#123;</span><br><span class="line">		window<span class="selector-class">.setTimeout</span>(&quot;siteTime()&quot;, <span class="number">1000</span>);</span><br><span class="line">		<span class="selector-tag">var</span> seconds = <span class="number">1000</span>;</span><br><span class="line">		<span class="selector-tag">var</span> minutes = seconds * <span class="number">60</span>;</span><br><span class="line">		<span class="selector-tag">var</span> hours = minutes * <span class="number">60</span>;</span><br><span class="line">		<span class="selector-tag">var</span> days = hours * <span class="number">24</span>;</span><br><span class="line">		<span class="selector-tag">var</span> years = days * <span class="number">365</span>;</span><br><span class="line">		<span class="selector-tag">var</span> today = new Date();</span><br><span class="line">		<span class="selector-tag">var</span> todayYear = today<span class="selector-class">.getFullYear</span>();</span><br><span class="line">		<span class="selector-tag">var</span> todayMonth = today<span class="selector-class">.getMonth</span>()+<span class="number">1</span>;</span><br><span class="line">		<span class="selector-tag">var</span> todayDate = today<span class="selector-class">.getDate</span>();</span><br><span class="line">		<span class="selector-tag">var</span> todayHour = today<span class="selector-class">.getHours</span>();</span><br><span class="line">		<span class="selector-tag">var</span> todayMinute = today<span class="selector-class">.getMinutes</span>();</span><br><span class="line">		<span class="selector-tag">var</span> todaySecond = today<span class="selector-class">.getSeconds</span>();</span><br><span class="line">		<span class="comment">/* </span></span><br><span class="line"><span class="comment">		Date.UTC() -- 返回date对象距世界标准时间(UTC)1970年1月1日午夜之间的毫秒数(时间戳)</span></span><br><span class="line"><span class="comment">		year - 作为date对象的年份，为4位年份值</span></span><br><span class="line"><span class="comment">		month - 0-11之间的整数，做为date对象的月份</span></span><br><span class="line"><span class="comment">		day - 1-31之间的整数，做为date对象的天数</span></span><br><span class="line"><span class="comment">		hours - 0(午夜24点)-23之间的整数，做为date对象的小时数</span></span><br><span class="line"><span class="comment">		minutes - 0-59之间的整数，做为date对象的分钟数</span></span><br><span class="line"><span class="comment">		seconds - 0-59之间的整数，做为date对象的秒数</span></span><br><span class="line"><span class="comment">		microseconds - 0-999之间的整数，做为date对象的毫秒数</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">		<span class="selector-tag">var</span> t1 = Date<span class="selector-class">.UTC</span>(<span class="number">2021</span>,<span class="number">08</span>,<span class="number">11</span>,<span class="number">00</span>,<span class="number">00</span>,<span class="number">00</span>); //北京时间<span class="number">2021</span>-<span class="number">8</span>-<span class="number">11</span> <span class="number">00</span>:<span class="number">00</span>:<span class="number">00</span></span><br><span class="line">		var t2 = Date.<span class="built_in">UTC</span>(todayYear,todayMonth,todayDate,todayHour,todayMinute,todaySecond);</span><br><span class="line">		<span class="selector-tag">var</span> diff = t2-t1;</span><br><span class="line">		<span class="selector-tag">var</span> diffYears = Math<span class="selector-class">.floor</span>(diff/years);</span><br><span class="line">		<span class="selector-tag">var</span> diffDays = Math<span class="selector-class">.floor</span>((diff/days)-diffYears*<span class="number">365</span>);</span><br><span class="line">		<span class="selector-tag">var</span> diffHours = Math<span class="selector-class">.floor</span>((diff-(diffYears*<span class="number">365</span>+diffDays)*days)/hours);</span><br><span class="line">		<span class="selector-tag">var</span> diffMinutes = Math<span class="selector-class">.floor</span>((diff-(diffYears*<span class="number">365</span>+diffDays)*days-diffHours*hours)/minutes);</span><br><span class="line">		<span class="selector-tag">var</span> diffSeconds = Math<span class="selector-class">.floor</span>((diff-(diffYears*<span class="number">365</span>+diffDays)*days-diffHours*hours-diffMinutes*minutes)/seconds);</span><br><span class="line">		document<span class="selector-class">.getElementById</span>(&quot;sitetime&quot;)<span class="selector-class">.innerHTML</span>=&quot; 本站已悄悄运行&quot;+<span class="comment">/*diffYears+&quot; 年 &quot;+*/</span>diffDays+&quot; 天 &quot;+diffHours+&quot; 小时 &quot;+diffMinutes+&quot; 分钟 &quot;+diffSeconds+&quot; 秒&quot;;</span><br><span class="line">	&#125;</span><br><span class="line">	siteTime();</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>deep<br><strong>第一步：创建运行时间计算脚本</strong><br>在你的Hexo博客的 <code>source/js/</code> 目录下（如果没有就新建），创建一个名为 <code>site_runtime.js</code> 的文件，并填入以下内容：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 请将这里的日期修改为你博客的创建日期（年, 月-1, 日, 时, 分, 秒）</span></span><br><span class="line"><span class="comment">// 例如：如果你的博客在 2023年10月1日 08:00:00 上线，则写 (2023, 9, 1, 8, 0, 0)</span></span><br><span class="line"><span class="comment">// 注意：JavaScript中月份从0开始计数（0=一月，9=十月）</span></span><br><span class="line"><span class="keyword">var</span> create_time = <span class="keyword">new</span> <span class="title class_">Date</span>(<span class="number">2023</span>, <span class="number">9</span>, <span class="number">1</span>, <span class="number">8</span>, <span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">updateRuntime</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> now = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">    <span class="keyword">var</span> diff = now.<span class="title function_">getTime</span>() - create_time.<span class="title function_">getTime</span>();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 计算天数、小时、分钟和秒</span></span><br><span class="line">    <span class="keyword">var</span> days = <span class="title class_">Math</span>.<span class="title function_">floor</span>(diff / (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>));</span><br><span class="line">    <span class="keyword">var</span> hours = <span class="title class_">Math</span>.<span class="title function_">floor</span>((diff % (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span>)) / (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span>));</span><br><span class="line">    <span class="keyword">var</span> minutes = <span class="title class_">Math</span>.<span class="title function_">floor</span>((diff % (<span class="number">1000</span> * <span class="number">60</span> * <span class="number">60</span>)) / (<span class="number">1000</span> * <span class="number">60</span>));</span><br><span class="line">    <span class="keyword">var</span> seconds = <span class="title class_">Math</span>.<span class="title function_">floor</span>((diff % (<span class="number">1000</span> * <span class="number">60</span>)) / <span class="number">1000</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构建显示字符串，你可以自定义这里的格式</span></span><br><span class="line">    <span class="keyword">var</span> runtimeStr = <span class="string">&quot;🏃 本站已运行: &quot;</span> + days + <span class="string">&quot; 天 &quot;</span> + hours + <span class="string">&quot; 时 &quot;</span> + minutes + <span class="string">&quot; 分 &quot;</span> + seconds + <span class="string">&quot; 秒&quot;</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 找到显示运行时间的元素并更新内容</span></span><br><span class="line">    <span class="keyword">var</span> runtimeElement = <span class="variable language_">document</span>.<span class="title function_">getElementById</span>(<span class="string">&#x27;site-runtime&#x27;</span>);</span><br><span class="line">    <span class="keyword">if</span> (runtimeElement) &#123;</span><br><span class="line">        runtimeElement.<span class="property">innerHTML</span> = runtimeStr;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 页面加载后立即执行一次，然后每秒更新一次</span></span><br><span class="line"><span class="variable language_">window</span>.<span class="property">onload</span> = <span class="keyword">function</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title function_">updateRuntime</span>();</span><br><span class="line">    <span class="built_in">setInterval</span>(updateRuntime, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>第二步：在页脚模板中添加显示容器</strong><br>你需要编辑Next主题的页脚模板文件，位置通常在 <code>themes/next/layout/_partials/footer.njk</code>（也可能是 <code>.swig</code> 文件）。</p>
+<ol>
+<li><p>找到合适的位置（例如，在 <code>&#123;% if theme.footer.copyright %&#125;</code> 区块附近）。</p>
+</li>
+<li><p>插入以下代码来调用脚本并创建显示容器：</p>
+</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">&lt;!-- 网站运行时间显示 --&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">&quot;text/javascript&quot;</span> <span class="attr">src</span>=<span class="string">&quot;/js/site_runtime.js&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;site-runtime&quot;</span> <span class="attr">style</span>=<span class="string">&quot;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    margin: 10px 0;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    font-size: 0.9em;</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    color: inherit; /* 继承页脚颜色以适配主题 */</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">    text-align: center; /* 如果你页脚内容居中 */</span></span></span></span><br><span class="line"><span class="string"><span class="tag"><span class="language-xml">&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h1 id="29-侧边栏推荐阅读"><a href="#29-侧边栏推荐阅读" class="headerlink" title="29. 侧边栏推荐阅读"></a>29. 侧边栏推荐阅读</h1><p>今天有位网友问推荐阅读是怎么弄，其实挺简单的，打开主题配置文件修改成这样就行了(links里面写你想要的链接):</p>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td># Blogrolls<br><br>links_title: 推荐阅读<br><br>#links_layout: block<br><br>links_layout: inline<br><br>links:<br><br>  优设: <a href="http://www.uisdc.com/">http://www.uisdc.com/</a><br><br>  张鑫旭: <a href="http://www.zhangxinxu.com/">http://www.zhangxinxu.com/</a><br><br>  Web前端导航: <a href="http://www.alloyteam.com/nav/">http://www.alloyteam.com/nav/</a><br><br>  前端书籍资料: <a href="http://www.36zhen.com/t?id=3448">http://www.36zhen.com/t?id=3448</a><br><br>  百度前端技术学院: <a href="http://ife.baidu.com/">http://ife.baidu.com/</a><br><br>  google前端开发基础: <a href="http://wf.uisdc.com/cn/">http://wf.uisdc.com/cn/</a></td>
+</tr>
+</tbody></table>
+<h1 id="27-修改字体大小-没做"><a href="#27-修改字体大小-没做" class="headerlink" title="27. 修改字体大小(没做)"></a>27. 修改字体大小(没做)</h1><p>打开<code>\themes\next\source\css\ _variables\base.styl</code>文件，将<code>$font-size-base</code>改成<code>16px</code>，如下所示：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$font-size-base            &#x3D;16px</td>
+</tr>
+</tbody></table>
+<h3 id="文章标签居中"><a href="#文章标签居中" class="headerlink" title="文章标签居中"></a>文章标签居中</h3><p>deep</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 控制文章页末尾的标签容器居中 */</span></span><br><span class="line">.<span class="property">post</span>-tags &#123;</span><br><span class="line">  text-<span class="attr">align</span>: center !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 确保标签链接本身在容器内居中显示 */</span></span><br><span class="line">.<span class="property">post</span>-tags a &#123;</span><br><span class="line">  <span class="attr">display</span>: inline-block;</span><br><span class="line">  <span class="attr">margin</span>: <span class="number">0</span> 4px 6px; <span class="comment">/* 上下、左右间距，可调整 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 如果标签容器是Flex布局，则用此方法（更常见） */</span></span><br><span class="line">.<span class="property">post</span>-tags &#123;</span><br><span class="line">  <span class="attr">display</span>: flex !important;</span><br><span class="line">  justify-<span class="attr">content</span>: center !important;</span><br><span class="line">  flex-<span class="attr">wrap</span>: wrap; <span class="comment">/* 允许标签换行 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="快速神将"><a href="#快速神将" class="headerlink" title="快速神将"></a>快速神将</h2><p>安装差价</p>
+<p>改在左边deep</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/* 尝试将固定定位的按钮移到左下角 */</span></span><br><span class="line">.<span class="property">moon</span>-menu,.<span class="property">moon</span>-menu-items,.<span class="property">moon</span>-menu-item,.<span class="property">fas</span> fa-chevron-up,.<span class="property">moon</span>-menu-button,.<span class="property">moon</span>-menu-bg,.<span class="property">moon</span>-menu-content,.<span class="property">moon</span>-menu-icon,.<span class="property">fas</span> fa-ellipsis-v,.<span class="property">moon</span>-menu-text &#123;</span><br><span class="line">  <span class="attr">right</span>: auto !important; <span class="comment">/* 取消原来的右侧定位 */</span></span><br><span class="line">  <span class="attr">left</span>: 20px !important;  <span class="comment">/* 设置距离左侧20像素 */</span></span><br><span class="line">  <span class="attr">bottom</span>: 20px !important; <span class="comment">/* 保持距离底部20像素 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="页脚居中"><a href="#页脚居中" class="headerlink" title="页脚居中"></a>页脚居中</h2><p>deep</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* ========== 首页文章列表居中 ========== */</span></span><br><span class="line"><span class="comment">/* 核心：控制文章容器 */</span></span><br><span class="line">.<span class="property">posts</span>-expand &#123;</span><br><span class="line">  text-<span class="attr">align</span>: center; <span class="comment">/* 使内部行内内容（如摘要）也居中 */</span></span><br><span class="line">  padding-<span class="attr">top</span>: 40px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 关键：使每篇文章卡片居中 */</span></span><br><span class="line">.<span class="property">post</span>-block &#123;</span><br><span class="line">  margin-<span class="attr">left</span>: auto !important;</span><br><span class="line">  margin-<span class="attr">right</span>: auto !important;</span><br><span class="line">  <span class="attr">float</span>: none !important; <span class="comment">/* 清除浮动布局 */</span></span><br><span class="line">  text-<span class="attr">align</span>: left; <span class="comment">/* 文章内部文字保持左对齐阅读 */</span></span><br><span class="line">  box-<span class="attr">sizing</span>: border-box;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 可选：为文章卡片设置一个最大宽度，看起来更协调 */</span></span><br><span class="line">.<span class="property">post</span>-block &#123;</span><br><span class="line">  max-<span class="attr">width</span>: 700px; <span class="comment">/* 你可以根据喜好调整这个值，例如 700px 或 900px */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* ========== 页脚内容居中 ========== */</span></span><br><span class="line"><span class="comment">/* 控制整个页脚容器 */</span></span><br><span class="line">.<span class="property">footer</span>-inner &#123;</span><br><span class="line">  text-<span class="attr">align</span>: center !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 使页脚内的所有行内元素（如文字、链接、图标）都居中 */</span></span><br><span class="line">.<span class="property">footer</span>-inner &gt; * &#123;</span><br><span class="line">  <span class="attr">display</span>: inline-block;</span><br><span class="line">  <span class="attr">margin</span>: <span class="number">0</span> 3px; <span class="comment">/* 可选：调整元素间的小间距 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 单独确保站点运行时间、访客统计等文本块居中 */</span></span><br><span class="line">.<span class="property">copyright</span>,</span><br><span class="line">.<span class="property">busuanzi</span>-count &#123;</span><br><span class="line">  <span class="attr">display</span>: block;</span><br><span class="line">  <span class="attr">width</span>: <span class="number">100</span>%;</span><br><span class="line">  text-<span class="attr">align</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<p>&#x2F;&#x2F;首页顶部留白<br>.main{margin-top:10px;} </p>
+<p>，通常是 Next 主题为了<strong>方便读者复制文章标题的锚点链接</strong>而自动添加的。这与 RSS 本身无关，是主题的一个设计功能。</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="comment">/* 隐藏文章标题旁边的锚点链接符号 */</span></span><br><span class="line">.<span class="property">headerlink</span> &#123;</span><br><span class="line">    <span class="attr">display</span>: none !important;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 或者更精准些*/</span></span><br><span class="line">.<span class="property">post</span>-body .<span class="property">headerlink</span> &#123;</span><br><span class="line">    <span class="attr">display</span>: none !important;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p><strong>原理</strong>：这个链接符号的 HTML 元素通常拥有 <code>headerlink</code> 或 <code>fa-link</code> 等类名。我们通过 <code>display: none;</code> 属性将其隐藏，<code>!important</code> 用于确保这条规则能覆盖主题的默认样式。</p>
+</li>
+<li><p><strong>验证</strong>：</p>
+<ul>
+<li><p><strong>保存</strong>样式文件后，在博客根目录运行 <code>hexo clean &amp;&amp; hexo g</code>。</p>
+</li>
+<li><p>通过 <code>hexo s</code> 本地预览，查看文章标题旁的链接符号是否已消失。</p>
+</li>
+<li><p>如果想确认具体类名，可以在浏览器中对着那个链接符号<strong>右键 -&gt; 检查</strong>，查看它的 <strong>class</strong> 属性值，并用其替换上面代码中的 <code>.headerlink</code>。</p>
+</li>
+</ul>
+</li>
+</ol>
+]]></content>
+      <categories>
+        <category>个人博客</category>
+      </categories>
+      <tags>
+        <tag>next</tag>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CND加速</title>
+    <url>/posts/abbrlink.html</url>
+    <content><![CDATA[<hr>
+<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<p>CDN，全称<strong>内容分发网路（Content Delivery Network）</strong>，是一种通过在现有互联网基础上构建的、由遍布全球的分布式节点服务器组成的智能虚拟网络，目的是使用户能够就近、快速、可靠地获取所需内容。</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p><strong>加速网站的访问速度</strong><br>因距离近而访问速度提升；CDN服务器会将文件最小化或压缩文档，传输内容变小而速度提升；CDN服务器的硬件和软件好。</p>
+<p><strong>提高网站的安全性</strong><br>没有使用CDN加速服务时，用户都是通过源服务器IP获取内容，暴露了源站的IP，而通过CDN时，用户是从CDN中获取内容，<em>隐藏了源服务器IP</em>，从而减小了源服务器的DDos等攻击的可能性</p>
+<p><strong>减少源站的带宽</strong><br>大部分网站是由主机商托管的，网站主需要向主机商支付费用，其中网路带宽费是其中一项费用。因为使用CDN，就近服务用户，减少了用户到源服务器之间带宽的占用和使用</p>
+<h2 id="工作流程"><a href="#工作流程" class="headerlink" title="工作流程"></a>工作流程</h2><p><strong>第一步：智能调度</strong><br>当用户输入网址，CDN的<strong>智能DNS系统</strong>会根据用户IP等信息，计算出最优边缘节点IP并返回<br><strong>第二步：边缘判读</strong><br>用户浏览器直接向该边缘节点请求内容。<br><strong>第三步：缓存判断</strong><br>节点煎炒是否缓存：</p>
+<ul>
+<li>有缓存：立即将内容返回给用户，速度最快</li>
+<li>无缓冲：节点向源站请求资源，缓存到本地后再返回用户</li>
+</ul>
+<h2 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a>核心原理</h2><p>在用户与源服务器之间，添加数个服务器（各地）作为<strong>边缘节点</strong>，边缘节点就近服务用户返回用户内容，及通过就近获取资源加速访问速率，同时因用户是访问边缘节点ip获取的内容，这样可以隐藏源服务器ip，减少对源服务器的DDos等攻击的可能性。</p>
+<h2 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h2><h3 id="缓存内容"><a href="#缓存内容" class="headerlink" title="缓存内容"></a>缓存内容</h3><p>我们访问边缘节点获取内容，那么边缘节点就应该有源服务器的内容。缓存内容是静态内容还是动态内容？<br>边缘节点提前缓存的内容为静态内容，动态内容是根据用户操作或时间而改变，源服务器无法提前预测结果，备份给边缘节点<br>用户访问静态内容，CDN边缘节点提前备份源服务器的静态内容(push)，有人访问就直接从边缘节点获取；CDN未备份源服务器内容就需要CDN先从源服务器获取(pull)，再进行备份，然后给用户静态内容</p>
+<h3 id="动态内容加速"><a href="#动态内容加速" class="headerlink" title="动态内容加速"></a>动态内容加速</h3><p>用户访问动态内容，用户访问时边缘节点再从源服务器索取，然后返回用户，这样CDN不能提供多少加速服务，CDN也就没意义了。对于动态内容CDN如何进行加速？<br>CDN边缘节点提供可以运行在CDN边缘节点上的接口，让源服务器用边缘节点接口，而不是源服务器自己的代码，这样用户就可以直接从边缘节点上获取内容，而不是从源服务器上获取</p>
+<h3 id="CDN流量承受"><a href="#CDN流量承受" class="headerlink" title="CDN流量承受"></a>CDN流量承受</h3><h4 id="网络攻击防护"><a href="#网络攻击防护" class="headerlink" title="网络攻击防护"></a>网络攻击防护</h4><p>因其工作流程，让用户与源服务器之间多了一道墙，用户必须通过访问CDN边缘节点沟通，这样不用担心恶意DDos攻击。CDN虽然减小了源服务器的DDos等的攻击，但攻击对象变成了CDN边缘节点，这样它能承受吗？<br>布局多个CDN边缘节点，然后监管这些CDN服务器的负载情况，若有一个超载了，就将用户的请求转移到没有超载的CDN服务器那边，为了就是平均分配网络流量，即<strong>负载均衡</strong></p>
+<h4 id="流量转移"><a href="#流量转移" class="headerlink" title="流量转移"></a>流量转移</h4><p><strong>CDN如何转移流量的？</strong><br>方法和DNS域名解析里根服务器的做法有着异曲同工之妙，就是才采用任播的技术。<br>用任播通信方式后，服务器对外都有一个同样的IP地址， 如果这个IP地址收到用户的请求后，请求就会由距离用户最近的服务器来响应，同样的道理，不管你的攻击来的多猛烈，利用任播的技术把流量转移到另外没超载的服务器就可以缓解了</p>
+<h2 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h2><p><a href="https://www.bilibili.com/video/BV1jS4y197zi/?share_source=copy_web&vd_source=4358eac15abdea87e60e9e500f1898e4">什么是CDN？CDN能为我们做什么？我们为什么要了解他？</a></p>
+<p><a href="https://cloud.tencent.com/developer/article/1779335">开发者社区-什么是CDN？</a></p>
+]]></content>
+      <categories>
+        <category>个人笔记</category>
+      </categories>
+      <tags>
+        <tag>CDN</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>图片</title>
+    <url>/posts/abbrlink.html</url>
+    <content><![CDATA[<hr>
+<p><img src="/source/_posts/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E7%89%87/%E5%BD%A9%E8%99%B9%E9%85%B1%E5%93%87.jpg"></p>
+<span id="more"></span>
+
+<p><img src="/source/_posts/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E7%89%87/%E5%A5%BD%E5%B9%B4%20%E6%96%B0%E5%B9%B4%20%E5%AD%94%E6%98%8E%E7%81%AF%20%E5%A5%B3%E5%AD%A9%204k%E5%8A%A8%E6%BC%AB%E5%A3%81%E7%BA%B8_%E5%BD%BC%E5%B2%B8%E5%9B%BE%E7%BD%91.jpg"><img src="/source/_posts/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E7%89%87/%E6%B3%A2%E6%B3%A2%E5%A4%B4%E5%A5%B3%E5%AD%A9%20%E6%B1%BD%E8%BD%A6%20%E9%80%8F%E8%BF%87%E7%8E%BB%E7%92%83%20%E9%9B%A8%E5%88%B7%E7%AA%97%20%E5%87%9D%E8%A7%86%204k%E5%8A%A8%E6%BC%AB%E5%A3%81%E7%BA%B8_%E5%BD%BC%E5%B2%B8%E5%9B%BE%E7%BD%91.jpg"><img src="/source/_posts/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E7%89%87/%E8%B6%B4%E5%9C%A8%E6%A1%8C%E5%AD%90%E5%90%AC%E9%9F%B3%E4%B9%90%E5%A5%B3%E5%AD%A9%20%E9%83%BD%E5%B8%82%E6%99%AF%E8%A7%82%204k%E5%8A%A8%E6%BC%AB%E7%BE%8E%E5%A5%B3%E5%A3%81%E7%BA%B83840x2160_%E5%BD%BC%E5%B2%B8%E5%9B%BE%E7%BD%91.jpg"></p>
+]]></content>
+      <categories>
+        <category>个人笔记</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>next</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo个人博客搭建</title>
-    <url>/posts/20260121cuid1dqBdHnV5ZKs7TxbMmCG2.html</url>
+    <url>/posts/abbrlink.html</url>
     <content><![CDATA[<hr>
 <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>这是一个搭建个人博客的教程，也是我的学习笔记。希望帮助每个人能按照这篇文章的步骤从零开始搭建出一个个人博客。当然，我现在只是一个学习者，正在不断摸索的阶段，如有问题还请斧正。</p>
 <h3 id="关于博客的认识"><a href="#关于博客的认识" class="headerlink" title="关于博客的认识"></a>关于博客的认识</h3><p>现在我所搭建的是一个静态博客。它完全免费，不需要服务器，域名可有可无。<br>现代静态博客从技术实现架构看，有四个核心部分组成：博客生成框架（如Hexo,Hugo等）、文件托管平台（GitHub,gitee等）、站点部署服务（GitHub Pages,GitHub Actions,GitLab CI&#x2F;CD,Vercel&#x2F;Netlify等）、CDN加速服务（Cloudflare CDN、Vercel&#x2F;Netlify等）。<br>这篇博客所使用的技术实现架构：Hexo + GitHub + GitHub Pages。这里站点部署服务之所以选择GitHub Pages而不是GitHub Actions，是因为我的博客是在本地电脑构建出前端文件(HTML&#x2F;CSS&#x2F;JS文件)上传至GitHub的，GitHub Actions的脚本需要运行在源码上；至于为什么没有CDN加速服务，是我还不知道怎么配置加速，后面我会将这个加上的。</p>
@@ -323,7 +474,7 @@
 <p>这里提醒一下，后面未标注命令在哪执行，默认都在这个目录执行。</p>
 <h4 id="博客项目目录结构介绍"><a href="#博客项目目录结构介绍" class="headerlink" title="博客项目目录结构介绍"></a>博客项目目录结构介绍</h4><p>本地操作展示结束，现在简单认识博客目录下文件。</p>
 <p>目录结构如下：</p>
-<p><img src="/posts/20260121cuid1dqBdHnV5ZKs7TxbMmCG2/blog001.jpg" alt="images001"></p>
+<p><img src="/posts/abbrlink/blog001.jpg" alt="images001"></p>
 <p>各部分的含义：</p>
 <ul>
 <li>_config.yml<ul>
@@ -347,7 +498,7 @@
 <h4 id="本地预览博客"><a href="#本地预览博客" class="headerlink" title="本地预览博客"></a>本地预览博客</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo server # 本地运行server服务预览，打开http://localhost:4000就可以预览了</span><br><span class="line">Ctrl +c  # 结束预览或者结束服务</span><br></pre></td></tr></table></figure>
 
 <p>本地预览效果如下：</p>
-<p><img src="/posts/20260121cuid1dqBdHnV5ZKs7TxbMmCG2/blog002.png" alt="blog002"></p>
+<p><img src="/posts/abbrlink/blog002.png" alt="blog002"></p>
 <p>目前显示的是hexo的默认主题，后面我们将对博客进行美化和优化。</p>
 <p>以及更详细的hexo命令可以参考官方文档：<a href="https://hexo.io/zh-cn/docs/commands">https://hexo.io/zh-cn/docs/commands</a></p>
 <p>现在一个本地的个人博客已经搭建成功了，接下来我们只要将这个博客静态页面代码托管到GitHub上，再使用GitHub Pages进行建站和部署到互联网上，这样后面只要输入网址就能访问到博客。不过GitHub是国外站点，国内访问时常打不开，所以现在<strong>需要解决GitHub打不开</strong>的问题，然后注册一个账户。</p>
@@ -355,7 +506,7 @@
 <p>使用软件“Watt Toolkit”，原名“steam++”，是一个开源跨平台的多功能Steam工具箱，可以提供本地反代的功能，支持加速Steam、GitHub等平台。下载地址官网如下：</p>
 <p><a href="https://steampp.net/">https://steampp.net/</a></p>
 <p>使用也很简单，按照下面图片标注点击即可：</p>
-<p><img src="/posts/20260121cuid1dqBdHnV5ZKs7TxbMmCG2/blog003.png" alt="images003"></p>
+<p><img src="/posts/abbrlink/blog003.png" alt="images003"></p>
 <h2 id="GitHub项目文件托管"><a href="#GitHub项目文件托管" class="headerlink" title="GitHub项目文件托管"></a>GitHub项目文件托管</h2><p>GitHub的文件托管流程以我的理解如下：</p>
 <h3 id="注册GitHub账号"><a href="#注册GitHub账号" class="headerlink" title="注册GitHub账号"></a>注册GitHub账号</h3><p>访问GitHub官网：<a href="https://github.com/">https://github.com/</a></p>
 <p>注册流程按照要求来就行。</p>
@@ -423,7 +574,7 @@
 </li>
 </ol>
 <p>这里之所以不选则GitHub Actions部署，是因为我们这个博客是在本地构建出静态文件，然后将这些静态文件上传到GitHub上的，actions服务的工作流脚本需要在博客根目录下执行，并且使用’hexo deploy’上传部署是执行的<strong>强制推送</strong>，会覆盖原来的仓库的文件，导致工作流脚本缺失。</p>
-<h2 id="测试站点"><a href="#测试站点" class="headerlink" title="测试站点"></a>测试站点</h2><p>能够正常访问之后，使用<a href="https://www.boce.com/">拨测</a>检测一下域名解析与访问的速度<br><img src="/posts/20260121cuid1dqBdHnV5ZKs7TxbMmCG2/blog004.png" alt="images004"></p>
+<h2 id="测试站点"><a href="#测试站点" class="headerlink" title="测试站点"></a>测试站点</h2><p>能够正常访问之后，使用<a href="https://www.boce.com/">拨测</a>检测一下域名解析与访问的速度<br><img src="/posts/abbrlink/blog004.png" alt="images004"></p>
 <h2 id="博客的简单使用"><a href="#博客的简单使用" class="headerlink" title="博客的简单使用"></a>博客的简单使用</h2><h3 id="写博客"><a href="#写博客" class="headerlink" title="写博客"></a>写博客</h3><p>使用以下命令：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">hexo new &quot;博客标题&quot; </span><br></pre></td></tr></table></figure>
 
@@ -442,23 +593,6 @@
       <tags>
         <tag>Hexo</tag>
         <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>图片</title>
-    <url>/posts/20260124cuid4Zo4SfMliJQecTeESaJos.html</url>
-    <content><![CDATA[<hr>
-<p><img src="/source/_posts/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E7%89%87/%E5%BD%A9%E8%99%B9%E9%85%B1%E5%93%87.jpg"></p>
-<span id="more"></span>
-
-<p><img src="/source/_posts/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E7%89%87/%E5%A5%BD%E5%B9%B4%20%E6%96%B0%E5%B9%B4%20%E5%AD%94%E6%98%8E%E7%81%AF%20%E5%A5%B3%E5%AD%A9%204k%E5%8A%A8%E6%BC%AB%E5%A3%81%E7%BA%B8_%E5%BD%BC%E5%B2%B8%E5%9B%BE%E7%BD%91.jpg"><img src="/source/_posts/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E7%89%87/%E6%B3%A2%E6%B3%A2%E5%A4%B4%E5%A5%B3%E5%AD%A9%20%E6%B1%BD%E8%BD%A6%20%E9%80%8F%E8%BF%87%E7%8E%BB%E7%92%83%20%E9%9B%A8%E5%88%B7%E7%AA%97%20%E5%87%9D%E8%A7%86%204k%E5%8A%A8%E6%BC%AB%E5%A3%81%E7%BA%B8_%E5%BD%BC%E5%B2%B8%E5%9B%BE%E7%BD%91.jpg"><img src="/source/_posts/Hexo%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/%E5%9B%BE%E7%89%87/%E8%B6%B4%E5%9C%A8%E6%A1%8C%E5%AD%90%E5%90%AC%E9%9F%B3%E4%B9%90%E5%A5%B3%E5%AD%A9%20%E9%83%BD%E5%B8%82%E6%99%AF%E8%A7%82%204k%E5%8A%A8%E6%BC%AB%E7%BE%8E%E5%A5%B3%E5%A3%81%E7%BA%B83840x2160_%E5%BD%BC%E5%B2%B8%E5%9B%BE%E7%BD%91.jpg"></p>
-]]></content>
-      <categories>
-        <category>个人笔记</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>next</tag>
       </tags>
   </entry>
 </search>
