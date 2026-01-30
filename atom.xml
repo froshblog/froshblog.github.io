@@ -6,7 +6,7 @@
   <link href="https://frosh.dpdns.org/atom.xml" rel="self"/>
   
   <link href="https://frosh.dpdns.org/"/>
-  <updated>2026-01-28T16:34:30.617Z</updated>
+  <updated>2026-01-30T08:30:02.086Z</updated>
   <id>https://frosh.dpdns.org/</id>
   
   <author>
@@ -17,11 +17,11 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>next自定义样式</title>
+    <title>博客自定义进阶-Next自定义样式</title>
     <link href="https://frosh.dpdns.org/posts/1f669580.html/"/>
     <id>https://frosh.dpdns.org/posts/1f669580.html/</id>
     <published>2026-01-27T08:16:30.000Z</published>
-    <updated>2026-01-28T16:34:30.617Z</updated>
+    <updated>2026-01-30T08:30:02.086Z</updated>
     
     
     <summary type="html">&lt;hr&gt;
@@ -44,38 +44,17 @@
   </entry>
   
   <entry>
-    <title>图片</title>
-    <link href="https://frosh.dpdns.org/posts/9900f79e.html/"/>
-    <id>https://frosh.dpdns.org/posts/9900f79e.html/</id>
-    <published>2026-01-24T14:46:32.000Z</published>
-    <updated>2026-01-29T08:01:28.165Z</updated>
-    
-    
-    <summary type="html">&lt;hr&gt;
-&lt;h2 id=&quot;测试图片&quot;&gt;&lt;a href=&quot;#测试图片&quot; class=&quot;headerlink&quot; title=&quot;测试图片&quot;&gt;&lt;/a&gt;测试图片&lt;/h2&gt;&lt;p&gt;&lt;img src=&quot;/posts/9900f79e.html/%E5%BD%A9%E8%99%B9%E9%85%B1%E5%93%87.jpg&quot;&gt;&lt;/p&gt;</summary>
-    
-    
-    
-    <category term="个人笔记" scheme="https://frosh.dpdns.org/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/"/>
-    
-    
-    <category term="Hexo" scheme="https://frosh.dpdns.org/tags/Hexo/"/>
-    
-    <category term="next" scheme="https://frosh.dpdns.org/tags/next/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Hexo博客优化</title>
     <link href="https://frosh.dpdns.org/posts/94271a3a.html/"/>
     <id>https://frosh.dpdns.org/posts/94271a3a.html/</id>
     <published>2026-01-21T15:29:53.000Z</published>
-    <updated>2026-01-29T08:50:07.964Z</updated>
+    <updated>2026-01-30T08:22:17.984Z</updated>
     
     
     <summary type="html">&lt;hr&gt;
-&lt;h2 id=&quot;更新&quot;&gt;&lt;a href=&quot;#更新&quot; class=&quot;headerlink&quot; title=&quot;更新&quot;&gt;&lt;/a&gt;更新&lt;/h2&gt;&lt;p&gt;2026年1月24日&lt;br&gt;添加了Giscus评论模块&lt;br&gt;图片懒加载插件&lt;/p&gt;
-&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;这是关于Hexo博客的优化文章，收录了一些常用的插件和设置，自己按需设置即可，附录部分是与之相关的文章，都是很好的文章。&lt;/p&gt;</summary>
+&lt;blockquote&gt;
+&lt;p&gt;这是关于Hexo博客的优化文章，收录了一些常用的插件和设置，自己按需设置即可，如果还想要设置更多的配置可要看看结尾处大佬的文章。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
     
     
     
