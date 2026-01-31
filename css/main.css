@@ -1251,7 +1251,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #a6ffa1;
+  background: #8c4600;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2694,7 +2694,131 @@ header.header {
   max-width: unset;
   box-sizing: border-box;
 }
-/*自定义文件，自建*/
+/*自定义css文件，自建*/
+/* 对文章容器使用高斯模糊
+.post-content {
+  position: relative; // 关键：为伪元素定位提供基准 
+  z-index: 1; // 确保文字内容在模糊层之上 
+  padding: 2.5em;
+  margin: 2em 0;
+  border-radius: 16px;
+  color: #333; // 文字颜色 
+}
+
+// 创建毛玻璃模糊层 
+.post-content::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1; // 关键：置于内容下方 
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden; // 防止模糊溢出
+
+  // 核心：复制 body 的固定背景图 
+  background: url(/images/infinity-1167546.jpg) fixed center center;
+  background-size: cover;
+
+  // 对复制的背景图进行高斯模糊 
+  filter: blur(25px);
+  -webkit-filter: blur(15px);
+
+  // 添加一个深色半透明蒙版，增强玻璃质感并提高文字可读性 
+  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.15);
+}
+
+// 深色模式适配：将蒙版颜色改为深色 
+@media (prefers-color-scheme: dark) {
+  .post-content {
+    color: #f0f0f0;
+  }
+  .post-content::before {
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.25);
+  }
+}
+.theme-dark .post-content::before {
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.25);
+}*/
+等解决图片与文字怎么结合在弄,
+body {
+  background: url("/images/infinity-1167546.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50%;
+}
+/* 优雅的纯色卡片*/
+:root {
+  --card-bg-light: rgba(255,255,255,0.92);
+  --card-text-light: #333;
+  --card-bg-dark: rgba(30,30,30,0.95);
+  --card-text-dark: #f0f0f0;
+}
+.post-content {
+/* 使用CSS变量，方便统一修改 */
+  background-color: var(--card-bg-light);
+  color: var(--card-text-light);
+  border-radius: 16px;
+  padding: 2.5em;
+  margin: 2em 0;
+  box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+/* 明确移除任何可能的模糊滤镜 */
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  filter: none;
+}
+/* 方式一：适配系统级别的深色模式 (macOS/Windows深色主题) */
+@media (prefers-color-scheme: dark) {
+  .post-content {
+    background-color: var(--card-bg-dark);
+    color: var(--card-text-dark);
+/* 深色模式下的阴影可以调一下颜色和浓度 */
+    box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+  }
+}
+/* 方式二：适配Next主题自带的深色模式切换按钮 */
+/* 这是最关键的！Next主题通常通过给<html>标签添加 .dark 或 .theme-dark 类来切换 */
+.dark .post-content,
+.theme-dark .post-content {
+  background-color: var(--card-bg-dark);
+  color: var(--card-text-dark);
+  box-shadow: 0 10px 35px rgba(0,0,0,0.25);
+}
+/* 适配 moon-menu / hexo-next-darkmode 插件的深色模式 */
+.darkmode--activated .post-content {
+  background-color: rgba(30,30,30,0.95) !important; /* 深色卡片背景 */
+  color: #f0f0f0 !important; /* 浅色文字 */
+  box-shadow: 0 10px 35px rgba(0,0,0,0.25) !important; /* 深色模式下的阴影 */
+}
+/* ====== 精确地为文章列表所在的各个页面容器内的 .post-block 添加卡片 ====== */
+/* 首页 */
+.home .post-block,
+.posts-expand .post-block,
+.archive .post-block,
+.category .post-block,
+.tag .post-block,
+.page .post-block {
+  background-color: var(--card-bg-light) !important;
+  color: var(--card-text-light) !important;
+  border-radius: 16px !important;
+  padding: 2em !important;
+  margin-bottom: 2em !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1) !important;
+  backdrop-filter: none !important;
+}
+/* 为所有这些精确选择器适配暗黑模式 */
+.darkmode--activated .home .post-block,
+.darkmode--activated .posts-expand .post-block,
+.darkmode--activated .archive .post-block,
+.darkmode--activated .category .post-block,
+.darkmode--activated .tag .post-block,
+.darkmode--activated .page .post-block {
+  background-color: var(--card-bg-dark) !important;
+  color: var(--card-text-dark) !important;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25) !important;
+}
 .main {
   margin-top: 10px;
 }
@@ -2742,7 +2866,7 @@ header.header {
 }
 /* 可选：为文章卡片设置一个最大宽度，看起来更协调 */
 .post-block {
-  max-width: 700px; /* 你可以根据喜好调整这个值，例如 700px 或 900px */
+  max-width: 900px; /* 你可以根据喜好调整这个值，例如 700px 或 900px */
 }
 /* ========== 页脚内容居中 ========== */
 /* 控制整个页脚容器 */
@@ -2761,14 +2885,6 @@ header.header {
   width: 100%;
   text-align: center;
 }
-/*等解决图片与文字怎么结合在弄
-body {
-      background: url(/images/infinity-1167546.jpg);	// 可以是路径也可以是链接
-      background-size: cover			// 设置保持图像的纵横比并将图像缩放成将完全覆盖背景定位区域的最小大小
-      background-repeat: no-repeat;		// 设定背景图片非重复填充
-      background-attachment: fixed;		// 设置背景图片不随页面滚动
-      background-position: 50% 50%;		// 图片位置：居中
-}*/
 .sidebar {
   opacity: 0.9;
 }
