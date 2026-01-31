@@ -1251,7 +1251,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #da87d6;
+  background: #6009af;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2695,53 +2695,6 @@ header.header {
   box-sizing: border-box;
 }
 /*自定义css文件，自建*/
-/* 对文章容器使用高斯模糊
-.post-content {
-  position: relative; // 关键：为伪元素定位提供基准 
-  z-index: 1; // 确保文字内容在模糊层之上 
-  padding: 2.5em;
-  margin: 2em 0;
-  border-radius: 16px;
-  color: #333; // 文字颜色 
-}
-
-// 创建毛玻璃模糊层 
-.post-content::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: -1; // 关键：置于内容下方 
-  width: 100%;
-  height: 100%;
-  border-radius: 16px;
-  overflow: hidden; // 防止模糊溢出
-
-  // 核心：复制 body 的固定背景图 
-  background: url(/images/infinity-1167546.jpg) fixed center center;
-  background-size: cover;
-
-  // 对复制的背景图进行高斯模糊 
-  filter: blur(25px);
-  -webkit-filter: blur(15px);
-
-  // 添加一个深色半透明蒙版，增强玻璃质感并提高文字可读性 
-  box-shadow: inset 0 0 0 1000px rgba(255, 255, 255, 0.15);
-}
-
-// 深色模式适配：将蒙版颜色改为深色 
-@media (prefers-color-scheme: dark) {
-  .post-content {
-    color: #f0f0f0;
-  }
-  .post-content::before {
-    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.25);
-  }
-}
-.theme-dark .post-content::before {
-  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.25);
-}*/
-等解决图片与文字怎么结合在弄,
 body {
   background: url("/images/infinity-1167546.jpg");
   background-size: cover;
@@ -2775,17 +2728,6 @@ body {
   filter: none !important;
 }
 /* ====== 统一暗黑模式适配 ====== */
-/* 1. 适配系统级深色偏好 (仅在插件未激活时生效) */
-body:not(.darkmode--activated) .home .post-block,
-body:not(.darkmode--activated) .posts-expand .post-block,
-body:not(.darkmode--activated) .archive .post-block,
-body:not(.darkmode--activated) .category .post-block,
-body:not(.darkmode--activated) .tag .post-block,
-body:not(.darkmode--activated) .page .post-block {
-  background-color: var(--card-bg-dark);
-  color: var(--card-text-dark);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
-}
 /* 2. 【关键】适配 hexo-next-darkmode 插件 (始终最高优先级) */
 .darkmode--activated .home .post-block,
 .darkmode--activated .posts-expand .post-block,
@@ -2859,10 +2801,6 @@ body:not(.darkmode--activated) .page .post-block {
 ​,
 .post-block {
   opacity: 0.9;
-}
-/*可能后面设置背景有用，但现在没有*/
-.posts-expand .post-meta-container {
-  color: #060606;
 }
 /*导航插件样式*/
 .moon-menu-item {
