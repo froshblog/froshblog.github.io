@@ -1251,7 +1251,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #6009af;
+  background: #262408;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2726,6 +2726,10 @@ body {
   backdrop-filter: none !important;
   -webkit-backdrop-filter: none !important;
   filter: none !important;
+}
+/* ====== 特别设置：增大归档页面卡片的顶部边距 ====== */
+.archive .post-block {
+  margin-top: 2em !important; /* 调整这个值来改变间距，例如 2em, 4em */
 }
 /* ====== 统一暗黑模式适配 ====== */
 /* 2. 【关键】适配 hexo-next-darkmode 插件 (始终最高优先级) */
