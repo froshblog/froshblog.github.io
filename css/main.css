@@ -1251,7 +1251,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #8c4600;
+  background: #3cf642;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2749,51 +2749,14 @@ body {
   background-attachment: fixed;
   background-position: 50% 50%;
 }
-/* 优雅的纯色卡片*/
+/* ====== 统一卡片样式：核心变量与基础规则 ====== */
 :root {
   --card-bg-light: rgba(255,255,255,0.92);
   --card-text-light: #333;
   --card-bg-dark: rgba(30,30,30,0.95);
   --card-text-dark: #f0f0f0;
 }
-.post-content {
-/* 使用CSS变量，方便统一修改 */
-  background-color: var(--card-bg-light);
-  color: var(--card-text-light);
-  border-radius: 16px;
-  padding: 2.5em;
-  margin: 2em 0;
-  box-shadow: 0 10px 35px rgba(0,0,0,0.1);
-/* 明确移除任何可能的模糊滤镜 */
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  filter: none;
-}
-/* 方式一：适配系统级别的深色模式 (macOS/Windows深色主题) */
-@media (prefers-color-scheme: dark) {
-  .post-content {
-    background-color: var(--card-bg-dark);
-    color: var(--card-text-dark);
-/* 深色模式下的阴影可以调一下颜色和浓度 */
-    box-shadow: 0 10px 35px rgba(0,0,0,0.25);
-  }
-}
-/* 方式二：适配Next主题自带的深色模式切换按钮 */
-/* 这是最关键的！Next主题通常通过给<html>标签添加 .dark 或 .theme-dark 类来切换 */
-.dark .post-content,
-.theme-dark .post-content {
-  background-color: var(--card-bg-dark);
-  color: var(--card-text-dark);
-  box-shadow: 0 10px 35px rgba(0,0,0,0.25);
-}
-/* 适配 moon-menu / hexo-next-darkmode 插件的深色模式 */
-.darkmode--activated .post-content {
-  background-color: rgba(30,30,30,0.95) !important; /* 深色卡片背景 */
-  color: #f0f0f0 !important; /* 浅色文字 */
-  box-shadow: 0 10px 35px rgba(0,0,0,0.25) !important; /* 深色模式下的阴影 */
-}
-/* ====== 精确地为文章列表所在的各个页面容器内的 .post-block 添加卡片 ====== */
-/* 首页 */
+/* 核心：为所有文章列表容器 (.post-block) 应用统一卡片 */
 .home .post-block,
 .posts-expand .post-block,
 .archive .post-block,
@@ -2806,9 +2769,25 @@ body {
   padding: 2em !important;
   margin-bottom: 2em !important;
   box-shadow: 0 8px 32px rgba(0,0,0,0.1) !important;
+/* 确保清除所有可能干扰的滤镜效果 */
   backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  filter: none !important;
 }
-/* 为所有这些精确选择器适配暗黑模式 */
+/* ====== 统一暗黑模式适配 ====== */
+/* ====== 统一暗黑模式适配 ====== */
+/* 1. 适配系统级深色偏好 (仅在插件未激活时生效) */
+body:not(.darkmode--activated) .home .post-block,
+body:not(.darkmode--activated) .posts-expand .post-block,
+body:not(.darkmode--activated) .archive .post-block,
+body:not(.darkmode--activated) .category .post-block,
+body:not(.darkmode--activated) .tag .post-block,
+body:not(.darkmode--activated) .page .post-block {
+  background-color: var(--card-bg-dark);
+  color: var(--card-text-dark);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+}
+/* 2. 【关键】适配 moon-menu / hexo-next-darkmode 插件 (始终最高优先级) */
 .darkmode--activated .home .post-block,
 .darkmode--activated .posts-expand .post-block,
 .darkmode--activated .archive .post-block,
