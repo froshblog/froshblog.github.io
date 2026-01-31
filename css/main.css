@@ -1251,7 +1251,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #4e6bff;
+  background: #db826c;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2591,7 +2591,7 @@ header.header {
   display: none;
 }
 .posts-expand .post-block:not(:first-of-type) {
-  margin-top: 120px;
+  margin-top: 60px;
 }
 .posts-expand .post-header {
   margin-bottom: 20px;
@@ -2775,7 +2775,6 @@ body {
   filter: none !important;
 }
 /* ====== 统一暗黑模式适配 ====== */
-/* ====== 统一暗黑模式适配 ====== */
 /* 1. 适配系统级深色偏好 (仅在插件未激活时生效) */
 body:not(.darkmode--activated) .home .post-block,
 body:not(.darkmode--activated) .posts-expand .post-block,
@@ -2798,20 +2797,19 @@ body:not(.darkmode--activated) .page .post-block {
   color: var(--card-text-dark) !important;
   box-shadow: 0 8px 32px rgba(0,0,0,0.25) !important;
 }
+/* ====== 修复：强制覆盖标签云所有等级标签在暗黑模式下的颜色 ====== */
+/* 方法1：针对所有可能的 tag-cloud-* 等级进行强制覆盖 */
+.darkmode--activated .tag-cloud a[class*="tag-cloud-"] {
+  color: var(--card-text-dark) !important;
+/* 如果暗黑模式下需要统一的背景色，可取消下面这行注释 */
+/* background-color: var(--card-bg-dark) !important; */
+}
 .main {
   margin-top: 10px;
 }
 .post-body .headerlink {
   display: none !important;
 }
-/*
- .post {
-   margin-top: 60px;
-   margin-bottom: 60px;
-   padding: 25px;
-   -webkit-box-shadow: 0 0 5px rgba(202, 203, 203, .5);
-   -moz-box-shadow: 0 0 5px rgba(202, 203, 204, .5);
-  }	*/
 /* 控制文章页末尾的标签容器居中 */
 .post-tags {
   text-align: center !important;
@@ -2834,14 +2832,6 @@ body:not(.darkmode--activated) .page .post-block {
 .posts-expand {
   text-align: center; /* 使内部行内内容（如摘要）也居中 */
   padding-top: 40px;
-}
-/* 关键：使每篇文章卡片居中 */
-.post-block {
-  margin-left: auto !important;
-  margin-right: auto !important;
-  float: none !important; /* 清除浮动布局 */
-  text-align: left; /* 文章内部文字保持左对齐阅读 */
-  box-sizing: border-box;
 }
 /* 可选：为文章卡片设置一个最大宽度，看起来更协调 */
 .post-block {
@@ -2874,12 +2864,6 @@ body:not(.darkmode--activated) .page .post-block {
 /*可能后面设置背景有用，但现在没有
 .posts-expand .post-meta-container {
     color: #060606;
-}*/
-/* moon-menu尝试将固定定位的按钮移到左下角,虽然实现了但还是用他们的，学习学习
-.moon-menu,.moon-menu-items,.moon-menu-item,.fas fa-chevron-up,.moon-menu-button,.moon-menu-bg,.moon-menu-content,.moon-menu-icon,.fas fa-ellipsis-v,.moon-menu-text {
-  right: auto !important; // 取消原来的右侧定位 
-  left: 20px !important;  // 设置距离左侧20像素 
-  bottom: 20px !important; // 保持距离底部20像素 
 }*/
 /*导航插件样式*/
 .moon-menu-item {
