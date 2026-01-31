@@ -1251,7 +1251,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #db826c;
+  background: #da87d6;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2749,7 +2749,7 @@ body {
   background-attachment: fixed;
   background-position: 50% 50%;
 }
-/* ====== 统一卡片样式：核心变量与基础规则 ====== */
+/* ====== 为各个页面内容添加有色卡片 ====== */
 :root {
   --card-bg-light: rgba(255,255,255,0.92);
   --card-text-light: #333;
@@ -2786,7 +2786,7 @@ body:not(.darkmode--activated) .page .post-block {
   color: var(--card-text-dark);
   box-shadow: 0 8px 32px rgba(0,0,0,0.25);
 }
-/* 2. 【关键】适配 moon-menu / hexo-next-darkmode 插件 (始终最高优先级) */
+/* 2. 【关键】适配 hexo-next-darkmode 插件 (始终最高优先级) */
 .darkmode--activated .home .post-block,
 .darkmode--activated .posts-expand .post-block,
 .darkmode--activated .archive .post-block,
@@ -2797,8 +2797,8 @@ body:not(.darkmode--activated) .page .post-block {
   color: var(--card-text-dark) !important;
   box-shadow: 0 8px 32px rgba(0,0,0,0.25) !important;
 }
-/* ====== 修复：强制覆盖标签云所有等级标签在暗黑模式下的颜色 ====== */
-/* 方法1：针对所有可能的 tag-cloud-* 等级进行强制覆盖 */
+/* ====== 强制覆盖标签云所有等级标签在暗黑模式下的颜色 ====== */
+/* 针对所有可能的 tag-cloud-* 等级进行强制覆盖 */
 .darkmode--activated .tag-cloud a[class*="tag-cloud-"] {
   color: var(--card-text-dark) !important;
 /* 如果暗黑模式下需要统一的背景色，可取消下面这行注释 */
@@ -2827,13 +2827,12 @@ body:not(.darkmode--activated) .page .post-block {
   flex-wrap: wrap;
   justify-content: center; /* 允许标签换行 */
 }
-/* ========== 首页文章列表居中 ========== */
 /* 核心：控制文章容器 */
 .posts-expand {
-  text-align: center; /* 使内部行内内容（如摘要）也居中 */
+  text-align: center; /* 让容器内的“行内内容”水平居中 */
   padding-top: 40px;
 }
-/* 可选：为文章卡片设置一个最大宽度，看起来更协调 */
+/* 为文章卡片设置一个最大宽度，看起来更协调 */
 .post-block {
   max-width: 900px; /* 你可以根据喜好调整这个值，例如 700px 或 900px */
 }
@@ -2861,10 +2860,10 @@ body:not(.darkmode--activated) .page .post-block {
 .post-block {
   opacity: 0.9;
 }
-/*可能后面设置背景有用，但现在没有
+/*可能后面设置背景有用，但现在没有*/
 .posts-expand .post-meta-container {
-    color: #060606;
-}*/
+  color: #060606;
+}
 /*导航插件样式*/
 .moon-menu-item {
   left: 0.4em !important;
