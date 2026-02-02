@@ -61,9 +61,9 @@
     <category term="个人博客" scheme="https://frosh.dpdns.org/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
     
-    <category term="Hexo" scheme="https://frosh.dpdns.org/tags/Hexo/"/>
-    
     <category term="Next" scheme="https://frosh.dpdns.org/tags/Next/"/>
+    
+    <category term="Hexo" scheme="https://frosh.dpdns.org/tags/Hexo/"/>
     
   </entry>
   
@@ -72,12 +72,12 @@
     <link href="https://frosh.dpdns.org/posts/be06e9d8.html/"/>
     <id>https://frosh.dpdns.org/posts/be06e9d8.html/</id>
     <published>2026-01-21T15:29:40.000Z</published>
-    <updated>2026-01-28T08:24:51.323Z</updated>
+    <updated>2026-02-02T08:20:24.721Z</updated>
     
     
     <summary type="html">&lt;hr&gt;
 &lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;这是一个搭建个人博客的教程，也是我的学习笔记。希望帮助每个人能按照这篇文章的步骤从零开始搭建出一个个人博客。当然，我现在只是一个学习者，正在不断摸索的阶段，如有问题还请斧正。&lt;/p&gt;
-&lt;h3 id=&quot;关于博客的认识&quot;&gt;&lt;a href=&quot;#关于博客的认识&quot; class=&quot;headerlink&quot; title=&quot;关于博客的认识&quot;&gt;&lt;/a&gt;关于博客的认识&lt;/h3&gt;&lt;p&gt;现在我所搭建的是一个静态博客。它完全免费，不需要服务器，域名可有可无。&lt;br&gt;现代静态博客从技术实现架构看，有四个核心部分组成：博客生成框架（如Hexo,Hugo等）、文件托管平台（GitHub,gitee等）、站点部署服务（GitHub Pages,GitHub Actions,GitLab CI&amp;#x2F;CD,Vercel&amp;#x2F;Netlify等）、CDN加速服务（Cloudflare CDN、Vercel&amp;#x2F;Netlify等）。&lt;br&gt;这篇博客所使用的技术实现架构：Hexo + GitHub + GitHub Pages。这里站点部署服务之所以选择GitHub Pages而不是GitHub Actions，是因为我的博客是在本地电脑构建出前端文件(HTML&amp;#x2F;CSS&amp;#x2F;JS文件)上传至GitHub的，GitHub Actions的脚本需要运行在源码上；至于为什么没有CDN加速服务，是我还不知道怎么配置加速，后面我会将这个加上的。&lt;/p&gt;</summary>
+&lt;h3 id=&quot;关于博客的认识&quot;&gt;&lt;a href=&quot;#关于博客的认识&quot; class=&quot;headerlink&quot; title=&quot;关于博客的认识&quot;&gt;&lt;/a&gt;关于博客的认识&lt;/h3&gt;&lt;p&gt;现在我所搭建的是一个静态博客。它完全免费，不需要服务器，域名可有可无。&lt;br&gt;现代静态博客从技术实现架构看，有四个核心部分组成：博客生成框架（如Hexo,Hugo等）、文件托管平台（GitHub,gitee等）、站点部署服务（GitHub Pages,GitHub Actions,GitLab CI&amp;#x2F;CD,Vercel&amp;#x2F;Netlify等）、CDN加速服务（Cloudflare CDN、Vercel&amp;#x2F;Netlify等）。&lt;br&gt;这篇博客所使用的技术实现架构：Hexo + GitHub + GitHub Pages + Cloud Flare CND。这里站点部署服务之所以选择GitHub Pages而不是GitHub Actions，是因为我的博客是在本地电脑构建出前端文件(HTML&amp;#x2F;CSS&amp;#x2F;JS文件)上传至GitHub的，GitHub Actions的脚本需要运行在源码上。&lt;/p&gt;</summary>
     
     
     
@@ -95,7 +95,7 @@
     <link href="https://frosh.dpdns.org/posts/80f16c6f.html/"/>
     <id>https://frosh.dpdns.org/posts/80f16c6f.html/</id>
     <published>2026-01-21T15:29:02.000Z</published>
-    <updated>2026-01-28T08:24:51.321Z</updated>
+    <updated>2026-02-02T07:21:43.081Z</updated>
     
     
     <summary type="html">&lt;hr&gt;
