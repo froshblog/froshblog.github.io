@@ -1251,7 +1251,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #ffff46;
+  background: #086361;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2696,7 +2696,7 @@ header.header {
 }
 /*自定义css文件，自建*/
 body {
-  background: url("/images/infinity-1167546.jpg");
+  background: url("/images/20260202.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
