@@ -1251,7 +1251,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #b3df20;
+  background: #06814b;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2752,9 +2752,6 @@ body {
 }
 .main {
   margin-top: 10px;
-}
-.post-body .headerlink {
-  display: none !important;
 }
 /* 控制文章页末尾的标签容器居中 */
 .post-tags {
