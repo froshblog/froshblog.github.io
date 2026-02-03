@@ -1374,7 +1374,7 @@ p#div-border-top-purple</span> <span class="token punctuation">&#123;</span>
 
 
 <h3 id="创建新的菜单页面"><a href="#创建新的菜单页面" class="headerlink" title="创建新的菜单页面"></a>创建新的菜单页面</h3><blockquote>
-<p>Mist样式没有菜单栏；<br>博客菜单选项，默认全关的，需要自己去添加。</p>
+<p>Mist样式菜单栏与标题栏合并在一起的；<br>博客菜单选项，默认全关的，需要自己去添加。</p>
 </blockquote>
 <ol>
 <li><p><code>主题配置文件</code>，查找<code>menu</code>一栏,，按需取消注释</p>
@@ -1462,22 +1462,14 @@ date: 2019-01-23 23:27:04
 </ol>
 <h3 id="添加顶部加载条"><a href="#添加顶部加载条" class="headerlink" title="添加顶部加载条"></a>添加顶部加载条</h3><p>修改主题配置文件，将pace的选项设置为true</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">pace</span><span class="token punctuation">:</span>
-
   enable<span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
-
   <span class="token comment"># All available colors:</span>
-
   <span class="token comment"># black | blue | green | orange | pink | purple | red | silver | white | yellow</span>
-
   color<span class="token punctuation">:</span> green <span class="token comment">#blue</span>
-
   <span class="token comment"># All available themes:</span>
-
   <span class="token comment"># big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span>
-
   <span class="token comment"># corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span>
-
-  theme<span class="token punctuation">:</span> minimal<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+  theme<span class="token punctuation">:</span> minimal<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 <h3 id="站点图标设置"><a href="#站点图标设置" class="headerlink" title="站点图标设置"></a>站点图标设置</h3><p><code>主题配置文件</code>里，favicon 就是站点标签栏的小图标，默认是用的 Hexo 的小图标，如果我们有站点 Logo 的图片的话，我们可以自己定制小图标。</p>
