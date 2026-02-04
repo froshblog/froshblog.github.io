@@ -938,7 +938,7 @@ body</span> <span class="token punctuation">&#123;</span>
 <span class="token punctuation">&#125;</span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h3 id="更改博客主标题背景颜色（未做）"><a href="#更改博客主标题背景颜色（未做）" class="headerlink" title="更改博客主标题背景颜色（未做）"></a>更改博客主标题背景颜色（未做）</h3><blockquote>
+<h3 id="更改博客主标题背景颜色（no-done）"><a href="#更改博客主标题背景颜色（no-done）" class="headerlink" title="更改博客主标题背景颜色（no done）"></a>更改博客主标题背景颜色（no done）</h3><blockquote>
 <p>下文的Mist以你的样式为主。</p>
 </blockquote>
 <p>它的相关代码在：博客目录\themes\next\source\css_schemes\Mist_header.styl里：</p>
