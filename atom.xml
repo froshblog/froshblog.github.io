@@ -3,11 +3,11 @@
   <title>FROSH_Blog</title>
   
   <subtitle>时刻准备着</subtitle>
-  <link href="https://frosh.dpdns.org/atom.xml" rel="self"/>
+  <link href="https://www.frosh.qzz.io/atom.xml" rel="self"/>
   
-  <link href="https://frosh.dpdns.org/"/>
+  <link href="https://www.frosh.qzz.io/"/>
   <updated>2026-02-04T08:37:10.270Z</updated>
-  <id>https://frosh.dpdns.org/</id>
+  <id>https://www.frosh.qzz.io/</id>
   
   <author>
     <name>kumiao</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>博客自定义进阶-Next自定义样式</title>
-    <link href="https://frosh.dpdns.org/posts/1f669580.html/"/>
-    <id>https://frosh.dpdns.org/posts/1f669580.html/</id>
+    <link href="https://www.frosh.qzz.io/posts/1f669580.html/"/>
+    <id>https://www.frosh.qzz.io/posts/1f669580.html/</id>
     <published>2026-01-27T08:16:30.000Z</published>
     <updated>2026-02-04T08:37:10.270Z</updated>
     
@@ -34,19 +34,19 @@
     
     
     
-    <category term="个人博客" scheme="https://frosh.dpdns.org/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <category term="个人博客" scheme="https://www.frosh.qzz.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
     
-    <category term="Next" scheme="https://frosh.dpdns.org/tags/Next/"/>
+    <category term="Next" scheme="https://www.frosh.qzz.io/tags/Next/"/>
     
-    <category term="css" scheme="https://frosh.dpdns.org/tags/css/"/>
+    <category term="css" scheme="https://www.frosh.qzz.io/tags/css/"/>
     
   </entry>
   
   <entry>
     <title>Hexo博客优化</title>
-    <link href="https://frosh.dpdns.org/posts/94271a3a.html/"/>
-    <id>https://frosh.dpdns.org/posts/94271a3a.html/</id>
+    <link href="https://www.frosh.qzz.io/posts/94271a3a.html/"/>
+    <id>https://www.frosh.qzz.io/posts/94271a3a.html/</id>
     <published>2026-01-21T15:29:53.000Z</published>
     <updated>2026-02-03T12:41:21.925Z</updated>
     
@@ -58,19 +58,19 @@
     
     
     
-    <category term="个人博客" scheme="https://frosh.dpdns.org/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <category term="个人博客" scheme="https://www.frosh.qzz.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
     
-    <category term="Hexo" scheme="https://frosh.dpdns.org/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://www.frosh.qzz.io/tags/Hexo/"/>
     
-    <category term="Next" scheme="https://frosh.dpdns.org/tags/Next/"/>
+    <category term="Next" scheme="https://www.frosh.qzz.io/tags/Next/"/>
     
   </entry>
   
   <entry>
     <title>Hexo个人博客搭建</title>
-    <link href="https://frosh.dpdns.org/posts/be06e9d8.html/"/>
-    <id>https://frosh.dpdns.org/posts/be06e9d8.html/</id>
+    <link href="https://www.frosh.qzz.io/posts/be06e9d8.html/"/>
+    <id>https://www.frosh.qzz.io/posts/be06e9d8.html/</id>
     <published>2026-01-21T15:29:40.000Z</published>
     <updated>2026-02-03T14:02:23.665Z</updated>
     
@@ -81,19 +81,19 @@
     
     
     
-    <category term="个人博客" scheme="https://frosh.dpdns.org/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    <category term="个人博客" scheme="https://www.frosh.qzz.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
     
-    <category term="Hexo" scheme="https://frosh.dpdns.org/tags/Hexo/"/>
+    <category term="Hexo" scheme="https://www.frosh.qzz.io/tags/Hexo/"/>
     
-    <category term="git" scheme="https://frosh.dpdns.org/tags/git/"/>
+    <category term="git" scheme="https://www.frosh.qzz.io/tags/git/"/>
     
   </entry>
   
   <entry>
     <title>CND加速</title>
-    <link href="https://frosh.dpdns.org/posts/80f16c6f.html/"/>
-    <id>https://frosh.dpdns.org/posts/80f16c6f.html/</id>
+    <link href="https://www.frosh.qzz.io/posts/80f16c6f.html/"/>
+    <id>https://www.frosh.qzz.io/posts/80f16c6f.html/</id>
     <published>2026-01-21T15:29:02.000Z</published>
     <updated>2026-02-02T07:21:43.081Z</updated>
     
@@ -105,10 +105,10 @@
     
     
     
-    <category term="个人笔记" scheme="https://frosh.dpdns.org/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/"/>
+    <category term="个人笔记" scheme="https://www.frosh.qzz.io/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/"/>
     
     
-    <category term="CDN" scheme="https://frosh.dpdns.org/tags/CDN/"/>
+    <category term="CDN" scheme="https://www.frosh.qzz.io/tags/CDN/"/>
     
   </entry>
   
