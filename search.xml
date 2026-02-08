@@ -33,55 +33,6 @@
       </tags>
   </entry>
   <entry>
-    <title>EdgeOne CDN加速</title>
-    <url>/posts/7b194885.html/</url>
-    <content><![CDATA[<hr>
-<p><strong>什么是EdgeOne？</strong><br><strong>EdgeOne</strong> 是腾讯云推出的下一代边缘安全加速平台，虽然它具备传统 <strong>CDN（内容分发网络）</strong> 的功能，但实际上是对 CDN 的全面升级产品。它不仅仅是一个 CDN，还融合了多种功能，提供更强大的加速和安全防护能力。</p>
-<p>EdgeOne 的核心特点包括：</p>
-<ul>
-<li><strong>CDN 功能升级</strong>：支持静态和动态内容加速，优化跨地域访问，显著降低访问延迟。</li>
-<li><strong>安全防护</strong>：内置 DDoS&#x2F;CC 防护、Web 防护、Bot 管控等功能，提供全面的网络安全保障。</li>
-<li><strong>边缘计算支持</strong>：支持边缘函数和即时处理（如视频、图片处理），适用于 Serverless 场景。</li>
-<li><strong>一站式服务</strong>：集成 DNS 解析、四层代理等功能，简化配置和运维。<br>与传统 CDN 相比，EdgeOne 更像是“加速 + 防护 + 运维一体化”的解决方案，适用于游戏、电商、视频、金融等需要高性能和高安全性的场景。因此，虽然 EdgeOne 包含 CDN 的功能，但它的定位和能力远超传统 CDN。</li>
-</ul>
-<span id="more"></span>
-<blockquote>
-<p>提供免费的CDN加速的服务商很多，选择EO的原因有三个：①EO是国内腾讯云推出的，保证了一定访问速度；②域名可以不用备案；③提供免费的SSL证书。<br>Could Flare（简称”CF”），虽然我的”大善人“支持免费的CDN加速，域名不需要备案以及提供SSL证书，但是CF在国内访问速度很慢，也因此它的CDN服务在国内称为“减速器”。</p>
-</blockquote>
-<h2 id="登录EO网站"><a href="#登录EO网站" class="headerlink" title="登录EO网站"></a>登录EO网站</h2><p>进入<a href="https://edgeone.ai/zh/get-free-plan">EO官网</a>注册账号领取免费套餐。</p>
-<h2 id="添加站点"><a href="#添加站点" class="headerlink" title="添加站点"></a>添加站点</h2><p>建议添加根域名，这样就能添加多个子域名的业务域名。<br><img src="/posts/7b194885.html/file-20260208161543061.png"></p>
-<blockquote>
-<p>添加站点后会让你选择套餐，选择一个免费套餐即可。</p>
-</blockquote>
-<h2 id="选择接入EO网络的方式和加速区域"><a href="#选择接入EO网络的方式和加速区域" class="headerlink" title="选择接入EO网络的方式和加速区域"></a>选择接入EO网络的方式和加速区域</h2><blockquote>
-<p>加速区域选择“全球可用区（不含中国大陆）”，域名不用备案；<br>因为我的域名是托管在Could Flare上的，没有在腾讯上，所有选择CNAME接入</p>
-</blockquote>
-<p><img src="/posts/7b194885.html/%7BAC8052FE-BE71-4A9A-89DE-9FF7667EBD8B%7D.png"></p>
-<blockquote>
-<p>接下来会让你在你的域名托管商上面添加一条TXT记录，已进行归属权验证。</p>
-</blockquote>
-<h2 id="添加加速域名"><a href="#添加加速域名" class="headerlink" title="添加加速域名"></a>添加加速域名</h2><blockquote>
-<p>理论上EO可以反代任何网站</p>
-</blockquote>
-<blockquote>
-<p>加速域名不能是根域，只能是其子域<br>加速域名：访问地址<br>源站配置：最终访问的网站域名<br>回源HOST头：一般是使用源站域名加速</p>
-</blockquote>
-<p><img src="/posts/7b194885.html/%7BF1964AD2-3144-4904-86CB-2C87E9353F4C%7D.png"></p>
-<h2 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h2><p>上述配置完成后，EO会提供一个它加速域名，并且让你在域名托管商在DNS中添加一条CNAME记录。如果对访问速度要求高可以自己做优选。</p>
-<blockquote>
-<p>EO优选后没有SSL证书了</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>个人笔记</category>
-      </categories>
-      <tags>
-        <tag>CDN</tag>
-        <tag>EdgeOne</tag>
-        <tag>EO</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo个人博客搭建</title>
     <url>/posts/be06e9d8.html/</url>
     <content><![CDATA[<hr>
@@ -350,517 +301,52 @@ hexo cl <span class="token operator">&amp;&amp;</span> g <span class="token para
       </tags>
   </entry>
   <entry>
-    <title>Hexo博客优化</title>
-    <url>/posts/94271a3a.html/</url>
+    <title>EdgeOne CDN加速</title>
+    <url>/posts/7b194885.html/</url>
     <content><![CDATA[<hr>
-<blockquote>
-<p>这是关于Hexo博客的优化文章，收录了一些常用的插件和设置，自己按需设置即可，如果还想要设置更多的配置可要看看结尾处大佬的文章。</p>
-</blockquote>
+<p><strong>什么是EdgeOne？</strong><br><strong>EdgeOne</strong> 是腾讯云推出的下一代边缘安全加速平台，虽然它具备传统 <strong>CDN（内容分发网络）</strong> 的功能，但实际上是对 CDN 的全面升级产品。它不仅仅是一个 CDN，还融合了多种功能，提供更强大的加速和安全防护能力。</p>
+<p>EdgeOne 的核心特点包括：</p>
+<ul>
+<li><strong>CDN 功能升级</strong>：支持静态和动态内容加速，优化跨地域访问，显著降低访问延迟。</li>
+<li><strong>安全防护</strong>：内置 DDoS&#x2F;CC 防护、Web 防护、Bot 管控等功能，提供全面的网络安全保障。</li>
+<li><strong>边缘计算支持</strong>：支持边缘函数和即时处理（如视频、图片处理），适用于 Serverless 场景。</li>
+<li><strong>一站式服务</strong>：集成 DNS 解析、四层代理等功能，简化配置和运维。<br>与传统 CDN 相比，EdgeOne 更像是“加速 + 防护 + 运维一体化”的解决方案，适用于游戏、电商、视频、金融等需要高性能和高安全性的场景。因此，虽然 EdgeOne 包含 CDN 的功能，但它的定位和能力远超传统 CDN。</li>
+</ul>
 <span id="more"></span>
 <blockquote>
-<p>Hexo version：8.1.1，Next version：8.27.0，分别通过博客根目录和主题目录的package.json查看；<br>使用的Next主题的Mist样式。</p>
+<p>提供免费的CDN加速的服务商很多，选择EO的原因有三个：①EO是国内腾讯云推出的，保证了一定访问速度；②域名可以不用备案；③提供免费的SSL证书。<br>Could Flare（简称”CF”），虽然我的”大善人“支持免费的CDN加速，域名不需要备案以及提供SSL证书，但是CF在国内访问速度很慢，也因此它的CDN服务在国内称为“减速器”。</p>
+</blockquote>
+<h2 id="登录EO网站"><a href="#登录EO网站" class="headerlink" title="登录EO网站"></a>登录EO网站</h2><p>进入<a href="https://edgeone.ai/zh/get-free-plan">EO官网</a>注册账号领取免费套餐。</p>
+<h2 id="添加站点"><a href="#添加站点" class="headerlink" title="添加站点"></a>添加站点</h2><p>建议添加根域名，这样就能添加多个子域名的业务域名。<br><img src="/posts/7b194885.html/file-20260208161543061.png"></p>
+<blockquote>
+<p>添加站点后会让你选择套餐，选择一个免费套餐即可。</p>
+</blockquote>
+<h2 id="选择接入EO网络的方式和加速区域"><a href="#选择接入EO网络的方式和加速区域" class="headerlink" title="选择接入EO网络的方式和加速区域"></a>选择接入EO网络的方式和加速区域</h2><blockquote>
+<p>加速区域选择“全球可用区（不含中国大陆）”，域名不用备案；<br>因为我的域名是托管在Could Flare上的，没有在腾讯上，所有选择CNAME接入</p>
+</blockquote>
+<p><img src="/posts/7b194885.html/%7BAC8052FE-BE71-4A9A-89DE-9FF7667EBD8B%7D.png"></p>
+<blockquote>
+<p>接下来会让你在你的域名托管商上面添加一条TXT记录，已进行归属权验证。</p>
+</blockquote>
+<h2 id="添加加速域名"><a href="#添加加速域名" class="headerlink" title="添加加速域名"></a>添加加速域名</h2><blockquote>
+<p>理论上EO可以反代任何网站</p>
 </blockquote>
 <blockquote>
-<p>阅读需知：</p>
-<ul>
-<li>文中命令执行的位置若没特别提醒，默认在博客根目录；</li>
-<li><code>root</code>：指的是博客根目录，即你创建的博客时的文件夹；</li>
-<li>博客配置文件：指的是<code>root\_config.yml</code>；</li>
-<li>主题配置文件：指的是<code>root\themes\next\_config.yml</code>；</li>
-<li>博客模板文件：指的是<code>root\scaffolds\post.md</code>；</li>
-<li>Front-matter字段：指的是<code>.md</code>文章的开头部分；</li>
-<li>运行这三个命令<code>hexo cl</code>、<code>hexo d</code>、<code>hexo s</code>进行本地预览。</li>
-</ul>
+<p>加速域名不能是根域，只能是其子域<br>加速域名：访问地址<br>源站配置：最终访问的网站域名<br>回源HOST头：一般是使用源站域名加速</p>
 </blockquote>
-<h2 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h2><h3 id="博客基本信息"><a href="#博客基本信息" class="headerlink" title="博客基本信息"></a>博客基本信息</h3><blockquote>
-<p>设置博客的标题，副标题，描述，等等基本信息。<br>yaml语言规定冒号后面内容需要先空格在输入内容</p>
-</blockquote>
-<p>在<code>博客配置文件</code>中 ，修改以下信息</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Site</span>
-<span class="token comment"># 博客标题</span>
-<span class="token key atrule">title</span><span class="token punctuation">:</span> FROSH
-<span class="token comment"># 博客副标题</span>
-<span class="token key atrule">subtitle</span><span class="token punctuation">:</span> <span class="token string">'时刻准备着'</span>
-<span class="token comment"># 站点描述</span>
-<span class="token key atrule">description</span><span class="token punctuation">:</span> <span class="token string">'要做的事还有很多，一件一件地来~'</span>
-<span class="token comment"># 网站关键词，对SEO的优化有一定作用</span>
-<span class="token key atrule">keywords</span><span class="token punctuation">:</span>
-<span class="token comment"># 作者</span>
-<span class="token key atrule">author</span><span class="token punctuation">:</span> kumiao
-<span class="token comment"># 网站使用的语言</span>
-<span class="token key atrule">language</span><span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN    <span class="token comment"># en</span>
-<span class="token comment"># 网站对应失去，不设置默认使用电脑时区，一般中国的时区可以设置为Asia/Shanghai</span>
-<span class="token key atrule">timezone</span><span class="token punctuation">:</span> <span class="token string">''</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="next主题"><a href="#next主题" class="headerlink" title="next主题"></a>next主题</h3><h4 id="next主题文件下载及使用："><a href="#next主题文件下载及使用：" class="headerlink" title="next主题文件下载及使用："></a>next主题文件下载及使用：</h4><p>进入 <a href="https://hexo.io/themes/">hexo 主题网址</a>，搜索 next，点击名称进入 GitHub 项目仓库。<br>每个主题都有操作文档，按照上面的步骤进行部署  </p>
-<p>next文件下载</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/next-theme/hexo-theme-next themes/next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>这样你的<code>root\themes</code>目录下就有了一个<code>next</code>文件夹</p>
-<p>博客使用next主题</p>
-<p>修改<code>博客配置文件</code> ，找<code>theme</code>，并修改为以下内容 </p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">theme</span><span class="token punctuation">:</span> next <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
+<p><img src="/posts/7b194885.html/%7BF1964AD2-3144-4904-86CB-2C87E9353F4C%7D.png"></p>
+<h2 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h2><p>上述配置完成后，EO会提供一个它加速域名，并且让你在域名托管商在DNS中添加一条CNAME记录。如果对访问速度要求高可以自己做优选。</p>
 <blockquote>
-<p>next这个值主要看主题文件夹themes下的文件名称。</p>
+<p>EO优选后没有SSL证书了</p>
 </blockquote>
-<h4 id="next主题样式选择"><a href="#next主题样式选择" class="headerlink" title="next主题样式选择"></a>next主题样式选择</h4><p>next主题有四种样式：Msse、Mist、Pisces、Gemini</p>
-<p>打开<code>主题配置文件</code>，查找<code>Schemes</code>，根据你的需要选择你的样式</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Schemes</span>
-<span class="token comment">#scheme: Muse</span>
-<span class="token key atrule">scheme</span><span class="token punctuation">:</span> Mist
-<span class="token comment">#scheme: Pisces</span>
-<span class="token comment">#scheme: Gemini</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-<h3 id="创建新的菜单页面"><a href="#创建新的菜单页面" class="headerlink" title="创建新的菜单页面"></a>创建新的菜单页面</h3><blockquote>
-<p>Mist样式菜单栏与标题栏合并在一起的；<br>博客菜单选项，默认全关的，需要自己去添加。</p>
-</blockquote>
-<ol>
-<li><p><code>主题配置文件</code>，查找<code>menu</code>一栏,，按需取消注释</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">menu</span><span class="token punctuation">:</span>
-<span class="token key atrule">home</span><span class="token punctuation">:</span> / <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>home				<span class="token comment">#首页</span>
-<span class="token key atrule">about</span><span class="token punctuation">:</span> /about/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>user			<span class="token comment">#关于</span>
-<span class="token comment">#tags: /tags/ || fa fa-tags			#标签</span>
-<span class="token key atrule">categories</span><span class="token punctuation">:</span> /categories/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>th		<span class="token comment">#分类</span>
-<span class="token key atrule">archives</span><span class="token punctuation">:</span> /archives/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>archive		<span class="token comment">#归档</span>
-<span class="token key atrule">album</span><span class="token punctuation">:</span> /album/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>camera<span class="token punctuation">-</span>retro		<span class="token comment">#相册</span>
-<span class="token key atrule">gallery</span><span class="token punctuation">:</span> /gallery/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>paint<span class="token punctuation">-</span>brush	<span class="token comment">#画廊</span>
-<span class="token key atrule">tools</span><span class="token punctuation">:</span> /tools/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>square			<span class="token comment">#工具</span>
-<span class="token comment">#schedule: /schedule/ || fa fa-calendar	#日历</span>
-<span class="token comment">#sitemap: /sitemap.xml || fa fa-sitemap	#站点地图</span>
-<span class="token comment">#commonweal: /404/ || fa fa-heartbeat		#腾讯公益404</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<blockquote>
-<p>“||”前面是对应路径，后面是图标名称。Next使用的图标库是<a href="https://fontawesome.com.cn/faicons/#web-application">Font Awesome</a>，可自行添加后更换心仪的图标。</p>
-</blockquote>
-<p>若想添加自定义菜单，则仿照其对应的元素、路径和图标，同时在themes&#x2F;next&#x2F;languages&#x2F;zh-CN.yml 里的 menu 下添加相对应的中文。</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">menu</span><span class="token punctuation">:</span>
-  <span class="token key atrule">home</span><span class="token punctuation">:</span> 首页
-  <span class="token key atrule">archives</span><span class="token punctuation">:</span> 归档
-  <span class="token key atrule">categories</span><span class="token punctuation">:</span> 分类
-  <span class="token key atrule">tags</span><span class="token punctuation">:</span> 标签
-  <span class="token key atrule">about</span><span class="token punctuation">:</span> 关于
-  <span class="token key atrule">search</span><span class="token punctuation">:</span> 搜索
-  <span class="token key atrule">schedule</span><span class="token punctuation">:</span> 日程表
-  <span class="token key atrule">sitemap</span><span class="token punctuation">:</span> 站点地图
-  <span class="token key atrule">commonweal</span><span class="token punctuation">:</span> 公益 404
-  <span class="token key atrule">gallery</span><span class="token punctuation">:</span> 画廊
-  <span class="token key atrule">album</span><span class="token punctuation">:</span> 相册
-  <span class="token key atrule">tools</span><span class="token punctuation">:</span> 工具<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ol start="2">
-<li><p>执行下面命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page <span class="token string">"菜单名称"</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<p>此时会在博客目录的sources文件下生成对应的文件夹，每个文件夹都有一个index.md文件，对文件内容进行修改。</p>
-<blockquote>
-<p>需要修改新建页面文件<code>tags</code>和<code>categories</code>，同时修改其<code>.md</code>文件，不然网页无法生效</p>
-</blockquote>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token title important"># tags.md
-<span class="token punctuation">---</span></span>
-title: 标签
-date: 2019-01-23 23:26:43
-<span class="token title important">type: tags
-<span class="token punctuation">---</span></span>
-
-<span class="token title important"># categories.md
-<span class="token punctuation">---</span></span>
-title: 类别
-date: 2019-01-23 23:27:04
-<span class="token title important">type: categories
-<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p><strong>注意 1：需要手动添加<code>type: xxx</code></strong><br><strong>注意 2：需要手动设置中文<code>title</code></strong></p>
-</blockquote>
-<h3 id="本地搜索功能"><a href="#本地搜索功能" class="headerlink" title="本地搜索功能"></a>本地搜索功能</h3><ol>
-<li><p>下载插件</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-searchdb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p><code>主题配置文件</code>查找<code>local_serch</code>，将<code>enable</code>设置为<code>true</code></p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">local_search</span><span class="token punctuation">:</span>
-  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
-  <span class="token comment"># If auto, trigger search by changing input.</span>
-  <span class="token comment"># If manual, trigger search by pressing enter key or search button.</span>
-  <span class="token key atrule">trigger</span><span class="token punctuation">:</span> auto
-  <span class="token comment"># Show top n results per article, show all results by setting to -1</span>
-  <span class="token key atrule">top_n_per_article</span><span class="token punctuation">:</span> <span class="token number">1</span>
-  <span class="token comment"># Unescape html strings to the readable one.</span>
-  <span class="token key atrule">unescape</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token comment"># Preload the search data when the page loads.</span>
-  <span class="token key atrule">preload</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>在<code>博客配置文件</code>的末尾添加以下内容</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># hexo-generator-searchdb</span>
-<span class="token comment"># 本地搜索</span>
-<span class="token key atrule">search</span><span class="token punctuation">:</span>
-  <span class="token key atrule">path</span><span class="token punctuation">:</span> search.xml
-  <span class="token key atrule">field</span><span class="token punctuation">:</span> post
-  <span class="token key atrule">format</span><span class="token punctuation">:</span> html
-  <span class="token key atrule">limit</span><span class="token punctuation">:</span> <span class="token number">10</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="添加顶部加载条"><a href="#添加顶部加载条" class="headerlink" title="添加顶部加载条"></a>添加顶部加载条</h3><p>修改主题配置文件，将pace的选项设置为true</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">pace</span><span class="token punctuation">:</span>
-  enable<span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
-  <span class="token comment"># All available colors:</span>
-  <span class="token comment"># black | blue | green | orange | pink | purple | red | silver | white | yellow</span>
-  color<span class="token punctuation">:</span> green <span class="token comment">#blue</span>
-  <span class="token comment"># All available themes:</span>
-  <span class="token comment"># big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span>
-  <span class="token comment"># corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span>
-  theme<span class="token punctuation">:</span> minimal<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h3 id="站点图标设置"><a href="#站点图标设置" class="headerlink" title="站点图标设置"></a>站点图标设置</h3><p><code>主题配置文件</code>里，favicon 就是站点标签栏的小图标，默认是用的 Hexo 的小图标，如果我们有站点 Logo 的图片的话，我们可以自己定制小图标。</p>
-<h4 id="获取图标"><a href="#获取图标" class="headerlink" title="获取图标"></a>获取图标</h4><p>可以通过 PS 制作也可以通过下面网站获取</p>
-<p><a href="https://realfavicongenerator.net/">https://realfavicongenerator.net</a></p>
-<h4 id="更换站点图标"><a href="#更换站点图标" class="headerlink" title="更换站点图标"></a>更换站点图标</h4><p>图标存放位置在博客目录下<code>root\themes\next\source\images</code>里，<br>然后在<code>主题配置文件</code>里面找到<code>favicon</code>配置项，把一些相关路径配置进去即可，示例如下：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">favicon</span><span class="token punctuation">:</span>
-  <span class="token key atrule">small</span><span class="token punctuation">:</span> /images/favicon<span class="token punctuation">-</span>16x16<span class="token punctuation">-</span>next.png
-  <span class="token key atrule">medium</span><span class="token punctuation">:</span> /images/favicon<span class="token punctuation">-</span>32x32<span class="token punctuation">-</span>next.png
-  <span class="token key atrule">apple_touch_icon</span><span class="token punctuation">:</span> /images/apple<span class="token punctuation">-</span>touch<span class="token punctuation">-</span>icon<span class="token punctuation">-</span>next.png
-  <span class="token key atrule">safari_pinned_tab</span><span class="token punctuation">:</span> /images/logo.svg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h3 id="GitHub图标"><a href="#GitHub图标" class="headerlink" title="GitHub图标"></a>GitHub图标</h3><p><code>主题配置文件</code>中修改<code>github_banner</code>的<code>enable</code>的值</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># `Follow me on GitHub` banner in the top-right corner.</span>
-<span class="token key atrule">github_banner</span><span class="token punctuation">:</span>
-  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token comment"># 链接</span>
-  <span class="token key atrule">permalink</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//github.com/luumod
-  <span class="token key atrule">title</span><span class="token punctuation">:</span> Follow me on GitHub<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-
-
-
-
-
-
-<h3 id="添加评论模块——Giscus评论"><a href="#添加评论模块——Giscus评论" class="headerlink" title="添加评论模块——Giscus评论"></a>添加评论模块——Giscus评论</h3><blockquote>
-<p>Giscus是基于GitHub Discussions的评论插件。部署不用注册，支持多种主题，支持自定义配置。所有评论都存储在你的GitHub Discussions中，不易丢失，方便管理。不过评论需要登录。</p>
-</blockquote>
-<h4 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h4><p><strong>第一步：创建GitHub仓库</strong><br>首先，创建的仓库必须是公开的，其次，需要安装<a href="github.com/apps/giscus">giscus</a> app，最后，<strong>Discussions</strong> 功能已在你的仓库中启用。<br>这里说下Discussions功能的开启，先进入仓库里，然后接下来的操作：’Settings-General-Features’，最后勾选Discussions的复选框就行了。<br><strong>第二步：在 <a href="https://giscus.app/zh-CN">giscus.app</a> 创建你的配置</strong><br>具体设置按照你的要求来，这里展示我的设置。<br>映照关系：选第三个；<br>Discussion 分类：Announcenments；<br>特性：选1，3，4；<br>主题：用户偏好的色彩方案。<br>这样你会得到一段script代码，将这代码改为yaml</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">giscus</span><span class="token punctuation">:</span>
-  enable<span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  repo<span class="token punctuation">:</span>   <span class="token comment"># Github repository name;你的 GitHub 仓库，格式：用户名/仓库名</span>
-  repo_id<span class="token punctuation">:</span>  <span class="token comment"># Github repository id; 从 giscus.app 获取的仓库ID</span>
-  category<span class="token punctuation">:</span> Announcements <span class="token comment"># Github discussion category;分类名</span>
-  category_id<span class="token punctuation">:</span>  <span class="token comment"># Github discussion category id;从 giscus.app 获取的分类ID</span>
-  <span class="token comment"># Available values: pathname | url | title | og:title</span>
-  mapping<span class="token punctuation">:</span> title <span class="token comment"># 页面与Discussion的映射关系，推荐pathname或title</span>
-  strict<span class="token punctuation">:</span> <span class="token number">0</span>
-  <span class="token comment"># Available values: 0 | 1</span>
-  reactions_enabled<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token comment"># 是否开启表情反应</span>
-   <span class="token comment"># Available values: 0 | 1</span>
-  emit_metadata<span class="token punctuation">:</span> <span class="token number">0</span>
-  input_position<span class="token punctuation">:</span> top <span class="token comment"># 评论输入框位置：top 或 bottom</span>
-  <span class="token comment"># Available values: light | dark | dark_high_contrast | transparent_dark | preferred-color-scheme</span>
-  theme<span class="token punctuation">:</span> preferred_color_scheme <span class="token comment">#light ;主题，可设为 light, dark, preferred_color_scheme 等</span>
-  <span class="token comment"># Available values: en | zh-C</span>
-  lang<span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN  <span class="token comment"># 界面语言</span>
-  loading<span class="token punctuation">:</span> lazy <span class="token comment"># 懒加载</span>
-  <span class="token comment"># Available value: anonymous</span>
-  crossorigin<span class="token punctuation">:</span> anonymous
-  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p><strong>第三步：在主题配置文件中添加Giscus 配置</strong><br>在主题配置文件中的comments部分，添加Giscus 配置，即第二部的yaml代码，不能留空哦。</p>
-<h4 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h4><p>博客页面：<br><img src="/posts/94271a3a.html/%7BD78D1E34-6764-48D2-AA50-D13BF241D8D5%7D.png"><br>仓库里的内容：<br><img src="/posts/94271a3a.html/%7BFCFD4B0C-B609-4CD3-89B3-B0A887435C00%7D.png"></p>
-<h4 id="页面取消评论区"><a href="#页面取消评论区" class="headerlink" title="页面取消评论区"></a>页面取消评论区</h4><blockquote>
-<p>设置完成后，默认为除首页外的每个页面添加评论区，这时候就需要为不需要的页面设置不显示评论。下面示例，仿照即可</p>
-</blockquote>
-<p>示例：标签页面<br>在页面文件的<strong>Front-matter</strong> 部分（即开头以 <code>---</code> 包裹的区域）添加comments: false&#96;配置项。<br>示例：取消标签页面的评论区</p>
-<ol>
-<li>定位文件：root&#x2F;source&#x2F;tags&#x2F;index.md</li>
-<li>添加配置：在文件的 <strong>Front-matter</strong> 部分添加 <code>comments: false</code> 配置项。如下：</li>
-</ol>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
-<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 标签
-<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-24 00:00:00</span>
-<span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">"tags"</span>
-<span class="token key atrule">comments</span><span class="token punctuation">:</span> <span class="token boolean important">false</span></span> 
-<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="点击放大图片"><a href="#点击放大图片" class="headerlink" title="点击放大图片"></a>点击放大图片</h3><p>将主题配置文件内 fancybox 的值置为 true 即可</p>
-<h3 id="打赏功能"><a href="#打赏功能" class="headerlink" title="打赏功能"></a>打赏功能</h3><p>在 <code>主题配置文件</code>中找到如下的 <strong>raward功能</strong></p>
-<ol>
-<li>enable选择打开，comment输入文字</li>
-<li>在缀主题的images文件夹中把你的<strong>付款码的图片放到 root\themes \next \source images 中</strong>，它会按照这个路径寻找图片</li>
-</ol>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Reward(Donate)</span>
-<span class="token comment"># Front-matter variable (unsupport animation).</span>
-<span class="token key atrule">reward_settings</span><span class="token punctuation">:</span>
-  <span class="token comment"># if true,reward will be displayed in every article by default.</span>
-  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token key atrule">animation</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token key atrule">comment</span><span class="token punctuation">:</span> <span class="token string">"您的支持将鼓励我继续创作！"</span>
-
-<span class="token key atrule">reward</span><span class="token punctuation">:</span>
-  <span class="token key atrule">wechatpay</span><span class="token punctuation">:</span> /images/wechat.png
-  <span class="token key atrule">alipay</span><span class="token punctuation">:</span> /images/zhifubao.jpg
-<span class="token comment"># paypal:/images/paypal png</span>
-<span class="token comment"># bitcoin:/images/bitcoin.png</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>这里你可以发现，这个images文件夹里面的图片都是可以修改的，找到合适的地点，然后更改你的图片即可换成你想要的图片了</p>
-<h3 id="添加RSS订阅"><a href="#添加RSS订阅" class="headerlink" title="添加RSS订阅"></a>添加RSS订阅</h3><p>执行命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-feed<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>在<code>博客配置文件</code>末尾添加以下内容</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">  <span class="token comment"># feed  RSS订阅配置</span>
-<span class="token comment"># Dependencies: https://github.com/hexojs/hexo-generator-feed</span>
-<span class="token key atrule">feed</span><span class="token punctuation">:</span>
-  <span class="token key atrule">type</span><span class="token punctuation">:</span> atom <span class="token comment"># 或 rss2</span>
-  <span class="token key atrule">path</span><span class="token punctuation">:</span> atom.xml <span class="token comment"># 输出的文件路径</span>
-  <span class="token key atrule">limit</span><span class="token punctuation">:</span> <span class="token number">20</span> <span class="token comment"># 最多包含的文章数，设为 0 或 false 表示全部</span>
-  <span class="token key atrule">content</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 是否包含文章全文，建议设为 false，仅输出摘要</span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>编辑<code>主题配置文件</code>，这步配置完成后，它会在每篇文章末尾生成一个RSS按钮。</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">follow_me</span><span class="token punctuation">:</span>
-  <span class="token key atrule">RSS</span><span class="token punctuation">:</span> /atom.xml <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>rss<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>运行 <code>hexo s</code> 启动本地服务器，在浏览器中访问<code>http://localhost:4000/atom.xml</code>,能看到一个 XML 格式的文档，说明 RSS 已生成成功</p>
-<h3 id="pjax"><a href="#pjax" class="headerlink" title="pjax"></a>pjax</h3><p>可能大家听说过 Ajax，没听说过 pjax，这个技术实际上就是利用 Ajax 技术<strong>实现了局部页面刷新</strong>，既可以实现 URL 的更换，有可以做到无刷新加载。</p>
-<p>要开启这个功能需要先将 pjax 功能开启，然后安装对应的 pjax 依赖库，首先修改<code>主题配置文件</code> 修改如下：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">pjax</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>然后安装依赖库，切换到 <strong>next 主题目录</strong>下，右击打开<code>git bash</code>，然后安装依赖库：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/theme-next/theme-next-pjax source/lib/pjax<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这样它会在<code>root\themes\next\source\</code>生成lib文件夹以及它的子文件夹pjax。</p>
-<h2 id="侧边栏配置"><a href="#侧边栏配置" class="headerlink" title="侧边栏配置"></a>侧边栏配置</h2><h3 id="侧边栏头像设置"><a href="#侧边栏头像设置" class="headerlink" title="侧边栏头像设置"></a>侧边栏头像设置</h3><p>将自己的头像图片储存在 <code>root\themes\next\source\images</code> 中；<br>在<code>主题配置文件</code>中找到<code>avatar</code>，在<code>url</code>后面写上头像位置，将<code>false</code>改为<code>true</code>。</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">avatar</span><span class="token punctuation">:</span>
-  <span class="token comment"># Replace the default image and set the url here.</span>
-  <span class="token comment"># 图片位置，可以是网络路径</span>
-  <span class="token key atrule">url</span><span class="token punctuation">:</span> /images/avatar01.gif <span class="token comment">#/images/avatar.gif</span>
-  <span class="token comment"># If true, the avatar will be displayed in circle.</span>
-  <span class="token comment"># 圆框显示</span>
-  <span class="token key atrule">rounded</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false </span>
-  <span class="token comment"># If true, the avatar will be rotated with the cursor.</span>
-  <span class="token comment"># 鼠标悬停在头像时旋转</span>
-  <span class="token key atrule">rotated</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="添加-social-链接"><a href="#添加-social-链接" class="headerlink" title="添加 social 链接"></a>添加 social 链接</h3><p>打开主题配置文件，在 social 下添加链接：  </p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">social</span><span class="token punctuation">:</span>
-
-  GitHub<span class="token punctuation">:</span> https<span class="token punctuation">:</span>//github.com/froshblog <span class="token punctuation">|</span><span class="token punctuation">|</span> fab fa<span class="token punctuation">-</span>github
-  <span class="token comment"># 需要添加rss插件才能生效</span>
-  RSS<span class="token punctuation">:</span> /atom.xml <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>rss
-  <span class="token comment">#E-Mail: mailto:yourname@gmail.com || fa fa-envelope</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="添加链接"><a href="#添加链接" class="headerlink" title="添加链接"></a>添加链接</h3><p>打开<code>主题配置文件</code>，搜索关键词<strong>Blog rolls</strong>，设置即可：</p>
-<ul>
-<li>icon：设置图标</li>
-<li>title：标题</li>
-<li>links：输入你的友情链接，可以直接修改或者添加</li>
-</ul>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Blog rolls</span>
-<span class="token key atrule">links_settings</span><span class="token punctuation">:</span>
-  <span class="token key atrule">icon</span><span class="token punctuation">:</span> fa fa<span class="token punctuation">-</span>link
-  <span class="token comment"># Available values: block | inline</span>
-  <span class="token comment"># layout: block</span>
-  <span class="token key atrule">layout</span><span class="token punctuation">:</span> inline
-  
-
-<span class="token key atrule">links</span><span class="token punctuation">:</span>
-  <span class="token comment">#Title: https://example.com</span>
-  <span class="token key atrule">优设</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//www.uisdc.com/
-  <span class="token key atrule">Web前端导航</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//www.alloyteam.com/nav/
-  <span class="token key atrule">前端书籍资料</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//www.36zhen.com/t<span class="token punctuation">?</span>id=3448
-  <span class="token key atrule">百度前端技术学院</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//ife.baidu.com/
-  <span class="token key atrule">google前端开发基础</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//wf.uisdc.com/cn/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-
-
-
-<h2 id="页脚配置"><a href="#页脚配置" class="headerlink" title="页脚配置"></a>页脚配置</h2><h3 id="隐藏底部由…-强力驱动"><a href="#隐藏底部由…-强力驱动" class="headerlink" title="隐藏底部由… 强力驱动"></a>隐藏底部由… 强力驱动</h3><p>文件位置：<code>root\themes\next\layout\ _partials\footer.njk</code></p>
-<p>使用vscode打开，第82行（一般在末尾）的内容首尾加了 个 &lt;!- - –&gt;用于隐藏中间的内容</p>
-<pre class="line-numbers language-njk" data-language="njk"><code class="language-njk">&lt;!--&#123;&#123;- __(&#39;footer.powered&#39;, next_url(&#39;https:&#x2F;&#x2F;hexo.io&#39;, &#39;Hexo&#39;) + &#39; &amp; &#39; + next_url(next_site, &#39;NexT.&#39; + theme.scheme)) &#125;&#125;--&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-<h2 id="文章配置"><a href="#文章配置" class="headerlink" title="文章配置"></a>文章配置</h2><h3 id="首页只显示部分摘要-不显示全文"><a href="#首页只显示部分摘要-不显示全文" class="headerlink" title="首页只显示部分摘要(不显示全文)"></a>首页只显示部分摘要(不显示全文)</h3><p>首先，<code>主题配置文件</code>中的以下内容（默认开启）</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Use `description` in front-matter to specify post excerpt.</span>
-<span class="token key atrule">excerpt_description</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h4 id="方法一：写概述"><a href="#方法一：写概述" class="headerlink" title="方法一：写概述"></a>方法一：写概述</h4><p>在博客文章中的<strong>Front-matter</strong>中添加<code>description</code>，只有其后内容会显示在首页上</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">title: hexo个人博客搭建
-date: 2026-01-15 00:32:06
-tags:
-<span class="token list punctuation">-</span> Hexo
-categories: 
-<span class="token list punctuation">-</span> 个人博客
-description: 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<blockquote>
-<p>对于这种常用的文章设置，可以直接在博客模板文件的<strong>Front-matter</strong>中添加的字段。</p>
-</blockquote>
-<h4 id="方法二：文章截断"><a href="#方法二：文章截断" class="headerlink" title="方法二：文章截断"></a>方法二：文章截断</h4><p>在<code>.md</code>文件（博客文章）中，在需要显示在首页的内容后面添加以下内容：</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token comment">&lt;!--more--></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-<h3 id="置顶首页文章"><a href="#置顶首页文章" class="headerlink" title="置顶首页文章"></a>置顶首页文章</h3><p>在文章的<strong>Front-matter</strong>中添加<code>sticky</code>，数值越大，置顶优先级越高</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
-<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 文章标题
-<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-20</span>
-<span class="token key atrule">sticky</span><span class="token punctuation">:</span> <span class="token number">100</span></span>  
-<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-
-<h3 id="隐藏文章"><a href="#隐藏文章" class="headerlink" title="隐藏文章"></a>隐藏文章</h3><blockquote>
-<p>我是使用obsidian管理我的博客，直接创建文章就开写，有时卡文就可以使用这个功能将文章隐藏</p>
-</blockquote>
-<ol>
-<li>安装Hexo插件</li>
-</ol>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-hide-posts <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<ol start="2">
-<li>在<code>博客配置文件</code>的末尾添加以下内容</li>
-</ol>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 隐藏文章配置</span>
-<span class="token key atrule">hide_posts</span><span class="token punctuation">:</span>
-  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token comment"># 根据你的需要修改，比如隐藏哪些生成器中的文章</span>
-  <span class="token key atrule">filter</span><span class="token punctuation">:</span> hidden
-  <span class="token comment"># 可以指定从哪些生成器中隐藏，比如首页、标签、分类等;特别注意不要加入自己没有的生成器，不然会失效</span>
-  <span class="token key atrule">generators</span><span class="token punctuation">:</span>
-    <span class="token punctuation">-</span> index
-    <span class="token punctuation">-</span> tag
-    <span class="token punctuation">-</span> category
-    <span class="token punctuation">-</span> archive
-  <span class="token comment"># 也可以设置白名单，允许某些路径访问</span>
-  <span class="token comment"># allowlist: </span>
-  <span class="token comment">#   - /about/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ol start="3">
-<li>在文章的 <strong>Front-matter</strong>中添加<code>hidden</code>，true：表示隐藏，false：不隐藏</li>
-</ol>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
-<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 我的隐藏文章
-<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-20</span>
-<span class="token key atrule">hidden</span><span class="token punctuation">:</span> <span class="token boolean important">true</span></span>
-<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="修改首页分页文章数"><a href="#修改首页分页文章数" class="headerlink" title="修改首页分页文章数"></a>修改首页分页文章数</h3><p>在站点配置文件中找到 index_generator，修改 per_page 项：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">index_generator</span><span class="token punctuation">:</span>
-  <span class="token key atrule">path</span><span class="token punctuation">:</span> <span class="token string">''</span>
-  <span class="token key atrule">per_page</span><span class="token punctuation">:</span> <span class="token number">5</span>
-  <span class="token key atrule">order_by</span><span class="token punctuation">:</span> <span class="token punctuation">-</span>date<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="关闭首页“阅读更多”按钮"><a href="#关闭首页“阅读更多”按钮" class="headerlink" title="关闭首页“阅读更多”按钮"></a>关闭首页“阅读更多”按钮</h3><p>在主题配置文件中找到 read_more_btn，修改其值为 false，即可关闭。</p>
-<h3 id="中英自动添加空格"><a href="#中英自动添加空格" class="headerlink" title="中英自动添加空格"></a>中英自动添加空格</h3><p>修改<code>主题配置文件</code>中<code>pangu</code>的值，将<code>false</code>改为<code>ture</code></p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">pangu</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="代码块一键复制"><a href="#代码块一键复制" class="headerlink" title="代码块一键复制"></a>代码块一键复制</h3><p>修改<code>主题配置文件l</code>的<code>copy_button</code>的值为<code>enable</code></p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">copy_button</span><span class="token punctuation">:</span>
-    <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
-    <span class="token comment"># Available values: default | flat | mac</span>
-    <span class="token key atrule">style</span><span class="token punctuation">:</span> flat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="阅读时间字数提示"><a href="#阅读时间字数提示" class="headerlink" title="阅读时间字数提示"></a>阅读时间字数提示</h3><ol>
-<li><p>下载插件</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-symbols-count-time<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-</li>
-<li><p>修改<code>主题配置文件</code>，找到以下内容修改</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 设置博客单词统计</span>
-<span class="token key atrule">symbols_count_time</span><span class="token punctuation">:</span>
-  <span class="token comment"># 是否另起一行（true的话不和发表时间等同一行）</span>
-  <span class="token key atrule">separated_meta</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-   <span class="token comment"># 页面底部统计数量前是否显示文字描述（站点总字数、站点阅读时长）</span>
-  <span class="token key atrule">item_text_total</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token comment"># 首页文章统计数量前是否显示文字描述（本文字数、阅读时长）</span>
-  <span class="token key atrule">item_text_post</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>在<code>博客配置文件</code>的末尾添加以下内容</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">symbols_count_time</span><span class="token punctuation">:</span>
-  <span class="token comment"># 每篇文章显示</span>
-  <span class="token key atrule">symbols</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token key atrule">time</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token comment"># 文章底部显示</span>
-  <span class="token key atrule">total_symbols</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token key atrule">total_time</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token comment"># 是否统计代码块</span>
-  <span class="token key atrule">exclude_codeblock</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token key atrule">awl</span><span class="token punctuation">:</span> <span class="token number">2</span>    
-  <span class="token key atrule">wpm</span><span class="token punctuation">:</span> <span class="token number">275</span>
-  <span class="token key atrule">suffix</span><span class="token punctuation">:</span> <span class="token string">"mins."</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="取消文章目录自动编号"><a href="#取消文章目录自动编号" class="headerlink" title="取消文章目录自动编号"></a>取消文章目录自动编号</h3><p>修改<code>主题配置文件</code>中<code>wrap</code>, 将<code>false</code>改为<code>true</code></p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">toc</span><span class="token punctuation">:</span>
-  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token comment"># Automatically add list number to toc.</span>
-  <span class="token key atrule">number</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token comment"># If true, all words will placed on next lines if header width longer then sidebar width. </span>
-  <span class="token key atrule">wrap</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
-  <span class="token comment"># If true, all level of TOC in a post will be displayed, rather than the activated part of it.</span>
-  <span class="token comment"># 所有页面显示目录</span>
-  <span class="token key atrule">expand_all</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token comment"># Maximum heading depth of generated toc.</span>
-  <span class="token key atrule">max_depth</span><span class="token punctuation">:</span> <span class="token number">6</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="博客插入图片"><a href="#博客插入图片" class="headerlink" title="博客插入图片"></a>博客插入图片</h3><ol>
-<li><p>在<code>博客配置文件</code>中查找以下内容并修改</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">post_asset_folder</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<p> 这个操作能在你用<code>hexo new 文章名</code>创建博客时生成一个同名文件夹放置图片</p>
-<p>示例目录：</p>
-   <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">MacGesture2-Publish
-├── apppicker.jpg
-├── logo.jpg
-└── rules.jpg
-MacGesture2-Publish.md        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="2">
-<li><p><strong>配置渲染器</strong></p>
-<p>在<code>博客配置文件</code>中添加以下内容</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Markdown 配置（你可以添加这行注释，便于识别）</span>
-<span class="token key atrule">marked</span><span class="token punctuation">:</span>
-  <span class="token key atrule">prependRoot</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token key atrule">postAsset</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-</li>
-<li><p>只需使用<code>![logo](logo.jpg)</code>插入<code>logo.jpg</code></p>
-</li>
-</ol>
-<h3 id="图片懒加载插件"><a href="#图片懒加载插件" class="headerlink" title="图片懒加载插件"></a>图片懒加载插件</h3><p>安装插件：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-lazyload-image <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>博客配置文件的末尾添加以下内容：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">lazyload</span><span class="token punctuation">:</span>
-  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 开启</span>
-  <span class="token key atrule">onlypost</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 是否仅文章内图片生效。false：全站图片生效[citation:7][citation:10]</span>
-  <span class="token key atrule">loadingImg</span><span class="token punctuation">:</span> <span class="token comment"># 自定义加载占位图，留空则使用默认灰色图</span>
-  <span class="token key atrule">isSPA</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 【关键】如果你的主题使用了Pjax（NexT主题默认开启），必须设为true以避免冲突[citation:10]</span>
-  <span class="token key atrule">preloadRatio</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token comment"># 在图片进入视窗多少倍距离时开始加载，默认为1[citation:10]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="设置图片大小"><a href="#设置图片大小" class="headerlink" title="设置图片大小"></a>设置图片大小</h3><p>直接写html代码，比如原来的写法是</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url"><span class="token operator">!</span>[<span class="token content">支付宝</span>](<span class="token url">/images/alipay.png</span>)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>可以写成</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/images/alipay.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>支付宝<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-
-
-
-
-<h2 id="SEO（搜索引擎优化）"><a href="#SEO（搜索引擎优化）" class="headerlink" title="SEO（搜索引擎优化）"></a>SEO（搜索引擎优化）</h2><h3 id="待续"><a href="#待续" class="headerlink" title="待续"></a>待续</h3><p>可以看大佬的文章<a href="https://zcw-blog.top/posts/20220424a1/#seo%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96">SEO</a></p>
-<h2 id="GEO"><a href="#GEO" class="headerlink" title="GEO"></a>GEO</h2><h3 id="待续-1"><a href="#待续-1" class="headerlink" title="待续"></a>待续</h3><h2 id="删除-hexo-博客"><a href="#删除-hexo-博客" class="headerlink" title="删除 hexo 博客"></a>删除 hexo 博客</h2><p>在命令提示符中，执行以下命令：  </p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> uninstall hexo-cli <span class="token parameter variable">-g</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>然后手动删除博客文件夹。</p>
-<p>另外，进行重装之前，如果还是在原来位置，必须手动清理了才能迁移安装。</p>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://www.hancher.top/2025/01/09/site-hexo-comment-feature/">hexo建站增加自己的评论模块 - 寒澈笔记</a></p>
-<p><a href="https://zcw-blog.top/posts/20220424a1/">https://zcw-blog.top/posts/20220424a1/</a></p>
-<p><a href="http://shenzekun.cn/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html">http://shenzekun.cn/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html</a></p>
 ]]></content>
       <categories>
-        <category>个人博客</category>
+        <category>个人笔记</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
-        <tag>Next</tag>
+        <tag>CDN</tag>
+        <tag>EdgeOne</tag>
+        <tag>EO</tag>
       </tags>
   </entry>
   <entry>
@@ -1866,8 +1352,522 @@ p#div-border-top-purple</span> <span class="token punctuation">&#123;</span>
         <category>个人博客</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>css</tag>
+        <tag>Next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客优化</title>
+    <url>/posts/94271a3a.html/</url>
+    <content><![CDATA[<hr>
+<blockquote>
+<p>这是关于Hexo博客的优化文章，收录了一些常用的插件和设置，自己按需设置即可，如果还想要设置更多的配置可要看看结尾处大佬的文章。</p>
+</blockquote>
+<span id="more"></span>
+<blockquote>
+<p>Hexo version：8.1.1，Next version：8.27.0，分别通过博客根目录和主题目录的package.json查看；<br>使用的Next主题的Mist样式。</p>
+</blockquote>
+<blockquote>
+<p>阅读需知：</p>
+<ul>
+<li>文中命令执行的位置若没特别提醒，默认在博客根目录；</li>
+<li><code>root</code>：指的是博客根目录，即你创建的博客时的文件夹；</li>
+<li>博客配置文件：指的是<code>root\_config.yml</code>；</li>
+<li>主题配置文件：指的是<code>root\themes\next\_config.yml</code>；</li>
+<li>博客模板文件：指的是<code>root\scaffolds\post.md</code>；</li>
+<li>Front-matter字段：指的是<code>.md</code>文章的开头部分；</li>
+<li>运行这三个命令<code>hexo cl</code>、<code>hexo d</code>、<code>hexo s</code>进行本地预览。</li>
+</ul>
+</blockquote>
+<h2 id="全局配置"><a href="#全局配置" class="headerlink" title="全局配置"></a>全局配置</h2><h3 id="博客基本信息"><a href="#博客基本信息" class="headerlink" title="博客基本信息"></a>博客基本信息</h3><blockquote>
+<p>设置博客的标题，副标题，描述，等等基本信息。<br>yaml语言规定冒号后面内容需要先空格在输入内容</p>
+</blockquote>
+<p>在<code>博客配置文件</code>中 ，修改以下信息</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Site</span>
+<span class="token comment"># 博客标题</span>
+<span class="token key atrule">title</span><span class="token punctuation">:</span> FROSH
+<span class="token comment"># 博客副标题</span>
+<span class="token key atrule">subtitle</span><span class="token punctuation">:</span> <span class="token string">'时刻准备着'</span>
+<span class="token comment"># 站点描述</span>
+<span class="token key atrule">description</span><span class="token punctuation">:</span> <span class="token string">'要做的事还有很多，一件一件地来~'</span>
+<span class="token comment"># 网站关键词，对SEO的优化有一定作用</span>
+<span class="token key atrule">keywords</span><span class="token punctuation">:</span>
+<span class="token comment"># 作者</span>
+<span class="token key atrule">author</span><span class="token punctuation">:</span> kumiao
+<span class="token comment"># 网站使用的语言</span>
+<span class="token key atrule">language</span><span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN    <span class="token comment"># en</span>
+<span class="token comment"># 网站对应失去，不设置默认使用电脑时区，一般中国的时区可以设置为Asia/Shanghai</span>
+<span class="token key atrule">timezone</span><span class="token punctuation">:</span> <span class="token string">''</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="next主题"><a href="#next主题" class="headerlink" title="next主题"></a>next主题</h3><h4 id="next主题文件下载及使用："><a href="#next主题文件下载及使用：" class="headerlink" title="next主题文件下载及使用："></a>next主题文件下载及使用：</h4><p>进入 <a href="https://hexo.io/themes/">hexo 主题网址</a>，搜索 next，点击名称进入 GitHub 项目仓库。<br>每个主题都有操作文档，按照上面的步骤进行部署  </p>
+<p>next文件下载</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/next-theme/hexo-theme-next themes/next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>这样你的<code>root\themes</code>目录下就有了一个<code>next</code>文件夹</p>
+<p>博客使用next主题</p>
+<p>修改<code>博客配置文件</code> ，找<code>theme</code>，并修改为以下内容 </p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">theme</span><span class="token punctuation">:</span> next <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>next这个值主要看主题文件夹themes下的文件名称。</p>
+</blockquote>
+<h4 id="next主题样式选择"><a href="#next主题样式选择" class="headerlink" title="next主题样式选择"></a>next主题样式选择</h4><p>next主题有四种样式：Msse、Mist、Pisces、Gemini</p>
+<p>打开<code>主题配置文件</code>，查找<code>Schemes</code>，根据你的需要选择你的样式</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Schemes</span>
+<span class="token comment">#scheme: Muse</span>
+<span class="token key atrule">scheme</span><span class="token punctuation">:</span> Mist
+<span class="token comment">#scheme: Pisces</span>
+<span class="token comment">#scheme: Gemini</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<h3 id="创建新的菜单页面"><a href="#创建新的菜单页面" class="headerlink" title="创建新的菜单页面"></a>创建新的菜单页面</h3><blockquote>
+<p>Mist样式菜单栏与标题栏合并在一起的；<br>博客菜单选项，默认全关的，需要自己去添加。</p>
+</blockquote>
+<ol>
+<li><p><code>主题配置文件</code>，查找<code>menu</code>一栏,，按需取消注释</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">menu</span><span class="token punctuation">:</span>
+<span class="token key atrule">home</span><span class="token punctuation">:</span> / <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>home				<span class="token comment">#首页</span>
+<span class="token key atrule">about</span><span class="token punctuation">:</span> /about/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>user			<span class="token comment">#关于</span>
+<span class="token comment">#tags: /tags/ || fa fa-tags			#标签</span>
+<span class="token key atrule">categories</span><span class="token punctuation">:</span> /categories/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>th		<span class="token comment">#分类</span>
+<span class="token key atrule">archives</span><span class="token punctuation">:</span> /archives/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>archive		<span class="token comment">#归档</span>
+<span class="token key atrule">album</span><span class="token punctuation">:</span> /album/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>camera<span class="token punctuation">-</span>retro		<span class="token comment">#相册</span>
+<span class="token key atrule">gallery</span><span class="token punctuation">:</span> /gallery/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>paint<span class="token punctuation">-</span>brush	<span class="token comment">#画廊</span>
+<span class="token key atrule">tools</span><span class="token punctuation">:</span> /tools/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>square			<span class="token comment">#工具</span>
+<span class="token comment">#schedule: /schedule/ || fa fa-calendar	#日历</span>
+<span class="token comment">#sitemap: /sitemap.xml || fa fa-sitemap	#站点地图</span>
+<span class="token comment">#commonweal: /404/ || fa fa-heartbeat		#腾讯公益404</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<blockquote>
+<p>“||”前面是对应路径，后面是图标名称。Next使用的图标库是<a href="https://fontawesome.com.cn/faicons/#web-application">Font Awesome</a>，可自行添加后更换心仪的图标。</p>
+</blockquote>
+<p>若想添加自定义菜单，则仿照其对应的元素、路径和图标，同时在themes&#x2F;next&#x2F;languages&#x2F;zh-CN.yml 里的 menu 下添加相对应的中文。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">menu</span><span class="token punctuation">:</span>
+  <span class="token key atrule">home</span><span class="token punctuation">:</span> 首页
+  <span class="token key atrule">archives</span><span class="token punctuation">:</span> 归档
+  <span class="token key atrule">categories</span><span class="token punctuation">:</span> 分类
+  <span class="token key atrule">tags</span><span class="token punctuation">:</span> 标签
+  <span class="token key atrule">about</span><span class="token punctuation">:</span> 关于
+  <span class="token key atrule">search</span><span class="token punctuation">:</span> 搜索
+  <span class="token key atrule">schedule</span><span class="token punctuation">:</span> 日程表
+  <span class="token key atrule">sitemap</span><span class="token punctuation">:</span> 站点地图
+  <span class="token key atrule">commonweal</span><span class="token punctuation">:</span> 公益 404
+  <span class="token key atrule">gallery</span><span class="token punctuation">:</span> 画廊
+  <span class="token key atrule">album</span><span class="token punctuation">:</span> 相册
+  <span class="token key atrule">tools</span><span class="token punctuation">:</span> 工具<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="2">
+<li><p>执行下面命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page <span class="token string">"菜单名称"</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<p>此时会在博客目录的sources文件下生成对应的文件夹，每个文件夹都有一个index.md文件，对文件内容进行修改。</p>
+<blockquote>
+<p>需要修改新建页面文件<code>tags</code>和<code>categories</code>，同时修改其<code>.md</code>文件，不然网页无法生效</p>
+</blockquote>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token title important"># tags.md
+<span class="token punctuation">---</span></span>
+title: 标签
+date: 2019-01-23 23:26:43
+<span class="token title important">type: tags
+<span class="token punctuation">---</span></span>
+
+<span class="token title important"># categories.md
+<span class="token punctuation">---</span></span>
+title: 类别
+date: 2019-01-23 23:27:04
+<span class="token title important">type: categories
+<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p><strong>注意 1：需要手动添加<code>type: xxx</code></strong><br><strong>注意 2：需要手动设置中文<code>title</code></strong></p>
+</blockquote>
+<h3 id="本地搜索功能"><a href="#本地搜索功能" class="headerlink" title="本地搜索功能"></a>本地搜索功能</h3><ol>
+<li><p>下载插件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-searchdb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p><code>主题配置文件</code>查找<code>local_serch</code>，将<code>enable</code>设置为<code>true</code></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">local_search</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
+  <span class="token comment"># If auto, trigger search by changing input.</span>
+  <span class="token comment"># If manual, trigger search by pressing enter key or search button.</span>
+  <span class="token key atrule">trigger</span><span class="token punctuation">:</span> auto
+  <span class="token comment"># Show top n results per article, show all results by setting to -1</span>
+  <span class="token key atrule">top_n_per_article</span><span class="token punctuation">:</span> <span class="token number">1</span>
+  <span class="token comment"># Unescape html strings to the readable one.</span>
+  <span class="token key atrule">unescape</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token comment"># Preload the search data when the page loads.</span>
+  <span class="token key atrule">preload</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>在<code>博客配置文件</code>的末尾添加以下内容</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># hexo-generator-searchdb</span>
+<span class="token comment"># 本地搜索</span>
+<span class="token key atrule">search</span><span class="token punctuation">:</span>
+  <span class="token key atrule">path</span><span class="token punctuation">:</span> search.xml
+  <span class="token key atrule">field</span><span class="token punctuation">:</span> post
+  <span class="token key atrule">format</span><span class="token punctuation">:</span> html
+  <span class="token key atrule">limit</span><span class="token punctuation">:</span> <span class="token number">10</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="添加顶部加载条"><a href="#添加顶部加载条" class="headerlink" title="添加顶部加载条"></a>添加顶部加载条</h3><p>修改主题配置文件，将pace的选项设置为true</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">pace</span><span class="token punctuation">:</span>
+  enable<span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
+  <span class="token comment"># All available colors:</span>
+  <span class="token comment"># black | blue | green | orange | pink | purple | red | silver | white | yellow</span>
+  color<span class="token punctuation">:</span> green <span class="token comment">#blue</span>
+  <span class="token comment"># All available themes:</span>
+  <span class="token comment"># big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span>
+  <span class="token comment"># corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span>
+  theme<span class="token punctuation">:</span> minimal<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="站点图标设置"><a href="#站点图标设置" class="headerlink" title="站点图标设置"></a>站点图标设置</h3><p><code>主题配置文件</code>里，favicon 就是站点标签栏的小图标，默认是用的 Hexo 的小图标，如果我们有站点 Logo 的图片的话，我们可以自己定制小图标。</p>
+<h4 id="获取图标"><a href="#获取图标" class="headerlink" title="获取图标"></a>获取图标</h4><p>可以通过 PS 制作也可以通过下面网站获取</p>
+<p><a href="https://realfavicongenerator.net/">https://realfavicongenerator.net</a></p>
+<h4 id="更换站点图标"><a href="#更换站点图标" class="headerlink" title="更换站点图标"></a>更换站点图标</h4><p>图标存放位置在博客目录下<code>root\themes\next\source\images</code>里，<br>然后在<code>主题配置文件</code>里面找到<code>favicon</code>配置项，把一些相关路径配置进去即可，示例如下：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">favicon</span><span class="token punctuation">:</span>
+  <span class="token key atrule">small</span><span class="token punctuation">:</span> /images/favicon<span class="token punctuation">-</span>16x16<span class="token punctuation">-</span>next.png
+  <span class="token key atrule">medium</span><span class="token punctuation">:</span> /images/favicon<span class="token punctuation">-</span>32x32<span class="token punctuation">-</span>next.png
+  <span class="token key atrule">apple_touch_icon</span><span class="token punctuation">:</span> /images/apple<span class="token punctuation">-</span>touch<span class="token punctuation">-</span>icon<span class="token punctuation">-</span>next.png
+  <span class="token key atrule">safari_pinned_tab</span><span class="token punctuation">:</span> /images/logo.svg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="GitHub图标"><a href="#GitHub图标" class="headerlink" title="GitHub图标"></a>GitHub图标</h3><p><code>主题配置文件</code>中修改<code>github_banner</code>的<code>enable</code>的值</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># `Follow me on GitHub` banner in the top-right corner.</span>
+<span class="token key atrule">github_banner</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># 链接</span>
+  <span class="token key atrule">permalink</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//github.com/luumod
+  <span class="token key atrule">title</span><span class="token punctuation">:</span> Follow me on GitHub<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+
+
+
+
+
+
+<h3 id="添加评论模块——Giscus评论"><a href="#添加评论模块——Giscus评论" class="headerlink" title="添加评论模块——Giscus评论"></a>添加评论模块——Giscus评论</h3><blockquote>
+<p>Giscus是基于GitHub Discussions的评论插件。部署不用注册，支持多种主题，支持自定义配置。所有评论都存储在你的GitHub Discussions中，不易丢失，方便管理。不过评论需要登录。</p>
+</blockquote>
+<h4 id="安装流程"><a href="#安装流程" class="headerlink" title="安装流程"></a>安装流程</h4><p><strong>第一步：创建GitHub仓库</strong><br>首先，创建的仓库必须是公开的，其次，需要安装<a href="github.com/apps/giscus">giscus</a> app，最后，<strong>Discussions</strong> 功能已在你的仓库中启用。<br>这里说下Discussions功能的开启，先进入仓库里，然后接下来的操作：’Settings-General-Features’，最后勾选Discussions的复选框就行了。<br><strong>第二步：在 <a href="https://giscus.app/zh-CN">giscus.app</a> 创建你的配置</strong><br>具体设置按照你的要求来，这里展示我的设置。<br>映照关系：选第三个；<br>Discussion 分类：Announcenments；<br>特性：选1，3，4；<br>主题：用户偏好的色彩方案。<br>这样你会得到一段script代码，将这代码改为yaml</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">giscus</span><span class="token punctuation">:</span>
+  enable<span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  repo<span class="token punctuation">:</span>   <span class="token comment"># Github repository name;你的 GitHub 仓库，格式：用户名/仓库名</span>
+  repo_id<span class="token punctuation">:</span>  <span class="token comment"># Github repository id; 从 giscus.app 获取的仓库ID</span>
+  category<span class="token punctuation">:</span> Announcements <span class="token comment"># Github discussion category;分类名</span>
+  category_id<span class="token punctuation">:</span>  <span class="token comment"># Github discussion category id;从 giscus.app 获取的分类ID</span>
+  <span class="token comment"># Available values: pathname | url | title | og:title</span>
+  mapping<span class="token punctuation">:</span> title <span class="token comment"># 页面与Discussion的映射关系，推荐pathname或title</span>
+  strict<span class="token punctuation">:</span> <span class="token number">0</span>
+  <span class="token comment"># Available values: 0 | 1</span>
+  reactions_enabled<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token comment"># 是否开启表情反应</span>
+   <span class="token comment"># Available values: 0 | 1</span>
+  emit_metadata<span class="token punctuation">:</span> <span class="token number">0</span>
+  input_position<span class="token punctuation">:</span> top <span class="token comment"># 评论输入框位置：top 或 bottom</span>
+  <span class="token comment"># Available values: light | dark | dark_high_contrast | transparent_dark | preferred-color-scheme</span>
+  theme<span class="token punctuation">:</span> preferred_color_scheme <span class="token comment">#light ;主题，可设为 light, dark, preferred_color_scheme 等</span>
+  <span class="token comment"># Available values: en | zh-C</span>
+  lang<span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN  <span class="token comment"># 界面语言</span>
+  loading<span class="token punctuation">:</span> lazy <span class="token comment"># 懒加载</span>
+  <span class="token comment"># Available value: anonymous</span>
+  crossorigin<span class="token punctuation">:</span> anonymous
+  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p><strong>第三步：在主题配置文件中添加Giscus 配置</strong><br>在主题配置文件中的comments部分，添加Giscus 配置，即第二部的yaml代码，不能留空哦。</p>
+<h4 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h4><p>博客页面：<br><img src="/posts/94271a3a.html/%7BD78D1E34-6764-48D2-AA50-D13BF241D8D5%7D.png"><br>仓库里的内容：<br><img src="/posts/94271a3a.html/%7BFCFD4B0C-B609-4CD3-89B3-B0A887435C00%7D.png"></p>
+<h4 id="页面取消评论区"><a href="#页面取消评论区" class="headerlink" title="页面取消评论区"></a>页面取消评论区</h4><blockquote>
+<p>设置完成后，默认为除首页外的每个页面添加评论区，这时候就需要为不需要的页面设置不显示评论。下面示例，仿照即可</p>
+</blockquote>
+<p>示例：标签页面<br>在页面文件的<strong>Front-matter</strong> 部分（即开头以 <code>---</code> 包裹的区域）添加comments: false&#96;配置项。<br>示例：取消标签页面的评论区</p>
+<ol>
+<li>定位文件：root&#x2F;source&#x2F;tags&#x2F;index.md</li>
+<li>添加配置：在文件的 <strong>Front-matter</strong> 部分添加 <code>comments: false</code> 配置项。如下：</li>
+</ol>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
+<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 标签
+<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-24 00:00:00</span>
+<span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">"tags"</span>
+<span class="token key atrule">comments</span><span class="token punctuation">:</span> <span class="token boolean important">false</span></span> 
+<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="点击放大图片"><a href="#点击放大图片" class="headerlink" title="点击放大图片"></a>点击放大图片</h3><p>将主题配置文件内 fancybox 的值置为 true 即可</p>
+<h3 id="打赏功能"><a href="#打赏功能" class="headerlink" title="打赏功能"></a>打赏功能</h3><p>在 <code>主题配置文件</code>中找到如下的 <strong>raward功能</strong></p>
+<ol>
+<li>enable选择打开，comment输入文字</li>
+<li>在缀主题的images文件夹中把你的<strong>付款码的图片放到 root\themes \next \source images 中</strong>，它会按照这个路径寻找图片</li>
+</ol>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Reward(Donate)</span>
+<span class="token comment"># Front-matter variable (unsupport animation).</span>
+<span class="token key atrule">reward_settings</span><span class="token punctuation">:</span>
+  <span class="token comment"># if true,reward will be displayed in every article by default.</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">animation</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token key atrule">comment</span><span class="token punctuation">:</span> <span class="token string">"您的支持将鼓励我继续创作！"</span>
+
+<span class="token key atrule">reward</span><span class="token punctuation">:</span>
+  <span class="token key atrule">wechatpay</span><span class="token punctuation">:</span> /images/wechat.png
+  <span class="token key atrule">alipay</span><span class="token punctuation">:</span> /images/zhifubao.jpg
+<span class="token comment"># paypal:/images/paypal png</span>
+<span class="token comment"># bitcoin:/images/bitcoin.png</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>这里你可以发现，这个images文件夹里面的图片都是可以修改的，找到合适的地点，然后更改你的图片即可换成你想要的图片了</p>
+<h3 id="添加RSS订阅"><a href="#添加RSS订阅" class="headerlink" title="添加RSS订阅"></a>添加RSS订阅</h3><p>执行命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-feed<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在<code>博客配置文件</code>末尾添加以下内容</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">  <span class="token comment"># feed  RSS订阅配置</span>
+<span class="token comment"># Dependencies: https://github.com/hexojs/hexo-generator-feed</span>
+<span class="token key atrule">feed</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> atom <span class="token comment"># 或 rss2</span>
+  <span class="token key atrule">path</span><span class="token punctuation">:</span> atom.xml <span class="token comment"># 输出的文件路径</span>
+  <span class="token key atrule">limit</span><span class="token punctuation">:</span> <span class="token number">20</span> <span class="token comment"># 最多包含的文章数，设为 0 或 false 表示全部</span>
+  <span class="token key atrule">content</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 是否包含文章全文，建议设为 false，仅输出摘要</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>编辑<code>主题配置文件</code>，这步配置完成后，它会在每篇文章末尾生成一个RSS按钮。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">follow_me</span><span class="token punctuation">:</span>
+  <span class="token key atrule">RSS</span><span class="token punctuation">:</span> /atom.xml <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>rss<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>运行 <code>hexo s</code> 启动本地服务器，在浏览器中访问<code>http://localhost:4000/atom.xml</code>,能看到一个 XML 格式的文档，说明 RSS 已生成成功</p>
+<h3 id="pjax"><a href="#pjax" class="headerlink" title="pjax"></a>pjax</h3><p>可能大家听说过 Ajax，没听说过 pjax，这个技术实际上就是利用 Ajax 技术<strong>实现了局部页面刷新</strong>，既可以实现 URL 的更换，有可以做到无刷新加载。</p>
+<p>要开启这个功能需要先将 pjax 功能开启，然后安装对应的 pjax 依赖库，首先修改<code>主题配置文件</code> 修改如下：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">pjax</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>然后安装依赖库，切换到 <strong>next 主题目录</strong>下，右击打开<code>git bash</code>，然后安装依赖库：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/theme-next/theme-next-pjax source/lib/pjax<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这样它会在<code>root\themes\next\source\</code>生成lib文件夹以及它的子文件夹pjax。</p>
+<h2 id="侧边栏配置"><a href="#侧边栏配置" class="headerlink" title="侧边栏配置"></a>侧边栏配置</h2><h3 id="侧边栏头像设置"><a href="#侧边栏头像设置" class="headerlink" title="侧边栏头像设置"></a>侧边栏头像设置</h3><p>将自己的头像图片储存在 <code>root\themes\next\source\images</code> 中；<br>在<code>主题配置文件</code>中找到<code>avatar</code>，在<code>url</code>后面写上头像位置，将<code>false</code>改为<code>true</code>。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">avatar</span><span class="token punctuation">:</span>
+  <span class="token comment"># Replace the default image and set the url here.</span>
+  <span class="token comment"># 图片位置，可以是网络路径</span>
+  <span class="token key atrule">url</span><span class="token punctuation">:</span> /images/avatar01.gif <span class="token comment">#/images/avatar.gif</span>
+  <span class="token comment"># If true, the avatar will be displayed in circle.</span>
+  <span class="token comment"># 圆框显示</span>
+  <span class="token key atrule">rounded</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false </span>
+  <span class="token comment"># If true, the avatar will be rotated with the cursor.</span>
+  <span class="token comment"># 鼠标悬停在头像时旋转</span>
+  <span class="token key atrule">rotated</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="添加-social-链接"><a href="#添加-social-链接" class="headerlink" title="添加 social 链接"></a>添加 social 链接</h3><p>打开主题配置文件，在 social 下添加链接：  </p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">social</span><span class="token punctuation">:</span>
+
+  GitHub<span class="token punctuation">:</span> https<span class="token punctuation">:</span>//github.com/froshblog <span class="token punctuation">|</span><span class="token punctuation">|</span> fab fa<span class="token punctuation">-</span>github
+  <span class="token comment"># 需要添加rss插件才能生效</span>
+  RSS<span class="token punctuation">:</span> /atom.xml <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>rss
+  <span class="token comment">#E-Mail: mailto:yourname@gmail.com || fa fa-envelope</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="添加链接"><a href="#添加链接" class="headerlink" title="添加链接"></a>添加链接</h3><p>打开<code>主题配置文件</code>，搜索关键词<strong>Blog rolls</strong>，设置即可：</p>
+<ul>
+<li>icon：设置图标</li>
+<li>title：标题</li>
+<li>links：输入你的友情链接，可以直接修改或者添加</li>
+</ul>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Blog rolls</span>
+<span class="token key atrule">links_settings</span><span class="token punctuation">:</span>
+  <span class="token key atrule">icon</span><span class="token punctuation">:</span> fa fa<span class="token punctuation">-</span>link
+  <span class="token comment"># Available values: block | inline</span>
+  <span class="token comment"># layout: block</span>
+  <span class="token key atrule">layout</span><span class="token punctuation">:</span> inline
+  
+
+<span class="token key atrule">links</span><span class="token punctuation">:</span>
+  <span class="token comment">#Title: https://example.com</span>
+  <span class="token key atrule">优设</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//www.uisdc.com/
+  <span class="token key atrule">Web前端导航</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//www.alloyteam.com/nav/
+  <span class="token key atrule">前端书籍资料</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//www.36zhen.com/t<span class="token punctuation">?</span>id=3448
+  <span class="token key atrule">百度前端技术学院</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//ife.baidu.com/
+  <span class="token key atrule">google前端开发基础</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//wf.uisdc.com/cn/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+
+
+<h2 id="页脚配置"><a href="#页脚配置" class="headerlink" title="页脚配置"></a>页脚配置</h2><h3 id="隐藏底部由…-强力驱动"><a href="#隐藏底部由…-强力驱动" class="headerlink" title="隐藏底部由… 强力驱动"></a>隐藏底部由… 强力驱动</h3><p>文件位置：<code>root\themes\next\layout\ _partials\footer.njk</code></p>
+<p>使用vscode打开，第82行（一般在末尾）的内容首尾加了 个 &lt;!- - –&gt;用于隐藏中间的内容</p>
+<pre class="line-numbers language-njk" data-language="njk"><code class="language-njk">&lt;!--&#123;&#123;- __(&#39;footer.powered&#39;, next_url(&#39;https:&#x2F;&#x2F;hexo.io&#39;, &#39;Hexo&#39;) + &#39; &amp; &#39; + next_url(next_site, &#39;NexT.&#39; + theme.scheme)) &#125;&#125;--&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+<h2 id="文章配置"><a href="#文章配置" class="headerlink" title="文章配置"></a>文章配置</h2><h3 id="首页只显示部分摘要-不显示全文"><a href="#首页只显示部分摘要-不显示全文" class="headerlink" title="首页只显示部分摘要(不显示全文)"></a>首页只显示部分摘要(不显示全文)</h3><p>首先，<code>主题配置文件</code>中的以下内容（默认开启）</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Use `description` in front-matter to specify post excerpt.</span>
+<span class="token key atrule">excerpt_description</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="方法一：写概述"><a href="#方法一：写概述" class="headerlink" title="方法一：写概述"></a>方法一：写概述</h4><p>在博客文章中的<strong>Front-matter</strong>中添加<code>description</code>，只有其后内容会显示在首页上</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">title: hexo个人博客搭建
+date: 2026-01-15 00:32:06
+tags:
+<span class="token list punctuation">-</span> Hexo
+categories: 
+<span class="token list punctuation">-</span> 个人博客
+description: 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<blockquote>
+<p>对于这种常用的文章设置，可以直接在博客模板文件的<strong>Front-matter</strong>中添加的字段。</p>
+</blockquote>
+<h4 id="方法二：文章截断"><a href="#方法二：文章截断" class="headerlink" title="方法二：文章截断"></a>方法二：文章截断</h4><p>在<code>.md</code>文件（博客文章）中，在需要显示在首页的内容后面添加以下内容：</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token comment">&lt;!--more--></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h3 id="置顶首页文章"><a href="#置顶首页文章" class="headerlink" title="置顶首页文章"></a>置顶首页文章</h3><p>在文章的<strong>Front-matter</strong>中添加<code>sticky</code>，数值越大，置顶优先级越高</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
+<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 文章标题
+<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-20</span>
+<span class="token key atrule">sticky</span><span class="token punctuation">:</span> <span class="token number">100</span></span>  
+<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+<h3 id="隐藏文章"><a href="#隐藏文章" class="headerlink" title="隐藏文章"></a>隐藏文章</h3><blockquote>
+<p>我是使用obsidian管理我的博客，直接创建文章就开写，有时卡文就可以使用这个功能将文章隐藏</p>
+</blockquote>
+<ol>
+<li>安装Hexo插件</li>
+</ol>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-hide-posts <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<ol start="2">
+<li>在<code>博客配置文件</code>的末尾添加以下内容</li>
+</ol>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 隐藏文章配置</span>
+<span class="token key atrule">hide_posts</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># 根据你的需要修改，比如隐藏哪些生成器中的文章</span>
+  <span class="token key atrule">filter</span><span class="token punctuation">:</span> hidden
+  <span class="token comment"># 可以指定从哪些生成器中隐藏，比如首页、标签、分类等;特别注意不要加入自己没有的生成器，不然会失效</span>
+  <span class="token key atrule">generators</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> index
+    <span class="token punctuation">-</span> tag
+    <span class="token punctuation">-</span> category
+    <span class="token punctuation">-</span> archive
+  <span class="token comment"># 也可以设置白名单，允许某些路径访问</span>
+  <span class="token comment"># allowlist: </span>
+  <span class="token comment">#   - /about/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="3">
+<li>在文章的 <strong>Front-matter</strong>中添加<code>hidden</code>，true：表示隐藏，false：不隐藏</li>
+</ol>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
+<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 我的隐藏文章
+<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-20</span>
+<span class="token key atrule">hidden</span><span class="token punctuation">:</span> <span class="token boolean important">true</span></span>
+<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="修改首页分页文章数"><a href="#修改首页分页文章数" class="headerlink" title="修改首页分页文章数"></a>修改首页分页文章数</h3><p>在站点配置文件中找到 index_generator，修改 per_page 项：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">index_generator</span><span class="token punctuation">:</span>
+  <span class="token key atrule">path</span><span class="token punctuation">:</span> <span class="token string">''</span>
+  <span class="token key atrule">per_page</span><span class="token punctuation">:</span> <span class="token number">5</span>
+  <span class="token key atrule">order_by</span><span class="token punctuation">:</span> <span class="token punctuation">-</span>date<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="关闭首页“阅读更多”按钮"><a href="#关闭首页“阅读更多”按钮" class="headerlink" title="关闭首页“阅读更多”按钮"></a>关闭首页“阅读更多”按钮</h3><p>在主题配置文件中找到 read_more_btn，修改其值为 false，即可关闭。</p>
+<h3 id="中英自动添加空格"><a href="#中英自动添加空格" class="headerlink" title="中英自动添加空格"></a>中英自动添加空格</h3><p>修改<code>主题配置文件</code>中<code>pangu</code>的值，将<code>false</code>改为<code>ture</code></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">pangu</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="代码块一键复制"><a href="#代码块一键复制" class="headerlink" title="代码块一键复制"></a>代码块一键复制</h3><p>修改<code>主题配置文件l</code>的<code>copy_button</code>的值为<code>enable</code></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">copy_button</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
+    <span class="token comment"># Available values: default | flat | mac</span>
+    <span class="token key atrule">style</span><span class="token punctuation">:</span> flat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="阅读时间字数提示"><a href="#阅读时间字数提示" class="headerlink" title="阅读时间字数提示"></a>阅读时间字数提示</h3><ol>
+<li><p>下载插件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-symbols-count-time<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+</li>
+<li><p>修改<code>主题配置文件</code>，找到以下内容修改</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 设置博客单词统计</span>
+<span class="token key atrule">symbols_count_time</span><span class="token punctuation">:</span>
+  <span class="token comment"># 是否另起一行（true的话不和发表时间等同一行）</span>
+  <span class="token key atrule">separated_meta</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+   <span class="token comment"># 页面底部统计数量前是否显示文字描述（站点总字数、站点阅读时长）</span>
+  <span class="token key atrule">item_text_total</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># 首页文章统计数量前是否显示文字描述（本文字数、阅读时长）</span>
+  <span class="token key atrule">item_text_post</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>在<code>博客配置文件</code>的末尾添加以下内容</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">symbols_count_time</span><span class="token punctuation">:</span>
+  <span class="token comment"># 每篇文章显示</span>
+  <span class="token key atrule">symbols</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">time</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># 文章底部显示</span>
+  <span class="token key atrule">total_symbols</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">total_time</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># 是否统计代码块</span>
+  <span class="token key atrule">exclude_codeblock</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token key atrule">awl</span><span class="token punctuation">:</span> <span class="token number">2</span>    
+  <span class="token key atrule">wpm</span><span class="token punctuation">:</span> <span class="token number">275</span>
+  <span class="token key atrule">suffix</span><span class="token punctuation">:</span> <span class="token string">"mins."</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="取消文章目录自动编号"><a href="#取消文章目录自动编号" class="headerlink" title="取消文章目录自动编号"></a>取消文章目录自动编号</h3><p>修改<code>主题配置文件</code>中<code>wrap</code>, 将<code>false</code>改为<code>true</code></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">toc</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># Automatically add list number to toc.</span>
+  <span class="token key atrule">number</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># If true, all words will placed on next lines if header width longer then sidebar width. </span>
+  <span class="token key atrule">wrap</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
+  <span class="token comment"># If true, all level of TOC in a post will be displayed, rather than the activated part of it.</span>
+  <span class="token comment"># 所有页面显示目录</span>
+  <span class="token key atrule">expand_all</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token comment"># Maximum heading depth of generated toc.</span>
+  <span class="token key atrule">max_depth</span><span class="token punctuation">:</span> <span class="token number">6</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="博客插入图片"><a href="#博客插入图片" class="headerlink" title="博客插入图片"></a>博客插入图片</h3><ol>
+<li><p>在<code>博客配置文件</code>中查找以下内容并修改</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">post_asset_folder</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<p> 这个操作能在你用<code>hexo new 文章名</code>创建博客时生成一个同名文件夹放置图片</p>
+<p>示例目录：</p>
+   <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">MacGesture2-Publish
+├── apppicker.jpg
+├── logo.jpg
+└── rules.jpg
+MacGesture2-Publish.md        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="2">
+<li><p><strong>配置渲染器</strong></p>
+<p>在<code>博客配置文件</code>中添加以下内容</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Markdown 配置（你可以添加这行注释，便于识别）</span>
+<span class="token key atrule">marked</span><span class="token punctuation">:</span>
+  <span class="token key atrule">prependRoot</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">postAsset</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+</li>
+<li><p>只需使用<code>![logo](logo.jpg)</code>插入<code>logo.jpg</code></p>
+</li>
+</ol>
+<h3 id="图片懒加载插件"><a href="#图片懒加载插件" class="headerlink" title="图片懒加载插件"></a>图片懒加载插件</h3><p>安装插件：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-lazyload-image <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>博客配置文件的末尾添加以下内容：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">lazyload</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 开启</span>
+  <span class="token key atrule">onlypost</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 是否仅文章内图片生效。false：全站图片生效[citation:7][citation:10]</span>
+  <span class="token key atrule">loadingImg</span><span class="token punctuation">:</span> <span class="token comment"># 自定义加载占位图，留空则使用默认灰色图</span>
+  <span class="token key atrule">isSPA</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 【关键】如果你的主题使用了Pjax（NexT主题默认开启），必须设为true以避免冲突[citation:10]</span>
+  <span class="token key atrule">preloadRatio</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token comment"># 在图片进入视窗多少倍距离时开始加载，默认为1[citation:10]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="设置图片大小"><a href="#设置图片大小" class="headerlink" title="设置图片大小"></a>设置图片大小</h3><p>直接写html代码，比如原来的写法是</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url"><span class="token operator">!</span>[<span class="token content">支付宝</span>](<span class="token url">/images/alipay.png</span>)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>可以写成</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/images/alipay.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>支付宝<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+
+
+
+
+<h2 id="SEO（搜索引擎优化）"><a href="#SEO（搜索引擎优化）" class="headerlink" title="SEO（搜索引擎优化）"></a>SEO（搜索引擎优化）</h2><h3 id="待续"><a href="#待续" class="headerlink" title="待续"></a>待续</h3><p>可以看大佬的文章<a href="https://zcw-blog.top/posts/20220424a1/#seo%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96">SEO</a></p>
+<h2 id="GEO"><a href="#GEO" class="headerlink" title="GEO"></a>GEO</h2><h3 id="待续-1"><a href="#待续-1" class="headerlink" title="待续"></a>待续</h3><h2 id="删除-hexo-博客"><a href="#删除-hexo-博客" class="headerlink" title="删除 hexo 博客"></a>删除 hexo 博客</h2><p>在命令提示符中，执行以下命令：  </p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> uninstall hexo-cli <span class="token parameter variable">-g</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>然后手动删除博客文件夹。</p>
+<p>另外，进行重装之前，如果还是在原来位置，必须手动清理了才能迁移安装。</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://www.hancher.top/2025/01/09/site-hexo-comment-feature/">hexo建站增加自己的评论模块 - 寒澈笔记</a></p>
+<p><a href="https://zcw-blog.top/posts/20220424a1/">https://zcw-blog.top/posts/20220424a1/</a></p>
+<p><a href="http://shenzekun.cn/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html">http://shenzekun.cn/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html</a></p>
+]]></content>
+      <categories>
+        <category>个人博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
       </tags>
   </entry>
 </search>
