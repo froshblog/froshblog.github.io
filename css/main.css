@@ -1316,7 +1316,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #7a4708;
+  background: #ff7a87;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2905,7 +2905,6 @@ body {
 }
 /* 核心：控制文章容器 */
 .posts-expand {
-  text-align: center; /* 让容器内的“行内内容”水平居中 */
   padding-top: 40px;
 }
 /* 为文章卡片设置一个最大宽度，看起来更协调 */

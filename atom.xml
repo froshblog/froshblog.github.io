@@ -6,7 +6,7 @@
   <link href="https://www.frosh.qzz.io/atom.xml" rel="self"/>
   
   <link href="https://www.frosh.qzz.io/"/>
-  <updated>2026-02-04T08:37:10.270Z</updated>
+  <updated>2026-02-08T15:26:16.273Z</updated>
   <id>https://www.frosh.qzz.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>EdgeOne CDN加速</title>
+    <link href="https://www.frosh.qzz.io/posts/7b194885.html/"/>
+    <id>https://www.frosh.qzz.io/posts/7b194885.html/</id>
+    <published>2026-02-04T09:38:01.000Z</published>
+    <updated>2026-02-08T15:26:16.273Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;什么是EdgeOne？&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;EdgeOne&lt;/strong&gt; 是腾讯云推出的下一代边缘安全加速平台，虽然它具备传统 &lt;strong&gt;CDN（内容分发网络）&lt;/strong&gt; 的功能，但实际上是对 CDN 的全面升级产品。它不仅仅是一个 CDN，还融合了多种功能，提供更强大的加速和安全防护能力。&lt;/p&gt;
+&lt;p&gt;EdgeOne 的核心特点包括：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;CDN 功能升级&lt;/strong&gt;：支持静态和动态内容加速，优化跨地域访问，显著降低访问延迟。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;安全防护&lt;/strong&gt;：内置 DDoS&amp;#x2F;CC 防护、Web 防护、Bot 管控等功能，提供全面的网络安全保障。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;边缘计算支持&lt;/strong&gt;：支持边缘函数和即时处理（如视频、图片处理），适用于 Serverless 场景。&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;一站式服务&lt;/strong&gt;：集成 DNS 解析、四层代理等功能，简化配置和运维。&lt;br&gt;与传统 CDN 相比，EdgeOne 更像是“加速 + 防护 + 运维一体化”的解决方案，适用于游戏、电商、视频、金融等需要高性能和高安全性的场景。因此，虽然 EdgeOne 包含 CDN 的功能，但它的定位和能力远超传统 CDN。&lt;/li&gt;
+&lt;/ul&gt;</summary>
+    
+    
+    
+    <category term="个人笔记" scheme="https://www.frosh.qzz.io/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/"/>
+    
+    
+    <category term="CDN" scheme="https://www.frosh.qzz.io/tags/CDN/"/>
+    
+    <category term="EdgeOne" scheme="https://www.frosh.qzz.io/tags/EdgeOne/"/>
+    
+    <category term="EO" scheme="https://www.frosh.qzz.io/tags/EO/"/>
+    
+  </entry>
   
   <entry>
     <title>博客自定义进阶-Next自定义样式</title>
@@ -72,7 +103,7 @@
     <link href="https://www.frosh.qzz.io/posts/be06e9d8.html/"/>
     <id>https://www.frosh.qzz.io/posts/be06e9d8.html/</id>
     <published>2026-01-21T15:29:40.000Z</published>
-    <updated>2026-02-03T14:02:23.665Z</updated>
+    <updated>2026-02-08T14:34:28.635Z</updated>
     
     
     <summary type="html">&lt;hr&gt;
