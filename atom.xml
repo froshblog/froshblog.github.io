@@ -6,7 +6,7 @@
   <link href="https://www.frosh.qzz.io/atom.xml" rel="self"/>
   
   <link href="https://www.frosh.qzz.io/"/>
-  <updated>2026-02-08T15:26:16.273Z</updated>
+  <updated>2026-02-09T15:43:04.211Z</updated>
   <id>https://www.frosh.qzz.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo博客备份与迁移</title>
+    <link href="https://www.frosh.qzz.io/posts/f8739ded.html/"/>
+    <id>https://www.frosh.qzz.io/posts/f8739ded.html/</id>
+    <published>2026-02-09T12:28:19.000Z</published>
+    <updated>2026-02-09T15:43:04.211Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;
+&lt;p&gt;利用国内代码托管平台&lt;a href=&quot;https://gitee.com/&quot;&gt;gitee&lt;/a&gt;的仓库镜像功能与&lt;a href=&quot;github.com&quot;&gt;GitHub&lt;/a&gt;实现同步更新，还可以再利用U盘等移动设备进行物理备份，三道保险实现Hexo博客数据的完整和安全。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;不过&lt;a href=&quot;https://help.gitee.com/repository/settings/sync-between-gitee-github&quot;&gt;gitee的官方文档&lt;/a&gt;上显示的仓库镜像功能开放至 2022 年 08 月 31 日，但是直到2026年2月9日还可以使用。不过不用担心，如果哪天突然停止，我们也可以使用GitHub Action的功能实现同步备份。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="个人博客" scheme="https://www.frosh.qzz.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="Hexo" scheme="https://www.frosh.qzz.io/tags/Hexo/"/>
+    
+    <category term="git" scheme="https://www.frosh.qzz.io/tags/git/"/>
+    
+  </entry>
   
   <entry>
     <title>EdgeOne CDN加速</title>
@@ -92,9 +117,9 @@
     <category term="个人博客" scheme="https://www.frosh.qzz.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
     
-    <category term="Hexo" scheme="https://www.frosh.qzz.io/tags/Hexo/"/>
-    
     <category term="Next" scheme="https://www.frosh.qzz.io/tags/Next/"/>
+    
+    <category term="Hexo" scheme="https://www.frosh.qzz.io/tags/Hexo/"/>
     
   </entry>
   
@@ -103,7 +128,7 @@
     <link href="https://www.frosh.qzz.io/posts/be06e9d8.html/"/>
     <id>https://www.frosh.qzz.io/posts/be06e9d8.html/</id>
     <published>2026-01-21T15:29:40.000Z</published>
-    <updated>2026-02-08T14:34:28.635Z</updated>
+    <updated>2026-02-09T15:32:19.706Z</updated>
     
     
     <summary type="html">&lt;hr&gt;
