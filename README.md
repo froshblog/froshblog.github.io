@@ -2,7 +2,7 @@
 
 > 该仓库由Frosh定制，存储着由Hexo已生成的前端文件。
 
-![](css/images/README/{358FD3FA-95E8-4DAB-B07F-879C7D2FF606}.png)
+![](images/README/{358FD3FA-95E8-4DAB-B07F-879C7D2FF606}.png)
 
 一个基于Hexo构建的个人博客主题，记录自己。
 博客地址：[FROSH_Blog](frosh.qzz.io)
