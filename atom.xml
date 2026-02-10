@@ -6,7 +6,7 @@
   <link href="https://www.frosh.qzz.io/atom.xml" rel="self"/>
   
   <link href="https://www.frosh.qzz.io/"/>
-  <updated>2026-02-10T06:18:45.836Z</updated>
+  <updated>2026-02-10T06:23:47.563Z</updated>
   <id>https://www.frosh.qzz.io/</id>
   
   <author>
@@ -21,12 +21,15 @@
     <link href="https://www.frosh.qzz.io/posts/8c25025c.html/"/>
     <id>https://www.frosh.qzz.io/posts/8c25025c.html/</id>
     <published>2026-02-10T05:54:21.000Z</published>
-    <updated>2026-02-10T06:18:45.836Z</updated>
+    <updated>2026-02-10T06:23:47.563Z</updated>
     
     
     <summary type="html">&lt;hr&gt;
 &lt;blockquote&gt;
-&lt;p&gt;首页缓存是否更新&lt;br&gt;测试CDN缓存更新时间&lt;br&gt;开始：2026年2月10日 13点55分&lt;br&gt;生效：2026年2月10日 14点04分&lt;/p&gt;
+&lt;p&gt;更新文章内容&lt;br&gt;源站几分钟后生效更新&lt;br&gt;加速站名未更新，访问旧的DNS缓存&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;新建文章测试CDN缓存更新时间&lt;br&gt;开始：2026年2月10日 13点55分&lt;br&gt;都生效：2026年2月10日 14点04分&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
     
     
