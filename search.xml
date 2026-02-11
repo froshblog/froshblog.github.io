@@ -1,59 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>EdgeOne CDN加速</title>
-    <url>/posts/7b194885.html/</url>
-    <content><![CDATA[<hr>
-<p><strong>什么是EdgeOne？</strong><br><strong>EdgeOne</strong> 是腾讯云推出的下一代边缘安全加速平台，虽然它具备传统 <strong>CDN（内容分发网络）</strong> 的功能，但实际上是对 CDN 的全面升级产品。它不仅仅是一个 CDN，还融合了多种功能，提供更强大的加速和安全防护能力。</p>
-<p>EdgeOne 的核心特点包括：</p>
-<ul>
-<li><strong>CDN 功能升级</strong>：支持静态和动态内容加速，优化跨地域访问，显著降低访问延迟。</li>
-<li><strong>安全防护</strong>：内置 DDoS&#x2F;CC 防护、Web 防护、Bot 管控等功能，提供全面的网络安全保障。</li>
-<li><strong>边缘计算支持</strong>：支持边缘函数和即时处理（如视频、图片处理），适用于 Serverless 场景。</li>
-<li><strong>一站式服务</strong>：集成 DNS 解析、四层代理等功能，简化配置和运维。<br>与传统 CDN 相比，EdgeOne 更像是“加速 + 防护 + 运维一体化”的解决方案，适用于游戏、电商、视频、金融等需要高性能和高安全性的场景。因此，虽然 EdgeOne 包含 CDN 的功能，但它的定位和能力远超传统 CDN。</li>
-</ul>
-<span id="more"></span>
-<blockquote>
-<p>提供免费的CDN加速的服务商很多，选择EO的原因有三个：①EO是国内腾讯云推出的，保证了一定访问速度；②域名可以不用备案；③提供免费的SSL证书。<br>Could Flare（简称”CF”），虽然我的”大善人“支持免费的CDN加速，域名不需要备案以及提供SSL证书，但是CF在国内访问速度很慢，也因此它的CDN服务在国内称为“减速器”。</p>
-</blockquote>
-<h2 id="登录EO网站"><a href="#登录EO网站" class="headerlink" title="登录EO网站"></a>登录EO网站</h2><p>进入<a href="https://edgeone.ai/zh/get-free-plan">EO官网</a>注册账号领取免费套餐。</p>
-<h2 id="添加站点"><a href="#添加站点" class="headerlink" title="添加站点"></a>添加站点</h2><p>建议添加根域名，这样就能添加多个子域名的业务域名。<br><img src="/posts/7b194885.html/file-20260208161543061.png"></p>
-<blockquote>
-<p>添加站点后会让你选择套餐，选择一个免费套餐即可。</p>
-</blockquote>
-<h2 id="选择接入EO网络的方式和加速区域"><a href="#选择接入EO网络的方式和加速区域" class="headerlink" title="选择接入EO网络的方式和加速区域"></a>选择接入EO网络的方式和加速区域</h2><blockquote>
-<p>加速区域选择“全球可用区（不含中国大陆）”，域名不用备案；<br>因为我的域名是托管在Could Flare上的，没有在腾讯上，所有选择CNAME接入</p>
-</blockquote>
-<p><img src="/posts/7b194885.html/%7BAC8052FE-BE71-4A9A-89DE-9FF7667EBD8B%7D.png"></p>
-<blockquote>
-<p>接下来会让你在你的域名托管商上面添加一条TXT记录，已进行归属权验证。</p>
-</blockquote>
-<h2 id="添加加速域名"><a href="#添加加速域名" class="headerlink" title="添加加速域名"></a>添加加速域名</h2><blockquote>
-<p>理论上EO可以反代任何网站</p>
-</blockquote>
-<blockquote>
-<p>加速域名不能是根域，只能是其子域<br>加速域名：访问地址<br>源站配置：最终访问的网站域名<br>回源HOST头：一般是使用源站域名加速</p>
-</blockquote>
-<p><img src="/posts/7b194885.html/%7BF1964AD2-3144-4904-86CB-2C87E9353F4C%7D.png"></p>
-<h2 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h2><p>上述配置完成后，EO会提供一个它加速域名，并且让你在域名托管商在DNS中添加一条CNAME记录。如果对访问速度要求高可以自己做优选。</p>
-<blockquote>
-<p>EO优选后没有SSL证书了</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>个人笔记</category>
-      </categories>
-      <tags>
-        <tag>CDN</tag>
-        <tag>EdgeOne</tag>
-        <tag>EO</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>CND加速</title>
     <url>/posts/80f16c6f.html/</url>
     <content><![CDATA[<hr>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><blockquote>
+<blockquote>
 <p>CDN，全称<strong>内容分发网路（Content Delivery Network）</strong>，是一种通过在现有互联网基础上构建的、由遍布全球的分布式节点服务器组成的智能虚拟网络，目的是使用户能够就近、快速、可靠地获取所需内容。</p>
 </blockquote>
 <span id="more"></span>
@@ -353,130 +304,52 @@ hexo cl <span class="token operator">&amp;&amp;</span> g <span class="token para
       </tags>
   </entry>
   <entry>
-    <title>Hexo博客备份与迁移</title>
-    <url>/posts/f8739ded.html/</url>
+    <title>EdgeOne CDN加速</title>
+    <url>/posts/7b194885.html/</url>
     <content><![CDATA[<hr>
-<p>利用国内代码托管平台<a href="https://gitee.com/">gitee</a>的仓库镜像功能与<a href="github.com">GitHub</a>实现同步更新，还可以再利用U盘等移动设备进行物理备份，三道保险实现Hexo博客数据的完整和安全。</p>
-<blockquote>
-<p>不过<a href="https://help.gitee.com/repository/settings/sync-between-gitee-github">gitee的官方文档</a>上显示的仓库镜像功能开放至 2022 年 08 月 31 日，但是直到2026年2月9日还可以使用。不过不用担心，如果哪天突然停止，我们也可以使用GitHub Action的功能实现同步备份。</p>
-</blockquote>
-<span id="more"></span>
-
-<blockquote>
-<p>阅读须知：</p>
-<ol>
-<li>命令执行路径：博客根目录，下文用root表示</li>
-<li>两个账号：gitee和GitHub</li>
-<li>gitee账号绑定GitHub账号</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>gitee的仓库镜像功能支持两种镜像设置：①gitee-&gt;GitHub(push方向)；②GitHub-&gt;gitee(pull方向)。更多详情参考它的官方文档。</p>
-</blockquote>
-<h2 id="云端仓库"><a href="#云端仓库" class="headerlink" title="云端仓库"></a>云端仓库</h2><h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><blockquote>
-<p>GitHub上创建一个私有的仓库用于存放Hexo代码。</p>
-</blockquote>
-<h3 id="获取GitHub-token"><a href="#获取GitHub-token" class="headerlink" title="获取GitHub token"></a>获取GitHub token</h3><ol>
-<li>登录与 Gitee 绑定的 GitHub 帐号；</li>
-<li>通过路径「用户头像」→「Settings」进入「Developer setting」；</li>
-<li>选择「Personal access tokens」选项后点击「Generate new token」</li>
-<li>「Note」字段可以随意填写；例如，hexoblog-backup；</li>
-<li>「Select scopes」字段请根据你的需求进行勾选；<blockquote>
+<p><strong>什么是EdgeOne？</strong><br><strong>EdgeOne</strong> 是腾讯云推出的下一代边缘安全加速平台，虽然它具备传统 <strong>CDN（内容分发网络）</strong> 的功能，但实际上是对 CDN 的全面升级产品。它不仅仅是一个 CDN，还融合了多种功能，提供更强大的加速和安全防护能力。</p>
+<p>EdgeOne 的核心特点包括：</p>
 <ul>
-<li><code>repo</code> 字段为必选字段，请您直接勾选；</li>
-<li><code>admin:repo_hook</code> 字段为可选字段，用于自动生成 webhook；</li>
-<li>当您需要 Gitee 自动从 GitHub 同步仓库时，建议您勾选。</li>
+<li><strong>CDN 功能升级</strong>：支持静态和动态内容加速，优化跨地域访问，显著降低访问延迟。</li>
+<li><strong>安全防护</strong>：内置 DDoS&#x2F;CC 防护、Web 防护、Bot 管控等功能，提供全面的网络安全保障。</li>
+<li><strong>边缘计算支持</strong>：支持边缘函数和即时处理（如视频、图片处理），适用于 Serverless 场景。</li>
+<li><strong>一站式服务</strong>：集成 DNS 解析、四层代理等功能，简化配置和运维。<br>与传统 CDN 相比，EdgeOne 更像是“加速 + 防护 + 运维一体化”的解决方案，适用于游戏、电商、视频、金融等需要高性能和高安全性的场景。因此，虽然 EdgeOne 包含 CDN 的功能，但它的定位和能力远超传统 CDN。</li>
 </ul>
-</blockquote>
-</li>
-<li>点击「Generate token」生成私人令牌；</li>
-<li>复制私人令牌并妥善保管，等待使用。</li>
-</ol>
-<h3 id="gitee配置"><a href="#gitee配置" class="headerlink" title="gitee配置"></a>gitee配置</h3><blockquote>
-<p>创建一个私有仓库作为GitHub的备份，建议仓库名与GitHub的仓库名一致。</p>
-</blockquote>
-<h3 id="配置仓库镜像"><a href="#配置仓库镜像" class="headerlink" title="配置仓库镜像"></a>配置仓库镜像</h3><blockquote>
-<p>配置pull方向的仓库镜像</p>
-</blockquote>
-<ol>
-<li>进入需要仓库镜像的仓库，依照路径点击：管理-&gt;仓库镜像管理-&gt;添加镜像</li>
-<li>添加镜像<br><img src="/posts/f8739ded.html/%7BFC00422A-B329-4133-93AE-DED71956D59E%7D.png"></li>
-</ol>
+<span id="more"></span>
 <blockquote>
-<p>按照上述填写即可，至此仓库镜像配置完成。</p>
+<p>提供免费的CDN加速的服务商很多，选择EO的原因有三个：①EO是国内腾讯云推出的，保证了一定访问速度；②域名可以不用备案；③提供免费的SSL证书。<br>Could Flare（简称”CF”），虽然我的”大善人“支持免费的CDN加速，域名不需要备案以及提供SSL证书，但是CF在国内访问速度很慢，也因此它的CDN服务在国内称为“减速器”。</p>
 </blockquote>
-<h2 id="本地上传备份"><a href="#本地上传备份" class="headerlink" title="本地上传备份"></a>本地上传备份</h2><p>进入<code>root</code>目录，右击鼠标点击终端（或者git bash）进入命名行。</p>
-<p>依次执行以下命令：</p>
-<ol>
-<li>初始化本地仓库：</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="登录EO网站"><a href="#登录EO网站" class="headerlink" title="登录EO网站"></a>登录EO网站</h2><p>进入<a href="https://edgeone.ai/zh/get-free-plan">EO官网</a>注册账号领取免费套餐。</p>
+<h2 id="添加站点"><a href="#添加站点" class="headerlink" title="添加站点"></a>添加站点</h2><p>建议添加根域名，这样就能添加多个子域名的业务域名。<br><img src="/posts/7b194885.html/file-20260208161543061.png"></p>
 <blockquote>
-<p>会在在当前目录创建一个新的、空的 Git 仓库（会生成一个隐藏的 .git 文件夹）。这是所有 Git 操作的起点。</p>
+<p>添加站点后会让你选择套餐，选择一个免费套餐即可。</p>
 </blockquote>
-<ol start="2">
-<li>将文件添加到暂存区：</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git add .<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="选择接入EO网络的方式和加速区域"><a href="#选择接入EO网络的方式和加速区域" class="headerlink" title="选择接入EO网络的方式和加速区域"></a>选择接入EO网络的方式和加速区域</h2><blockquote>
+<p>加速区域选择“全球可用区（不含中国大陆）”，域名不用备案；<br>因为我的域名是托管在Could Flare上的，没有在腾讯上，所有选择CNAME接入</p>
+</blockquote>
+<p><img src="/posts/7b194885.html/%7BAC8052FE-BE71-4A9A-89DE-9FF7667EBD8B%7D.png"></p>
 <blockquote>
-<p>这里的 . 表示“当前目录下所有新增的和修改过的文件”。此命令将文件的当前快照保存到 Git 的“暂存区”，为提交做准备。</p>
+<p>接下来会让你在你的域名托管商上面添加一条TXT记录，已进行归属权验证。</p>
 </blockquote>
-<ol start="3">
-<li>提交到本地仓库：</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git commit -m <span class="token string">"2026年2月9日备份hexoblog-backup"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="添加加速域名"><a href="#添加加速域名" class="headerlink" title="添加加速域名"></a>添加加速域名</h2><blockquote>
+<p>理论上EO可以反代任何网站</p>
+</blockquote>
 <blockquote>
-<p>将暂存区的内容创建一个永久的快照，并保存在本地的 Git 仓库历史记录中。-m 后面是本次提交的说明，建议描述清晰。</p>
+<p>加速域名不能是根域，只能是其子域<br>加速域名：访问地址<br>源站配置：最终访问的网站域名<br>回源HOST头：一般是使用源站域名加速</p>
 </blockquote>
-<ol start="4">
-<li>添加远程仓库（GitHub仓库）：</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git remote add origin https://github.com/你的用户名/你的仓库.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p><img src="/posts/7b194885.html/%7BF1964AD2-3144-4904-86CB-2C87E9353F4C%7D.png"></p>
+<h2 id="DNS解析"><a href="#DNS解析" class="headerlink" title="DNS解析"></a>DNS解析</h2><p>上述配置完成后，EO会提供一个它加速域名，并且让你在域名托管商在DNS中添加一条CNAME记录。如果对访问速度要求高可以自己做优选。</p>
 <blockquote>
-<p>为远程仓库（通常是 GitHub 上的仓库）起一个别名 origin（这是 Git 的默认习惯叫法），并将其地址指向你提供的 GitHub 仓库 URL（建议使用SSH地址）</p>
+<p>EO优选后没有SSL证书了</p>
 </blockquote>
-<ol start="5">
-<li>重命名当前分支为main</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git branch -M main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>-M 表示强制重命名。Git 默认的初始分支名可能是 master，此命令将其改为现在更通用的 main，以与 GitHub 默认分支保持一致.</p>
-</blockquote>
-<ol start="6">
-<li>推送到远程仓库：</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git push -u origin main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>将本地 main 分支的所有提交，推送到别名为 origin 的远程仓库。-u 参数在首次推送时建立追踪关系，之后在该分支只需执行 git push 即可。</p>
-</blockquote>
-<p>执行完成后GitHub仓库：<br><img src="/posts/f8739ded.html/%7B2BD925A6-99A5-4AF9-A266-6F1C49B379DF%7D.png"><br>gitee仓库：<br><img src="/posts/f8739ded.html/%7BD045E249-E530-4456-9595-501F54FEFAFA%7D.png"></p>
-<h2 id="博客迁移"><a href="#博客迁移" class="headerlink" title="博客迁移"></a>博客迁移</h2><blockquote>
-<p>注意：此步骤前提已完成上述备份后</p>
-</blockquote>
-<h3 id="配置hexo环境"><a href="#配置hexo环境" class="headerlink" title="配置hexo环境"></a>配置hexo环境</h3><p><a href="https://www.frosh.qzz.io/posts/be06e9d8.html/#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E5%B7%A5%E5%85%B7">Hexo个人博客搭建|环境配置&#x2F;工具</a></p>
-<h2 id="配置SHH密钥"><a href="#配置SHH密钥" class="headerlink" title="配置SHH密钥"></a>配置SHH密钥</h2><p><a href="https://www.frosh.qzz.io/posts/be06e9d8.html/#%E9%85%8D%E7%BD%AESSH%E5%AF%86%E9%92%A5">Hexo博客备份|配置SHH密钥</a></p>
-<h3 id="克隆备份仓库"><a href="#克隆备份仓库" class="headerlink" title="克隆备份仓库"></a>克隆备份仓库</h3><p>在任意位置（你想要你的博客在哪）执行以下命令：</p>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git clone https://github.com/你的用户名/你的备份仓库名.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>这个命令可以直接在你的仓库中获得：Code。建议SSH地址。<br>会在当前位置生成一个<code>备份仓库名</code>的文件夹，这个名称可以修改</p>
-</blockquote>
-<h2 id="生成博客模块目录"><a href="#生成博客模块目录" class="headerlink" title="生成博客模块目录"></a>生成博客模块目录</h2><blockquote>
-<p>博客模块目录：node_modules</p>
-</blockquote>
-<p>在<code>root/</code>目录下，执行以下命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>在<code>root/</code>下执行以下命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo cl<span class="token punctuation">;</span>hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://www.bilibili.com/video/BV13g41147yV/?spm_id_from=333.1391.0.0&vd_source=ff90d309a66060821e097736f479cb41">佳豪君z|备份和迁移hexo博客-video</a></p>
 ]]></content>
       <categories>
-        <category>个人博客</category>
+        <category>个人笔记</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
-        <tag>git</tag>
+        <tag>CDN</tag>
+        <tag>EdgeOne</tag>
+        <tag>EO</tag>
       </tags>
   </entry>
   <entry>
@@ -991,6 +864,133 @@ MacGesture2-Publish.md        <span aria-hidden="true" class="line-numbers-rows"
       <tags>
         <tag>Hexo</tag>
         <tag>Next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客备份与迁移</title>
+    <url>/posts/f8739ded.html/</url>
+    <content><![CDATA[<hr>
+<p>利用国内代码托管平台<a href="https://gitee.com/">gitee</a>的仓库镜像功能与<a href="github.com">GitHub</a>实现同步更新，还可以再利用U盘等移动设备进行物理备份，三道保险实现Hexo博客数据的完整和安全。</p>
+<blockquote>
+<p>不过<a href="https://help.gitee.com/repository/settings/sync-between-gitee-github">gitee的官方文档</a>上显示的仓库镜像功能开放至 2022 年 08 月 31 日，但是直到2026年2月9日还可以使用。不过不用担心，如果哪天突然停止，我们也可以使用GitHub Action的功能实现同步备份。</p>
+</blockquote>
+<span id="more"></span>
+
+<blockquote>
+<p>阅读须知：</p>
+<ol>
+<li>命令执行路径：博客根目录，下文用root表示</li>
+<li>两个账号：gitee和GitHub</li>
+<li>gitee账号绑定GitHub账号</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>gitee的仓库镜像功能支持两种镜像设置：①gitee-&gt;GitHub(push方向)；②GitHub-&gt;gitee(pull方向)。更多详情参考它的官方文档。</p>
+</blockquote>
+<h2 id="云端仓库"><a href="#云端仓库" class="headerlink" title="云端仓库"></a>云端仓库</h2><h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><blockquote>
+<p>GitHub上创建一个私有的仓库用于存放Hexo代码。</p>
+</blockquote>
+<h3 id="获取GitHub-token"><a href="#获取GitHub-token" class="headerlink" title="获取GitHub token"></a>获取GitHub token</h3><ol>
+<li>登录与 Gitee 绑定的 GitHub 帐号；</li>
+<li>通过路径「用户头像」→「Settings」进入「Developer setting」；</li>
+<li>选择「Personal access tokens」选项后点击「Generate new token」</li>
+<li>「Note」字段可以随意填写；例如，hexoblog-backup；</li>
+<li>「Select scopes」字段请根据你的需求进行勾选；<blockquote>
+<ul>
+<li><code>repo</code> 字段为必选字段，请您直接勾选；</li>
+<li><code>admin:repo_hook</code> 字段为可选字段，用于自动生成 webhook；</li>
+<li>当您需要 Gitee 自动从 GitHub 同步仓库时，建议您勾选。</li>
+</ul>
+</blockquote>
+</li>
+<li>点击「Generate token」生成私人令牌；</li>
+<li>复制私人令牌并妥善保管，等待使用。</li>
+</ol>
+<h3 id="gitee配置"><a href="#gitee配置" class="headerlink" title="gitee配置"></a>gitee配置</h3><blockquote>
+<p>创建一个私有仓库作为GitHub的备份，建议仓库名与GitHub的仓库名一致。</p>
+</blockquote>
+<h3 id="配置仓库镜像"><a href="#配置仓库镜像" class="headerlink" title="配置仓库镜像"></a>配置仓库镜像</h3><blockquote>
+<p>配置pull方向的仓库镜像</p>
+</blockquote>
+<ol>
+<li>进入需要仓库镜像的仓库，依照路径点击：管理-&gt;仓库镜像管理-&gt;添加镜像</li>
+<li>添加镜像<br><img src="/posts/f8739ded.html/%7BFC00422A-B329-4133-93AE-DED71956D59E%7D.png"></li>
+</ol>
+<blockquote>
+<p>按照上述填写即可，至此仓库镜像配置完成。</p>
+</blockquote>
+<h2 id="本地上传备份"><a href="#本地上传备份" class="headerlink" title="本地上传备份"></a>本地上传备份</h2><p>进入<code>root</code>目录，右击鼠标点击终端（或者git bash）进入命名行。</p>
+<p>依次执行以下命令：</p>
+<ol>
+<li>初始化本地仓库：</li>
+</ol>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">git init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>会在在当前目录创建一个新的、空的 Git 仓库（会生成一个隐藏的 .git 文件夹）。这是所有 Git 操作的起点。</p>
+</blockquote>
+<ol start="2">
+<li>将文件添加到暂存区：</li>
+</ol>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">git add .<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>这里的 . 表示“当前目录下所有新增的和修改过的文件”。此命令将文件的当前快照保存到 Git 的“暂存区”，为提交做准备。</p>
+</blockquote>
+<ol start="3">
+<li>提交到本地仓库：</li>
+</ol>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">git commit -m <span class="token string">"2026年2月9日备份hexoblog-backup"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>将暂存区的内容创建一个永久的快照，并保存在本地的 Git 仓库历史记录中。-m 后面是本次提交的说明，建议描述清晰。</p>
+</blockquote>
+<ol start="4">
+<li>添加远程仓库（GitHub仓库）：</li>
+</ol>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">git remote add origin https://github.com/你的用户名/你的仓库.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>为远程仓库（通常是 GitHub 上的仓库）起一个别名 origin（这是 Git 的默认习惯叫法），并将其地址指向你提供的 GitHub 仓库 URL（建议使用SSH地址）</p>
+</blockquote>
+<ol start="5">
+<li>重命名当前分支为main</li>
+</ol>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">git branch -M main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>-M 表示强制重命名。Git 默认的初始分支名可能是 master，此命令将其改为现在更通用的 main，以与 GitHub 默认分支保持一致.</p>
+</blockquote>
+<ol start="6">
+<li>推送到远程仓库：</li>
+</ol>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">git push -u origin main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>将本地 main 分支的所有提交，推送到别名为 origin 的远程仓库。-u 参数在首次推送时建立追踪关系，之后在该分支只需执行 git push 即可。</p>
+</blockquote>
+<p>执行完成后GitHub仓库：<br><img src="/posts/f8739ded.html/%7B2BD925A6-99A5-4AF9-A266-6F1C49B379DF%7D.png"><br>gitee仓库：<br><img src="/posts/f8739ded.html/%7BD045E249-E530-4456-9595-501F54FEFAFA%7D.png"></p>
+<h2 id="博客迁移"><a href="#博客迁移" class="headerlink" title="博客迁移"></a>博客迁移</h2><blockquote>
+<p>注意：此步骤前提已完成上述备份后</p>
+</blockquote>
+<h3 id="配置hexo环境"><a href="#配置hexo环境" class="headerlink" title="配置hexo环境"></a>配置hexo环境</h3><p><a href="https://www.frosh.qzz.io/posts/be06e9d8.html/#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E5%B7%A5%E5%85%B7">Hexo个人博客搭建|环境配置&#x2F;工具</a></p>
+<h2 id="配置SHH密钥"><a href="#配置SHH密钥" class="headerlink" title="配置SHH密钥"></a>配置SHH密钥</h2><p><a href="https://www.frosh.qzz.io/posts/be06e9d8.html/#%E9%85%8D%E7%BD%AESSH%E5%AF%86%E9%92%A5">Hexo博客备份|配置SHH密钥</a></p>
+<h3 id="克隆备份仓库"><a href="#克隆备份仓库" class="headerlink" title="克隆备份仓库"></a>克隆备份仓库</h3><p>在任意位置（你想要你的博客在哪）执行以下命令：</p>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">git clone https://github.com/你的用户名/你的备份仓库名.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>这个命令可以直接在你的仓库中获得：Code。建议SSH地址。<br>会在当前位置生成一个<code>备份仓库名</code>的文件夹，这个名称可以修改</p>
+</blockquote>
+<h2 id="生成博客模块目录"><a href="#生成博客模块目录" class="headerlink" title="生成博客模块目录"></a>生成博客模块目录</h2><blockquote>
+<p>博客模块目录：node_modules</p>
+</blockquote>
+<p>在<code>root/</code>目录下，执行以下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>在<code>root/</code>下执行以下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo cl<span class="token punctuation">;</span>hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://www.bilibili.com/video/BV13g41147yV/?spm_id_from=333.1391.0.0&vd_source=ff90d309a66060821e097736f479cb41">佳豪君z|备份和迁移hexo博客-video</a></p>
+]]></content>
+      <categories>
+        <category>个人博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>git</tag>
       </tags>
   </entry>
   <entry>
@@ -2005,12 +2005,16 @@ p#div-border-top-purple</span> <span class="token punctuation">&#123;</span>
     <url>/posts/8c25025c.html/</url>
     <content><![CDATA[<hr>
 <blockquote>
-<p>更新文章内容<br>源站几分钟后生效更新<br>加速站名未更新，访问旧的DNS缓存<br>2026年2月10日 14点25分</p>
+<p>更新文章内容<br>源站几分钟后生效更新<br>加速站名未更新，访问旧的CDN缓存<br>2026年2月10日 14点25分<br>2026年2月11日更新</p>
 </blockquote>
 <blockquote>
 <p>新建文章测试CDN缓存更新时间<br>开始：2026年2月10日 13点55分<br>都生效：2026年2月10日 14点04分</p>
 </blockquote>
-<span id="more"></span>]]></content>
+<span id="more"></span>
+
+<p>图片资源</p>
+<p><img src="/posts/8c25025c.html/file-20260210143120738.png"></p>
+]]></content>
       <categories>
         <category>草稿</category>
       </categories>
