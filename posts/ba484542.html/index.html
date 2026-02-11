@@ -22,24 +22,31 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.frosh.qzz.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-tomorrow"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="要做的事还有很多，一件一件地来~">
-<meta property="og:type" content="website">
-<meta property="og:title" content="FROSH_Blog">
-<meta property="og:url" content="https://www.frosh.qzz.io/tags/EO/index.html">
+    <meta name="description" content="我的博客技术实现架构：Hexo + GitHub + GitHub Pages + EdgeOne CND；本地使用obsidian进行博客管理和编写。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo博客搭建所得">
+<meta property="og:url" content="https://www.frosh.qzz.io/posts/ba484542.html/index.html">
 <meta property="og:site_name" content="FROSH_Blog">
-<meta property="og:description" content="要做的事还有很多，一件一件地来~">
+<meta property="og:description" content="我的博客技术实现架构：Hexo + GitHub + GitHub Pages + EdgeOne CND；本地使用obsidian进行博客管理和编写。">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-11T14:21:20.000Z">
+<meta property="article:modified_time" content="2026-02-11T15:42:23.409Z">
 <meta property="article:author" content="kumiao">
+<meta property="article:tag" content="CDN">
+<meta property="article:tag" content="EdgeOne">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="css">
+<meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://www.frosh.qzz.io/tags/EO/">
+<link rel="canonical" href="https://www.frosh.qzz.io/posts/ba484542.html/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"tags/EO/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.frosh.qzz.io/posts/ba484542.html/","path":"posts/ba484542.html/","title":"Hexo博客搭建所得"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>标签: EO | FROSH_Blog</title>
+<title>Hexo博客搭建所得 | FROSH_Blog</title>
   
 
 
@@ -151,7 +158,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -164,6 +171,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E6%A1%86%E6%9E%B6%E7%9A%84%E4%BA%86%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">博客框架的了解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%9D%99%E6%80%81%E5%92%8C%E5%8A%A8%E6%80%81%E7%9A%84%E9%A1%B5%E9%9D%A2%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.1.</span> <span class="nav-text">静态和动态的页面的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%86%E6%9E%B6%E7%9A%84%E8%AE%A4%E8%AF%86"><span class="nav-number">1.2.</span> <span class="nav-text">框架的认识</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHub%E7%9A%84%E8%AE%A4%E8%AF%86%E5%8F%8A%E4%BD%BF%E7%94%A8"><span class="nav-number">2.</span> <span class="nav-text">GitHub的认识及使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub-Pages"><span class="nav-number">2.1.</span> <span class="nav-text">GitHub Pages</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub-Action"><span class="nav-number">2.2.</span> <span class="nav-text">GitHub Action</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%85%B8%E5%9E%8B%E5%9C%BA%E6%99%AF%E4%BD%BF%E7%94%A8"><span class="nav-number">2.2.1.</span> <span class="nav-text">典型场景使用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%99%90%E5%88%B6"><span class="nav-number">2.2.2.</span> <span class="nav-text">限制</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%88%91%E6%83%B3%E8%AF%B4%E7%9A%84%E8%AF%9D"><span class="nav-number">2.2.3.</span> <span class="nav-text">我想说的话</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CDN%E7%9A%84%E8%AE%A4%E8%AF%86"><span class="nav-number">3.</span> <span class="nav-text">CDN的认识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#obsidian%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="nav-number">4.</span> <span class="nav-text">obsidian的使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -178,18 +186,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -237,51 +245,166 @@
 
     </div>
 
-    <div class="main-inner tag posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
+
+
+<div class="post-block">
   
   
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <h1 class="collection-header">EO
-          <small>标签</small>
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.frosh.qzz.io/posts/ba484542.html/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/ceshi.png">
+      <meta itemprop="name" content="kumiao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="FROSH_Blog">
+      <meta itemprop="description" content="要做的事还有很多，一件一件地来~">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hexo博客搭建所得 | FROSH_Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo博客搭建所得
         </h1>
-      </div>
 
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
       
-    <div class="collection-year">
-      <span class="collection-header">2026</span>
+
+      <time title="创建时间：2026-02-11 22:21:20 / 修改时间：23:42:23" itemprop="dateCreated datePublished" datetime="2026-02-11T22:21:20+08:00">2026-02-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">个人笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/%E6%94%B6%E8%8E%B7/" itemprop="url" rel="index"><span itemprop="name">收获</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>1.2k</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><hr>
+<p id="div-border-left-purple"> 我的博客技术实现架构：Hexo + GitHub + GitHub Pages + EdgeOne CND；本地使用obsidian进行博客管理和编写。</p>
+
+<span id="more"></span>
+
+<h2 id="博客框架的了解"><a href="#博客框架的了解" class="headerlink" title="博客框架的了解"></a>博客框架的了解</h2><h3 id="静态和动态的页面的区别"><a href="#静态和动态的页面的区别" class="headerlink" title="静态和动态的页面的区别"></a>静态和动态的页面的区别</h3><p>静态页面：内容通过本地电脑或构建服务器一次性将markdown文件转换为html页面。<br>动态页面：服务请没有现成的html文件，只有数据和模板。请求时，通过PHP等程序实时从数据库调取文章内容，再填入html模板，临时生成页面。</p>
+<h3 id="框架的认识"><a href="#框架的认识" class="headerlink" title="框架的认识"></a>框架的认识</h3><p>使用自然语言通过框架生成网页前端文件。</p>
+<h2 id="GitHub的认识及使用"><a href="#GitHub的认识及使用" class="headerlink" title="GitHub的认识及使用"></a>GitHub的认识及使用</h2><blockquote>
+<p>微软旗下，<strong>全球最大的开源社区</strong>；一个基于Git的代码托管平台，但其核心功能不只是存代码，还有让协作变得<strong>可视化、流程化</strong>；并且提供多个好用的免费服务。如：GitHub Pages、GitHub Action等。</p>
+</blockquote>
+<h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h3><p>GitHub上的免费静态网页托管服务，可以让你随时发布你的静态网页。</p>
+<h3 id="GitHub-Action"><a href="#GitHub-Action" class="headerlink" title="GitHub Action"></a>GitHub Action</h3><blockquote>
+<p><strong>GitHub Actions 是 GitHub 官方提供的自动化工具</strong>，可通过自己编写脚本实现自动化。</p>
+</blockquote>
+<h4 id="典型场景使用"><a href="#典型场景使用" class="headerlink" title="典型场景使用"></a>典型场景使用</h4><ul>
+<li><strong>CI（持续集成）</strong>：每次 push 代码，自动运行测试、检查代码格式（ESLint）、构建项目，确保代码没问题。</li>
+<li><strong>CD（持续部署）</strong>：测试通过后，自动把项目打包、上传服务器，或者部署到 GitHub Pages &#x2F; Vercel &#x2F; 云主机。</li>
+<li><strong>定时任务</strong>：比如每天早上 8 点爬虫抓取数据，自动生成新页面并提交。</li>
+<li><strong>社区协作自动化</strong>：给 PR 打标签、自动欢迎新贡献者、关闭长时间未活动的 Issue。</li>
+</ul>
+<h4 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h4><ul>
+<li>私有仓库分钟额度：免费账号每月2000分钟</li>
+<li>单任务执行时长：每个job最长6个小时，超时终止</li>
+<li>工作流总时长：单次工作流运行最长35天</li>
+<li>缓存上传速率：每分钟最多200个新缓存条目</li>
+</ul>
+<h4 id="我想说的话"><a href="#我想说的话" class="headerlink" title="我想说的话"></a>我想说的话</h4><p>现在我的博客的工作流主要在本地执行，GitHub上只是托管前端代码和发布博客页面。以后想使用这个功能将工作流转移到GitHub上。</p>
+<h2 id="CDN的认识"><a href="#CDN的认识" class="headerlink" title="CDN的认识"></a>CDN的认识</h2><blockquote>
+<p>通过这几天的学习，CDN主要使用了反向代理技术，让访客向CDN边缘节点获取页面。</p>
+</blockquote>
+<blockquote>
+<p>EdgeOne使用反向代理技术，理论上是可以代理任何网站，以后想要尝试一下。</p>
+</blockquote>
+<h2 id="obsidian的使用"><a href="#obsidian的使用" class="headerlink" title="obsidian的使用"></a>obsidian的使用</h2><blockquote>
+<p>将obsidian作为我的博客管理器真不错。本身可以调用模板和创建位置自定义以及它的插件丰富，可以找到你想要的功能。</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这次博客搭建所得颇丰，无论是学习使用各个平台达到目的，还是在自定义博客时的CSS，js的些许知识学习，整体体验还是不错的，就是完成自定义博客后感觉没用必要再CSS，js上费时间，博客就是写文章的平台。<br>当然，这其中也遇见了很多问题，如：GitHub的连接问题导致无法发布到GitHub上，hexo环境变量问题，CDN如何配置，CDN如何优选等。<br>总体而言，这次的体验很充实，而关于这个博客的设置也暂时告一段落了，接下的时间我将着重再它的内容上了。</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2026-02-04T17:38:01+08:00"
-              content="2026-02-04">
-          02-04
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/posts/7b194885.html/" itemprop="url">
-            <span itemprop="name">EdgeOne CDN加速</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/CDN/" rel="tag"><i class="fa fa-tag"></i> CDN</a>
+              <a href="/tags/EdgeOne/" rel="tag"><i class="fa fa-tag"></i> EdgeOne</a>
+              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
+              <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+              <a href="/tags/css/" rel="tag"><i class="fa fa-tag"></i> css</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/posts/8c25025c.html/" rel="prev" title="测试EO CDN缓存更新时间">
+                  <i class="fa fa-angle-left"></i> 测试EO CDN缓存更新时间
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
   </article>
+</div>
 
-    </div>
+
+
+
+
+
+    
+  
+  <div class="comments giscus-container">
   </div>
   
   
-  
-
 </div>
   </main>
 
@@ -311,14 +434,14 @@
       <i class="fa fa-chart-line"></i>
     </span>
       <span>站点总字数：</span>
-    <span title="站点总字数">43k</span>
+    <span title="站点总字数">44k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">39 分钟</span>
+    <span title="站点阅读时长">40 分钟</span>
   </span>
 </div>
   <div class="powered-by">
@@ -339,6 +462,26 @@
 <noscript>
   <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
 </noscript>
+<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
+
+<script>
+var options = {
+  bottom: '64px',
+  right: 'unset',
+  left: '32px',
+  time: '0.5s',
+  mixColor: 'transparent',
+  backgroundColor: 'transparent',
+  buttonColorDark: '#100f2c',
+  buttonColorLight: '#fff',
+  saveInCookies: true,
+  label: '🌓',
+  autoMatchOsTheme: true
+}
+const darkmode = new Darkmode(options);
+window.darkmode = darkmode;
+darkmode.showWidget();
+</script>
 <script class="next-config" data-name="giscus" type="application/json">{"enable":true,"repo":"froshblog/blog_discussion","repo_id":"R_kgDOQ_yHQA","category":"Announcements","category_id":"DIC_kwDOQ_yHQM4C1VOo","mapping":"title","strict":0,"reactions_enabled":1,"emit_metadata":0,"theme":"catppuccin_macchiato","lang":"zh-CN","crossorigin":"anonymous","input_position":"top","loading":"lazy"}</script>
 
 <script>
@@ -366,26 +509,6 @@ document.addEventListener('page:loaded', () => {
       parentNode: document.querySelector('.giscus-container')
     }));
 });
-</script>
-<script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
-
-<script>
-var options = {
-  bottom: '64px',
-  right: 'unset',
-  left: '32px',
-  time: '0.5s',
-  mixColor: 'transparent',
-  backgroundColor: 'transparent',
-  buttonColorDark: '#100f2c',
-  buttonColorLight: '#fff',
-  saveInCookies: true,
-  label: '🌓',
-  autoMatchOsTheme: true
-}
-const darkmode = new Darkmode(options);
-window.darkmode = darkmode;
-darkmode.showWidget();
 </script>
 <div class="moon-menu">
   <div class="moon-menu-items">

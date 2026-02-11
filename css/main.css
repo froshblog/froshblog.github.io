@@ -1316,7 +1316,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #6aa334;
+  background: #ffffe0;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -3109,6 +3109,15 @@ p#div-border-right-purple {
   border-right-width: 5px;
   border-radius: 3px;
   border-right-color: #9954bb;
+}
+p#div-border-left-purple {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-left-width: 5px;
+  border-radius: 3px;
+  border-left-color: #9954bb;
 }
 p#div-border-top-red {
   display: block;
