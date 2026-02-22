@@ -351,6 +351,297 @@ hexo cl <span class="token operator">&amp;&amp;</span> g <span class="token para
       </tags>
   </entry>
   <entry>
+    <title>Hexo博客搭建所得</title>
+    <url>/posts/ba484542.html/</url>
+    <content><![CDATA[<hr>
+<p id="div-border-left-purple"> 我的博客技术实现架构：Hexo + GitHub + GitHub Pages + EdgeOne CND；本地使用obsidian进行博客管理和编写。</p>
+
+<span id="more"></span>
+
+<h2 id="博客框架的了解"><a href="#博客框架的了解" class="headerlink" title="博客框架的了解"></a>博客框架的了解</h2><h3 id="静态和动态的页面的区别"><a href="#静态和动态的页面的区别" class="headerlink" title="静态和动态的页面的区别"></a>静态和动态的页面的区别</h3><p>静态页面：内容通过本地电脑或构建服务器一次性将markdown文件转换为html页面。<br>动态页面：服务请没有现成的html文件，只有数据和模板。请求时，通过PHP等程序实时从数据库调取文章内容，再填入html模板，临时生成页面。</p>
+<h3 id="框架的认识"><a href="#框架的认识" class="headerlink" title="框架的认识"></a>框架的认识</h3><p>使用自然语言通过框架生成网页前端文件。</p>
+<h2 id="GitHub的认识及使用"><a href="#GitHub的认识及使用" class="headerlink" title="GitHub的认识及使用"></a>GitHub的认识及使用</h2><blockquote>
+<p>微软旗下，<strong>全球最大的开源社区</strong>；一个基于Git的代码托管平台，但其核心功能不只是存代码，还有让协作变得<strong>可视化、流程化</strong>；并且提供多个好用的免费服务。如：GitHub Pages、GitHub Action等。</p>
+</blockquote>
+<h3 id="SSH的配置代替https访问"><a href="#SSH的配置代替https访问" class="headerlink" title="SSH的配置代替https访问"></a>SSH的配置代替https访问</h3><blockquote>
+<p>配置成功后提交代码文件时不需要输入账号密码，且永久生效</p>
+</blockquote>
+<ol>
+<li>生成密钥·命令</li>
+</ol>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git"> ssh-keygen -t rsa -C <span class="token string">"your_email@example.com"</span>  
+  # 以下是更优的选择  
+ # 使用更安全、更快的 Ed25519 算法  
+ ssh-keygen -t ed25519 -C <span class="token string">"your_email@example.com"</span>  
+ ​  
+ # 或者指定更强的 RSA 密钥长度  
+ ssh-keygen -t rsa -b 4096 -C <span class="token string">"your_email@example.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p> ​<br>2. 查看公钥信息</p>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git"><span class="token comment"># 显示公钥内容，复制全部文本  </span>
+ cat ~/.ssh/id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p> <br>3. 测试连接</p>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git"> ssh -T git@github.com  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<blockquote>
+<p>这个连接会因watt Toolkit加速GitHub而连接失败，需要关闭加速。<br>其他加速器有无影响尚不知。</p>
+</blockquote>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git"> # 执行成功会显示：  
+ # Hi username! You've successfully authenticated...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h3><blockquote>
+<p>GitHub上的免费静态网页托管服务，可以让你随时发布你的静态网页。</p>
+</blockquote>
+<p>GitHub上免费快捷的静态网站托管服务，能部署两种类型站点：个人站点、项目站点</p>
+<p>个人站点：每个用户只有1个，仓库名有严格要求（仓库名称.github.io）,访问地址是https:&#x2F;&#x2F;仓库名.github.io</p>
+<p>项目站点：数量无限，仓库名没有限制，访问地址是<a href="https://github/">https://github</a>用户名.github.io&#x2F;仓库名</p>
+<p>关于网址长的问题自然有解决方法：配置自定义域名</p>
+<h3 id="GitHub-Action"><a href="#GitHub-Action" class="headerlink" title="GitHub Action"></a>GitHub Action</h3><blockquote>
+<p><strong>GitHub Actions 是 GitHub 官方提供的自动化工具</strong>，可通过自己编写脚本实现自动化。</p>
+</blockquote>
+<h4 id="典型场景使用"><a href="#典型场景使用" class="headerlink" title="典型场景使用"></a>典型场景使用</h4><ul>
+<li><strong>CI（持续集成）</strong>：每次 push 代码，自动运行测试、检查代码格式（ESLint）、构建项目，确保代码没问题。</li>
+<li><strong>CD（持续部署）</strong>：测试通过后，自动把项目打包、上传服务器，或者部署到 GitHub Pages &#x2F; Vercel &#x2F; 云主机。</li>
+<li><strong>定时任务</strong>：比如每天早上 8 点爬虫抓取数据，自动生成新页面并提交。</li>
+<li><strong>社区协作自动化</strong>：给 PR 打标签、自动欢迎新贡献者、关闭长时间未活动的 Issue。</li>
+</ul>
+<h4 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h4><ul>
+<li>私有仓库分钟额度：免费账号每月2000分钟</li>
+<li>单任务执行时长：每个job最长6个小时，超时终止</li>
+<li>工作流总时长：单次工作流运行最长35天</li>
+<li>缓存上传速率：每分钟最多200个新缓存条目</li>
+</ul>
+<h4 id="我想说的话"><a href="#我想说的话" class="headerlink" title="我想说的话"></a>我想说的话</h4><p>现在我的博客的工作流主要在本地执行，GitHub上只是托管前端代码和发布博客页面。以后想使用这个功能将工作流转移到GitHub上。</p>
+<h2 id="git命令的认识"><a href="#git命令的认识" class="headerlink" title="git命令的认识"></a>git命令的认识</h2><h3 id="仓库地址类型"><a href="#仓库地址类型" class="headerlink" title="仓库地址类型"></a>仓库地址类型</h3><p>SSH地址：<a href="mailto:&#103;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#104;&#117;&#x62;&#x2e;&#x63;&#x6f;&#x6d;">git@github.com</a>:你的用户名&#x2F;你的仓库名.git</p>
+<p>HTTPS地址：<a href="https://github.com/">https://github.com/</a>你的用户名&#x2F;你的仓库名.git</p>
+<h3 id="下载源码仓库"><a href="#下载源码仓库" class="headerlink" title="下载源码仓库"></a>下载源码仓库</h3><pre class="line-numbers language-git" data-language="git"><code class="language-git"> git clone https://github.com/你的用户名/你的仓库名.git 目录位置及重命名 # 不写位置默认这里；.git可以不写
+<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+
+<h3 id="上传仓库"><a href="#上传仓库" class="headerlink" title="上传仓库"></a>上传仓库</h3><pre class="line-numbers language-git" data-language="git"><code class="language-git"><span class="token comment"># 本地仓库创建后首次提交  </span>
+ ​  
+ # 3. 手动初始化git并推送  
+ # 初始化本地仓库。在当前目录创建一个新的、空的 Git 仓库（会生成一个隐藏的 .git 文件夹）。这是所有 Git 操作的起点。  
+ git init   
+ # 将文件添加到暂存区。这里的 . 表示“当前目录下所有新增的和修改过的文件”。此命令将文件的当前快照保存到 Git 的“暂存区”，为提交做准备。  
+ git add .     
+ # 提交到本地仓库。将暂存区的内容创建一个永久的快照，并保存在本地的 Git 仓库历史记录中。-m 后面是本次提交的说明，建议描述清晰  
+ git commit -m <span class="token string">"手动部署"</span>  
+ # 添加远程仓库地址。为远程仓库（通常是 GitHub 上的仓库）起一个别名 origin（这是 Git 的默认习惯叫法），并将其地址指向你提供的 GitHub 仓库 URL  
+ git remote add origin https://github.com/你的用户名/你的仓库.git  
+ # 将当前分支重命名为 main。-M 表示强制重命名。Git 默认的初始分支名可能是 master，此命令将其改为现在更通用的 main，以与 GitHub 默认分支保持一致。  
+ git branch -M main  
+ # 推送到远程仓库。将本地 main 分支的所有提交，推送到别名为 origin 的远程仓库。-u 参数在首次推送时建立追踪关系，之后在该分支只需执行 git push 即可。  
+ git push -u origin main  
+ ​  
+ -------------------------------------------  
+ # github仓库下载后在修改提交  
+ ​  
+ # 1. 克隆远程仓库到本地（首次需要）  
+ git clone https://github.com/用户名/仓库名.git  
+ ​  
+ # 2. 进入仓库目录，进行代码修改  
+ ​  
+ # 3. 将修改的文件添加到暂存区  
+ git add 文件名          # 添加特定文件  
+ git add .              # 添加所有更改  
+ ​  
+ # 4. 提交更改到本地仓库，并附上说明  
+ git commit -m <span class="token string">"描述此次提交的清晰信息"</span>  
+ ​  
+ # 5. 将本地提交推送到GitHub远程仓库  
+ git push origin 分支名  # 通常是 main 或 master
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p> </p>
+<h3 id="具体命令用法"><a href="#具体命令用法" class="headerlink" title="具体命令用法"></a>具体命令用法</h3><p>git add命令</p>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">1. 用法1：`git add .`
+2. 添加当前目录下所有更改的文件（包括新建、修改和删除）到暂存区。
+
+3. 用法2：`git add 文件名`，示例：
+    
+     # 添加单个文件  
+     git add README.md  
+     ​  
+     # 添加多个文件（用空格分隔）  
+     git add index.html style.js  
+     ​  
+     # 添加文件夹下的所有文件  
+     git add src/  
+     ​  
+     # 添加所有 .txt 文件  
+     git add *.txt
+    
+4. 用法2：`git add -A`
+    
+    添加整个仓库中所有更改的文件到暂存区
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h3 id="全局配置命令"><a href="#全局配置命令" class="headerlink" title="全局配置命令"></a>全局配置命令</h3><p>设置提交作者身份信息</p>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">git config --global user.name <span class="token string">"YourName"</span> # 用户名
+git config --global user.email <span class="token string">"your-email@example.com"</span> # 邮箱地址是你GitHub的注册邮箱   --global:全局参数，如果不加 --global，则只对当前仓库生效
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>查看身份信息</p>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git"><span class="token comment"># 查看所有配置</span>
+git config --list
+
+<span class="token comment"># 查看特定配置</span>
+git config user.name
+git config user.email<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="CDN的认识"><a href="#CDN的认识" class="headerlink" title="CDN的认识"></a>CDN的认识</h2><blockquote>
+<p>通过这几天的学习，CDN主要使用了反向代理技术，让访客向CDN边缘节点获取页面。</p>
+</blockquote>
+<blockquote>
+<p>EdgeOne使用反向代理技术，理论上是可以代理任何网站，以后想要尝试一下。</p>
+</blockquote>
+<h2 id="obsidian的使用"><a href="#obsidian的使用" class="headerlink" title="obsidian的使用"></a>obsidian的使用</h2><blockquote>
+<p>将obsidian作为我的博客管理器真不错。本身可以调用模板和创建位置自定义以及它的插件丰富，可以找到你想要的功能。</p>
+</blockquote>
+<h2 id="关于自动化脚本"><a href="#关于自动化脚本" class="headerlink" title="关于自动化脚本"></a>关于自动化脚本</h2><blockquote>
+<p>为了让我的操作更佳简便，我就去了解了Windows的.bat，这部分的体验极佳，看着点几下就能发布挺爽的。</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这次博客搭建所得颇丰，无论是学习使用各个平台达到目的，还是在自定义博客时的CSS，js的些许知识学习，整体体验还是不错的，就是完成自定义博客后感觉没用必要再CSS，js上费时间，博客就是写文章的平台。<br>当然，这其中也遇见了很多问题，如：GitHub的连接问题导致无法发布到GitHub上，hexo环境变量问题，CDN如何配置，CDN如何优选等。<br>总体而言，这次的体验很充实，而关于这个博客的设置也暂时告一段落了，接下的时间我将着重再它的内容上了。</p>
+]]></content>
+      <categories>
+        <category>个人笔记</category>
+        <category>收获</category>
+      </categories>
+      <tags>
+        <tag>CDN</tag>
+        <tag>EdgeOne</tag>
+        <tag>Hexo</tag>
+        <tag>git</tag>
+        <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客备份与迁移</title>
+    <url>/posts/f8739ded.html/</url>
+    <content><![CDATA[<hr>
+<p>利用国内代码托管平台<a href="https://gitee.com/">gitee</a>的仓库镜像功能与<a href="github.com">GitHub</a>实现同步更新，还可以再利用U盘等移动设备进行物理备份，三道保险实现Hexo博客数据的完整和安全。</p>
+<blockquote>
+<p>不过<a href="https://help.gitee.com/repository/settings/sync-between-gitee-github">gitee的官方文档</a>上显示的仓库镜像功能开放至 2022 年 08 月 31 日，但是直到2026年2月9日还可以使用。不过不用担心，如果哪天突然停止，我们也可以使用GitHub Action的功能实现同步备份。</p>
+</blockquote>
+<span id="more"></span>
+
+<blockquote>
+<p>阅读须知：</p>
+<ol>
+<li>命令执行路径：博客根目录，下文用root表示</li>
+<li>两个账号：gitee和GitHub</li>
+<li>gitee账号绑定GitHub账号</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>gitee的仓库镜像功能支持两种镜像设置：①gitee-&gt;GitHub(push方向)；②GitHub-&gt;gitee(pull方向)。更多详情参考它的官方文档。</p>
+</blockquote>
+<h2 id="云端仓库"><a href="#云端仓库" class="headerlink" title="云端仓库"></a>云端仓库</h2><h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><blockquote>
+<p>GitHub上创建一个私有的仓库用于存放Hexo代码。</p>
+</blockquote>
+<h3 id="获取GitHub-token"><a href="#获取GitHub-token" class="headerlink" title="获取GitHub token"></a>获取GitHub token</h3><ol>
+<li>登录与 Gitee 绑定的 GitHub 帐号；</li>
+<li>通过路径「用户头像」→「Settings」进入「Developer setting」；</li>
+<li>选择「Personal access tokens」选项后点击「Generate new token」</li>
+<li>「Note」字段可以随意填写；例如，hexoblog-backup；</li>
+<li>「Select scopes」字段请根据你的需求进行勾选；<blockquote>
+<ul>
+<li><code>repo</code> 字段为必选字段，请您直接勾选；</li>
+<li><code>admin:repo_hook</code> 字段为可选字段，用于自动生成 webhook；</li>
+<li>当您需要 Gitee 自动从 GitHub 同步仓库时，建议您勾选。</li>
+</ul>
+</blockquote>
+</li>
+<li>点击「Generate token」生成私人令牌；</li>
+<li>复制私人令牌并妥善保管，等待使用。</li>
+</ol>
+<h3 id="gitee配置"><a href="#gitee配置" class="headerlink" title="gitee配置"></a>gitee配置</h3><blockquote>
+<p>创建一个私有仓库作为GitHub的备份，建议仓库名与GitHub的仓库名一致。</p>
+</blockquote>
+<h3 id="配置仓库镜像"><a href="#配置仓库镜像" class="headerlink" title="配置仓库镜像"></a>配置仓库镜像</h3><blockquote>
+<p>配置pull方向的仓库镜像</p>
+</blockquote>
+<ol>
+<li>进入需要仓库镜像的仓库，依照路径点击：管理-&gt;仓库镜像管理-&gt;添加镜像</li>
+<li>添加镜像<br><img src="/posts/f8739ded.html/%7BFC00422A-B329-4133-93AE-DED71956D59E%7D.png"></li>
+</ol>
+<blockquote>
+<p>按照上述填写即可，至此仓库镜像配置完成。</p>
+</blockquote>
+<h2 id="本地上传备份"><a href="#本地上传备份" class="headerlink" title="本地上传备份"></a>本地上传备份</h2><p>进入<code>root</code>目录，右击鼠标点击终端（或者git bash）进入命名行。</p>
+<p>依次执行以下命令：</p>
+<ol>
+<li>初始化本地仓库：</li>
+</ol>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">git init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>会在在当前目录创建一个新的、空的 Git 仓库（会生成一个隐藏的 .git 文件夹）。这是所有 Git 操作的起点。</p>
+</blockquote>
+<ol start="2">
+<li>将文件添加到暂存区：</li>
+</ol>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">git add .<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>这里的 . 表示“当前目录下所有新增的和修改过的文件”。此命令将文件的当前快照保存到 Git 的“暂存区”，为提交做准备。</p>
+</blockquote>
+<ol start="3">
+<li>提交到本地仓库：</li>
+</ol>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">git commit -m <span class="token string">"2026年2月9日备份hexoblog-backup"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>将暂存区的内容创建一个永久的快照，并保存在本地的 Git 仓库历史记录中。-m 后面是本次提交的说明，建议描述清晰。</p>
+</blockquote>
+<ol start="4">
+<li>添加远程仓库（GitHub仓库）：</li>
+</ol>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">git remote add origin https://github.com/你的用户名/你的仓库.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>为远程仓库（通常是 GitHub 上的仓库）起一个别名 origin（这是 Git 的默认习惯叫法），并将其地址指向你提供的 GitHub 仓库 URL（建议使用SSH地址）</p>
+</blockquote>
+<ol start="5">
+<li>重命名当前分支为main</li>
+</ol>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">git branch -M main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>-M 表示强制重命名。Git 默认的初始分支名可能是 master，此命令将其改为现在更通用的 main，以与 GitHub 默认分支保持一致.</p>
+</blockquote>
+<ol start="6">
+<li>推送到远程仓库：</li>
+</ol>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">git push -u origin main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>将本地 main 分支的所有提交，推送到别名为 origin 的远程仓库。-u 参数在首次推送时建立追踪关系，之后在该分支只需执行 git push 即可。</p>
+</blockquote>
+<p>执行完成后GitHub仓库：<br><img src="/posts/f8739ded.html/%7B2BD925A6-99A5-4AF9-A266-6F1C49B379DF%7D.png"><br>gitee仓库：<br><img src="/posts/f8739ded.html/%7BD045E249-E530-4456-9595-501F54FEFAFA%7D.png"></p>
+<h2 id="博客迁移"><a href="#博客迁移" class="headerlink" title="博客迁移"></a>博客迁移</h2><blockquote>
+<p>注意：此步骤前提已完成上述备份后</p>
+</blockquote>
+<h3 id="配置hexo环境"><a href="#配置hexo环境" class="headerlink" title="配置hexo环境"></a>配置hexo环境</h3><p><a href="https://www.frosh.qzz.io/posts/be06e9d8.html/#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E5%B7%A5%E5%85%B7">Hexo个人博客搭建|环境配置&#x2F;工具</a></p>
+<h2 id="配置SHH密钥"><a href="#配置SHH密钥" class="headerlink" title="配置SHH密钥"></a>配置SHH密钥</h2><p><a href="https://www.frosh.qzz.io/posts/be06e9d8.html/#%E9%85%8D%E7%BD%AESSH%E5%AF%86%E9%92%A5">Hexo博客备份|配置SHH密钥</a></p>
+<h3 id="克隆备份仓库"><a href="#克隆备份仓库" class="headerlink" title="克隆备份仓库"></a>克隆备份仓库</h3><p>在任意位置（你想要你的博客在哪）执行以下命令：</p>
+<pre class="line-numbers language-git" data-language="git"><code class="language-git">git clone https://github.com/你的用户名/你的备份仓库名.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>这个命令可以直接在你的仓库中获得：Code。建议SSH地址。<br>会在当前位置生成一个<code>备份仓库名</code>的文件夹，这个名称可以修改</p>
+</blockquote>
+<h2 id="生成博客模块目录"><a href="#生成博客模块目录" class="headerlink" title="生成博客模块目录"></a>生成博客模块目录</h2><blockquote>
+<p>博客模块目录：node_modules</p>
+</blockquote>
+<p>在<code>root/</code>目录下，执行以下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>在<code>root/</code>下执行以下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo cl<span class="token punctuation">;</span>hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://www.bilibili.com/video/BV13g41147yV/?spm_id_from=333.1391.0.0&vd_source=ff90d309a66060821e097736f479cb41">佳豪君z|备份和迁移hexo博客-video</a></p>
+]]></content>
+      <categories>
+        <category>个人博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>git</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客优化</title>
     <url>/posts/94271a3a.html/</url>
     <content><![CDATA[<hr>
@@ -865,294 +1156,25 @@ MacGesture2-Publish.md        <span aria-hidden="true" class="line-numbers-rows"
       </tags>
   </entry>
   <entry>
-    <title>Hexo博客备份与迁移</title>
-    <url>/posts/f8739ded.html/</url>
+    <title>测试EO CDN缓存更新时间</title>
+    <url>/posts/8c25025c.html/</url>
     <content><![CDATA[<hr>
-<p>利用国内代码托管平台<a href="https://gitee.com/">gitee</a>的仓库镜像功能与<a href="github.com">GitHub</a>实现同步更新，还可以再利用U盘等移动设备进行物理备份，三道保险实现Hexo博客数据的完整和安全。</p>
 <blockquote>
-<p>不过<a href="https://help.gitee.com/repository/settings/sync-between-gitee-github">gitee的官方文档</a>上显示的仓库镜像功能开放至 2022 年 08 月 31 日，但是直到2026年2月9日还可以使用。不过不用担心，如果哪天突然停止，我们也可以使用GitHub Action的功能实现同步备份。</p>
+<p>更新文章内容<br>源站几分钟后生效更新<br>加速站名未更新，访问旧的CDN缓存<br>2026年2月10日 14点25分<br>2026年2月11日更新</p>
+</blockquote>
+<blockquote>
+<p>新建文章测试CDN缓存更新时间<br>开始：2026年2月10日 13点55分<br>都生效：2026年2月10日 14点04分</p>
 </blockquote>
 <span id="more"></span>
 
-<blockquote>
-<p>阅读须知：</p>
-<ol>
-<li>命令执行路径：博客根目录，下文用root表示</li>
-<li>两个账号：gitee和GitHub</li>
-<li>gitee账号绑定GitHub账号</li>
-</ol>
-</blockquote>
-<blockquote>
-<p>gitee的仓库镜像功能支持两种镜像设置：①gitee-&gt;GitHub(push方向)；②GitHub-&gt;gitee(pull方向)。更多详情参考它的官方文档。</p>
-</blockquote>
-<h2 id="云端仓库"><a href="#云端仓库" class="headerlink" title="云端仓库"></a>云端仓库</h2><h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><blockquote>
-<p>GitHub上创建一个私有的仓库用于存放Hexo代码。</p>
-</blockquote>
-<h3 id="获取GitHub-token"><a href="#获取GitHub-token" class="headerlink" title="获取GitHub token"></a>获取GitHub token</h3><ol>
-<li>登录与 Gitee 绑定的 GitHub 帐号；</li>
-<li>通过路径「用户头像」→「Settings」进入「Developer setting」；</li>
-<li>选择「Personal access tokens」选项后点击「Generate new token」</li>
-<li>「Note」字段可以随意填写；例如，hexoblog-backup；</li>
-<li>「Select scopes」字段请根据你的需求进行勾选；<blockquote>
-<ul>
-<li><code>repo</code> 字段为必选字段，请您直接勾选；</li>
-<li><code>admin:repo_hook</code> 字段为可选字段，用于自动生成 webhook；</li>
-<li>当您需要 Gitee 自动从 GitHub 同步仓库时，建议您勾选。</li>
-</ul>
-</blockquote>
-</li>
-<li>点击「Generate token」生成私人令牌；</li>
-<li>复制私人令牌并妥善保管，等待使用。</li>
-</ol>
-<h3 id="gitee配置"><a href="#gitee配置" class="headerlink" title="gitee配置"></a>gitee配置</h3><blockquote>
-<p>创建一个私有仓库作为GitHub的备份，建议仓库名与GitHub的仓库名一致。</p>
-</blockquote>
-<h3 id="配置仓库镜像"><a href="#配置仓库镜像" class="headerlink" title="配置仓库镜像"></a>配置仓库镜像</h3><blockquote>
-<p>配置pull方向的仓库镜像</p>
-</blockquote>
-<ol>
-<li>进入需要仓库镜像的仓库，依照路径点击：管理-&gt;仓库镜像管理-&gt;添加镜像</li>
-<li>添加镜像<br><img src="/posts/f8739ded.html/%7BFC00422A-B329-4133-93AE-DED71956D59E%7D.png"></li>
-</ol>
-<blockquote>
-<p>按照上述填写即可，至此仓库镜像配置完成。</p>
-</blockquote>
-<h2 id="本地上传备份"><a href="#本地上传备份" class="headerlink" title="本地上传备份"></a>本地上传备份</h2><p>进入<code>root</code>目录，右击鼠标点击终端（或者git bash）进入命名行。</p>
-<p>依次执行以下命令：</p>
-<ol>
-<li>初始化本地仓库：</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>会在在当前目录创建一个新的、空的 Git 仓库（会生成一个隐藏的 .git 文件夹）。这是所有 Git 操作的起点。</p>
-</blockquote>
-<ol start="2">
-<li>将文件添加到暂存区：</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git add .<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>这里的 . 表示“当前目录下所有新增的和修改过的文件”。此命令将文件的当前快照保存到 Git 的“暂存区”，为提交做准备。</p>
-</blockquote>
-<ol start="3">
-<li>提交到本地仓库：</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git commit -m <span class="token string">"2026年2月9日备份hexoblog-backup"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>将暂存区的内容创建一个永久的快照，并保存在本地的 Git 仓库历史记录中。-m 后面是本次提交的说明，建议描述清晰。</p>
-</blockquote>
-<ol start="4">
-<li>添加远程仓库（GitHub仓库）：</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git remote add origin https://github.com/你的用户名/你的仓库.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>为远程仓库（通常是 GitHub 上的仓库）起一个别名 origin（这是 Git 的默认习惯叫法），并将其地址指向你提供的 GitHub 仓库 URL（建议使用SSH地址）</p>
-</blockquote>
-<ol start="5">
-<li>重命名当前分支为main</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git branch -M main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>-M 表示强制重命名。Git 默认的初始分支名可能是 master，此命令将其改为现在更通用的 main，以与 GitHub 默认分支保持一致.</p>
-</blockquote>
-<ol start="6">
-<li>推送到远程仓库：</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git push -u origin main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>将本地 main 分支的所有提交，推送到别名为 origin 的远程仓库。-u 参数在首次推送时建立追踪关系，之后在该分支只需执行 git push 即可。</p>
-</blockquote>
-<p>执行完成后GitHub仓库：<br><img src="/posts/f8739ded.html/%7B2BD925A6-99A5-4AF9-A266-6F1C49B379DF%7D.png"><br>gitee仓库：<br><img src="/posts/f8739ded.html/%7BD045E249-E530-4456-9595-501F54FEFAFA%7D.png"></p>
-<h2 id="博客迁移"><a href="#博客迁移" class="headerlink" title="博客迁移"></a>博客迁移</h2><blockquote>
-<p>注意：此步骤前提已完成上述备份后</p>
-</blockquote>
-<h3 id="配置hexo环境"><a href="#配置hexo环境" class="headerlink" title="配置hexo环境"></a>配置hexo环境</h3><p><a href="https://www.frosh.qzz.io/posts/be06e9d8.html/#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E5%B7%A5%E5%85%B7">Hexo个人博客搭建|环境配置&#x2F;工具</a></p>
-<h2 id="配置SHH密钥"><a href="#配置SHH密钥" class="headerlink" title="配置SHH密钥"></a>配置SHH密钥</h2><p><a href="https://www.frosh.qzz.io/posts/be06e9d8.html/#%E9%85%8D%E7%BD%AESSH%E5%AF%86%E9%92%A5">Hexo博客备份|配置SHH密钥</a></p>
-<h3 id="克隆备份仓库"><a href="#克隆备份仓库" class="headerlink" title="克隆备份仓库"></a>克隆备份仓库</h3><p>在任意位置（你想要你的博客在哪）执行以下命令：</p>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git clone https://github.com/你的用户名/你的备份仓库名.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>这个命令可以直接在你的仓库中获得：Code。建议SSH地址。<br>会在当前位置生成一个<code>备份仓库名</code>的文件夹，这个名称可以修改</p>
-</blockquote>
-<h2 id="生成博客模块目录"><a href="#生成博客模块目录" class="headerlink" title="生成博客模块目录"></a>生成博客模块目录</h2><blockquote>
-<p>博客模块目录：node_modules</p>
-</blockquote>
-<p>在<code>root/</code>目录下，执行以下命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>在<code>root/</code>下执行以下命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo cl<span class="token punctuation">;</span>hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://www.bilibili.com/video/BV13g41147yV/?spm_id_from=333.1391.0.0&vd_source=ff90d309a66060821e097736f479cb41">佳豪君z|备份和迁移hexo博客-video</a></p>
+<p>图片资源</p>
+<p><img src="/posts/8c25025c.html/file-20260210143120738.png"></p>
 ]]></content>
       <categories>
-        <category>个人博客</category>
+        <category>草稿</category>
       </categories>
       <tags>
-        <tag>Hexo</tag>
-        <tag>git</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo博客搭建所得</title>
-    <url>/posts/ba484542.html/</url>
-    <content><![CDATA[<hr>
-<p id="div-border-left-purple"> 我的博客技术实现架构：Hexo + GitHub + GitHub Pages + EdgeOne CND；本地使用obsidian进行博客管理和编写。</p>
-
-<span id="more"></span>
-
-<h2 id="博客框架的了解"><a href="#博客框架的了解" class="headerlink" title="博客框架的了解"></a>博客框架的了解</h2><h3 id="静态和动态的页面的区别"><a href="#静态和动态的页面的区别" class="headerlink" title="静态和动态的页面的区别"></a>静态和动态的页面的区别</h3><p>静态页面：内容通过本地电脑或构建服务器一次性将markdown文件转换为html页面。<br>动态页面：服务请没有现成的html文件，只有数据和模板。请求时，通过PHP等程序实时从数据库调取文章内容，再填入html模板，临时生成页面。</p>
-<h3 id="框架的认识"><a href="#框架的认识" class="headerlink" title="框架的认识"></a>框架的认识</h3><p>使用自然语言通过框架生成网页前端文件。</p>
-<h2 id="GitHub的认识及使用"><a href="#GitHub的认识及使用" class="headerlink" title="GitHub的认识及使用"></a>GitHub的认识及使用</h2><blockquote>
-<p>微软旗下，<strong>全球最大的开源社区</strong>；一个基于Git的代码托管平台，但其核心功能不只是存代码，还有让协作变得<strong>可视化、流程化</strong>；并且提供多个好用的免费服务。如：GitHub Pages、GitHub Action等。</p>
-</blockquote>
-<h3 id="SSH的配置代替https访问"><a href="#SSH的配置代替https访问" class="headerlink" title="SSH的配置代替https访问"></a>SSH的配置代替https访问</h3><blockquote>
-<p>配置成功后提交代码文件时不需要输入账号密码，且永久生效</p>
-</blockquote>
-<ol>
-<li>生成密钥·命令</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git"> ssh-keygen -t rsa -C <span class="token string">"your_email@example.com"</span>  
-  # 以下是更优的选择  
- # 使用更安全、更快的 Ed25519 算法  
- ssh-keygen -t ed25519 -C <span class="token string">"your_email@example.com"</span>  
- ​  
- # 或者指定更强的 RSA 密钥长度  
- ssh-keygen -t rsa -b 4096 -C <span class="token string">"your_email@example.com"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p> ​<br>2. 查看公钥信息</p>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git"><span class="token comment"># 显示公钥内容，复制全部文本  </span>
- cat ~/.ssh/id_rsa.pub<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p> <br>3. 测试连接</p>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git"> ssh -T git@github.com  <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<blockquote>
-<p>这个连接会因watt Toolkit加速GitHub而连接失败，需要关闭加速。<br>其他加速器有无影响尚不知。</p>
-</blockquote>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git"> # 执行成功会显示：  
- # Hi username! You've successfully authenticated...<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h3><blockquote>
-<p>GitHub上的免费静态网页托管服务，可以让你随时发布你的静态网页。</p>
-</blockquote>
-<p>GitHub上免费快捷的静态网站托管服务，能部署两种类型站点：个人站点、项目站点</p>
-<p>个人站点：每个用户只有1个，仓库名有严格要求（仓库名称.github.io）,访问地址是https:&#x2F;&#x2F;仓库名.github.io</p>
-<p>项目站点：数量无限，仓库名没有限制，访问地址是<a href="https://github/">https://github</a>用户名.github.io&#x2F;仓库名</p>
-<p>关于网址长的问题自然有解决方法：配置自定义域名</p>
-<h3 id="GitHub-Action"><a href="#GitHub-Action" class="headerlink" title="GitHub Action"></a>GitHub Action</h3><blockquote>
-<p><strong>GitHub Actions 是 GitHub 官方提供的自动化工具</strong>，可通过自己编写脚本实现自动化。</p>
-</blockquote>
-<h4 id="典型场景使用"><a href="#典型场景使用" class="headerlink" title="典型场景使用"></a>典型场景使用</h4><ul>
-<li><strong>CI（持续集成）</strong>：每次 push 代码，自动运行测试、检查代码格式（ESLint）、构建项目，确保代码没问题。</li>
-<li><strong>CD（持续部署）</strong>：测试通过后，自动把项目打包、上传服务器，或者部署到 GitHub Pages &#x2F; Vercel &#x2F; 云主机。</li>
-<li><strong>定时任务</strong>：比如每天早上 8 点爬虫抓取数据，自动生成新页面并提交。</li>
-<li><strong>社区协作自动化</strong>：给 PR 打标签、自动欢迎新贡献者、关闭长时间未活动的 Issue。</li>
-</ul>
-<h4 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h4><ul>
-<li>私有仓库分钟额度：免费账号每月2000分钟</li>
-<li>单任务执行时长：每个job最长6个小时，超时终止</li>
-<li>工作流总时长：单次工作流运行最长35天</li>
-<li>缓存上传速率：每分钟最多200个新缓存条目</li>
-</ul>
-<h4 id="我想说的话"><a href="#我想说的话" class="headerlink" title="我想说的话"></a>我想说的话</h4><p>现在我的博客的工作流主要在本地执行，GitHub上只是托管前端代码和发布博客页面。以后想使用这个功能将工作流转移到GitHub上。</p>
-<h2 id="git命令的认识"><a href="#git命令的认识" class="headerlink" title="git命令的认识"></a>git命令的认识</h2><h3 id="仓库地址类型"><a href="#仓库地址类型" class="headerlink" title="仓库地址类型"></a>仓库地址类型</h3><p>SSH地址：<a href="mailto:&#103;&#105;&#x74;&#x40;&#x67;&#x69;&#x74;&#x68;&#117;&#98;&#46;&#99;&#x6f;&#x6d;">git@github.com</a>:你的用户名&#x2F;你的仓库名.git</p>
-<p>HTTPS地址：<a href="https://github.com/">https://github.com/</a>你的用户名&#x2F;你的仓库名.git</p>
-<h3 id="下载源码仓库"><a href="#下载源码仓库" class="headerlink" title="下载源码仓库"></a>下载源码仓库</h3><pre class="line-numbers language-git" data-language="git"><code class="language-git"> git clone https://github.com/你的用户名/你的仓库名.git 目录位置及重命名 # 不写位置默认这里；.git可以不写
-<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-
-<h3 id="上传仓库"><a href="#上传仓库" class="headerlink" title="上传仓库"></a>上传仓库</h3><pre class="line-numbers language-git" data-language="git"><code class="language-git"><span class="token comment"># 本地仓库创建后首次提交  </span>
- ​  
- # 3. 手动初始化git并推送  
- # 初始化本地仓库。在当前目录创建一个新的、空的 Git 仓库（会生成一个隐藏的 .git 文件夹）。这是所有 Git 操作的起点。  
- git init   
- # 将文件添加到暂存区。这里的 . 表示“当前目录下所有新增的和修改过的文件”。此命令将文件的当前快照保存到 Git 的“暂存区”，为提交做准备。  
- git add .     
- # 提交到本地仓库。将暂存区的内容创建一个永久的快照，并保存在本地的 Git 仓库历史记录中。-m 后面是本次提交的说明，建议描述清晰  
- git commit -m <span class="token string">"手动部署"</span>  
- # 添加远程仓库地址。为远程仓库（通常是 GitHub 上的仓库）起一个别名 origin（这是 Git 的默认习惯叫法），并将其地址指向你提供的 GitHub 仓库 URL  
- git remote add origin https://github.com/你的用户名/你的仓库.git  
- # 将当前分支重命名为 main。-M 表示强制重命名。Git 默认的初始分支名可能是 master，此命令将其改为现在更通用的 main，以与 GitHub 默认分支保持一致。  
- git branch -M main  
- # 推送到远程仓库。将本地 main 分支的所有提交，推送到别名为 origin 的远程仓库。-u 参数在首次推送时建立追踪关系，之后在该分支只需执行 git push 即可。  
- git push -u origin main  
- ​  
- -------------------------------------------  
- # github仓库下载后在修改提交  
- ​  
- # 1. 克隆远程仓库到本地（首次需要）  
- git clone https://github.com/用户名/仓库名.git  
- ​  
- # 2. 进入仓库目录，进行代码修改  
- ​  
- # 3. 将修改的文件添加到暂存区  
- git add 文件名          # 添加特定文件  
- git add .              # 添加所有更改  
- ​  
- # 4. 提交更改到本地仓库，并附上说明  
- git commit -m <span class="token string">"描述此次提交的清晰信息"</span>  
- ​  
- # 5. 将本地提交推送到GitHub远程仓库  
- git push origin 分支名  # 通常是 main 或 master
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p> </p>
-<h3 id="具体命令用法"><a href="#具体命令用法" class="headerlink" title="具体命令用法"></a>具体命令用法</h3><p>git add命令</p>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">1. 用法1：`git add .`
-2. 添加当前目录下所有更改的文件（包括新建、修改和删除）到暂存区。
-
-3. 用法2：`git add 文件名`，示例：
-    
-     # 添加单个文件  
-     git add README.md  
-     ​  
-     # 添加多个文件（用空格分隔）  
-     git add index.html style.js  
-     ​  
-     # 添加文件夹下的所有文件  
-     git add src/  
-     ​  
-     # 添加所有 .txt 文件  
-     git add *.txt
-    
-4. 用法2：`git add -A`
-    
-    添加整个仓库中所有更改的文件到暂存区
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h3 id="全局配置命令"><a href="#全局配置命令" class="headerlink" title="全局配置命令"></a>全局配置命令</h3><p>设置提交作者身份信息</p>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git config --global user.name <span class="token string">"YourName"</span> # 用户名
-git config --global user.email <span class="token string">"your-email@example.com"</span> # 邮箱地址是你GitHub的注册邮箱   --global:全局参数，如果不加 --global，则只对当前仓库生效
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>查看身份信息</p>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git"><span class="token comment"># 查看所有配置</span>
-git config --list
-
-<span class="token comment"># 查看特定配置</span>
-git config user.name
-git config user.email<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="CDN的认识"><a href="#CDN的认识" class="headerlink" title="CDN的认识"></a>CDN的认识</h2><blockquote>
-<p>通过这几天的学习，CDN主要使用了反向代理技术，让访客向CDN边缘节点获取页面。</p>
-</blockquote>
-<blockquote>
-<p>EdgeOne使用反向代理技术，理论上是可以代理任何网站，以后想要尝试一下。</p>
-</blockquote>
-<h2 id="obsidian的使用"><a href="#obsidian的使用" class="headerlink" title="obsidian的使用"></a>obsidian的使用</h2><blockquote>
-<p>将obsidian作为我的博客管理器真不错。本身可以调用模板和创建位置自定义以及它的插件丰富，可以找到你想要的功能。</p>
-</blockquote>
-<h2 id="关于自动化脚本"><a href="#关于自动化脚本" class="headerlink" title="关于自动化脚本"></a>关于自动化脚本</h2><blockquote>
-<p>为了让我的操作更佳简便，我就去了解了Windows的.bat，这部分的体验极佳，看着点几下就能发布挺爽的。</p>
-</blockquote>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>这次博客搭建所得颇丰，无论是学习使用各个平台达到目的，还是在自定义博客时的CSS，js的些许知识学习，整体体验还是不错的，就是完成自定义博客后感觉没用必要再CSS，js上费时间，博客就是写文章的平台。<br>当然，这其中也遇见了很多问题，如：GitHub的连接问题导致无法发布到GitHub上，hexo环境变量问题，CDN如何配置，CDN如何优选等。<br>总体而言，这次的体验很充实，而关于这个博客的设置也暂时告一段落了，接下的时间我将着重再它的内容上了。</p>
-]]></content>
-      <categories>
-        <category>个人笔记</category>
-        <category>收获</category>
-      </categories>
-      <tags>
-        <tag>CDN</tag>
-        <tag>EdgeOne</tag>
-        <tag>Hexo</tag>
-        <tag>git</tag>
-        <tag>css</tag>
+        <tag>test</tag>
       </tags>
   </entry>
   <entry>
@@ -2158,30 +2180,8 @@ p#div-border-top-purple</span> <span class="token punctuation">&#123;</span>
         <category>个人博客</category>
       </categories>
       <tags>
-        <tag>Next</tag>
         <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>测试EO CDN缓存更新时间</title>
-    <url>/posts/8c25025c.html/</url>
-    <content><![CDATA[<hr>
-<blockquote>
-<p>更新文章内容<br>源站几分钟后生效更新<br>加速站名未更新，访问旧的CDN缓存<br>2026年2月10日 14点25分<br>2026年2月11日更新</p>
-</blockquote>
-<blockquote>
-<p>新建文章测试CDN缓存更新时间<br>开始：2026年2月10日 13点55分<br>都生效：2026年2月10日 14点04分</p>
-</blockquote>
-<span id="more"></span>
-
-<p>图片资源</p>
-<p><img src="/posts/8c25025c.html/file-20260210143120738.png"></p>
-]]></content>
-      <categories>
-        <category>草稿</category>
-      </categories>
-      <tags>
-        <tag>test</tag>
+        <tag>Next</tag>
       </tags>
   </entry>
 </search>
