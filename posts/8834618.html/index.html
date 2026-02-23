@@ -22,32 +22,35 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.frosh.qzz.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-tomorrow"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="利用国内代码托管平台gitee的仓库镜像功能与GitHub实现同步更新，还可以再利用U盘等移动设备进行物理备份，三道保险实现Hexo博客数据的完整和安全。  不过gitee的官方文档上显示的仓库镜像功能开放至 2022 年 08 月 31 日，但是直到2026年2月9日还可以使用。不过不用担心，如果哪天突然停止，我们也可以使用GitHub Action的功能实现同步备份。">
+    <meta name="description" content="需求：既要明显下降文件大小，又要画质肉眼看不出下降。   视频是一张张画面交替出现形成的。想要压缩视频主要通过这几个参数调节：分辨率、帧率、码率、编码   视频压缩是不可逆的，若有条件，建议将原文件进行冷数据备份（备份到云盘等）。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo博客备份与迁移">
-<meta property="og:url" content="https://www.frosh.qzz.io/posts/f8739ded.html/index.html">
+<meta property="og:title" content="视频压缩">
+<meta property="og:url" content="https://www.frosh.qzz.io/posts/8834618.html/index.html">
 <meta property="og:site_name" content="FROSH_Blog">
-<meta property="og:description" content="利用国内代码托管平台gitee的仓库镜像功能与GitHub实现同步更新，还可以再利用U盘等移动设备进行物理备份，三道保险实现Hexo博客数据的完整和安全。  不过gitee的官方文档上显示的仓库镜像功能开放至 2022 年 08 月 31 日，但是直到2026年2月9日还可以使用。不过不用担心，如果哪天突然停止，我们也可以使用GitHub Action的功能实现同步备份。">
+<meta property="og:description" content="需求：既要明显下降文件大小，又要画质肉眼看不出下降。   视频是一张张画面交替出现形成的。想要压缩视频主要通过这几个参数调节：分辨率、帧率、码率、编码   视频压缩是不可逆的，若有条件，建议将原文件进行冷数据备份（备份到云盘等）。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://www.frosh.qzz.io/posts/f8739ded.html/%7BFC00422A-B329-4133-93AE-DED71956D59E%7D.png">
-<meta property="og:image" content="https://www.frosh.qzz.io/posts/f8739ded.html/%7B2BD925A6-99A5-4AF9-A266-6F1C49B379DF%7D.png">
-<meta property="og:image" content="https://www.frosh.qzz.io/posts/f8739ded.html/%7BD045E249-E530-4456-9595-501F54FEFAFA%7D.png">
-<meta property="article:published_time" content="2026-02-09T12:28:19.000Z">
-<meta property="article:modified_time" content="2026-02-10T03:27:39.863Z">
+<meta property="og:image" content="https://www.frosh.qzz.io/posts/8834618.html/file-20260223210412363.png">
+<meta property="og:image" content="https://www.frosh.qzz.io/posts/8834618.html/file-20260223175332462.png">
+<meta property="og:image" content="https://www.frosh.qzz.io/posts/8834618.html/file-20260223213644411.png">
+<meta property="og:image" content="https://www.frosh.qzz.io/posts/8834618.html/file-20260223214249460.png">
+<meta property="og:image" content="https://www.frosh.qzz.io/posts/8834618.html/file-20260223214601567.png">
+<meta property="og:image" content="https://www.frosh.qzz.io/assets/%E8%A7%86%E9%A2%91%E5%8E%8B%E7%BC%A9/file-20260223215426574.png">
+<meta property="article:published_time" content="2026-02-23T14:18:03.000Z">
+<meta property="article:modified_time" content="2026-02-23T14:26:46.651Z">
 <meta property="article:author" content="kumiao">
-<meta property="article:tag" content="Hexo">
-<meta property="article:tag" content="git">
+<meta property="article:tag" content="压缩技术">
+<meta property="article:tag" content="视频">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.frosh.qzz.io/posts/f8739ded.html/%7BFC00422A-B329-4133-93AE-DED71956D59E%7D.png">
+<meta name="twitter:image" content="https://www.frosh.qzz.io/posts/8834618.html/file-20260223210412363.png">
 
 
-<link rel="canonical" href="https://www.frosh.qzz.io/posts/f8739ded.html/">
+<link rel="canonical" href="https://www.frosh.qzz.io/posts/8834618.html/">
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.frosh.qzz.io/posts/f8739ded.html/","path":"posts/f8739ded.html/","title":"Hexo博客备份与迁移"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://www.frosh.qzz.io/posts/8834618.html/","path":"posts/8834618.html/","title":"视频压缩"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Hexo博客备份与迁移 | FROSH_Blog</title>
+<title>视频压缩 | FROSH_Blog</title>
   
 
 
@@ -172,7 +175,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%91%E7%AB%AF%E4%BB%93%E5%BA%93"><span class="nav-number">1.</span> <span class="nav-text">云端仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#GitHub"><span class="nav-number">1.1.</span> <span class="nav-text">GitHub</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96GitHub-token"><span class="nav-number">1.2.</span> <span class="nav-text">获取GitHub token</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#gitee%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.</span> <span class="nav-text">gitee配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%BB%93%E5%BA%93%E9%95%9C%E5%83%8F"><span class="nav-number">1.4.</span> <span class="nav-text">配置仓库镜像</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E4%B8%8A%E4%BC%A0%E5%A4%87%E4%BB%BD"><span class="nav-number">2.</span> <span class="nav-text">本地上传备份</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E8%BF%81%E7%A7%BB"><span class="nav-number">3.</span> <span class="nav-text">博客迁移</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEhexo%E7%8E%AF%E5%A2%83"><span class="nav-number">3.1.</span> <span class="nav-text">配置hexo环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AESHH%E5%AF%86%E9%92%A5"><span class="nav-number">4.</span> <span class="nav-text">配置SHH密钥</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%8B%E9%9A%86%E5%A4%87%E4%BB%BD%E4%BB%93%E5%BA%93"><span class="nav-number">4.1.</span> <span class="nav-text">克隆备份仓库</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E5%8D%9A%E5%AE%A2%E6%A8%A1%E5%9D%97%E7%9B%AE%E5%BD%95"><span class="nav-number">5.</span> <span class="nav-text">生成博客模块目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81"><span class="nav-number">6.</span> <span class="nav-text">验证</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">7.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%86%E8%BE%A8%E7%8E%87"><span class="nav-number">1.</span> <span class="nav-text">分辨率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B8%A7%E7%8E%87"><span class="nav-number">2.</span> <span class="nav-text">帧率</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A0%81%E7%8E%87"><span class="nav-number">3.</span> <span class="nav-text">码率</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%95%E4%BD%8D%E8%BD%AC%E6%8D%A2"><span class="nav-number">3.1.</span> <span class="nav-text">单位转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%81%92%E5%AE%9A%E8%B4%A8%E9%87%8F"><span class="nav-number">3.2.</span> <span class="nav-text">恒定质量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E7%BC%96%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">视频编码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HandBrake%E4%BD%BF%E7%94%A8%E6%A1%88%E4%BE%8B"><span class="nav-number">5.</span> <span class="nav-text">HandBrake使用案例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E6%8E%A8%E8%8D%90"><span class="nav-number">5.1.</span> <span class="nav-text">工具推荐</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AF%BC%E5%85%A5%E8%A7%86%E9%A2%91"><span class="nav-number">5.2.</span> <span class="nav-text">导入视频</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%82%E6%95%B0%E9%85%8D%E7%BD%AE"><span class="nav-number">5.3.</span> <span class="nav-text">参数配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%A7%86%E9%A2%91%E5%A4%A7%E5%B0%8F%E8%A6%81%E6%B1%82"><span class="nav-number">6.</span> <span class="nav-text">视频大小要求</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">7.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -257,7 +260,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://www.frosh.qzz.io/posts/f8739ded.html/">
+    <link itemprop="mainEntityOfPage" href="https://www.frosh.qzz.io/posts/8834618.html/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/ceshi.png">
@@ -270,12 +273,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Hexo博客备份与迁移 | FROSH_Blog">
+      <meta itemprop="name" content="视频压缩 | FROSH_Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo博客备份与迁移
+          视频压缩
         </h1>
 
         <div class="post-meta-container">
@@ -285,15 +288,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">发表于</span>
+      
 
-      <time title="创建时间：2026-02-09 20:28:19" itemprop="dateCreated datePublished" datetime="2026-02-09T20:28:19+08:00">2026-02-09</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-02-10 11:27:39" itemprop="dateModified" datetime="2026-02-10T11:27:39+08:00">2026-02-10</time>
+      <time title="创建时间：2026-02-23 22:18:03 / 修改时间：22:26:46" itemprop="dateCreated datePublished" datetime="2026-02-23T22:18:03+08:00">2026-02-23</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -301,7 +298,7 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">个人博客</span></a>
+          <a href="/categories/%E7%A9%BA%E9%97%B4%E5%8E%8B%E7%BC%A9/" itemprop="url" rel="index"><span itemprop="name">空间压缩</span></a>
         </span>
     </span>
 
@@ -312,7 +309,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.8k</span>
+      <span>2.7k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -330,120 +327,149 @@
     
     
     <div class="post-body" itemprop="articleBody"><hr>
-<p>利用国内代码托管平台<a target="_blank" rel="noopener" href="https://gitee.com/">gitee</a>的仓库镜像功能与<a href="github.com">GitHub</a>实现同步更新，还可以再利用U盘等移动设备进行物理备份，三道保险实现Hexo博客数据的完整和安全。</p>
 <blockquote>
-<p>不过<a target="_blank" rel="noopener" href="https://help.gitee.com/repository/settings/sync-between-gitee-github">gitee的官方文档</a>上显示的仓库镜像功能开放至 2022 年 08 月 31 日，但是直到2026年2月9日还可以使用。不过不用担心，如果哪天突然停止，我们也可以使用GitHub Action的功能实现同步备份。</p>
+<p>需求：既要明显下降文件大小，又要画质肉眼看不出下降。</p>
+</blockquote>
+<blockquote>
+<p>视频是一张张画面交替出现形成的。想要压缩视频主要通过这几个参数调节：分辨率、帧率、码率、编码</p>
+</blockquote>
+<blockquote>
+<p>视频压缩是不可逆的，若有条件，建议将原文件进行冷数据备份（备份到云盘等）。</p>
 </blockquote>
 <span id="more"></span>
 
+<h2 id="分辨率"><a href="#分辨率" class="headerlink" title="分辨率"></a>分辨率</h2><p>$$\begin{aligned}<br>4K(3840 \times 2160) \<br>2K(2560 \cdot 1440) \<br>1080P(1920 \cdot 1080) \<br>720P(1280 \cdot 720)<br>\end{aligned}<br>$$</p>
 <blockquote>
-<p>阅读须知：</p>
-<ol>
-<li>命令执行路径：博客根目录，下文用root表示</li>
-<li>两个账号：gitee和GitHub</li>
-<li>gitee账号绑定GitHub账号</li>
-</ol>
+<p>通常我们到手的视频已经是1080p甚至720p，再往下调整分辨率，必然影响到视频在不同设备上的播放清晰度。并且修改分辨率是最不可逆的损失。</p>
 </blockquote>
+<p>例如：2K转为1080P，你的原始视频每帧约有 830万像素，转码后降到了约 210万像素。大约 60%的像素细节被永久丢弃了。即使你用软件“放大”回2K，也只是通过算法猜测和填充缺失的像素，无法恢复真实的原始细节。</p>
+<h2 id="帧率"><a href="#帧率" class="headerlink" title="帧率"></a>帧率</h2><p>视频是一秒钟出现几个画面的视频就是几帧。比如：你的视频一秒钟出现了60个画面，那么这个视频就是60帧。<br>若把60帧的视频去掉一半的画面变成30帧，视频体积一定会减少，但实际上大多的视频已经是30帧或者24帧，再往下调整会有明显的卡顿。</p>
 <blockquote>
-<p>gitee的仓库镜像功能支持两种镜像设置：①gitee-&gt;GitHub(push方向)；②GitHub-&gt;gitee(pull方向)。更多详情参考它的官方文档。</p>
+<p>一般24帧-30帧的视频就可以了</p>
 </blockquote>
-<h2 id="云端仓库"><a href="#云端仓库" class="headerlink" title="云端仓库"></a>云端仓库</h2><h3 id="GitHub"><a href="#GitHub" class="headerlink" title="GitHub"></a>GitHub</h3><blockquote>
-<p>GitHub上创建一个私有的仓库用于存放Hexo代码。</p>
+<h2 id="码率"><a href="#码率" class="headerlink" title="码率"></a>码率</h2><p>码率就是单位时间内视频里所包含的数据信息，码率高就代表视频里面给算法还原的关键图片数量多。</p>
+<blockquote>
+<p>别称：数据速率(45.63兆位&#x2F;秒)，比特率(44.82Mbps)，平均比特率，恒定质量(英文：CRF，数值从0到51，值越低质量越高,示例22RF)</p>
 </blockquote>
-<h3 id="获取GitHub-token"><a href="#获取GitHub-token" class="headerlink" title="获取GitHub token"></a>获取GitHub token</h3><ol>
-<li>登录与 Gitee 绑定的 GitHub 帐号；</li>
-<li>通过路径「用户头像」→「Settings」进入「Developer setting」；</li>
-<li>选择「Personal access tokens」选项后点击「Generate new token」</li>
-<li>「Note」字段可以随意填写；例如，hexoblog-backup；</li>
-<li>「Select scopes」字段请根据你的需求进行勾选；<blockquote>
+<p>通常码率越高，视频画质越好。但存在阈值，超过阈值画质提升效果不明显。<br>通过各个视频平台的视频要求看：码率在3Mbps-6Mbps<br><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/posts/8834618.html/file-20260223210412363.png"></p>
+<h3 id="单位转换"><a href="#单位转换" class="headerlink" title="单位转换"></a>单位转换</h3><blockquote>
+<p>比特能表示速率</p>
+</blockquote>
+<p><strong>1 Byte（B） &#x3D; 8 bit</strong></p>
+<p><strong>1 Kilo Byte（KB） &#x3D; 1024B</strong></p>
+<p><strong>1 Mega Byte（MB） &#x3D; 1024 KB</strong></p>
+<p><strong>1 Giga Byte （GB）&#x3D; 1024 MB</strong></p>
+<p><strong>1 Tera Byte（TB）&#x3D; 1024 GB</strong></p>
+<p>1 Peta Byte（PB） &#x3D; 1024 TB</p>
+<p>1 Exa Byte（EB） &#x3D; 1024 PB</p>
+<p>1 Zetta Byte（ZB） &#x3D; 1024 EB</p>
+<p>1Yotta Byte（YB）&#x3D; 1024 ZB</p>
+<p>1 Bronto Byte（BB） &#x3D; 1024 YB</p>
+<p>1Nona Byte（NB）&#x3D;1024 BB</p>
+<p>1 Dogga Byte（DB）&#x3D;1024 NB</p>
+<p>1 Corydon Byte（CB）&#x3D;1024DB</p>
+<h3 id="恒定质量"><a href="#恒定质量" class="headerlink" title="恒定质量"></a>恒定质量</h3><p>RF值22的常见码率参考估算基于使用 <strong>x264</strong> 或 <strong>x265</strong> 编码器进行编码的情况：</p>
+<table>
+<thead>
+<tr>
+<th>分辨率</th>
+<th>内容复杂度</th>
+<th>预估平均码率范围 (H.265)</th>
+<th>预估平均码率范围 (H.264)</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>1080p</strong></td>
+<td>低 (如讲课、幻灯片)</td>
+<td>1.5 - 3 Mbps</td>
+<td>3 - 6 Mbps</td>
+<td>画面简单，码率需求低。</td>
+</tr>
+<tr>
+<td><strong>1080p</strong></td>
+<td>中 (普通电影、剧集)</td>
+<td>3 - 6 Mbps</td>
+<td>6 - 12 Mbps</td>
+<td>大多数影视内容的常见范围。</td>
+</tr>
+<tr>
+<td><strong>1080p</strong></td>
+<td>高 (快动作、复杂细节)</td>
+<td>6 - 10+ Mbps</td>
+<td>12 - 20+ Mbps</td>
+<td>如体育赛事、自然纪录片。</td>
+</tr>
+<tr>
+<td><strong>2K&#x2F;1440p</strong></td>
+<td>中</td>
+<td>5 - 9 Mbps</td>
+<td>10 - 18 Mbps</td>
+<td>约为1080p码率的1.5-2倍。</td>
+</tr>
+<tr>
+<td><strong>4K&#x2F;2160p</strong></td>
+<td>中</td>
+<td>10 - 20 Mbps</td>
+<td>20 - 40+ Mbps</td>
+<td>约为1080p码率的3-4倍。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注：RF值22通常被认为是<strong>高质量</strong>和<strong>中等质量</strong>的分界线。如果你追求近乎无损的存档质量，可考虑使用<strong>RF 18-20</strong>；如果追求高压缩率，则可使用<strong>RF 24-26</strong>。<br>⚠️ 重要注意事项</p>
 <ul>
-<li><code>repo</code> 字段为必选字段，请您直接勾选；</li>
-<li><code>admin:repo_hook</code> 字段为可选字段，用于自动生成 webhook；</li>
-<li>当您需要 Gitee 自动从 GitHub 同步仓库时，建议您勾选。</li>
+<li><p><strong>编码器差异</strong>：不同编码器（如x265与NVIDIA NVENC）即使用相同RF值，输出码率和画质也可能不同。</p>
+</li>
+<li><p><strong>核心目的</strong>：使用CRF模式就是为了<strong>解放双手</strong>，无需纠结码率，让编码器自动为每一帧画面分配最合适的比特数，从而在整体上保持你设定的视觉质量。</p>
+</li>
+</ul>
+<p>总结来说，对于一段中等复杂度的1080p电影，使用H.265编码并设定RF 22，其平均码率很可能会落在 <strong>3-6 Mbps</strong> 的范围内。</p>
+</blockquote>
+<h2 id="视频编码"><a href="#视频编码" class="headerlink" title="视频编码"></a>视频编码</h2><p>视频编码标准（如图）<br><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/posts/8834618.html/file-20260223175332462.png"></p>
+<p>其中，h.264编码标准兼容性好；h.265虽然压缩效率高于h.254，但是因专利费和解码占资源对老电脑支持性差等原因被网友称“h.265狗都不用”；AV1是最新的编码标准，开源、免专利，但不可避免的对硬件解码有一定要求，并且因为是新兴的标准，所有普及性没有前面的广（正在蓬勃发展），它的压缩效率与h.264相比，在相同画质下，比h.264节省30%的码率。</p>
+<h2 id="HandBrake使用案例"><a href="#HandBrake使用案例" class="headerlink" title="HandBrake使用案例"></a>HandBrake使用案例</h2><blockquote>
+<p>通过上面的学习，如果我们需要压缩本地的视频以此来增大我们硬盘空间，视频主要参数如下：</p>
+<ul>
+<li>分辨率：不变（当然分辨率高可以考虑下调）</li>
+<li>帧率：24帧-30帧</li>
+<li>码率：3Mbps-6Mbps（22RF）</li>
 </ul>
 </blockquote>
+<h3 id="工具推荐"><a href="#工具推荐" class="headerlink" title="工具推荐"></a>工具推荐</h3><ol>
+<li><p>ffmpeg工具</p>
+<blockquote>
+<p>它是一个强大的视频处理的命令行工具。市面上大部分软件基本套壳它的，但上手难度高。</p>
+</blockquote>
 </li>
-<li>点击「Generate token」生成私人令牌；</li>
-<li>复制私人令牌并妥善保管，等待使用。</li>
-</ol>
-<h3 id="gitee配置"><a href="#gitee配置" class="headerlink" title="gitee配置"></a>gitee配置</h3><blockquote>
-<p>创建一个私有仓库作为GitHub的备份，建议仓库名与GitHub的仓库名一致。</p>
-</blockquote>
-<h3 id="配置仓库镜像"><a href="#配置仓库镜像" class="headerlink" title="配置仓库镜像"></a>配置仓库镜像</h3><blockquote>
-<p>配置pull方向的仓库镜像</p>
-</blockquote>
-<ol>
-<li>进入需要仓库镜像的仓库，依照路径点击：管理-&gt;仓库镜像管理-&gt;添加镜像</li>
-<li>添加镜像<br><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/posts/f8739ded.html/%7BFC00422A-B329-4133-93AE-DED71956D59E%7D.png"></li>
-</ol>
+<li><p><a target="_blank" rel="noopener" href="https://handbrake.fr/downloads.php">HandBrake</a></p>
 <blockquote>
-<p>按照上述填写即可，至此仓库镜像配置完成。</p>
+<p>免费的视频处理工具。新手推荐使用它，下面我们简单来使用它。</p>
 </blockquote>
-<h2 id="本地上传备份"><a href="#本地上传备份" class="headerlink" title="本地上传备份"></a>本地上传备份</h2><p>进入<code>root</code>目录，右击鼠标点击终端（或者git bash）进入命名行。</p>
-<p>依次执行以下命令：</p>
-<ol>
-<li>初始化本地仓库：</li>
+</li>
 </ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git init<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="导入视频"><a href="#导入视频" class="headerlink" title="导入视频"></a>导入视频</h3><p>可以直接拖动视频到窗口，也可以选择打开文件<br><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/posts/8834618.html/file-20260223213644411.png"></p>
+<h3 id="参数配置"><a href="#参数配置" class="headerlink" title="参数配置"></a>参数配置</h3><p>按照下面图片依次设置，其他的可以不管<br>①：<br><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/posts/8834618.html/file-20260223214249460.png"></p>
+<p>②：分辨率限制改为“无”<br><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/posts/8834618.html/file-20260223214601567.png"><br>③：调节帧率为24帧—30帧中的一个值；码率可以直接固定码率为22RF，也可以选择平均比特率：3Mbps-6Mbps；编码方式如果确实需要压缩可以改为除包含H.264字符的任意方式，推荐AV1(更好)、H.265<br><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/assets/%E8%A7%86%E9%A2%91%E5%8E%8B%E7%BC%A9/file-20260223215426574.png"></p>
 <blockquote>
-<p>会在在当前目录创建一个新的、空的 Git 仓库（会生成一个隐藏的 .git 文件夹）。这是所有 Git 操作的起点。</p>
+<p>解析：<br><strong>H.265 (x265)</strong>：x265代表使用CPU压缩视频<br><strong>H.26510bit (x265)</strong>：10bit代表画面中能表现的色彩数量，数量越多画面过多越平滑；H.265支持1670万种颜色，普通视频这个就行，10bit大概10.7亿种颜色，适合颜色丰富的视频<br><strong>H.26510bit (AMD VCE)</strong>：AMD VCE是程序会调用相应的GPU来压缩，速度会比CPU块很多，但画质会稍差一些，并且压缩后的文件会大一些</p>
 </blockquote>
-<ol start="2">
-<li>将文件添加到暂存区：</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git add .<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>这里的 . 表示“当前目录下所有新增的和修改过的文件”。此命令将文件的当前快照保存到 Git 的“暂存区”，为提交做准备。</p>
+<p>④：可以点击预览观看效果</p>
+<p>⑤：点击开始编译，进行压缩视频</p>
+<h2 id="视频大小要求"><a href="#视频大小要求" class="headerlink" title="视频大小要求"></a>视频大小要求</h2><blockquote>
+<p>通常我们上传视频到视频平台时，平台都有视频的标准，我们知道视频的大小和时长就可以计算出视频所需的码率</p>
 </blockquote>
-<ol start="3">
-<li>提交到本地仓库：</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git commit -m <span class="token string">"2026年2月9日备份hexoblog-backup"</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>将暂存区的内容创建一个永久的快照，并保存在本地的 Git 仓库历史记录中。-m 后面是本次提交的说明，建议描述清晰。</p>
-</blockquote>
-<ol start="4">
-<li>添加远程仓库（GitHub仓库）：</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git remote add origin https://github.com/你的用户名/你的仓库.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>为远程仓库（通常是 GitHub 上的仓库）起一个别名 origin（这是 Git 的默认习惯叫法），并将其地址指向你提供的 GitHub 仓库 URL（建议使用SSH地址）</p>
-</blockquote>
-<ol start="5">
-<li>重命名当前分支为main</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git branch -M main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>-M 表示强制重命名。Git 默认的初始分支名可能是 master，此命令将其改为现在更通用的 main，以与 GitHub 默认分支保持一致.</p>
-</blockquote>
-<ol start="6">
-<li>推送到远程仓库：</li>
-</ol>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git push -u origin main<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>将本地 main 分支的所有提交，推送到别名为 origin 的远程仓库。-u 参数在首次推送时建立追踪关系，之后在该分支只需执行 git push 即可。</p>
-</blockquote>
-<p>执行完成后GitHub仓库：<br><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/posts/f8739ded.html/%7B2BD925A6-99A5-4AF9-A266-6F1C49B379DF%7D.png"><br>gitee仓库：<br><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="/posts/f8739ded.html/%7BD045E249-E530-4456-9595-501F54FEFAFA%7D.png"></p>
-<h2 id="博客迁移"><a href="#博客迁移" class="headerlink" title="博客迁移"></a>博客迁移</h2><blockquote>
-<p>注意：此步骤前提已完成上述备份后</p>
-</blockquote>
-<h3 id="配置hexo环境"><a href="#配置hexo环境" class="headerlink" title="配置hexo环境"></a>配置hexo环境</h3><p><a href="https://www.frosh.qzz.io/posts/be06e9d8.html/#%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E5%B7%A5%E5%85%B7">Hexo个人博客搭建|环境配置&#x2F;工具</a></p>
-<h2 id="配置SHH密钥"><a href="#配置SHH密钥" class="headerlink" title="配置SHH密钥"></a>配置SHH密钥</h2><p><a href="https://www.frosh.qzz.io/posts/be06e9d8.html/#%E9%85%8D%E7%BD%AESSH%E5%AF%86%E9%92%A5">Hexo博客备份|配置SHH密钥</a></p>
-<h3 id="克隆备份仓库"><a href="#克隆备份仓库" class="headerlink" title="克隆备份仓库"></a>克隆备份仓库</h3><p>在任意位置（你想要你的博客在哪）执行以下命令：</p>
-<pre class="line-numbers language-git" data-language="git"><code class="language-git">git clone https://github.com/你的用户名/你的备份仓库名.git<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>这个命令可以直接在你的仓库中获得：Code。建议SSH地址。<br>会在当前位置生成一个<code>备份仓库名</code>的文件夹，这个名称可以修改</p>
-</blockquote>
-<h2 id="生成博客模块目录"><a href="#生成博客模块目录" class="headerlink" title="生成博客模块目录"></a>生成博客模块目录</h2><blockquote>
-<p>博客模块目录：node_modules</p>
-</blockquote>
-<p>在<code>root/</code>目录下，执行以下命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>在<code>root/</code>下执行以下命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo cl<span class="token punctuation">;</span>hexo s<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV13g41147yV/?spm_id_from=333.1391.0.0&vd_source=ff90d309a66060821e097736f479cb41">佳豪君z|备份和迁移hexo博客-video</a></p>
+<p>计算实例：</p>
+<p>视频时长20秒，大小77.3MB</p>
+<p>一秒钟的信息量：77.3&#x2F;20&#x3D;3.87MB (字节表示)</p>
+<p>字节换算成比特：3.87*8&#x3D;30.96Mb(比特表示)</p>
+<p>视频平均码率：30.96Mbps(比特能表示速率)</p>
+<p>（这不包含音频文件，一般忽略不计）</p>
+<p>换算单位：</p>
+<p>约等于</p>
+<p>1Mb&#x3D;1000kb</p>
+<p>1Mbps&#x3D;1000kbps</p>
+<p>码率&#x3D;(视频大小&#x2F;视频时长)*8</p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1D7aEzvEP5?spm_id_from=333.788.recommend_more_video.-1&trackid=web_related_0.router-related-2481894-flpjl.1771855175914.785&vd_source=ff90d309a66060821e097736f479cb41">HandBrake使用教程-小in分享</a><br><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Wa411H7CR/?spm_id_from=333.1387.favlist.content.click&vd_source=ff90d309a66060821e097736f479cb41">如何压缩视频，把文件变小，还没画质损失？-Mac云课堂</a></p>
 
     </div>
 
@@ -453,22 +479,19 @@
 
     <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Hexo/" rel="tag"><i class="fa fa-tag"></i> Hexo</a>
-              <a href="/tags/git/" rel="tag"><i class="fa fa-tag"></i> git</a>
+              <a href="/tags/%E8%A7%86%E9%A2%91/" rel="tag"><i class="fa fa-tag"></i> 视频</a>
+              <a href="/tags/%E5%8E%8B%E7%BC%A9%E6%8A%80%E6%9C%AF/" rel="tag"><i class="fa fa-tag"></i> 压缩技术</a>
           </div>
 
         
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/posts/7b194885.html/" rel="prev" title="EdgeOne CDN加速">
-                  <i class="fa fa-angle-left"></i> EdgeOne CDN加速
+                <a href="/posts/ba484542.html/" rel="prev" title="Hexo博客搭建所得">
+                  <i class="fa fa-angle-left"></i> Hexo博客搭建所得
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/posts/ba484542.html/" rel="next" title="Hexo博客搭建所得">
-                  Hexo博客搭建所得 <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>

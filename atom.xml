@@ -6,7 +6,7 @@
   <link href="https://www.frosh.qzz.io/atom.xml" rel="self"/>
   
   <link href="https://www.frosh.qzz.io/"/>
-  <updated>2026-02-11T15:57:49.828Z</updated>
+  <updated>2026-02-23T14:26:46.651Z</updated>
   <id>https://www.frosh.qzz.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>视频压缩</title>
+    <link href="https://www.frosh.qzz.io/posts/8834618.html/"/>
+    <id>https://www.frosh.qzz.io/posts/8834618.html/</id>
+    <published>2026-02-23T14:18:03.000Z</published>
+    <updated>2026-02-23T14:26:46.651Z</updated>
+    
+    
+    <summary type="html">&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;需求：既要明显下降文件大小，又要画质肉眼看不出下降。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;视频是一张张画面交替出现形成的。想要压缩视频主要通过这几个参数调节：分辨率、帧率、码率、编码&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;视频压缩是不可逆的，若有条件，建议将原文件进行冷数据备份（备份到云盘等）。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="空间压缩" scheme="https://www.frosh.qzz.io/categories/%E7%A9%BA%E9%97%B4%E5%8E%8B%E7%BC%A9/"/>
+    
+    
+    <category term="视频" scheme="https://www.frosh.qzz.io/tags/%E8%A7%86%E9%A2%91/"/>
+    
+    <category term="压缩技术" scheme="https://www.frosh.qzz.io/tags/%E5%8E%8B%E7%BC%A9%E6%8A%80%E6%9C%AF/"/>
+    
+  </entry>
   
   <entry>
     <title>Hexo博客搭建所得</title>
@@ -36,38 +66,13 @@
     
     <category term="CDN" scheme="https://www.frosh.qzz.io/tags/CDN/"/>
     
-    <category term="EdgeOne" scheme="https://www.frosh.qzz.io/tags/EdgeOne/"/>
-    
     <category term="Hexo" scheme="https://www.frosh.qzz.io/tags/Hexo/"/>
     
     <category term="git" scheme="https://www.frosh.qzz.io/tags/git/"/>
     
+    <category term="EdgeOne" scheme="https://www.frosh.qzz.io/tags/EdgeOne/"/>
+    
     <category term="css" scheme="https://www.frosh.qzz.io/tags/css/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>测试EO CDN缓存更新时间</title>
-    <link href="https://www.frosh.qzz.io/posts/8c25025c.html/"/>
-    <id>https://www.frosh.qzz.io/posts/8c25025c.html/</id>
-    <published>2026-02-10T05:54:21.000Z</published>
-    <updated>2026-02-11T13:02:07.471Z</updated>
-    
-    
-    <summary type="html">&lt;hr&gt;
-&lt;blockquote&gt;
-&lt;p&gt;更新文章内容&lt;br&gt;源站几分钟后生效更新&lt;br&gt;加速站名未更新，访问旧的CDN缓存&lt;br&gt;2026年2月10日 14点25分&lt;br&gt;2026年2月11日更新&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;新建文章测试CDN缓存更新时间&lt;br&gt;开始：2026年2月10日 13点55分&lt;br&gt;都生效：2026年2月10日 14点04分&lt;/p&gt;
-&lt;/blockquote&gt;</summary>
-    
-    
-    
-    <category term="草稿" scheme="https://www.frosh.qzz.io/categories/%E8%8D%89%E7%A8%BF/"/>
-    
-    
-    <category term="test" scheme="https://www.frosh.qzz.io/tags/test/"/>
     
   </entry>
   
@@ -146,9 +151,9 @@
     <category term="个人博客" scheme="https://www.frosh.qzz.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
     
-    <category term="css" scheme="https://www.frosh.qzz.io/tags/css/"/>
-    
     <category term="Next" scheme="https://www.frosh.qzz.io/tags/Next/"/>
+    
+    <category term="css" scheme="https://www.frosh.qzz.io/tags/css/"/>
     
   </entry>
   
