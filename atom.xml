@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>FROSH_Blog</title>
+  <title>FROSH Blog</title>
   
   <subtitle>时刻准备着</subtitle>
   <link href="https://www.frosh.qzz.io/atom.xml" rel="self"/>
   
   <link href="https://www.frosh.qzz.io/"/>
-  <updated>2026-02-23T14:26:46.651Z</updated>
+  <updated>2026-02-26T15:25:14.551Z</updated>
   <id>https://www.frosh.qzz.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.frosh.qzz.io/posts/8834618.html/"/>
     <id>https://www.frosh.qzz.io/posts/8834618.html/</id>
     <published>2026-02-23T14:18:03.000Z</published>
-    <updated>2026-02-23T14:26:46.651Z</updated>
+    <updated>2026-02-26T15:25:14.551Z</updated>
     
     
     <summary type="html">&lt;hr&gt;
@@ -54,8 +54,11 @@
     <updated>2026-02-11T15:57:49.828Z</updated>
     
     
-    <summary type="html">&lt;hr&gt;
-&lt;p id=&quot;div-border-left-purple&quot;&gt; 我的博客技术实现架构：Hexo + GitHub + GitHub Pages + EdgeOne CND；本地使用obsidian进行博客管理和编写。&lt;/p&gt;</summary>
+    <summary type="html">&lt;hr /&gt;
+&lt;p id=&quot;div-border-left-purple&quot;&gt;
+我的博客技术实现架构：Hexo + GitHub + GitHub Pages + EdgeOne
+CND；本地使用obsidian进行博客管理和编写。
+&lt;/p&gt;</summary>
     
     
     
@@ -66,11 +69,11 @@
     
     <category term="CDN" scheme="https://www.frosh.qzz.io/tags/CDN/"/>
     
+    <category term="EdgeOne" scheme="https://www.frosh.qzz.io/tags/EdgeOne/"/>
+    
     <category term="Hexo" scheme="https://www.frosh.qzz.io/tags/Hexo/"/>
     
     <category term="git" scheme="https://www.frosh.qzz.io/tags/git/"/>
-    
-    <category term="EdgeOne" scheme="https://www.frosh.qzz.io/tags/EdgeOne/"/>
     
     <category term="css" scheme="https://www.frosh.qzz.io/tags/css/"/>
     
@@ -84,10 +87,16 @@
     <updated>2026-02-10T03:27:39.863Z</updated>
     
     
-    <summary type="html">&lt;hr&gt;
-&lt;p&gt;利用国内代码托管平台&lt;a href=&quot;https://gitee.com/&quot;&gt;gitee&lt;/a&gt;的仓库镜像功能与&lt;a href=&quot;github.com&quot;&gt;GitHub&lt;/a&gt;实现同步更新，还可以再利用U盘等移动设备进行物理备份，三道保险实现Hexo博客数据的完整和安全。&lt;/p&gt;
+    <summary type="html">&lt;hr /&gt;
+&lt;p&gt;利用国内代码托管平台&lt;a
+href=&quot;https://gitee.com/&quot;&gt;gitee&lt;/a&gt;的仓库镜像功能与&lt;a
+href=&quot;github.com&quot;&gt;GitHub&lt;/a&gt;实现同步更新，还可以再利用U盘等移动设备进行物理备份，三道保险实现Hexo博客数据的完整和安全。&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;不过&lt;a href=&quot;https://help.gitee.com/repository/settings/sync-between-gitee-github&quot;&gt;gitee的官方文档&lt;/a&gt;上显示的仓库镜像功能开放至 2022 年 08 月 31 日，但是直到2026年2月9日还可以使用。不过不用担心，如果哪天突然停止，我们也可以使用GitHub Action的功能实现同步备份。&lt;/p&gt;
+&lt;p&gt;不过&lt;a
+href=&quot;https://help.gitee.com/repository/settings/sync-between-gitee-github&quot;&gt;gitee的官方文档&lt;/a&gt;上显示的仓库镜像功能开放至
+2022 年 08 月 31
+日，但是直到2026年2月9日还可以使用。不过不用担心，如果哪天突然停止，我们也可以使用GitHub
+Action的功能实现同步备份。&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
     
     
@@ -109,15 +118,22 @@
     <updated>2026-02-11T14:33:17.308Z</updated>
     
     
-    <summary type="html">&lt;hr&gt;
-&lt;p&gt;&lt;strong&gt;什么是EdgeOne？&lt;/strong&gt;&lt;br&gt;&lt;strong&gt;EdgeOne&lt;/strong&gt; 是腾讯云推出的下一代边缘安全加速平台，虽然它具备传统 &lt;strong&gt;CDN（内容分发网络）&lt;/strong&gt; 的功能，但实际上是对 CDN 的全面升级产品。它不仅仅是一个 CDN，还融合了多种功能，提供更强大的加速和安全防护能力。&lt;/p&gt;
-&lt;p&gt;EdgeOne 的核心特点包括：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;CDN 功能升级&lt;/strong&gt;：支持静态和动态内容加速，优化跨地域访问，显著降低访问延迟。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;安全防护&lt;/strong&gt;：内置 DDoS&amp;#x2F;CC 防护、Web 防护、Bot 管控等功能，提供全面的网络安全保障。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;边缘计算支持&lt;/strong&gt;：支持边缘函数和即时处理（如视频、图片处理），适用于 Serverless 场景。&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;一站式服务&lt;/strong&gt;：集成 DNS 解析、四层代理等功能，简化配置和运维。&lt;br&gt;与传统 CDN 相比，EdgeOne 更像是“加速 + 防护 + 运维一体化”的解决方案，适用于游戏、电商、视频、金融等需要高性能和高安全性的场景。因此，虽然 EdgeOne 包含 CDN 的功能，但它的定位和能力远超传统 CDN。&lt;/li&gt;
-&lt;/ul&gt;</summary>
+    <summary type="html">&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;什么是EdgeOne？&lt;/strong&gt; &lt;strong&gt;EdgeOne&lt;/strong&gt;
+是腾讯云推出的下一代边缘安全加速平台，虽然它具备传统
+&lt;strong&gt;CDN（内容分发网络）&lt;/strong&gt; 的功能，但实际上是对 CDN
+的全面升级产品。它不仅仅是一个
+CDN，还融合了多种功能，提供更强大的加速和安全防护能力。&lt;/p&gt;
+&lt;p&gt;EdgeOne 的核心特点包括： - &lt;strong&gt;CDN
+功能升级&lt;/strong&gt;：支持静态和动态内容加速，优化跨地域访问，显著降低访问延迟。
+- &lt;strong&gt;安全防护&lt;/strong&gt;：内置 DDoS/CC 防护、Web 防护、Bot
+管控等功能，提供全面的网络安全保障。 -
+&lt;strong&gt;边缘计算支持&lt;/strong&gt;：支持边缘函数和即时处理（如视频、图片处理），适用于
+Serverless 场景。 - &lt;strong&gt;一站式服务&lt;/strong&gt;：集成 DNS
+解析、四层代理等功能，简化配置和运维。 与传统 CDN 相比，EdgeOne
+更像是“加速 + 防护 +
+运维一体化”的解决方案，适用于游戏、电商、视频、金融等需要高性能和高安全性的场景。因此，虽然
+EdgeOne 包含 CDN 的功能，但它的定位和能力远超传统 CDN。</summary>
     
     
     
@@ -138,7 +154,7 @@
     <updated>2026-02-04T08:37:10.270Z</updated>
     
     
-    <summary type="html">&lt;hr&gt;
+    <summary type="html">&lt;hr /&gt;
 &lt;blockquote&gt;
 &lt;p&gt;通过学习他人的自定义配置，逐渐学会自定义配置的操作，未来你也可以自定义你的博客。&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -165,7 +181,7 @@
     <updated>2026-02-03T12:41:21.925Z</updated>
     
     
-    <summary type="html">&lt;hr&gt;
+    <summary type="html">&lt;hr /&gt;
 &lt;blockquote&gt;
 &lt;p&gt;这是关于Hexo博客的优化文章，收录了一些常用的插件和设置，自己按需设置即可，如果还想要设置更多的配置可要看看结尾处大佬的文章。&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
@@ -189,9 +205,19 @@
     <updated>2026-02-11T14:32:46.439Z</updated>
     
     
-    <summary type="html">&lt;hr&gt;
-&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;这是一个搭建个人博客的教程，也是我的学习笔记。希望帮助每个人能按照这篇文章的步骤从零开始搭建出一个个人博客。当然，我现在只是一个学习者，正在不断摸索的阶段，如有问题还请斧正。&lt;/p&gt;
-&lt;h3 id=&quot;关于博客的认识&quot;&gt;&lt;a href=&quot;#关于博客的认识&quot; class=&quot;headerlink&quot; title=&quot;关于博客的认识&quot;&gt;&lt;/a&gt;关于博客的认识&lt;/h3&gt;&lt;p&gt;现在我所搭建的是一个静态博客。它完全免费，不需要服务器，域名可有可无。&lt;br&gt;现代静态博客从技术实现架构看，有四个核心部分组成：博客生成框架（如Hexo,Hugo等）、文件托管平台（GitHub,gitee等）、站点部署服务（GitHub Pages,GitHub Actions,GitLab CI&amp;#x2F;CD,Vercel&amp;#x2F;Netlify等）、CDN加速服务（Cloudflare CDN、Vercel&amp;#x2F;Netlify等）。&lt;br&gt;这篇博客所使用的技术实现架构：Hexo + GitHub + GitHub Pages + EdgeOne CDN。这里站点部署服务之所以选择GitHub Pages而不是GitHub Actions，是因为我的博客是在本地电脑构建出前端文件(HTML&amp;#x2F;CSS&amp;#x2F;JS文件)上传至GitHub的，GitHub Actions的脚本需要运行在源码上。&lt;/p&gt;</summary>
+    <summary type="html">&lt;hr /&gt;
+&lt;h2 id=&quot;引言&quot;&gt;引言&lt;/h2&gt;
+&lt;p&gt;这是一个搭建个人博客的教程，也是我的学习笔记。希望帮助每个人能按照这篇文章的步骤从零开始搭建出一个个人博客。当然，我现在只是一个学习者，正在不断摸索的阶段，如有问题还请斧正。&lt;/p&gt;
+&lt;h3 id=&quot;关于博客的认识&quot;&gt;关于博客的认识&lt;/h3&gt;
+&lt;p&gt;现在我所搭建的是一个静态博客。它完全免费，不需要服务器，域名可有可无。
+现代静态博客从技术实现架构看，有四个核心部分组成：博客生成框架（如Hexo,Hugo等）、文件托管平台（GitHub,gitee等）、站点部署服务（GitHub
+Pages,GitHub Actions,GitLab
+CI/CD,Vercel/Netlify等）、CDN加速服务（Cloudflare
+CDN、Vercel/Netlify等）。 这篇博客所使用的技术实现架构：Hexo + GitHub +
+GitHub Pages + EdgeOne CDN。这里站点部署服务之所以选择GitHub
+Pages而不是GitHub
+Actions，是因为我的博客是在本地电脑构建出前端文件(HTML/CSS/JS文件)上传至GitHub的，GitHub
+Actions的脚本需要运行在源码上。&lt;/p&gt;</summary>
     
     
     
@@ -212,9 +238,10 @@
     <updated>2026-02-10T06:38:50.108Z</updated>
     
     
-    <summary type="html">&lt;hr&gt;
+    <summary type="html">&lt;hr /&gt;
 &lt;blockquote&gt;
-&lt;p&gt;CDN，全称&lt;strong&gt;内容分发网路（Content Delivery Network）&lt;/strong&gt;，是一种通过在现有互联网基础上构建的、由遍布全球的分布式节点服务器组成的智能虚拟网络，目的是使用户能够就近、快速、可靠地获取所需内容。&lt;/p&gt;
+&lt;p&gt;CDN，全称&lt;strong&gt;内容分发网路（Content Delivery
+Network）&lt;/strong&gt;，是一种通过在现有互联网基础上构建的、由遍布全球的分布式节点服务器组成的智能虚拟网络，目的是使用户能够就近、快速、可靠地获取所需内容。&lt;/p&gt;
 &lt;/blockquote&gt;</summary>
     
     
