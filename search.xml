@@ -1,6 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>EdgeOne CDN加速</title>
+    <url>/posts/7b194885.html/</url>
+    <content><![CDATA[<hr />
+<p><strong>什么是EdgeOne？</strong> <strong>EdgeOne</strong>
+是腾讯云推出的下一代边缘安全加速平台，虽然它具备传统
+<strong>CDN（内容分发网络）</strong> 的功能，但实际上是对 CDN
+的全面升级产品。它不仅仅是一个
+CDN，还融合了多种功能，提供更强大的加速和安全防护能力。</p>
+<p>EdgeOne 的核心特点包括： - <strong>CDN
+功能升级</strong>：支持静态和动态内容加速，优化跨地域访问，显著降低访问延迟。
+- <strong>安全防护</strong>：内置 DDoS/CC 防护、Web 防护、Bot
+管控等功能，提供全面的网络安全保障。 -
+<strong>边缘计算支持</strong>：支持边缘函数和即时处理（如视频、图片处理），适用于
+Serverless 场景。 - <strong>一站式服务</strong>：集成 DNS
+解析、四层代理等功能，简化配置和运维。 与传统 CDN 相比，EdgeOne
+更像是“加速 + 防护 +
+运维一体化”的解决方案，适用于游戏、电商、视频、金融等需要高性能和高安全性的场景。因此，虽然
+EdgeOne 包含 CDN 的功能，但它的定位和能力远超传统 CDN。 <span id="more"></span>
+&gt;提供免费的CDN加速的服务商很多，选择EO的原因有三个：①EO是国内腾讯云推出的，保证了一定访问速度；②域名可以不用备案；③提供免费的SSL证书。
+&gt;Could
+Flare（简称”CF”），虽然我的”大善人“支持免费的CDN加速，域名不需要备案以及提供SSL证书，但是CF在国内访问速度很慢，也因此它的CDN服务在国内称为“减速器”。想要获得一个较好的访问速度需要做优选。</p>
+<h2 id="登录eo网站">登录EO网站</h2>
+<p>进入<a
+href="https://edgeone.ai/zh/get-free-plan">EO官网</a>注册账号领取免费套餐。
+## 添加站点 建议添加根域名，这样就能添加多个子域名的业务域名。 <img
+src="file-20260208161543061.png" /></p>
+<blockquote>
+<p>添加站点后会让你选择套餐，选择一个免费套餐即可。</p>
+</blockquote>
+<h2
+id="选择接入eo网络的方式和加速区域">选择接入EO网络的方式和加速区域</h2>
+<blockquote>
+<p>加速区域选择“全球可用区（不含中国大陆）”，域名不用备案；
+因为我的域名是托管在Could Flare上的，没有在腾讯上，所有选择CNAME接入</p>
+</blockquote>
+<p><img src="%7BAC8052FE-BE71-4A9A-89DE-9FF7667EBD8B%7D.png" />
+&gt;接下来会让你在你的域名托管商上面添加一条TXT记录，已进行归属权验证。</p>
+<h2 id="添加加速域名">添加加速域名</h2>
+<blockquote>
+<p>理论上EO可以反代任何网站 <img src="file-20260227111455075.png" />
+加速域名不能是根域，只能是其子域 加速域名：访问地址
+源站配置：最终访问的网站域名 回源HOST头：一般是使用源站域名加速</p>
+</blockquote>
+<p><img src="%7BF1964AD2-3144-4904-86CB-2C87E9353F4C%7D.png" /></p>
+<h2 id="dns解析">DNS解析</h2>
+<p>上述配置完成后，EO会提供一个它加速域名，并且让你在域名托管商在DNS中添加一条CNAME记录。如果对访问速度要求高可以自己做优选。</p>
+<blockquote>
+<p>EO优选好像屏蔽了哪些付费节点，现在做优选会测速全绿，但访问不了网站。</p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>个人笔记</category>
+      </categories>
+      <tags>
+        <tag>CDN</tag>
+        <tag>EdgeOne</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>CND加速</title>
     <url>/posts/80f16c6f.html/</url>
     <content><![CDATA[<hr />
@@ -53,67 +112,6 @@ href="https://cloud.tencent.com/developer/article/1779335">开发者社区-什�
       </categories>
       <tags>
         <tag>CDN</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>EdgeOne CDN加速</title>
-    <url>/posts/7b194885.html/</url>
-    <content><![CDATA[<hr />
-<p><strong>什么是EdgeOne？</strong> <strong>EdgeOne</strong>
-是腾讯云推出的下一代边缘安全加速平台，虽然它具备传统
-<strong>CDN（内容分发网络）</strong> 的功能，但实际上是对 CDN
-的全面升级产品。它不仅仅是一个
-CDN，还融合了多种功能，提供更强大的加速和安全防护能力。</p>
-<p>EdgeOne 的核心特点包括： - <strong>CDN
-功能升级</strong>：支持静态和动态内容加速，优化跨地域访问，显著降低访问延迟。
-- <strong>安全防护</strong>：内置 DDoS/CC 防护、Web 防护、Bot
-管控等功能，提供全面的网络安全保障。 -
-<strong>边缘计算支持</strong>：支持边缘函数和即时处理（如视频、图片处理），适用于
-Serverless 场景。 - <strong>一站式服务</strong>：集成 DNS
-解析、四层代理等功能，简化配置和运维。 与传统 CDN 相比，EdgeOne
-更像是“加速 + 防护 +
-运维一体化”的解决方案，适用于游戏、电商、视频、金融等需要高性能和高安全性的场景。因此，虽然
-EdgeOne 包含 CDN 的功能，但它的定位和能力远超传统 CDN。 <span id="more"></span>
-&gt;提供免费的CDN加速的服务商很多，选择EO的原因有三个：①EO是国内腾讯云推出的，保证了一定访问速度；②域名可以不用备案；③提供免费的SSL证书。
-&gt;Could
-Flare（简称”CF”），虽然我的”大善人“支持免费的CDN加速，域名不需要备案以及提供SSL证书，但是CF在国内访问速度很慢，也因此它的CDN服务在国内称为“减速器”。</p>
-<h2 id="登录eo网站">登录EO网站</h2>
-<p>进入<a
-href="https://edgeone.ai/zh/get-free-plan">EO官网</a>注册账号领取免费套餐。
-## 添加站点 建议添加根域名，这样就能添加多个子域名的业务域名。 <img
-src="file-20260208161543061.png" /></p>
-<blockquote>
-<p>添加站点后会让你选择套餐，选择一个免费套餐即可。</p>
-</blockquote>
-<h2
-id="选择接入eo网络的方式和加速区域">选择接入EO网络的方式和加速区域</h2>
-<blockquote>
-<p>加速区域选择“全球可用区（不含中国大陆）”，域名不用备案；
-因为我的域名是托管在Could Flare上的，没有在腾讯上，所有选择CNAME接入</p>
-</blockquote>
-<p><img src="%7BAC8052FE-BE71-4A9A-89DE-9FF7667EBD8B%7D.png" />
-&gt;接下来会让你在你的域名托管商上面添加一条TXT记录，已进行归属权验证。</p>
-<h2 id="添加加速域名">添加加速域名</h2>
-<blockquote>
-<p>理论上EO可以反代任何网站</p>
-</blockquote>
-<blockquote>
-<p>加速域名不能是根域，只能是其子域 加速域名：访问地址
-源站配置：最终访问的网站域名 回源HOST头：一般是使用源站域名加速</p>
-</blockquote>
-<p><img src="%7BF1964AD2-3144-4904-86CB-2C87E9353F4C%7D.png" /></p>
-<h2 id="dns解析">DNS解析</h2>
-<p>上述配置完成后，EO会提供一个它加速域名，并且让你在域名托管商在DNS中添加一条CNAME记录。如果对访问速度要求高可以自己做优选。</p>
-<blockquote>
-<p>EO优选后没有SSL证书了</p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>个人笔记</category>
-      </categories>
-      <tags>
-        <tag>CDN</tag>
-        <tag>EdgeOne</tag>
       </tags>
   </entry>
   <entry>
@@ -583,7 +581,40 @@ description:
   <span class="token key atrule">expand_all</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
   <span class="token comment"># Maximum heading depth of generated toc.</span>
   <span class="token key atrule">max_depth</span><span class="token punctuation">:</span> <span class="token number">6</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="博客插入图片">博客插入图片</h3>
+<h3 id="博客mathjax渲染数学公式">博客mathjax渲染数学公式</h3>
+<p>在博客主题配置文件中修改mathjax配置：
+在配置文件中搜寻<code>math</code>相关配置，并参考下方示例进行修改：
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Math Formulas Render Support</span>
+<span class="token key atrule">math</span><span class="token punctuation">:</span>
+  <span class="token comment"># 开启后，所有页面都会加载 MathJax 脚本。</span>
+  <span class="token comment"># 如果设为 false，则只会在 Front-matter 中设置了 `mathjax: true` 的文章页面加载。</span>
+  <span class="token key atrule">every_page</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+
+  <span class="token key atrule">mathjax</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>    <span class="token comment"># 启用 MathJax 引擎</span>
+    <span class="token comment"># 可选配置：公式编号功能。'ams' 可启用自动编号。</span>
+    <span class="token comment"># tags: 'ams'   </span>
+
+  <span class="token key atrule">katex</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>   <span class="token comment"># 如果使用 MathJax，确保 KaTeX 是关闭的</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+修改完成后在需要显示公式的文章<code>Front-matter</code>中开启MathJax渲染：
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
+<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 我的数学文章
+<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-01 12:00:00</span>
+<span class="token key atrule">mathjax</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment"># 在这里开启</span></span>
+<span class="token punctuation">---</span></span>
+
+欢迎来到我的数学世界，下面是几个公式的例子。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+<p>markdown中公式的书写： <pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">$$\begin&#123;matrix&#125;
+4K(3840 \times 2160) \\
+2K(2560 \cdot 1440) \\
+1080P(1920 \cdot 1080) \\
+720P(1280 \cdot 720)
+\end&#123;matrix&#125;
+$$
+
+实现多行显示需要<span class="token code-snippet code keyword">`\begin&#123;matrix&#125;……\end&#123;matrix&#125;`</span>与<span class="token code-snippet code keyword">`\\`</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> ### 博客插入图片</p>
 <ol type="1">
 <li><p>在<code>博客配置文件</code>中查找以下内容并修改</p>
 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">post_asset_folder</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
@@ -942,10 +973,10 @@ hexo cl <span class="token operator">&amp;&amp;</span> g <span class="token para
 <p>访问博客地址验证</p>
 <h2 id="参考文章">参考文章</h2>
 <p><a
-href="https://blog.cuijiacai.com/blog-building/">个人博客搭建教程-爱扑bug的熊</a>
-<a
-href="https://www.bilibili.com/video/BV12H4y1N7Q4/?spm_id_from=333.788.top_right_bar_window_custom_collection.content.click&amp;vd_source=ff90d309a66060821e097736f479cb41">Github王炸功能Pages,免费免服务器上线网站,详细教程-技术爬爬虾</a>
-<a
+href="https://blog.cuijiacai.com/blog-building/">个人博客搭建教程-爱扑bug的熊</a></p>
+<p><a
+href="https://www.bilibili.com/video/BV12H4y1N7Q4/?spm_id_from=333.788.top_right_bar_window_custom_collection.content.click&amp;vd_source=ff90d309a66060821e097736f479cb41">Github王炸功能Pages,免费免服务器上线网站,详细教程-技术爬爬虾</a></p>
+<p><a
 href="https://www.bilibili.com/video/BV13g41147yV/?spm_id_from=333.337.search-card.all.click&amp;vd_source=ff90d309a66060821e097736f479cb41">备份和迁移hexo博客-佳豪君z</a></p>
 ]]></content>
       <categories>
@@ -1238,176 +1269,6 @@ git config user.email<span aria-hidden="true" class="line-numbers-rows"><span></
         <tag>Hexo</tag>
         <tag>git</tag>
         <tag>css</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>视频压缩</title>
-    <url>/posts/8834618.html/</url>
-    <content><![CDATA[<hr>
-<blockquote>
-<p>需求：既要明显下降文件大小，又要画质肉眼看不出下降。</p>
-</blockquote>
-<blockquote>
-<p>视频是一张张画面交替出现形成的。想要压缩视频主要通过这几个参数调节：分辨率、帧率、码率、编码</p>
-</blockquote>
-<blockquote>
-<p>视频压缩是不可逆的，若有条件，建议将原文件进行冷数据备份（备份到云盘等）。</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="分辨率">分辨率</h2>
-<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true"><svg style="vertical-align: -5.317ex;" xmlns="http://www.w3.org/2000/svg" width="18.668ex" height="11.765ex" role="img" focusable="false" viewBox="0 -2850 8251.4 5200"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)"><g data-mml-node="math"><g data-mml-node="mtable"><g data-mml-node="mtr" transform="translate(0,2100)"><g data-mml-node="mtd" transform="translate(431,0)"><g data-mml-node="mn"><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D43E" d="M285 628Q285 635 228 637Q205 637 198 638T191 647Q191 649 193 661Q199 681 203 682Q205 683 214 683H219Q260 681 355 681Q389 681 418 681T463 682T483 682Q500 682 500 674Q500 669 497 660Q496 658 496 654T495 648T493 644T490 641T486 639T479 638T470 637T456 637Q416 636 405 634T387 623L306 305Q307 305 490 449T678 597Q692 611 692 620Q692 635 667 637Q651 637 651 648Q651 650 654 662T659 677Q662 682 676 682Q680 682 711 681T791 680Q814 680 839 681T869 682Q889 682 889 672Q889 650 881 642Q878 637 862 637Q787 632 726 586Q710 576 656 534T556 455L509 418L518 396Q527 374 546 329T581 244Q656 67 661 61Q663 59 666 57Q680 47 717 46H738Q744 38 744 37T741 19Q737 6 731 0H720Q680 3 625 3Q503 3 488 0H478Q472 6 472 9T474 27Q478 40 480 43T491 46H494Q544 46 544 71Q544 75 517 141T485 216L427 354L359 301L291 248L268 155Q245 63 245 58Q245 51 253 49T303 46H334Q340 37 340 35Q340 19 333 5Q328 0 317 0Q314 0 280 1T180 2Q118 2 85 2T49 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Z"></path></g><g data-mml-node="mo" transform="translate(1389,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(1778,0)"><path data-c="33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(500,0)"></path><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(4000.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mn" transform="translate(5000.4,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" transform="translate(500,0)"></path><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(7000.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g><g data-mml-node="mtr" transform="translate(0,700)"><g data-mml-node="mtd" transform="translate(681,0)"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D43E" d="M285 628Q285 635 228 637Q205 637 198 638T191 647Q191 649 193 661Q199 681 203 682Q205 683 214 683H219Q260 681 355 681Q389 681 418 681T463 682T483 682Q500 682 500 674Q500 669 497 660Q496 658 496 654T495 648T493 644T490 641T486 639T479 638T470 637T456 637Q416 636 405 634T387 623L306 305Q307 305 490 449T678 597Q692 611 692 620Q692 635 667 637Q651 637 651 648Q651 650 654 662T659 677Q662 682 676 682Q680 682 711 681T791 680Q814 680 839 681T869 682Q889 682 889 672Q889 650 881 642Q878 637 862 637Q787 632 726 586Q710 576 656 534T556 455L509 418L518 396Q527 374 546 329T581 244Q656 67 661 61Q663 59 666 57Q680 47 717 46H738Q744 38 744 37T741 19Q737 6 731 0H720Q680 3 625 3Q503 3 488 0H478Q472 6 472 9T474 27Q478 40 480 43T491 46H494Q544 46 544 71Q544 75 517 141T485 216L427 354L359 301L291 248L268 155Q245 63 245 58Q245 51 253 49T303 46H334Q340 37 340 35Q340 19 333 5Q328 0 317 0Q314 0 280 1T180 2Q118 2 85 2T49 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Z"></path></g><g data-mml-node="mo" transform="translate(1389,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(1778,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z" transform="translate(500,0)"></path><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(4000.2,0)"><path data-c="22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path></g><g data-mml-node="mn" transform="translate(4500.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" transform="translate(500,0)"></path><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(6500.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g><g data-mml-node="mtr" transform="translate(0,-700)"><g data-mml-node="mtd"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mi" transform="translate(2000,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(2751,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(3140,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="39" d="M352 287Q304 211 232 211Q154 211 104 270T44 396Q42 412 42 436V444Q42 537 111 606Q171 666 243 666Q245 666 249 666T257 665H261Q273 665 286 663T323 651T370 619T413 560Q456 472 456 334Q456 194 396 97Q361 41 312 10T208 -22Q147 -22 108 7T68 93T121 149Q143 149 158 135T173 96Q173 78 164 65T148 49T135 44L131 43Q131 41 138 37T164 27T206 22H212Q272 22 313 86Q352 142 352 280V287ZM244 248Q292 248 321 297T351 430Q351 508 343 542Q341 552 337 562T323 588T293 615T246 625Q208 625 181 598Q160 576 154 546T147 441Q147 358 152 329T172 282Q197 248 244 248Z" transform="translate(500,0)"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(5362.2,0)"><path data-c="22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path></g><g data-mml-node="mn" transform="translate(5862.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(7862.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g><g data-mml-node="mtr" transform="translate(0,-2100)"><g data-mml-node="mtd" transform="translate(500,0)"><g data-mml-node="mn"><path data-c="37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(500,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1000,0)"></path></g><g data-mml-node="mi" transform="translate(1500,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(2251,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(2640,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(500,0)"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(4862.2,0)"><path data-c="22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path></g><g data-mml-node="mn" transform="translate(5362.4,0)"><path data-c="37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(500,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1000,0)"></path></g><g data-mml-node="mo" transform="translate(6862.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></g></g></g></svg></mjx-container></span></p>
-<blockquote>
-<p>通常我们到手的视频已经是1080p甚至720p，再往下调整分辨率，必然影响到视频在不同设备上的播放清晰度。并且修改分辨率是最不可逆的损失。</p>
-</blockquote>
-<p>例如：2K转为1080P，你的原始视频每帧约有 830万像素，转码后降到了约
-210万像素。大约
-60%的像素细节被永久丢弃了。即使你用软件“放大”回2K，也只是通过算法猜测和填充缺失的像素，无法恢复真实的原始细节。</p>
-<h2 id="帧率">帧率</h2>
-<p>视频是一秒钟出现几个画面的视频就是几帧。比如：你的视频一秒钟出现了60个画面，那么这个视频就是60帧。
-若把60帧的视频去掉一半的画面变成30帧，视频体积一定会减少，但实际上大多的视频已经是30帧或者24帧，再往下调整会有明显的卡顿。</p>
-<blockquote>
-<p>一般24帧-30帧的视频就可以了 ## 码率
-码率就是单位时间内视频里所包含的数据信息，码率高就代表视频里面给算法还原的关键图片数量多。</p>
-</blockquote>
-<blockquote>
-<p>别称：数据速率(45.63兆位/秒)，比特率(44.82Mbps)，平均比特率，恒定质量(英文：CRF，数值从0到51，值越低质量越高,示例22RF)</p>
-</blockquote>
-<p>通常码率越高，视频画质越好。但存在阈值，超过阈值画质提升效果不明显。
-通过各个视频平台的视频要求看：码率在3Mbps-6Mbps <img src="file-20260223210412363.png"> ### 单位转换 &gt;比特能表示速率</p>
-<p><strong>1 Byte（B） = 8 bit</strong></p>
-<p><strong>1 Kilo Byte（KB） = 1024B</strong></p>
-<p><strong>1 Mega Byte（MB） = 1024 KB</strong></p>
-<p><strong>1 Giga Byte （GB）= 1024 MB</strong></p>
-<p><strong>1 Tera Byte（TB）= 1024 GB</strong></p>
-<p>1 Peta Byte（PB） = 1024 TB</p>
-<p>1 Exa Byte（EB） = 1024 PB</p>
-<p>1 Zetta Byte（ZB） = 1024 EB</p>
-<p>1Yotta Byte（YB）= 1024 ZB</p>
-<p>1 Bronto Byte（BB） = 1024 YB</p>
-<p>1Nona Byte（NB）=1024 BB</p>
-<p>1 Dogga Byte（DB）=1024 NB</p>
-<p>1 Corydon Byte（CB）=1024DB ### 恒定质量</p>
-<p>RF值22的常见码率参考估算基于使用 <strong>x264</strong> 或
-<strong>x265</strong> 编码器进行编码的情况：</p>
-<table>
-<colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr>
-<th>分辨率</th>
-<th>内容复杂度</th>
-<th>预估平均码率范围 (H.265)</th>
-<th>预估平均码率范围 (H.264)</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>1080p</strong></td>
-<td>低 (如讲课、幻灯片)</td>
-<td>1.5 - 3 Mbps</td>
-<td>3 - 6 Mbps</td>
-<td>画面简单，码率需求低。</td>
-</tr>
-<tr>
-<td><strong>1080p</strong></td>
-<td>中 (普通电影、剧集)</td>
-<td>3 - 6 Mbps</td>
-<td>6 - 12 Mbps</td>
-<td>大多数影视内容的常见范围。</td>
-</tr>
-<tr>
-<td><strong>1080p</strong></td>
-<td>高 (快动作、复杂细节)</td>
-<td>6 - 10+ Mbps</td>
-<td>12 - 20+ Mbps</td>
-<td>如体育赛事、自然纪录片。</td>
-</tr>
-<tr>
-<td><strong>2K/1440p</strong></td>
-<td>中</td>
-<td>5 - 9 Mbps</td>
-<td>10 - 18 Mbps</td>
-<td>约为1080p码率的1.5-2倍。</td>
-</tr>
-<tr>
-<td><strong>4K/2160p</strong></td>
-<td>中</td>
-<td>10 - 20 Mbps</td>
-<td>20 - 40+ Mbps</td>
-<td>约为1080p码率的3-4倍。</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>注：RF值22通常被认为是<strong>高质量</strong>和<strong>中等质量</strong>的分界线。如果你追求近乎无损的存档质量，可考虑使用<strong>RF
-18-20</strong>；如果追求高压缩率，则可使用<strong>RF 24-26</strong>。 ⚠️
-重要注意事项</p>
-<ul>
-<li><p><strong>编码器差异</strong>：不同编码器（如x265与NVIDIA
-NVENC）即使用相同RF值，输出码率和画质也可能不同。</p></li>
-<li><p><strong>核心目的</strong>：使用CRF模式就是为了<strong>解放双手</strong>，无需纠结码率，让编码器自动为每一帧画面分配最合适的比特数，从而在整体上保持你设定的视觉质量。</p></li>
-</ul>
-<p>总结来说，对于一段中等复杂度的1080p电影，使用H.265编码并设定RF
-22，其平均码率很可能会落在 <strong>3-6 Mbps</strong> 的范围内。 ##
-视频编码 视频编码标准（如图） <img src="file-20260223175332462.png"></p>
-</blockquote>
-<p>其中，h.264编码标准兼容性好；h.265虽然压缩效率高于h.254，但是因专利费和解码占资源对老电脑支持性差等原因被网友称“h.265狗都不用”；AV1是最新的编码标准，开源、免专利，但不可避免的对硬件解码有一定要求，并且因为是新兴的标准，所有普及性没有前面的广（正在蓬勃发展），它的压缩效率与h.264相比，在相同画质下，比h.264节省30%的码率。
-## HandBrake使用案例</p>
-<blockquote>
-<p>通过上面的学习，如果我们需要压缩本地的视频以此来增大我们硬盘空间，视频主要参数如下：
-- 分辨率：不变（当然分辨率高可以考虑下调） - 帧率：24帧-30帧 -
-码率：3Mbps-6Mbps（22RF）</p>
-</blockquote>
-<h3 id="工具推荐">工具推荐</h3>
-<ol type="1">
-<li><p>ffmpeg工具
-&gt;它是一个强大的视频处理的命令行工具。市面上大部分软件基本套壳它的，但上手难度高。</p></li>
-<li><p><a href="https://handbrake.fr/downloads.php">HandBrake</a>
-&gt;免费的视频处理工具。新手推荐使用它，下面我们简单来使用它。</p></li>
-</ol>
-<h3 id="导入视频">导入视频</h3>
-<p>可以直接拖动视频到窗口，也可以选择打开文件 <img src="file-20260223213644411.png"> ### 参数配置
-按照下面图片依次设置，其他的可以不管 ①： <img src="file-20260223214249460.png"></p>
-<p>②：分辨率限制改为“无” <img src="file-20260223214601567.png">
-③：调节帧率为24帧—30帧中的一个值；码率可以直接固定码率为22RF，也可以选择平均比特率：3Mbps-6Mbps；编码方式如果确实需要压缩可以改为除包含H.264字符的任意方式，推荐AV1(更好)、H.265
-<img src="assets/视频压缩/file-20260223215426574.png"> &gt;解析：
-&gt;<strong>H.265 (x265)</strong>：x265代表使用CPU压缩视频
-&gt;<strong>H.26510bit
-(x265)</strong>：10bit代表画面中能表现的色彩数量，数量越多画面过多越平滑；H.265支持1670万种颜色，普通视频这个就行，10bit大概10.7亿种颜色，适合颜色丰富的视频
-&gt;<strong>H.26510bit (AMD VCE)</strong>：AMD
-VCE是程序会调用相应的GPU来压缩，速度会比CPU块很多，但画质会稍差一些，并且压缩后的文件会大一些</p>
-<p>④：可以点击预览观看效果</p>
-<p>⑤：点击开始编译，进行压缩视频 ## 视频大小要求</p>
-<blockquote>
-<p>通常我们上传视频到视频平台时，平台都有视频的标准，我们知道视频的大小和时长就可以计算出视频所需的码率</p>
-</blockquote>
-<p>计算实例：</p>
-<p>视频时长20秒，大小77.3MB</p>
-<p>一秒钟的信息量：77.3/20=3.87MB (字节表示)</p>
-<p>字节换算成比特：3.87*8=30.96Mb(比特表示)</p>
-<p>视频平均码率：30.96Mbps(比特能表示速率)</p>
-<p>（这不包含音频文件，一般忽略不计）</p>
-<p>换算单位：</p>
-<p>约等于</p>
-<p>1Mb=1000kb</p>
-<p>1Mbps=1000kbps</p>
-<p>码率=(视频大小/视频时长)*8</p>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://www.bilibili.com/video/BV1D7aEzvEP5?spm_id_from=333.788.recommend_more_video.-1&amp;trackid=web_related_0.router-related-2481894-flpjl.1771855175914.785&amp;vd_source=ff90d309a66060821e097736f479cb41">HandBrake使用教程-小in分享</a>
-<a href="https://www.bilibili.com/video/BV1Wa411H7CR/?spm_id_from=333.1387.favlist.content.click&amp;vd_source=ff90d309a66060821e097736f479cb41">如何压缩视频，把文件变小，还没画质损失？-Mac云课堂</a></p>
-]]></content>
-      <categories>
-        <category>空间压缩</category>
-      </categories>
-      <tags>
-        <tag>视频</tag>
-        <tag>压缩技术</tag>
       </tags>
   </entry>
   <entry>
@@ -2398,8 +2259,9 @@ p#div-border-top-purple</span> <span class="token punctuation">&#123;</span>
 <h4 id="文字背景字块">文字背景字块</h4>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>inline-blue<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>站点配置文件<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>，
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>inline-purple<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>主题配置文件<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-渲染效果： <span id="inline-blue">站点配置文件</span>， <span
-id="inline-purple">主题配置文件</span> #### 引用边框变色
+<p>渲染效果： <span id="inline-blue">站点配置文件</span>， <span
+id="inline-purple">主题配置文件</span></p>
+<h4 id="引用边框变色">引用边框变色</h4>
 <pre class="line-numbers language-markup" data-language="markup"><code class="language-markup"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>div-border-right-red<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>div-border-right-red <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>div-border-top-blue<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>div-border-top-blue<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
 <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
@@ -2426,6 +2288,176 @@ Download Now</span> </a></p>
       <tags>
         <tag>Next</tag>
         <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>视频压缩</title>
+    <url>/posts/8834618.html/</url>
+    <content><![CDATA[<hr>
+<blockquote>
+<p>需求：既要明显下降文件大小，又要画质肉眼看不出下降。</p>
+</blockquote>
+<blockquote>
+<p>视频是一张张画面交替出现形成的。想要压缩视频主要通过这几个参数调节：分辨率、帧率、码率、编码</p>
+</blockquote>
+<blockquote>
+<p>视频压缩是不可逆的，若有条件，建议将原文件进行冷数据备份（备份到云盘等）。</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="分辨率">分辨率</h2>
+<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true" width="full" style="min-width: 28.071ex;"><svg style="vertical-align: -5.317ex; min-width: 28.071ex;" xmlns="http://www.w3.org/2000/svg" width="100%" height="11.765ex" role="img" focusable="false"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(0.0181,-0.0181) translate(0, -2850)"><g data-mml-node="math"><g data-mml-node="mtable" transform="translate(2078,0) translate(-2078,0)"><g transform="translate(0 2850) matrix(1 0 0 -1 0 0) scale(55.25)"><svg data-table="true" preserveAspectRatio="xMidYMid" viewBox="4125.7 -2850 1 5200"><g transform="matrix(1 0 0 -1 0 0)"><g data-mml-node="mlabeledtr"><g data-mml-node="mtd"><g data-mml-node="mtable"><g data-mml-node="mtr" transform="translate(0,2100)"><g data-mml-node="mtd" transform="translate(431,0)"><g data-mml-node="mn"><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D43E" d="M285 628Q285 635 228 637Q205 637 198 638T191 647Q191 649 193 661Q199 681 203 682Q205 683 214 683H219Q260 681 355 681Q389 681 418 681T463 682T483 682Q500 682 500 674Q500 669 497 660Q496 658 496 654T495 648T493 644T490 641T486 639T479 638T470 637T456 637Q416 636 405 634T387 623L306 305Q307 305 490 449T678 597Q692 611 692 620Q692 635 667 637Q651 637 651 648Q651 650 654 662T659 677Q662 682 676 682Q680 682 711 681T791 680Q814 680 839 681T869 682Q889 682 889 672Q889 650 881 642Q878 637 862 637Q787 632 726 586Q710 576 656 534T556 455L509 418L518 396Q527 374 546 329T581 244Q656 67 661 61Q663 59 666 57Q680 47 717 46H738Q744 38 744 37T741 19Q737 6 731 0H720Q680 3 625 3Q503 3 488 0H478Q472 6 472 9T474 27Q478 40 480 43T491 46H494Q544 46 544 71Q544 75 517 141T485 216L427 354L359 301L291 248L268 155Q245 63 245 58Q245 51 253 49T303 46H334Q340 37 340 35Q340 19 333 5Q328 0 317 0Q314 0 280 1T180 2Q118 2 85 2T49 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Z"></path></g><g data-mml-node="mo" transform="translate(1389,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(1778,0)"><path data-c="33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(500,0)"></path><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(4000.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mn" transform="translate(5000.4,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" transform="translate(500,0)"></path><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(7000.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g><g data-mml-node="mtr" transform="translate(0,700)"><g data-mml-node="mtd" transform="translate(681,0)"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D43E" d="M285 628Q285 635 228 637Q205 637 198 638T191 647Q191 649 193 661Q199 681 203 682Q205 683 214 683H219Q260 681 355 681Q389 681 418 681T463 682T483 682Q500 682 500 674Q500 669 497 660Q496 658 496 654T495 648T493 644T490 641T486 639T479 638T470 637T456 637Q416 636 405 634T387 623L306 305Q307 305 490 449T678 597Q692 611 692 620Q692 635 667 637Q651 637 651 648Q651 650 654 662T659 677Q662 682 676 682Q680 682 711 681T791 680Q814 680 839 681T869 682Q889 682 889 672Q889 650 881 642Q878 637 862 637Q787 632 726 586Q710 576 656 534T556 455L509 418L518 396Q527 374 546 329T581 244Q656 67 661 61Q663 59 666 57Q680 47 717 46H738Q744 38 744 37T741 19Q737 6 731 0H720Q680 3 625 3Q503 3 488 0H478Q472 6 472 9T474 27Q478 40 480 43T491 46H494Q544 46 544 71Q544 75 517 141T485 216L427 354L359 301L291 248L268 155Q245 63 245 58Q245 51 253 49T303 46H334Q340 37 340 35Q340 19 333 5Q328 0 317 0Q314 0 280 1T180 2Q118 2 85 2T49 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Z"></path></g><g data-mml-node="mo" transform="translate(1389,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(1778,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z" transform="translate(500,0)"></path><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(4000.2,0)"><path data-c="22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path></g><g data-mml-node="mn" transform="translate(4500.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" transform="translate(500,0)"></path><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(6500.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g><g data-mml-node="mtr" transform="translate(0,-700)"><g data-mml-node="mtd"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mi" transform="translate(2000,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(2751,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(3140,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="39" d="M352 287Q304 211 232 211Q154 211 104 270T44 396Q42 412 42 436V444Q42 537 111 606Q171 666 243 666Q245 666 249 666T257 665H261Q273 665 286 663T323 651T370 619T413 560Q456 472 456 334Q456 194 396 97Q361 41 312 10T208 -22Q147 -22 108 7T68 93T121 149Q143 149 158 135T173 96Q173 78 164 65T148 49T135 44L131 43Q131 41 138 37T164 27T206 22H212Q272 22 313 86Q352 142 352 280V287ZM244 248Q292 248 321 297T351 430Q351 508 343 542Q341 552 337 562T323 588T293 615T246 625Q208 625 181 598Q160 576 154 546T147 441Q147 358 152 329T172 282Q197 248 244 248Z" transform="translate(500,0)"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(5362.2,0)"><path data-c="22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path></g><g data-mml-node="mn" transform="translate(5862.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(7862.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g><g data-mml-node="mtr" transform="translate(0,-2100)"><g data-mml-node="mtd" transform="translate(500,0)"><g data-mml-node="mn"><path data-c="37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(500,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1000,0)"></path></g><g data-mml-node="mi" transform="translate(1500,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(2251,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(2640,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(500,0)"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(4862.2,0)"><path data-c="22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path></g><g data-mml-node="mn" transform="translate(5362.4,0)"><path data-c="37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(500,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1000,0)"></path></g><g data-mml-node="mo" transform="translate(6862.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></g></g></g></g></svg><svg data-labels="true" preserveAspectRatio="xMaxYMid" viewBox="1278 -2850 1 5200"><g data-labels="true" transform="matrix(1 0 0 -1 0 0)"><g data-mml-node="mtd" id="mjx-eqn:1"><g data-mml-node="mtext"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" transform="translate(389,0)"></path><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z" transform="translate(889,0)"></path></g></g></g></svg></g></g></g></g></svg></mjx-container></span></p>
+<blockquote>
+<p>通常我们到手的视频已经是1080p甚至720p，再往下调整分辨率，必然影响到视频在不同设备上的播放清晰度。并且修改分辨率是最不可逆的损失。</p>
+</blockquote>
+<p>例如：2K转为1080P，你的原始视频每帧约有 830万像素，转码后降到了约
+210万像素。大约
+60%的像素细节被永久丢弃了。即使你用软件“放大”回2K，也只是通过算法猜测和填充缺失的像素，无法恢复真实的原始细节。</p>
+<h2 id="帧率">帧率</h2>
+<p>视频是一秒钟出现几个画面的视频就是几帧。比如：你的视频一秒钟出现了60个画面，那么这个视频就是60帧。
+若把60帧的视频去掉一半的画面变成30帧，视频体积一定会减少，但实际上大多的视频已经是30帧或者24帧，再往下调整会有明显的卡顿。</p>
+<blockquote>
+<p>一般24帧-30帧的视频就可以了 ## 码率
+码率就是单位时间内视频里所包含的数据信息，码率高就代表视频里面给算法还原的关键图片数量多。</p>
+</blockquote>
+<blockquote>
+<p>别称：数据速率(45.63兆位/秒)，比特率(44.82Mbps)，平均比特率，恒定质量(英文：CRF，数值从0到51，值越低质量越高,示例22RF)</p>
+</blockquote>
+<p>通常码率越高，视频画质越好。但存在阈值，超过阈值画质提升效果不明显。
+通过各个视频平台的视频要求看：码率在3Mbps-6Mbps <img src="file-20260223210412363.png"> ### 单位转换 &gt;比特能表示速率</p>
+<p><strong>1 Byte（B） = 8 bit</strong></p>
+<p><strong>1 Kilo Byte（KB） = 1024B</strong></p>
+<p><strong>1 Mega Byte（MB） = 1024 KB</strong></p>
+<p><strong>1 Giga Byte （GB）= 1024 MB</strong></p>
+<p><strong>1 Tera Byte（TB）= 1024 GB</strong></p>
+<p>1 Peta Byte（PB） = 1024 TB</p>
+<p>1 Exa Byte（EB） = 1024 PB</p>
+<p>1 Zetta Byte（ZB） = 1024 EB</p>
+<p>1Yotta Byte（YB）= 1024 ZB</p>
+<p>1 Bronto Byte（BB） = 1024 YB</p>
+<p>1Nona Byte（NB）=1024 BB</p>
+<p>1 Dogga Byte（DB）=1024 NB</p>
+<p>1 Corydon Byte（CB）=1024DB ### 恒定质量</p>
+<p>RF值22的常见码率参考估算基于使用 <strong>x264</strong> 或
+<strong>x265</strong> 编码器进行编码的情况：</p>
+<table>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr>
+<th>分辨率</th>
+<th>内容复杂度</th>
+<th>预估平均码率范围 (H.265)</th>
+<th>预估平均码率范围 (H.264)</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1080p</strong></td>
+<td>低 (如讲课、幻灯片)</td>
+<td>1.5 - 3 Mbps</td>
+<td>3 - 6 Mbps</td>
+<td>画面简单，码率需求低。</td>
+</tr>
+<tr>
+<td><strong>1080p</strong></td>
+<td>中 (普通电影、剧集)</td>
+<td>3 - 6 Mbps</td>
+<td>6 - 12 Mbps</td>
+<td>大多数影视内容的常见范围。</td>
+</tr>
+<tr>
+<td><strong>1080p</strong></td>
+<td>高 (快动作、复杂细节)</td>
+<td>6 - 10+ Mbps</td>
+<td>12 - 20+ Mbps</td>
+<td>如体育赛事、自然纪录片。</td>
+</tr>
+<tr>
+<td><strong>2K/1440p</strong></td>
+<td>中</td>
+<td>5 - 9 Mbps</td>
+<td>10 - 18 Mbps</td>
+<td>约为1080p码率的1.5-2倍。</td>
+</tr>
+<tr>
+<td><strong>4K/2160p</strong></td>
+<td>中</td>
+<td>10 - 20 Mbps</td>
+<td>20 - 40+ Mbps</td>
+<td>约为1080p码率的3-4倍。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注：RF值22通常被认为是<strong>高质量</strong>和<strong>中等质量</strong>的分界线。如果你追求近乎无损的存档质量，可考虑使用<strong>RF
+18-20</strong>；如果追求高压缩率，则可使用<strong>RF 24-26</strong>。 ⚠️
+重要注意事项</p>
+<ul>
+<li><p><strong>编码器差异</strong>：不同编码器（如x265与NVIDIA
+NVENC）即使用相同RF值，输出码率和画质也可能不同。</p></li>
+<li><p><strong>核心目的</strong>：使用CRF模式就是为了<strong>解放双手</strong>，无需纠结码率，让编码器自动为每一帧画面分配最合适的比特数，从而在整体上保持你设定的视觉质量。</p></li>
+</ul>
+<p>总结来说，对于一段中等复杂度的1080p电影，使用H.265编码并设定RF
+22，其平均码率很可能会落在 <strong>3-6 Mbps</strong> 的范围内。 ##
+视频编码 视频编码标准（如图） <img src="file-20260223175332462.png"></p>
+</blockquote>
+<p>其中，h.264编码标准兼容性好；h.265虽然压缩效率高于h.254，但是因专利费和解码占资源对老电脑支持性差等原因被网友称“h.265狗都不用”；AV1是最新的编码标准，开源、免专利，但不可避免的对硬件解码有一定要求，并且因为是新兴的标准，所有普及性没有前面的广（正在蓬勃发展），它的压缩效率与h.264相比，在相同画质下，比h.264节省30%的码率。
+## HandBrake使用案例</p>
+<blockquote>
+<p>通过上面的学习，如果我们需要压缩本地的视频以此来增大我们硬盘空间，视频主要参数如下：
+- 分辨率：不变（当然分辨率高可以考虑下调） - 帧率：24帧-30帧 -
+码率：3Mbps-6Mbps（22RF）</p>
+</blockquote>
+<h3 id="工具推荐">工具推荐</h3>
+<ol type="1">
+<li><p>ffmpeg工具
+&gt;它是一个强大的视频处理的命令行工具。市面上大部分软件基本套壳它的，但上手难度高。</p></li>
+<li><p><a href="https://handbrake.fr/downloads.php">HandBrake</a>
+&gt;免费的视频处理工具。新手推荐使用它，下面我们简单来使用它。</p></li>
+</ol>
+<h3 id="导入视频">导入视频</h3>
+<p>可以直接拖动视频到窗口，也可以选择打开文件 <img src="file-20260223213644411.png"> ### 参数配置
+按照下面图片依次设置，其他的可以不管 ①： <img src="file-20260223214249460.png"></p>
+<p>②：分辨率限制改为“无” <img src="file-20260223214601567.png">
+③：调节帧率为24帧—30帧中的一个值；码率可以直接固定码率为22RF，也可以选择平均比特率：3Mbps-6Mbps；编码方式如果确实需要压缩可以改为除包含H.264字符的任意方式，推荐AV1(更好)、H.265
+<img src="assets/视频压缩/file-20260223215426574.png"> &gt;解析：
+&gt;<strong>H.265 (x265)</strong>：x265代表使用CPU压缩视频
+&gt;<strong>H.26510bit
+(x265)</strong>：10bit代表画面中能表现的色彩数量，数量越多画面过多越平滑；H.265支持1670万种颜色，普通视频这个就行，10bit大概10.7亿种颜色，适合颜色丰富的视频
+&gt;<strong>H.26510bit (AMD VCE)</strong>：AMD
+VCE是程序会调用相应的GPU来压缩，速度会比CPU块很多，但画质会稍差一些，并且压缩后的文件会大一些</p>
+<p>④：可以点击预览观看效果</p>
+<p>⑤：点击开始编译，进行压缩视频 ## 视频大小要求</p>
+<blockquote>
+<p>通常我们上传视频到视频平台时，平台都有视频的标准，我们知道视频的大小和时长就可以计算出视频所需的码率</p>
+</blockquote>
+<p>计算实例：</p>
+<p>视频时长20秒，大小77.3MB</p>
+<p>一秒钟的信息量：77.3/20=3.87MB (字节表示)</p>
+<p>字节换算成比特：3.87*8=30.96Mb(比特表示)</p>
+<p>视频平均码率：30.96Mbps(比特能表示速率)</p>
+<p>（这不包含音频文件，一般忽略不计）</p>
+<p>换算单位：</p>
+<p>约等于</p>
+<p>1Mb=1000kb</p>
+<p>1Mbps=1000kbps</p>
+<p>码率=(视频大小/视频时长)*8</p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://www.bilibili.com/video/BV1D7aEzvEP5?spm_id_from=333.788.recommend_more_video.-1&amp;trackid=web_related_0.router-related-2481894-flpjl.1771855175914.785&amp;vd_source=ff90d309a66060821e097736f479cb41">HandBrake使用教程-小in分享</a></p>
+<p><a href="https://www.bilibili.com/video/BV1Wa411H7CR/?spm_id_from=333.1387.favlist.content.click&amp;vd_source=ff90d309a66060821e097736f479cb41">如何压缩视频，把文件变小，还没画质损失？-Mac云课堂</a></p>
+]]></content>
+      <categories>
+        <category>空间压缩</category>
+      </categories>
+      <tags>
+        <tag>视频</tag>
+        <tag>压缩技术</tag>
       </tags>
   </entry>
 </search>
