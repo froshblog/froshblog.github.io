@@ -1316,7 +1316,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #9d40d9;
+  background: #3d7009;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -3074,15 +3074,6 @@ p#div-border-right-red {
   border-radius: 3px;
   border-right-color: #df3e3e;
 }
-p#div-border-right-yellow {
-  display: block;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-right-width: 5px;
-  border-radius: 3px;
-  border-right-color: #f0ad4e;
-}
 p#div-border-right-green {
   display: block;
   padding: 10px;
@@ -3100,6 +3091,15 @@ p#div-border-right-blue {
   border-right-width: 5px;
   border-radius: 3px;
   border-right-color: #2780e3;
+}
+p#div-border-left-yellow {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-left-width: 5px;
+  border-radius: 3px;
+  border-left-color: #f0ad4e;
 }
 p#div-border-left-purple {
   display: block;

@@ -6,7 +6,7 @@
   <link href="https://www.frosh.qzz.io/atom.xml" rel="self"/>
   
   <link href="https://www.frosh.qzz.io/"/>
-  <updated>2026-03-03T04:45:28.054Z</updated>
+  <updated>2026-03-03T15:11:10.437Z</updated>
   <id>https://www.frosh.qzz.io/</id>
   
   <author>
@@ -15,6 +15,45 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Could Flare CDN双域名优选</title>
+    <link href="https://www.frosh.qzz.io/posts/3474904c.html/"/>
+    <id>https://www.frosh.qzz.io/posts/3474904c.html/</id>
+    <published>2026-02-28T14:00:55.000Z</published>
+    <updated>2026-03-03T15:11:10.437Z</updated>
+    
+    
+    <summary type="html">&lt;ul&gt;
+&lt;li&gt;具体操作流程&lt;/li&gt;
+&lt;li&gt;遇到的问题&lt;/li&gt;
+&lt;li&gt;cf与eo的选择&lt;/li&gt;
+&lt;li&gt;为什么要优先&lt;/li&gt;
+&lt;li&gt;&lt;h2 id=&quot;免费二级域名的获取与限制&quot;&gt;免费二级域名的获取与限制&lt;/h2&gt;
+概述内容 主力域名：frosh.qzz.io 辅助域名：frosh.dpdns.org&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;origin.frosh.dpdns.org 源站域名 blog.frosh.qzz.io 访问域名&lt;/p&gt;
+&lt;p&gt;dns: a origin.frosh.dpdns.org 网站绑定 cname cdn.frohs.dpdns.org
+优选cf 优选&lt;/p&gt;
+&lt;p&gt;cname blog.frosh.qzz.io cdn.frosh.dpdns.org 访问绑定&lt;/p&gt;
+&lt;p&gt;saas: 回退源：随便你在cf上的域名 自定义主机名：blog.frosh.qzz.io
+自定义回退源：origin.frosh.dpdns.org&lt;/p&gt;
+&lt;p&gt;test: 能不能将访问域名设置为根域：即frosh.qzz.io&lt;/p&gt;</summary>
+    
+    
+    
+    <category term="个人博客" scheme="https://www.frosh.qzz.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
+    
+    
+    <category term="CDN" scheme="https://www.frosh.qzz.io/tags/CDN/"/>
+    
+    <category term="couldflare" scheme="https://www.frosh.qzz.io/tags/couldflare/"/>
+    
+    <category term="cf" scheme="https://www.frosh.qzz.io/tags/cf/"/>
+    
+    <category term="优选" scheme="https://www.frosh.qzz.io/tags/%E4%BC%98%E9%80%89/"/>
+    
+  </entry>
   
   <entry>
     <title>视频压缩</title>
