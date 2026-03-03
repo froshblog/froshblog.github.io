@@ -6,7 +6,7 @@
   <link href="https://www.frosh.qzz.io/atom.xml" rel="self"/>
   
   <link href="https://www.frosh.qzz.io/"/>
-  <updated>2026-03-03T15:11:10.437Z</updated>
+  <updated>2026-03-03T15:24:10.724Z</updated>
   <id>https://www.frosh.qzz.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.frosh.qzz.io/posts/3474904c.html/"/>
     <id>https://www.frosh.qzz.io/posts/3474904c.html/</id>
     <published>2026-02-28T14:00:55.000Z</published>
-    <updated>2026-03-03T15:11:10.437Z</updated>
+    <updated>2026-03-03T15:24:10.724Z</updated>
     
     
     <summary type="html">&lt;ul&gt;
@@ -206,9 +206,9 @@ EdgeOne 包含 CDN 的功能，但它的定位和能力远超传统 CDN。</summ
     <category term="个人博客" scheme="https://www.frosh.qzz.io/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     
     
-    <category term="Next" scheme="https://www.frosh.qzz.io/tags/Next/"/>
-    
     <category term="css" scheme="https://www.frosh.qzz.io/tags/css/"/>
+    
+    <category term="Next" scheme="https://www.frosh.qzz.io/tags/Next/"/>
     
   </entry>
   
