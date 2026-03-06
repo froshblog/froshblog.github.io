@@ -22,27 +22,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"www.frosh.qzz.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.27.0","exturl":false,"sidebar":{"position":"right","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":true,"style":"default"},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":true,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js" defer></script>
 
-    <meta name="description" content="具体操作流程 遇到的问题 cf与eo的选择 为什么要优先 免费二级域名的获取与限制 概述内容 主力域名：frosh.qzz.io 辅助域名：frosh.dpdns.org  origin.frosh.dpdns.org 源站域名 blog.frosh.qzz.io 访问域名 dns: a origin.frosh.dpdns.org 网站绑定 cname cdn.frohs.d">
+    <meta name="description" content="Could Flare有免费的CDN，DDos防护，隐藏源站IP等一系列免费好用的服务，但CF的CDN服务在国内被称为“减速器”，使用它的CDN服务的网站访问速度会变慢，但是我们可以通过优选CDN的方式加速国内的访问。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Could Flare CDN双域名优选">
 <meta property="og:url" content="https://www.frosh.qzz.io/posts/3474904c.html/index.html">
 <meta property="og:site_name" content="FROSH Blog">
-<meta property="og:description" content="具体操作流程 遇到的问题 cf与eo的选择 为什么要优先 免费二级域名的获取与限制 概述内容 主力域名：frosh.qzz.io 辅助域名：frosh.dpdns.org  origin.frosh.dpdns.org 源站域名 blog.frosh.qzz.io 访问域名 dns: a origin.frosh.dpdns.org 网站绑定 cname cdn.frohs.d">
+<meta property="og:description" content="Could Flare有免费的CDN，DDos防护，隐藏源站IP等一系列免费好用的服务，但CF的CDN服务在国内被称为“减速器”，使用它的CDN服务的网站访问速度会变慢，但是我们可以通过优选CDN的方式加速国内的访问。">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://www.frosh.qzz.io/posts/3474904c.html/%7B148DD6E3-2997-4D82-8BB8-F29811DC340B%7D.png">
 <meta property="og:image" content="https://www.frosh.qzz.io/posts/3474904c.html/file-20260303210429654.png">
 <meta property="og:image" content="https://www.frosh.qzz.io/posts/3474904c.html/file-20260303230407657.png">
 <meta property="og:image" content="https://www.frosh.qzz.io/posts/3474904c.html/file-20260303230614673.png">
 <meta property="og:image" content="https://www.frosh.qzz.io/posts/3474904c.html/file-20260303230727964.png">
 <meta property="og:image" content="https://www.frosh.qzz.io/posts/3474904c.html/file-20260303231744211.png">
 <meta property="article:published_time" content="2026-02-28T14:00:55.000Z">
-<meta property="article:modified_time" content="2026-03-03T15:24:10.724Z">
+<meta property="article:modified_time" content="2026-03-06T14:36:17.120Z">
 <meta property="article:author" content="kumiao">
 <meta property="article:tag" content="CDN">
 <meta property="article:tag" content="cf">
 <meta property="article:tag" content="couldflare">
 <meta property="article:tag" content="优选">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://www.frosh.qzz.io/posts/3474904c.html/file-20260303210429654.png">
+<meta name="twitter:image" content="https://www.frosh.qzz.io/posts/3474904c.html/%7B148DD6E3-2997-4D82-8BB8-F29811DC340B%7D.png">
 
 
 <link rel="canonical" href="https://www.frosh.qzz.io/posts/3474904c.html/">
@@ -180,7 +181,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%8D%E8%B4%B9%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D%E7%9A%84%E8%8E%B7%E5%8F%96%E4%B8%8E%E9%99%90%E5%88%B6"><span class="nav-number">1.</span> <span class="nav-text">免费二级域名的获取与限制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BC%98%E9%80%89"><span class="nav-number">2.</span> <span class="nav-text">什么是优选？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E9%80%89%E5%8E%9F%E7%90%86"><span class="nav-number">3.</span> <span class="nav-text">优选原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E4%BC%98%E9%80%89%E5%9F%9F%E5%90%8D"><span class="nav-number">4.</span> <span class="nav-text">选择优选域名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E4%BC%98%E9%80%89%E5%9F%9F%E5%90%8D"><span class="nav-number">4.1.</span> <span class="nav-text">传统优选域名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8Esaas%E7%9A%84%E5%8F%8C%E5%9F%9F%E5%90%8D%E4%BC%98%E9%80%89"><span class="nav-number">5.</span> <span class="nav-text">基于SAAS的双域名优选</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">5.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4"><span class="nav-number">5.2.</span> <span class="nav-text">具体步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E9%80%89%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">6.</span> <span class="nav-text">?优选出现的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%BB%E5%8A%9B%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE404"><span class="nav-number">6.1.</span> <span class="nav-text">使用主力域名访问404</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-number">6.1.1.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F"><span class="nav-number">6.1.2.</span> <span class="nav-text">解决方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">7.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E4%BC%98%E9%80%89"><span class="nav-number">1.</span> <span class="nav-text">什么是优选？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E9%80%89%E5%8E%9F%E7%90%86"><span class="nav-number">2.</span> <span class="nav-text">优选原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%80%89%E6%8B%A9%E4%BC%98%E9%80%89%E5%9F%9F%E5%90%8D"><span class="nav-number">3.</span> <span class="nav-text">选择优选域名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BC%A0%E7%BB%9F%E4%BC%98%E9%80%89%E5%9F%9F%E5%90%8D"><span class="nav-number">3.1.</span> <span class="nav-text">传统优选域名</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8Esaas%E7%9A%84%E5%8F%8C%E5%9F%9F%E5%90%8D%E4%BC%98%E9%80%89"><span class="nav-number">4.</span> <span class="nav-text">基于SAAS的双域名优选</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%87%86%E5%A4%87%E5%B7%A5%E4%BD%9C"><span class="nav-number">4.1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4"><span class="nav-number">4.2.</span> <span class="nav-text">具体步骤</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BC%98%E9%80%89%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">5.</span> <span class="nav-text">?优选出现的问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8%E4%B8%BB%E5%8A%9B%E5%9F%9F%E5%90%8D%E8%AE%BF%E9%97%AE404"><span class="nav-number">5.1.</span> <span class="nav-text">使用主力域名访问404</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%88%86%E6%9E%90"><span class="nav-number">5.1.1.</span> <span class="nav-text">问题分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F"><span class="nav-number">5.1.2.</span> <span class="nav-text">解决方式</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">6.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -201,7 +202,7 @@
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -301,7 +302,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2026-03-03 23:24:10" itemprop="dateModified" datetime="2026-03-03T23:24:10+08:00">2026-03-03</time>
+      <time title="修改时间：2026-03-06 22:36:17" itemprop="dateModified" datetime="2026-03-06T22:36:17+08:00">2026-03-06</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -309,7 +310,11 @@
       </span>
       <span class="post-meta-item-text">分类于</span>
         <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">个人博客</span></a>
+          <a href="/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">个人笔记</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E4%B8%AA%E4%BA%BA%E7%AC%94%E8%AE%B0/Could-Flare/" itemprop="url" rel="index"><span itemprop="name">Could Flare</span></a>
         </span>
     </span>
 
@@ -320,7 +325,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>2.1k</span>
+      <span>2k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -337,25 +342,14 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><ul>
-<li>具体操作流程</li>
-<li>遇到的问题</li>
-<li>cf与eo的选择</li>
-<li>为什么要优先</li>
-<li><h2 id="免费二级域名的获取与限制">免费二级域名的获取与限制</h2>
-概述内容 主力域名：frosh.qzz.io 辅助域名：frosh.dpdns.org</li>
-</ul>
-<p>origin.frosh.dpdns.org 源站域名 blog.frosh.qzz.io 访问域名</p>
-<p>dns: a origin.frosh.dpdns.org 网站绑定 cname cdn.frohs.dpdns.org
-优选cf 优选</p>
-<p>cname blog.frosh.qzz.io cdn.frosh.dpdns.org 访问绑定</p>
-<p>saas: 回退源：随便你在cf上的域名 自定义主机名：blog.frosh.qzz.io
-自定义回退源：origin.frosh.dpdns.org</p>
-<p>test: 能不能将访问域名设置为根域：即frosh.qzz.io</p>
+    <div class="post-body" itemprop="articleBody"><hr />
+<p>Could
+Flare有免费的CDN，DDos防护，隐藏源站IP等一系列免费好用的服务，但CF的CDN服务在国内被称为“减速器”，使用它的CDN服务的网站访问速度会变慢，但是我们可以通过优选CDN的方式加速国内的访问。</p>
 <span id="more"></span>
-<p><strong>未优选</strong> <img
-src="%7B148DD6E3-2997-4D82-8BB8-F29811DC340B%7D.png" />
-<strong>已优选</strong> <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="file-20260303210429654.png" /></p>
+<p><strong>未优选</strong></p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="%7B148DD6E3-2997-4D82-8BB8-F29811DC340B%7D.png" /></p>
+<p><strong>CF优选后</strong></p>
+<p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="file-20260303210429654.png" /></p>
 <h2 id="什么是优选">什么是优选？</h2>
 <p>简单来说，<strong>优选就是选择一个国内访问速度更快的Cloudflare节点</strong>。</p>
 <p>Cloudflare官方分配给我们的IP，在国内访问时延迟往往较高，甚至可能出现无法访问的情况。而通过优选，我们可以手动将域名解析到那些国内访问更快的Cloudflare
@@ -391,13 +385,11 @@ target="_blank" rel="noopener" href="https://www.baota.me/post-411.html?scroll=c
 <p>这些优选域名通常是通过扫描Cloudflare官方IP段，找出国内延迟最低的IP整理而成。</p>
 <h2 id="基于saas的双域名优选">基于SAAS的双域名优选</h2>
 <h3 id="准备工作">准备工作</h3>
-<ul>
-<li>两个域名，比如：frosh.dpdns.org（主力域名）和frosh.qzz.io（辅助域名）
+<p><strong>两个域名</strong>，比如：frosh.dpdns.org（主力域名）和frosh.qzz.io（辅助域名）</p>
 <p id="div-border-left-yellow">
 如果你都是托管在could flare
 需要让他们的名称服务器不同；如果还不可用，可以将两个域名托管到不同账号。
-</p></li>
-</ul>
+</p>
 <h3 id="具体步骤">具体步骤</h3>
 <ol type="1">
 <li>辅助域名绑定网站，开启小黄云（cf代理）。在辅助域名添加一个A记录指向你的网站IP。</li>
@@ -419,6 +411,9 @@ src="file-20260303230839362.png" /></li>
 <h3 id="使用主力域名访问404">使用主力域名访问404</h3>
 <p><img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0OCIgaGVpZ2h0PSI0OCIgdmlld0JveD0iMCAwIDI0IDI0Ij48Y2lyY2xlIGN4PSI0IiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgaWQ9InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAiIGF0dHJpYnV0ZU5hbWU9InIiIGJlZ2luPSIwO3N2Z1NwaW5uZXJzM0RvdHNTY2FsZTEuZW5kLTAuMjVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjEyIiBjeT0iMTIiIHI9IjMiIGZpbGw9ImN1cnJlbnRDb2xvciI+PGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNnMiIGR1cj0iMC43NXMiIHZhbHVlcz0iMzsuMjszIi8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMjAiIGN5PSIxMiIgcj0iMyIgZmlsbD0iY3VycmVudENvbG9yIj48YW5pbWF0ZSBpZD0ic3ZnU3Bpbm5lcnMzRG90c1NjYWxlMSIgYXR0cmlidXRlTmFtZT0iciIgYmVnaW49InN2Z1NwaW5uZXJzM0RvdHNTY2FsZTAuZW5kLTAuNDVzIiBkdXI9IjAuNzVzIiB2YWx1ZXM9IjM7LjI7MyIvPjwvY2lyY2xlPjwvc3ZnPg==" data-original="file-20260303231744211.png" /></p>
 <h4 id="问题分析">问题分析</h4>
+<blockquote>
+<p>我的网站是使用GitHub的GitHub Pages服务部署的。</p>
+</blockquote>
 <p>GitHub Pages是通过HTTP请求头中的 <code>Host</code>
 字段来识别要展示哪个站点的。如果主力域名不在Custom
 domain这里绑定，GitHub
@@ -432,9 +427,14 @@ domain”</strong>（自定义域名）这一栏里，<strong>填入你的主力
 <li><p><strong>验证</strong>：保存后，GitHub可能会尝试验证这个域名的所有权，并提示你添加一条TXT记录到你的DNS里。按照提示操作即可。之后等待几分钟再访问主力域名试试。</p></li>
 </ul>
 <h2 id="参考文章">参考文章</h2>
+<p>文章：</p>
 <p><a
 target="_blank" rel="noopener" href="https://2x.nz/posts/cf-fastip/#%E4%BC%A0%E7%BB%9Fsaas%E4%BC%98%E9%80%89">试试Cloudflare
 IP优选！让Cloudflare在国内再也不是减速器！-二叉树树</a></p>
+<p>视频：</p>
+<p><a
+target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1SM4m1176E/?spm_id_from=333.1387.favlist.content.click&amp;vd_source=ff90d309a66060821e097736f479cb41">#
+白嫖Cloudflare最优CDN给自己网站加速，尽情享受CF的免费服务-技术爬爬虾</a></p>
 
     </div>
 
@@ -512,7 +512,7 @@ IP优选！让Cloudflare在国内再也不是减速器！-二叉树树</a></p>
       <i class="fa fa-coffee"></i>
     </span>
       <span>站点阅读时长 &asymp;</span>
-    <span title="站点阅读时长">47 分钟</span>
+    <span title="站点阅读时长">46 分钟</span>
   </span>
 </div>
   <div class="powered-by">

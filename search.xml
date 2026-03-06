@@ -56,118 +56,6 @@ href="https://cloud.tencent.com/developer/article/1779335">开发者社区-什�
       </tags>
   </entry>
   <entry>
-    <title>Could Flare CDN双域名优选</title>
-    <url>/posts/3474904c.html/</url>
-    <content><![CDATA[<ul>
-<li>具体操作流程</li>
-<li>遇到的问题</li>
-<li>cf与eo的选择</li>
-<li>为什么要优先</li>
-<li><h2 id="免费二级域名的获取与限制">免费二级域名的获取与限制</h2>
-概述内容 主力域名：frosh.qzz.io 辅助域名：frosh.dpdns.org</li>
-</ul>
-<p>origin.frosh.dpdns.org 源站域名 blog.frosh.qzz.io 访问域名</p>
-<p>dns: a origin.frosh.dpdns.org 网站绑定 cname cdn.frohs.dpdns.org
-优选cf 优选</p>
-<p>cname blog.frosh.qzz.io cdn.frosh.dpdns.org 访问绑定</p>
-<p>saas: 回退源：随便你在cf上的域名 自定义主机名：blog.frosh.qzz.io
-自定义回退源：origin.frosh.dpdns.org</p>
-<p>test: 能不能将访问域名设置为根域：即frosh.qzz.io</p>
-<span id="more"></span>
-<p><strong>未优选</strong> <img
-src="%7B148DD6E3-2997-4D82-8BB8-F29811DC340B%7D.png" />
-<strong>已优选</strong> <img src="file-20260303210429654.png" /></p>
-<h2 id="什么是优选">什么是优选？</h2>
-<p>简单来说，<strong>优选就是选择一个国内访问速度更快的Cloudflare节点</strong>。</p>
-<p>Cloudflare官方分配给我们的IP，在国内访问时延迟往往较高，甚至可能出现无法访问的情况。而通过优选，我们可以手动将域名解析到那些国内访问更快的Cloudflare
-IP，从而显著提升网站的访问速度和可用性。</p>
-<p>从上面的对比图可以看到，优选过的网站响应速度有很大提升，出口IP也变多了。这能让你的网站可用性大大提高，并且加载速度显著变快。</p>
-<p>要实现优选，我们需要做到两点：<strong>自己控制路由规则</strong> 和
-<strong>自己控制DNS解析</strong>。通过Cloudflare
-SaaS或Worker路由，我们可以同时实现这两点，下面会详细讲解。</p>
-<h2 id="优选原理">优选原理</h2>
-<p>首先我们要知道CDN是如何通过不同域名给不同内容的。</p>
-<p>我们可以将其抽象为2层：<strong>规则层</strong>和<strong>解析层</strong>。当我们普通的在Cloudflare添加一条开启了小黄云的解析，Cloudflare会为我们做两件事：</p>
-<ol type="1">
-<li>帮我们写一条DNS解析指向Cloudflare</li>
-<li>在Cloudflare创建一条路由规则</li>
-</ol>
-<p>如果你想要优选，实际上你是要手动更改这个DNS解析，使其指向一个更快的Cloudflare节点。</p>
-<p>但是，一旦你将小黄云关闭，路由规则也会被删除，再访问就会显示DNS直接指向IP——这就没法用了。</p>
-<p><strong>而SaaS和Worker路由的出现改变了这一切。</strong></p>
-<p>使用SaaS后，Cloudflare不再帮你做这两件事了，这两件事你都可以自己做了：</p>
-<ol type="1">
-<li>你可以自己写一条SaaS规则（规则层）</li>
-<li>你可以自己写一条CNAME解析到优选节点（解析层）</li>
-</ol>
-<p>使用Worker路由同理，你创建Worker路由规则后，DNS解析就可以随便指向任何优选节点了。</p>
-<p>这就是为什么经由SaaS或Worker路由的流量可以做优选的原因。</p>
-<h2 id="选择优选域名">选择优选域名</h2>
-<p>优选的核心就是选择一个国内访问速度更快的Cloudflare节点IP或域名。</p>
-<h3 id="传统优选域名">传统优选域名</h3>
-<p>常用的社区优选域名：</p>
-<p><a href="https://cf.090227.xyz">https://cf.090227.xyz</a></p>
-<p><a
-href="https://www.baota.me/post-411.html?scroll=comment-122">https://www.baota.me/post-411.html?scroll=comment-122</a></p>
-<p>这些优选域名通常是通过扫描Cloudflare官方IP段，找出国内延迟最低的IP整理而成。</p>
-<h2 id="基于saas的双域名优选">基于SAAS的双域名优选</h2>
-<h3 id="准备工作">准备工作</h3>
-<ul>
-<li>两个域名，比如：frosh.dpdns.org（主力域名）和frosh.qzz.io（辅助域名）
-<p id="div-border-left-yellow">
-如果你都是托管在could flare
-需要让他们的名称服务器不同；如果还不可用，可以将两个域名托管到不同账号。
-</p></li>
-</ul>
-<h3 id="具体步骤">具体步骤</h3>
-<ol type="1">
-<li>辅助域名绑定网站，开启小黄云（cf代理）。在辅助域名添加一个A记录指向你的网站IP。</li>
-<li>前往<strong>辅助域名</strong>的 SSL/TLS -&gt;
-自定义主机名。设置回退源为你刚才的DNS解析的域名：origin.frosh.qzz.io（这个回退源只要托管在cf的就行）
-<img src="file-20260303230407657.png" /></li>
-<li>点击添加自定义主机名。设置一个自定义主机名，比如
-<code>blog.frosh.dpdns.org</code>，然后选择<strong>自定义源服务器</strong>，填写第一步的域名，即
-<code>origin.frosh.qzz.io</code>。 <img
-src="file-20260303230513593.png" /></li>
-<li>在你的辅助域名添加一条解析。CNAME到优选节点：如cloudflare.182682.xyz，<strong>不开启cf代理</strong>
-<img src="file-20260303230614673.png" /></li>
-<li>在你的主力域名添加解析。域名为之前在辅助域名的自定义主机名（blog.frosh.dpdns.org），目标为刚才的cdn.frosh.qzz.io，<strong>不开启cf代理</strong>
-<img src="file-20260303230727964.png" /></li>
-<li>优选完成后尝试访问确保优选有效。 <img
-src="file-20260303230839362.png" /></li>
-</ol>
-<h2 id="优选出现的问题">?优选出现的问题</h2>
-<h3 id="使用主力域名访问404">使用主力域名访问404</h3>
-<p><img src="file-20260303231744211.png" /></p>
-<h4 id="问题分析">问题分析</h4>
-<p>GitHub Pages是通过HTTP请求头中的 <code>Host</code>
-字段来识别要展示哪个站点的。如果主力域名不在Custom
-domain这里绑定，GitHub
-Pages收到主力域名的请求时，会发现这是一个“未注册”的访客，自然会返回404。这就像你有一栋房子（GitHub
-Pages源站），里面有很多个房间（不同域名的网站）。你只给辅助域名配了钥匙（在Custom
-domain里填写了它），主力域名没配钥匙，所以主力域名敲门时，自然会被拒之门外。</p>
-<h4 id="解决方式">解决方式</h4>
-<ul>
-<li><p>在 <strong>“Custom
-domain”</strong>（自定义域名）这一栏里，<strong>填入你的主力域名</strong>，然后点击保存。</p></li>
-<li><p><strong>验证</strong>：保存后，GitHub可能会尝试验证这个域名的所有权，并提示你添加一条TXT记录到你的DNS里。按照提示操作即可。之后等待几分钟再访问主力域名试试。</p></li>
-</ul>
-<h2 id="参考文章">参考文章</h2>
-<p><a
-href="https://2x.nz/posts/cf-fastip/#%E4%BC%A0%E7%BB%9Fsaas%E4%BC%98%E9%80%89">试试Cloudflare
-IP优选！让Cloudflare在国内再也不是减速器！-二叉树树</a></p>
-]]></content>
-      <categories>
-        <category>个人博客</category>
-      </categories>
-      <tags>
-        <tag>CDN</tag>
-        <tag>couldflare</tag>
-        <tag>cf</tag>
-        <tag>优选</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>EdgeOne CDN加速</title>
     <url>/posts/7b194885.html/</url>
     <content><![CDATA[<hr />
@@ -224,6 +112,565 @@ id="选择接入eo网络的方式和加速区域">选择接入EO网络的方式�
       <tags>
         <tag>CDN</tag>
         <tag>EdgeOne</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo博客优化</title>
+    <url>/posts/94271a3a.html/</url>
+    <content><![CDATA[<hr />
+<blockquote>
+<p>这是关于Hexo博客的优化文章，收录了一些常用的插件和设置，自己按需设置即可，如果还想要设置更多的配置可要看看结尾处大佬的文章。</p>
+</blockquote>
+<span id="more"></span>
+<blockquote>
+<p>Hexo version：8.1.1，Next
+version：8.27.0，分别通过博客根目录和主题目录的package.json查看；
+使用的Next主题的Mist样式。</p>
+</blockquote>
+<blockquote>
+<p>阅读需知： - 文中命令执行的位置若没特别提醒，默认在博客根目录； -
+<code>root</code>：指的是博客根目录，即你创建的博客时的文件夹； -
+博客配置文件：指的是<code>root\_config.yml</code>； -
+主题配置文件：指的是<code>root\themes\next\_config.yml</code>； -
+博客模板文件：指的是<code>root\scaffolds\post.md</code>； -
+Front-matter字段：指的是<code>.md</code>文章的开头部分； -
+运行这三个命令<code>hexo cl</code>、<code>hexo d</code>、<code>hexo s</code>进行本地预览。</p>
+</blockquote>
+<h2 id="全局配置">全局配置</h2>
+<h3 id="博客基本信息">博客基本信息</h3>
+<blockquote>
+<p>设置博客的标题，副标题，描述，等等基本信息。
+yaml语言规定冒号后面内容需要先空格在输入内容</p>
+</blockquote>
+<p>在<code>博客配置文件</code>中 ，修改以下信息</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Site</span>
+<span class="token comment"># 博客标题</span>
+<span class="token key atrule">title</span><span class="token punctuation">:</span> FROSH
+<span class="token comment"># 博客副标题</span>
+<span class="token key atrule">subtitle</span><span class="token punctuation">:</span> <span class="token string">'时刻准备着'</span>
+<span class="token comment"># 站点描述</span>
+<span class="token key atrule">description</span><span class="token punctuation">:</span> <span class="token string">'要做的事还有很多，一件一件地来~'</span>
+<span class="token comment"># 网站关键词，对SEO的优化有一定作用</span>
+<span class="token key atrule">keywords</span><span class="token punctuation">:</span>
+<span class="token comment"># 作者</span>
+<span class="token key atrule">author</span><span class="token punctuation">:</span> kumiao
+<span class="token comment"># 网站使用的语言</span>
+<span class="token key atrule">language</span><span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN    <span class="token comment"># en</span>
+<span class="token comment"># 网站对应失去，不设置默认使用电脑时区，一般中国的时区可以设置为Asia/Shanghai</span>
+<span class="token key atrule">timezone</span><span class="token punctuation">:</span> <span class="token string">''</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="next主题">next主题</h3>
+<h4 id="next主题文件下载及使用">next主题文件下载及使用：</h4>
+<p>进入 <a href="https://hexo.io/themes/">hexo 主题网址</a>，搜索
+next，点击名称进入 GitHub 项目仓库。
+每个主题都有操作文档，按照上面的步骤进行部署</p>
+<p>next文件下载</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/next-theme/hexo-theme-next themes/next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这样你的<code>root\themes</code>目录下就有了一个<code>next</code>文件夹</p>
+<p>博客使用next主题</p>
+<p>修改<code>博客配置文件</code>
+，找<code>theme</code>，并修改为以下内容</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">theme</span><span class="token punctuation">:</span> next <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<blockquote>
+<p>next这个值主要看主题文件夹themes下的文件名称。</p>
+</blockquote>
+<h4 id="next主题样式选择">next主题样式选择</h4>
+<p>next主题有四种样式：Msse、Mist、Pisces、Gemini</p>
+<p>打开<code>主题配置文件</code>，查找<code>Schemes</code>，根据你的需要选择你的样式</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Schemes</span>
+<span class="token comment">#scheme: Muse</span>
+<span class="token key atrule">scheme</span><span class="token punctuation">:</span> Mist
+<span class="token comment">#scheme: Pisces</span>
+<span class="token comment">#scheme: Gemini</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="创建新的菜单页面">创建新的菜单页面</h3>
+<blockquote>
+<p>Mist样式菜单栏与标题栏合并在一起的；
+博客菜单选项，默认全关的，需要自己去添加。</p>
+</blockquote>
+<ol type="1">
+<li><p><code>主题配置文件</code>，查找<code>menu</code>一栏,，按需取消注释</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">menu</span><span class="token punctuation">:</span>
+<span class="token key atrule">home</span><span class="token punctuation">:</span> / <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>home				<span class="token comment">#首页</span>
+<span class="token key atrule">about</span><span class="token punctuation">:</span> /about/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>user			<span class="token comment">#关于</span>
+<span class="token comment">#tags: /tags/ || fa fa-tags			#标签</span>
+<span class="token key atrule">categories</span><span class="token punctuation">:</span> /categories/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>th		<span class="token comment">#分类</span>
+<span class="token key atrule">archives</span><span class="token punctuation">:</span> /archives/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>archive		<span class="token comment">#归档</span>
+<span class="token key atrule">album</span><span class="token punctuation">:</span> /album/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>camera<span class="token punctuation">-</span>retro		<span class="token comment">#相册</span>
+<span class="token key atrule">gallery</span><span class="token punctuation">:</span> /gallery/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>paint<span class="token punctuation">-</span>brush	<span class="token comment">#画廊</span>
+<span class="token key atrule">tools</span><span class="token punctuation">:</span> /tools/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>square			<span class="token comment">#工具</span>
+<span class="token comment">#schedule: /schedule/ || fa fa-calendar	#日历</span>
+<span class="token comment">#sitemap: /sitemap.xml || fa fa-sitemap	#站点地图</span>
+<span class="token comment">#commonweal: /404/ || fa fa-heartbeat		#腾讯公益404</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<blockquote>
+<p>“||”前面是对应路径，后面是图标名称。Next使用的图标库是<a
+href="https://fontawesome.com.cn/faicons/#web-application">Font
+Awesome</a>，可自行添加后更换心仪的图标。</p>
+</blockquote>
+<p>若想添加自定义菜单，则仿照其对应的元素、路径和图标，同时在themes/next/languages/zh-CN.yml
+里的 menu 下添加相对应的中文。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">menu</span><span class="token punctuation">:</span>
+  <span class="token key atrule">home</span><span class="token punctuation">:</span> 首页
+  <span class="token key atrule">archives</span><span class="token punctuation">:</span> 归档
+  <span class="token key atrule">categories</span><span class="token punctuation">:</span> 分类
+  <span class="token key atrule">tags</span><span class="token punctuation">:</span> 标签
+  <span class="token key atrule">about</span><span class="token punctuation">:</span> 关于
+  <span class="token key atrule">search</span><span class="token punctuation">:</span> 搜索
+  <span class="token key atrule">schedule</span><span class="token punctuation">:</span> 日程表
+  <span class="token key atrule">sitemap</span><span class="token punctuation">:</span> 站点地图
+  <span class="token key atrule">commonweal</span><span class="token punctuation">:</span> 公益 404
+  <span class="token key atrule">gallery</span><span class="token punctuation">:</span> 画廊
+  <span class="token key atrule">album</span><span class="token punctuation">:</span> 相册
+  <span class="token key atrule">tools</span><span class="token punctuation">:</span> 工具<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ol start="2" type="1">
+<li><p>执行下面命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page <span class="token string">"菜单名称"</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>此时会在博客目录的sources文件下生成对应的文件夹，每个文件夹都有一个index.md文件，对文件内容进行修改。
+&gt;需要修改新建页面文件<code>tags</code>和<code>categories</code>，同时修改其<code>.md</code>文件，不然网页无法生效</p></li>
+</ol>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token title important"># tags.md
+<span class="token punctuation">---</span></span>
+title: 标签
+date: 2019-01-23 23:26:43
+<span class="token title important">type: tags
+<span class="token punctuation">---</span></span>
+
+<span class="token title important"># categories.md
+<span class="token punctuation">---</span></span>
+title: 类别
+date: 2019-01-23 23:27:04
+<span class="token title important">type: categories
+<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p><strong>注意 1：需要手动添加<code>type: xxx</code></strong>
+<strong>注意 2：需要手动设置中文<code>title</code></strong></p>
+</blockquote>
+<h3 id="本地搜索功能">本地搜索功能</h3>
+<ol type="1">
+<li><p>下载插件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-searchdb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p><code>主题配置文件</code>查找<code>local_serch</code>，将<code>enable</code>设置为<code>true</code></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">local_search</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
+  <span class="token comment"># If auto, trigger search by changing input.</span>
+  <span class="token comment"># If manual, trigger search by pressing enter key or search button.</span>
+  <span class="token key atrule">trigger</span><span class="token punctuation">:</span> auto
+  <span class="token comment"># Show top n results per article, show all results by setting to -1</span>
+  <span class="token key atrule">top_n_per_article</span><span class="token punctuation">:</span> <span class="token number">1</span>
+  <span class="token comment"># Unescape html strings to the readable one.</span>
+  <span class="token key atrule">unescape</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token comment"># Preload the search data when the page loads.</span>
+  <span class="token key atrule">preload</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>在<code>博客配置文件</code>的末尾添加以下内容</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># hexo-generator-searchdb</span>
+<span class="token comment"># 本地搜索</span>
+<span class="token key atrule">search</span><span class="token punctuation">:</span>
+  <span class="token key atrule">path</span><span class="token punctuation">:</span> search.xml
+  <span class="token key atrule">field</span><span class="token punctuation">:</span> post
+  <span class="token key atrule">format</span><span class="token punctuation">:</span> html
+  <span class="token key atrule">limit</span><span class="token punctuation">:</span> <span class="token number">10</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="添加顶部加载条">添加顶部加载条</h3>
+<p>修改主题配置文件，将pace的选项设置为true <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">pace</span><span class="token punctuation">:</span>
+  enable<span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
+  <span class="token comment"># All available colors:</span>
+  <span class="token comment"># black | blue | green | orange | pink | purple | red | silver | white | yellow</span>
+  color<span class="token punctuation">:</span> green <span class="token comment">#blue</span>
+  <span class="token comment"># All available themes:</span>
+  <span class="token comment"># big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span>
+  <span class="token comment"># corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span>
+  theme<span class="token punctuation">:</span> minimal<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+<h3 id="站点图标设置">站点图标设置</h3>
+<p><code>主题配置文件</code>里，favicon
+就是站点标签栏的小图标，默认是用的 Hexo 的小图标，如果我们有站点 Logo
+的图片的话，我们可以自己定制小图标。</p>
+<h4 id="获取图标">获取图标</h4>
+<p>可以通过 PS 制作也可以通过下面网站获取</p>
+<p><a
+href="https://realfavicongenerator.net/">https://realfavicongenerator.net</a></p>
+<h4 id="更换站点图标">更换站点图标</h4>
+<p>图标存放位置在博客目录下<code>root\themes\next\source\images</code>里，
+然后在<code>主题配置文件</code>里面找到<code>favicon</code>配置项，把一些相关路径配置进去即可，示例如下：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">favicon</span><span class="token punctuation">:</span>
+  <span class="token key atrule">small</span><span class="token punctuation">:</span> /images/favicon<span class="token punctuation">-</span>16x16<span class="token punctuation">-</span>next.png
+  <span class="token key atrule">medium</span><span class="token punctuation">:</span> /images/favicon<span class="token punctuation">-</span>32x32<span class="token punctuation">-</span>next.png
+  <span class="token key atrule">apple_touch_icon</span><span class="token punctuation">:</span> /images/apple<span class="token punctuation">-</span>touch<span class="token punctuation">-</span>icon<span class="token punctuation">-</span>next.png
+  <span class="token key atrule">safari_pinned_tab</span><span class="token punctuation">:</span> /images/logo.svg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="github图标">GitHub图标</h3>
+<p><code>主题配置文件</code>中修改<code>github_banner</code>的<code>enable</code>的值</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># `Follow me on GitHub` banner in the top-right corner.</span>
+<span class="token key atrule">github_banner</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># 链接</span>
+  <span class="token key atrule">permalink</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//github.com/luumod
+  <span class="token key atrule">title</span><span class="token punctuation">:</span> Follow me on GitHub<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="添加评论模块giscus评论">添加评论模块——Giscus评论</h3>
+<blockquote>
+<p>Giscus是基于GitHub
+Discussions的评论插件。部署不用注册，支持多种主题，支持自定义配置。所有评论都存储在你的GitHub
+Discussions中，不易丢失，方便管理。不过评论需要登录。 #### 安装流程</p>
+</blockquote>
+<p><strong>第一步：创建GitHub仓库</strong>
+首先，创建的仓库必须是公开的，其次，需要安装<a
+href="github.com/apps/giscus">giscus</a>
+app，最后，<strong>Discussions</strong> 功能已在你的仓库中启用。
+这里说下Discussions功能的开启，先进入仓库里，然后接下来的操作：‘Settings-General-Features’，最后勾选Discussions的复选框就行了。
+<strong>第二步：在 <a href="https://giscus.app/zh-CN">giscus.app</a>
+创建你的配置</strong> 具体设置按照你的要求来，这里展示我的设置。
+映照关系：选第三个； Discussion 分类：Announcenments； 特性：选1，3，4；
+主题：用户偏好的色彩方案。
+这样你会得到一段script代码，将这代码改为yaml</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">giscus</span><span class="token punctuation">:</span>
+  enable<span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  repo<span class="token punctuation">:</span>   <span class="token comment"># Github repository name;你的 GitHub 仓库，格式：用户名/仓库名</span>
+  repo_id<span class="token punctuation">:</span>  <span class="token comment"># Github repository id; 从 giscus.app 获取的仓库ID</span>
+  category<span class="token punctuation">:</span> Announcements <span class="token comment"># Github discussion category;分类名</span>
+  category_id<span class="token punctuation">:</span>  <span class="token comment"># Github discussion category id;从 giscus.app 获取的分类ID</span>
+  <span class="token comment"># Available values: pathname | url | title | og:title</span>
+  mapping<span class="token punctuation">:</span> title <span class="token comment"># 页面与Discussion的映射关系，推荐pathname或title</span>
+  strict<span class="token punctuation">:</span> <span class="token number">0</span>
+  <span class="token comment"># Available values: 0 | 1</span>
+  reactions_enabled<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token comment"># 是否开启表情反应</span>
+   <span class="token comment"># Available values: 0 | 1</span>
+  emit_metadata<span class="token punctuation">:</span> <span class="token number">0</span>
+  input_position<span class="token punctuation">:</span> top <span class="token comment"># 评论输入框位置：top 或 bottom</span>
+  <span class="token comment"># Available values: light | dark | dark_high_contrast | transparent_dark | preferred-color-scheme</span>
+  theme<span class="token punctuation">:</span> preferred_color_scheme <span class="token comment">#light ;主题，可设为 light, dark, preferred_color_scheme 等</span>
+  <span class="token comment"># Available values: en | zh-C</span>
+  lang<span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN  <span class="token comment"># 界面语言</span>
+  loading<span class="token punctuation">:</span> lazy <span class="token comment"># 懒加载</span>
+  <span class="token comment"># Available value: anonymous</span>
+  crossorigin<span class="token punctuation">:</span> anonymous
+  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p><strong>第三步：在主题配置文件中添加Giscus 配置</strong>
+在主题配置文件中的comments部分，添加Giscus
+配置，即第二部的yaml代码，不能留空哦。 #### 实现效果 博客页面： <img
+src="%7BD78D1E34-6764-48D2-AA50-D13BF241D8D5%7D.png" /> 仓库里的内容：
+<img src="%7BFCFD4B0C-B609-4CD3-89B3-B0A887435C00%7D.png" /> ####
+页面取消评论区</p>
+<blockquote>
+<p>设置完成后，默认为除首页外的每个页面添加评论区，这时候就需要为不需要的页面设置不显示评论。下面示例，仿照即可</p>
+</blockquote>
+<p>示例：标签页面 在页面文件的<strong>Front-matter</strong>
+部分（即开头以 <code>---</code> 包裹的区域）添加comments:
+false<code>配置项。 示例：取消标签页面的评论区 1. 定位文件：root/source/tags/index.md 2. 添加配置：在文件的 **Front-matter** 部分添加</code>comments:
+false` 配置项。如下： <pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
+<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 标签
+<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-24 00:00:00</span>
+<span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">"tags"</span>
+<span class="token key atrule">comments</span><span class="token punctuation">:</span> <span class="token boolean important">false</span></span> 
+<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+<h3 id="点击放大图片">点击放大图片</h3>
+<p>将主题配置文件内 fancybox 的值置为 true 即可</p>
+<h3 id="打赏功能">打赏功能</h3>
+<p>在 <code>主题配置文件</code>中找到如下的
+<strong>raward功能</strong></p>
+<ol type="1">
+<li>enable选择打开，comment输入文字</li>
+<li>在缀主题的images文件夹中把你的<strong>付款码的图片放到 rootimages
+中</strong>，它会按照这个路径寻找图片</li>
+</ol>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Reward(Donate)</span>
+<span class="token comment"># Front-matter variable (unsupport animation).</span>
+<span class="token key atrule">reward_settings</span><span class="token punctuation">:</span>
+  <span class="token comment"># if true,reward will be displayed in every article by default.</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">animation</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token key atrule">comment</span><span class="token punctuation">:</span> <span class="token string">"您的支持将鼓励我继续创作！"</span>
+
+<span class="token key atrule">reward</span><span class="token punctuation">:</span>
+  <span class="token key atrule">wechatpay</span><span class="token punctuation">:</span> /images/wechat.png
+  <span class="token key atrule">alipay</span><span class="token punctuation">:</span> /images/zhifubao.jpg
+<span class="token comment"># paypal:/images/paypal png</span>
+<span class="token comment"># bitcoin:/images/bitcoin.png</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>这里你可以发现，这个images文件夹里面的图片都是可以修改的，找到合适的地点，然后更改你的图片即可换成你想要的图片了</p>
+<h3 id="添加rss订阅">添加RSS订阅</h3>
+<p>执行命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-feed<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>在<code>博客配置文件</code>末尾添加以下内容</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">  <span class="token comment"># feed  RSS订阅配置</span>
+<span class="token comment"># Dependencies: https://github.com/hexojs/hexo-generator-feed</span>
+<span class="token key atrule">feed</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> atom <span class="token comment"># 或 rss2</span>
+  <span class="token key atrule">path</span><span class="token punctuation">:</span> atom.xml <span class="token comment"># 输出的文件路径</span>
+  <span class="token key atrule">limit</span><span class="token punctuation">:</span> <span class="token number">20</span> <span class="token comment"># 最多包含的文章数，设为 0 或 false 表示全部</span>
+  <span class="token key atrule">content</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 是否包含文章全文，建议设为 false，仅输出摘要</span>
+
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>编辑<code>主题配置文件</code>，这步配置完成后，它会在每篇文章末尾生成一个RSS按钮。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">follow_me</span><span class="token punctuation">:</span>
+  <span class="token key atrule">RSS</span><span class="token punctuation">:</span> /atom.xml <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>rss<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<p>运行 <code>hexo s</code>
+启动本地服务器，在浏览器中访问<code>http://localhost:4000/atom.xml</code>,能看到一个
+XML 格式的文档，说明 RSS 已生成成功</p>
+<h3 id="pjax">pjax</h3>
+<p>可能大家听说过 Ajax，没听说过 pjax，这个技术实际上就是利用 Ajax
+技术<strong>实现了局部页面刷新</strong>，既可以实现 URL
+的更换，有可以做到无刷新加载。</p>
+<p>要开启这个功能需要先将 pjax 功能开启，然后安装对应的 pjax
+依赖库，首先修改<code>主题配置文件</code> 修改如下：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">pjax</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后安装依赖库，切换到 <strong>next
+主题目录</strong>下，右击打开<code>git bash</code>，然后安装依赖库：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/theme-next/theme-next-pjax source/lib/pjax<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>这样它会在<code>root\themes\next\source\</code>生成lib文件夹以及它的子文件夹pjax。</p>
+<h2 id="侧边栏配置">侧边栏配置</h2>
+<h3 id="侧边栏头像设置">侧边栏头像设置</h3>
+<p>将自己的头像图片储存在 <code>root\themes\next\source\images</code>
+中；
+在<code>主题配置文件</code>中找到<code>avatar</code>，在<code>url</code>后面写上头像位置，将<code>false</code>改为<code>true</code>。</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">avatar</span><span class="token punctuation">:</span>
+  <span class="token comment"># Replace the default image and set the url here.</span>
+  <span class="token comment"># 图片位置，可以是网络路径</span>
+  <span class="token key atrule">url</span><span class="token punctuation">:</span> /images/avatar01.gif <span class="token comment">#/images/avatar.gif</span>
+  <span class="token comment"># If true, the avatar will be displayed in circle.</span>
+  <span class="token comment"># 圆框显示</span>
+  <span class="token key atrule">rounded</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false </span>
+  <span class="token comment"># If true, the avatar will be rotated with the cursor.</span>
+  <span class="token comment"># 鼠标悬停在头像时旋转</span>
+  <span class="token key atrule">rotated</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="添加-social-链接">添加 social 链接</h3>
+<p>打开主题配置文件，在 social 下添加链接：</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">social</span><span class="token punctuation">:</span>
+
+  GitHub<span class="token punctuation">:</span> https<span class="token punctuation">:</span>//github.com/froshblog <span class="token punctuation">|</span><span class="token punctuation">|</span> fab fa<span class="token punctuation">-</span>github
+  <span class="token comment"># 需要添加rss插件才能生效</span>
+  RSS<span class="token punctuation">:</span> /atom.xml <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>rss
+  <span class="token comment">#E-Mail: mailto:yourname@gmail.com || fa fa-envelope</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="添加链接">添加链接</h3>
+<p>打开<code>主题配置文件</code>，搜索关键词<strong>Blog
+rolls</strong>，设置即可：</p>
+<ul>
+<li>icon：设置图标</li>
+<li>title：标题</li>
+<li>links：输入你的友情链接，可以直接修改或者添加</li>
+</ul>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Blog rolls</span>
+<span class="token key atrule">links_settings</span><span class="token punctuation">:</span>
+  <span class="token key atrule">icon</span><span class="token punctuation">:</span> fa fa<span class="token punctuation">-</span>link
+  <span class="token comment"># Available values: block | inline</span>
+  <span class="token comment"># layout: block</span>
+  <span class="token key atrule">layout</span><span class="token punctuation">:</span> inline
+  
+
+<span class="token key atrule">links</span><span class="token punctuation">:</span>
+  <span class="token comment">#Title: https://example.com</span>
+  <span class="token key atrule">优设</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//www.uisdc.com/
+  <span class="token key atrule">Web前端导航</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//www.alloyteam.com/nav/
+  <span class="token key atrule">前端书籍资料</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//www.36zhen.com/t<span class="token punctuation">?</span>id=3448
+  <span class="token key atrule">百度前端技术学院</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//ife.baidu.com/
+  <span class="token key atrule">google前端开发基础</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//wf.uisdc.com/cn/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h2 id="页脚配置">页脚配置</h2>
+<h3 id="隐藏底部由-强力驱动">隐藏底部由… 强力驱动</h3>
+<p>文件位置：<code>root\themes\next\layout\ _partials\footer.njk</code></p>
+<p>使用vscode打开，第82行（一般在末尾）的内容首尾加了 个 &lt;!- -
+–&gt;用于隐藏中间的内容</p>
+<pre class="line-numbers language-njk" data-language="njk"><code class="language-njk">&lt;!--&#123;&#123;- __(&#39;footer.powered&#39;, next_url(&#39;https:&#x2F;&#x2F;hexo.io&#39;, &#39;Hexo&#39;) + &#39; &amp; &#39; + next_url(next_site, &#39;NexT.&#39; + theme.scheme)) &#125;&#125;--&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="文章配置">文章配置</h2>
+<h3
+id="首页只显示部分摘要不显示全文">首页只显示部分摘要(不显示全文)</h3>
+<p>首先，<code>主题配置文件</code>中的以下内容（默认开启）</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Use `description` in front-matter to specify post excerpt.</span>
+<span class="token key atrule">excerpt_description</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+<h4 id="方法一写概述">方法一：写概述</h4>
+<p>在博客文章中的<strong>Front-matter</strong>中添加<code>description</code>，只有其后内容会显示在首页上</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">title: hexo个人博客搭建
+date: 2026-01-15 00:32:06
+tags:
+<span class="token list punctuation">-</span> Hexo
+categories: 
+<span class="token list punctuation">-</span> 个人博客
+description: 
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<blockquote>
+<p>对于这种常用的文章设置，可以直接在博客模板文件的<strong>Front-matter</strong>中添加的字段。
+#### 方法二：文章截断</p>
+</blockquote>
+<p>在<code>.md</code>文件（博客文章）中，在需要显示在首页的内容后面添加以下内容：</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token comment">&lt;!--more--></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="置顶首页文章">置顶首页文章</h3>
+<p>在文章的<strong>Front-matter</strong>中添加<code>sticky</code>，数值越大，置顶优先级越高</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
+<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 文章标题
+<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-20</span>
+<span class="token key atrule">sticky</span><span class="token punctuation">:</span> <span class="token number">100</span></span>  
+<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="隐藏文章">隐藏文章</h3>
+<blockquote>
+<p>我是使用obsidian管理我的博客，直接创建文章就开写，有时卡文就可以使用这个功能将文章隐藏</p>
+</blockquote>
+<ol type="1">
+<li>安装Hexo插件 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-hide-posts <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li>在<code>博客配置文件</code>的末尾添加以下内容 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 隐藏文章配置</span>
+<span class="token key atrule">hide_posts</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># 根据你的需要修改，比如隐藏哪些生成器中的文章</span>
+  <span class="token key atrule">filter</span><span class="token punctuation">:</span> hidden
+  <span class="token comment"># 可以指定从哪些生成器中隐藏，比如首页、标签、分类等;特别注意不要加入自己没有的生成器，不然会失效</span>
+  <span class="token key atrule">generators</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> index
+    <span class="token punctuation">-</span> tag
+    <span class="token punctuation">-</span> category
+    <span class="token punctuation">-</span> archive
+  <span class="token comment"># 也可以设置白名单，允许某些路径访问</span>
+  <span class="token comment"># allowlist: </span>
+  <span class="token comment">#   - /about/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li>在文章的
+<strong>Front-matter</strong>中添加<code>hidden</code>，true：表示隐藏，false：不隐藏
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
+<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 我的隐藏文章
+<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-20</span>
+<span class="token key atrule">hidden</span><span class="token punctuation">:</span> <span class="token boolean important">true</span></span>
+<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="修改首页分页文章数">修改首页分页文章数</h3>
+<p>在站点配置文件中找到 index_generator，修改 per_page 项：
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">index_generator</span><span class="token punctuation">:</span>
+  <span class="token key atrule">path</span><span class="token punctuation">:</span> <span class="token string">''</span>
+  <span class="token key atrule">per_page</span><span class="token punctuation">:</span> <span class="token number">5</span>
+  <span class="token key atrule">order_by</span><span class="token punctuation">:</span> <span class="token punctuation">-</span>date<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></p>
+<h3 id="关闭首页阅读更多按钮">关闭首页“阅读更多”按钮</h3>
+<p>在主题配置文件中找到 read_more_btn，修改其值为 false，即可关闭。</p>
+<h3 id="中英自动添加空格">中英自动添加空格</h3>
+<p>修改<code>主题配置文件</code>中<code>pangu</code>的值，将<code>false</code>改为<code>ture</code></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">pangu</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h3 id="代码块一键复制">代码块一键复制</h3>
+<p>修改<code>主题配置文件l</code>的<code>copy_button</code>的值为<code>enable</code></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">copy_button</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
+    <span class="token comment"># Available values: default | flat | mac</span>
+    <span class="token key atrule">style</span><span class="token punctuation">:</span> flat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="阅读时间字数提示">阅读时间字数提示</h3>
+<ol type="1">
+<li><p>下载插件</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-symbols-count-time<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+<li><p>修改<code>主题配置文件</code>，找到以下内容修改</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 设置博客单词统计</span>
+<span class="token key atrule">symbols_count_time</span><span class="token punctuation">:</span>
+  <span class="token comment"># 是否另起一行（true的话不和发表时间等同一行）</span>
+  <span class="token key atrule">separated_meta</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+   <span class="token comment"># 页面底部统计数量前是否显示文字描述（站点总字数、站点阅读时长）</span>
+  <span class="token key atrule">item_text_total</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># 首页文章统计数量前是否显示文字描述（本文字数、阅读时长）</span>
+  <span class="token key atrule">item_text_post</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>在<code>博客配置文件</code>的末尾添加以下内容</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">symbols_count_time</span><span class="token punctuation">:</span>
+  <span class="token comment"># 每篇文章显示</span>
+  <span class="token key atrule">symbols</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">time</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># 文章底部显示</span>
+  <span class="token key atrule">total_symbols</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">total_time</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># 是否统计代码块</span>
+  <span class="token key atrule">exclude_codeblock</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token key atrule">awl</span><span class="token punctuation">:</span> <span class="token number">2</span>    
+  <span class="token key atrule">wpm</span><span class="token punctuation">:</span> <span class="token number">275</span>
+  <span class="token key atrule">suffix</span><span class="token punctuation">:</span> <span class="token string">"mins."</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
+</ol>
+<h3 id="取消文章目录自动编号">取消文章目录自动编号</h3>
+<p>修改<code>主题配置文件</code>中<code>wrap</code>,
+将<code>false</code>改为<code>true</code></p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">toc</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># Automatically add list number to toc.</span>
+  <span class="token key atrule">number</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token comment"># If true, all words will placed on next lines if header width longer then sidebar width. </span>
+  <span class="token key atrule">wrap</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
+  <span class="token comment"># If true, all level of TOC in a post will be displayed, rather than the activated part of it.</span>
+  <span class="token comment"># 所有页面显示目录</span>
+  <span class="token key atrule">expand_all</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token comment"># Maximum heading depth of generated toc.</span>
+  <span class="token key atrule">max_depth</span><span class="token punctuation">:</span> <span class="token number">6</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="博客mathjax渲染数学公式">博客mathjax渲染数学公式</h3>
+<p>在博客主题配置文件中修改mathjax配置：
+在配置文件中搜寻<code>math</code>相关配置，并参考下方示例进行修改：
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Math Formulas Render Support</span>
+<span class="token key atrule">math</span><span class="token punctuation">:</span>
+  <span class="token comment"># 开启后，所有页面都会加载 MathJax 脚本。</span>
+  <span class="token comment"># 如果设为 false，则只会在 Front-matter 中设置了 `mathjax: true` 的文章页面加载。</span>
+  <span class="token key atrule">every_page</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+
+  <span class="token key atrule">mathjax</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>    <span class="token comment"># 启用 MathJax 引擎</span>
+    <span class="token comment"># 可选配置：公式编号功能。'ams' 可启用自动编号。</span>
+    <span class="token comment"># tags: 'ams'   </span>
+
+  <span class="token key atrule">katex</span><span class="token punctuation">:</span>
+    <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>   <span class="token comment"># 如果使用 MathJax，确保 KaTeX 是关闭的</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+修改完成后在需要显示公式的文章<code>Front-matter</code>中开启MathJax渲染：
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
+<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 我的数学文章
+<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-01 12:00:00</span>
+<span class="token key atrule">mathjax</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment"># 在这里开启</span></span>
+<span class="token punctuation">---</span></span>
+
+欢迎来到我的数学世界，下面是几个公式的例子。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+<p>markdown中公式的书写： <pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">$$\begin&#123;matrix&#125;
+4K(3840 \times 2160) \\
+2K(2560 \cdot 1440) \\
+1080P(1920 \cdot 1080) \\
+720P(1280 \cdot 720)
+\end&#123;matrix&#125;
+$$
+
+实现多行显示需要<span class="token code-snippet code keyword">`\begin&#123;matrix&#125;……\end&#123;matrix&#125;`</span>与<span class="token code-snippet code keyword">`\\`</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> ### 博客插入图片</p>
+<ol type="1">
+<li><p>在<code>博客配置文件</code>中查找以下内容并修改</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">post_asset_folder</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
+</ol>
+<p>这个操作能在你用<code>hexo new 文章名</code>创建博客时生成一个同名文件夹放置图片</p>
+<p>示例目录：</p>
+<p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">MacGesture2-Publish
+├── apppicker.jpg
+├── logo.jpg
+└── rules.jpg
+MacGesture2-Publish.md        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
+<ol start="2" type="1">
+<li><p><strong>配置渲染器</strong></p>
+<p>在<code>博客配置文件</code>中添加以下内容</p>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Markdown 配置（你可以添加这行注释，便于识别）</span>
+<span class="token key atrule">marked</span><span class="token punctuation">:</span>
+  <span class="token key atrule">prependRoot</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+  <span class="token key atrule">postAsset</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
+<li><p>只需使用<code>![logo](logo.jpg)</code>插入<code>logo.jpg</code></p></li>
+</ol>
+<h3 id="图片懒加载插件">图片懒加载插件</h3>
+<p>安装插件： <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-lazyload-image <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> 博客配置文件的末尾添加以下内容：
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">lazyload</span><span class="token punctuation">:</span>
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 开启</span>
+  <span class="token key atrule">onlypost</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 是否仅文章内图片生效。false：全站图片生效[citation:7][citation:10]</span>
+  <span class="token key atrule">loadingImg</span><span class="token punctuation">:</span> <span class="token comment"># 自定义加载占位图，留空则使用默认灰色图</span>
+  <span class="token key atrule">isSPA</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 【关键】如果你的主题使用了Pjax（NexT主题默认开启），必须设为true以避免冲突[citation:10]</span>
+  <span class="token key atrule">preloadRatio</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token comment"># 在图片进入视窗多少倍距离时开始加载，默认为1[citation:10]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> ### 设置图片大小</p>
+<p>直接写html代码，比如原来的写法是</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url"><span class="token operator">!</span>[<span class="token content">支付宝</span>](<span class="token url">/images/alipay.png</span>)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>可以写成</p>
+<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/images/alipay.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>支付宝<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h2 id="seo搜索引擎优化">SEO（搜索引擎优化）</h2>
+<h3 id="待续">待续</h3>
+<p>可以看大佬的文章<a
+href="https://zcw-blog.top/posts/20220424a1/#seo%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96">SEO</a></p>
+<h2 id="geo">GEO</h2>
+<h3 id="待续-1">待续</h3>
+<h2 id="删除-hexo-博客">删除 hexo 博客</h2>
+<p>在命令提示符中，执行以下命令：</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> uninstall hexo-cli <span class="token parameter variable">-g</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>然后手动删除博客文件夹。</p>
+<p>另外，进行重装之前，如果还是在原来位置，必须手动清理了才能迁移安装。</p>
+<h2 id="参考文章">参考文章</h2>
+<p><a
+href="https://www.hancher.top/2025/01/09/site-hexo-comment-feature/">hexo建站增加自己的评论模块
+- 寒澈笔记</a></p>
+<p>https://zcw-blog.top/posts/20220424a1/</p>
+<p>http://shenzekun.cn/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html</p>
+]]></content>
+      <categories>
+        <category>个人博客</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
       </tags>
   </entry>
   <entry>
@@ -646,6 +1093,183 @@ href="https://www.bilibili.com/video/BV13g41147yV/?spm_id_from=333.1391.0.0&amp;
       </tags>
   </entry>
   <entry>
+    <title>视频压缩</title>
+    <url>/posts/8834618.html/</url>
+    <content><![CDATA[<hr>
+<blockquote>
+<p>需求：既要明显下降文件大小，又要画质肉眼看不出下降。</p>
+</blockquote>
+<blockquote>
+<p>视频是一张张画面交替出现形成的。想要压缩视频主要通过这几个参数调节：分辨率、帧率、码率、编码</p>
+</blockquote>
+<blockquote>
+<p>视频压缩是不可逆的，若有条件，建议将原文件进行冷数据备份（备份到云盘等）。</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="分辨率">分辨率</h2>
+<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true" width="full" style="min-width: 28.071ex;"><svg style="vertical-align: -5.317ex; min-width: 28.071ex;" xmlns="http://www.w3.org/2000/svg" width="100%" height="11.765ex" role="img" focusable="false"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(0.0181,-0.0181) translate(0, -2850)"><g data-mml-node="math"><g data-mml-node="mtable" transform="translate(2078,0) translate(-2078,0)"><g transform="translate(0 2850) matrix(1 0 0 -1 0 0) scale(55.25)"><svg data-table="true" preserveAspectRatio="xMidYMid" viewBox="4125.7 -2850 1 5200"><g transform="matrix(1 0 0 -1 0 0)"><g data-mml-node="mlabeledtr"><g data-mml-node="mtd"><g data-mml-node="mtable"><g data-mml-node="mtr" transform="translate(0,2100)"><g data-mml-node="mtd" transform="translate(431,0)"><g data-mml-node="mn"><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D43E" d="M285 628Q285 635 228 637Q205 637 198 638T191 647Q191 649 193 661Q199 681 203 682Q205 683 214 683H219Q260 681 355 681Q389 681 418 681T463 682T483 682Q500 682 500 674Q500 669 497 660Q496 658 496 654T495 648T493 644T490 641T486 639T479 638T470 637T456 637Q416 636 405 634T387 623L306 305Q307 305 490 449T678 597Q692 611 692 620Q692 635 667 637Q651 637 651 648Q651 650 654 662T659 677Q662 682 676 682Q680 682 711 681T791 680Q814 680 839 681T869 682Q889 682 889 672Q889 650 881 642Q878 637 862 637Q787 632 726 586Q710 576 656 534T556 455L509 418L518 396Q527 374 546 329T581 244Q656 67 661 61Q663 59 666 57Q680 47 717 46H738Q744 38 744 37T741 19Q737 6 731 0H720Q680 3 625 3Q503 3 488 0H478Q472 6 472 9T474 27Q478 40 480 43T491 46H494Q544 46 544 71Q544 75 517 141T485 216L427 354L359 301L291 248L268 155Q245 63 245 58Q245 51 253 49T303 46H334Q340 37 340 35Q340 19 333 5Q328 0 317 0Q314 0 280 1T180 2Q118 2 85 2T49 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Z"></path></g><g data-mml-node="mo" transform="translate(1389,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(1778,0)"><path data-c="33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(500,0)"></path><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(4000.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mn" transform="translate(5000.4,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" transform="translate(500,0)"></path><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(7000.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g><g data-mml-node="mtr" transform="translate(0,700)"><g data-mml-node="mtd" transform="translate(681,0)"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D43E" d="M285 628Q285 635 228 637Q205 637 198 638T191 647Q191 649 193 661Q199 681 203 682Q205 683 214 683H219Q260 681 355 681Q389 681 418 681T463 682T483 682Q500 682 500 674Q500 669 497 660Q496 658 496 654T495 648T493 644T490 641T486 639T479 638T470 637T456 637Q416 636 405 634T387 623L306 305Q307 305 490 449T678 597Q692 611 692 620Q692 635 667 637Q651 637 651 648Q651 650 654 662T659 677Q662 682 676 682Q680 682 711 681T791 680Q814 680 839 681T869 682Q889 682 889 672Q889 650 881 642Q878 637 862 637Q787 632 726 586Q710 576 656 534T556 455L509 418L518 396Q527 374 546 329T581 244Q656 67 661 61Q663 59 666 57Q680 47 717 46H738Q744 38 744 37T741 19Q737 6 731 0H720Q680 3 625 3Q503 3 488 0H478Q472 6 472 9T474 27Q478 40 480 43T491 46H494Q544 46 544 71Q544 75 517 141T485 216L427 354L359 301L291 248L268 155Q245 63 245 58Q245 51 253 49T303 46H334Q340 37 340 35Q340 19 333 5Q328 0 317 0Q314 0 280 1T180 2Q118 2 85 2T49 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Z"></path></g><g data-mml-node="mo" transform="translate(1389,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(1778,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z" transform="translate(500,0)"></path><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(4000.2,0)"><path data-c="22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path></g><g data-mml-node="mn" transform="translate(4500.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" transform="translate(500,0)"></path><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(6500.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g><g data-mml-node="mtr" transform="translate(0,-700)"><g data-mml-node="mtd"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mi" transform="translate(2000,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(2751,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(3140,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="39" d="M352 287Q304 211 232 211Q154 211 104 270T44 396Q42 412 42 436V444Q42 537 111 606Q171 666 243 666Q245 666 249 666T257 665H261Q273 665 286 663T323 651T370 619T413 560Q456 472 456 334Q456 194 396 97Q361 41 312 10T208 -22Q147 -22 108 7T68 93T121 149Q143 149 158 135T173 96Q173 78 164 65T148 49T135 44L131 43Q131 41 138 37T164 27T206 22H212Q272 22 313 86Q352 142 352 280V287ZM244 248Q292 248 321 297T351 430Q351 508 343 542Q341 552 337 562T323 588T293 615T246 625Q208 625 181 598Q160 576 154 546T147 441Q147 358 152 329T172 282Q197 248 244 248Z" transform="translate(500,0)"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(5362.2,0)"><path data-c="22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path></g><g data-mml-node="mn" transform="translate(5862.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(7862.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g><g data-mml-node="mtr" transform="translate(0,-2100)"><g data-mml-node="mtd" transform="translate(500,0)"><g data-mml-node="mn"><path data-c="37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(500,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1000,0)"></path></g><g data-mml-node="mi" transform="translate(1500,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(2251,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(2640,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(500,0)"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(4862.2,0)"><path data-c="22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path></g><g data-mml-node="mn" transform="translate(5362.4,0)"><path data-c="37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(500,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1000,0)"></path></g><g data-mml-node="mo" transform="translate(6862.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></g></g></g></g></svg><svg data-labels="true" preserveAspectRatio="xMaxYMid" viewBox="1278 -2850 1 5200"><g data-labels="true" transform="matrix(1 0 0 -1 0 0)"><g data-mml-node="mtd" id="mjx-eqn:1"><g data-mml-node="mtext"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" transform="translate(389,0)"></path><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z" transform="translate(889,0)"></path></g></g></g></svg></g></g></g></g></svg></mjx-container></span></p>
+<blockquote>
+<p>通常我们到手的视频已经是1080p甚至720p，再往下调整分辨率，必然影响到视频在不同设备上的播放清晰度。并且修改分辨率是最不可逆的损失。</p>
+</blockquote>
+<p>例如：2K转为1080P，你的原始视频每帧约有 830万像素，转码后降到了约
+210万像素。大约
+60%的像素细节被永久丢弃了。即使你用软件“放大”回2K，也只是通过算法猜测和填充缺失的像素，无法恢复真实的原始细节。</p>
+<h2 id="帧率">帧率</h2>
+<p>视频是一秒钟出现几个画面的视频就是几帧。比如：你的视频一秒钟出现了60个画面，那么这个视频就是60帧。
+若把60帧的视频去掉一半的画面变成30帧，视频体积一定会减少，但实际上大多的视频已经是30帧或者24帧，再往下调整会有明显的卡顿。</p>
+<blockquote>
+<p>一般24帧-30帧的视频就可以了 ## 码率</p>
+</blockquote>
+<p>码率就是单位时间内视频里所包含的数据信息，码率高就代表视频里面给算法还原的关键图片数量多。</p>
+<blockquote>
+<p>别称：数据速率(45.63兆位/秒)，比特率(44.82Mbps)，平均比特率，恒定质量(英文：CRF，数值从0到51，值越低质量越高,示例22RF)</p>
+</blockquote>
+<p>通常码率越高，视频画质越好。但存在阈值，超过阈值画质提升效果不明显。
+通过各个视频平台的视频要求看：码率在3Mbps-6Mbps <img src="file-20260223210412363.png"></p>
+<h3 id="单位转换">单位转换</h3>
+<blockquote>
+<p>比特能表示速率</p>
+</blockquote>
+<p><strong>1 Byte（B） = 8 bit</strong></p>
+<p><strong>1 Kilo Byte（KB） = 1024B</strong></p>
+<p><strong>1 Mega Byte（MB） = 1024 KB</strong></p>
+<p><strong>1 Giga Byte （GB）= 1024 MB</strong></p>
+<p><strong>1 Tera Byte（TB）= 1024 GB</strong></p>
+<p>1 Peta Byte（PB） = 1024 TB</p>
+<p>1 Exa Byte（EB） = 1024 PB</p>
+<p>1 Zetta Byte（ZB） = 1024 EB</p>
+<p>1Yotta Byte（YB）= 1024 ZB</p>
+<p>1 Bronto Byte（BB） = 1024 YB</p>
+<p>1Nona Byte（NB）=1024 BB</p>
+<p>1 Dogga Byte（DB）=1024 NB</p>
+<p>1 Corydon Byte（CB）=1024DB</p>
+<h3 id="恒定质量">恒定质量</h3>
+<p>RF值22的常见码率参考估算基于使用 <strong>x264</strong> 或
+<strong>x265</strong> 编码器进行编码的情况：</p>
+<table>
+<colgroup>
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr>
+<th>分辨率</th>
+<th>内容复杂度</th>
+<th>预估平均码率范围 (H.265)</th>
+<th>预估平均码率范围 (H.264)</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1080p</strong></td>
+<td>低 (如讲课、幻灯片)</td>
+<td>1.5 - 3 Mbps</td>
+<td>3 - 6 Mbps</td>
+<td>画面简单，码率需求低。</td>
+</tr>
+<tr>
+<td><strong>1080p</strong></td>
+<td>中 (普通电影、剧集)</td>
+<td>3 - 6 Mbps</td>
+<td>6 - 12 Mbps</td>
+<td>大多数影视内容的常见范围。</td>
+</tr>
+<tr>
+<td><strong>1080p</strong></td>
+<td>高 (快动作、复杂细节)</td>
+<td>6 - 10+ Mbps</td>
+<td>12 - 20+ Mbps</td>
+<td>如体育赛事、自然纪录片。</td>
+</tr>
+<tr>
+<td><strong>2K/1440p</strong></td>
+<td>中</td>
+<td>5 - 9 Mbps</td>
+<td>10 - 18 Mbps</td>
+<td>约为1080p码率的1.5-2倍。</td>
+</tr>
+<tr>
+<td><strong>4K/2160p</strong></td>
+<td>中</td>
+<td>10 - 20 Mbps</td>
+<td>20 - 40+ Mbps</td>
+<td>约为1080p码率的3-4倍。</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>注：RF值22通常被认为是<strong>高质量</strong>和<strong>中等质量</strong>的分界线。如果你追求近乎无损的存档质量，可考虑使用<strong>RF
+18-20</strong>；如果追求高压缩率，则可使用<strong>RF
+24-26</strong>。</p>
+<p>⚠️ 重要注意事项</p>
+<ul>
+<li><p><strong>编码器差异</strong>：不同编码器（如x265与NVIDIA
+NVENC）即使用相同RF值，输出码率和画质也可能不同。</p></li>
+<li><p><strong>核心目的</strong>：使用CRF模式就是为了<strong>解放双手</strong>，无需纠结码率，让编码器自动为每一帧画面分配最合适的比特数，从而在整体上保持你设定的视觉质量。</p></li>
+</ul>
+<p>总结来说，对于一段中等复杂度的1080p电影，使用H.265编码并设定RF
+22，其平均码率很可能会落在 <strong>3-6 Mbps</strong> 的范围内。 ##
+视频编码 视频编码标准（如图） <img src="file-20260223175332462.png"></p>
+</blockquote>
+<p>其中，h.264编码标准兼容性好；h.265虽然压缩效率高于h.254，但是因专利费和解码占资源对老电脑支持性差等原因被网友称“h.265狗都不用”；AV1是最新的编码标准，开源、免专利，但不可避免的对硬件解码有一定要求，并且因为是新兴的标准，所有普及性没有前面的广（正在蓬勃发展），它的压缩效率与h.264相比，在相同画质下，比h.264节省30%的码率。</p>
+<h2 id="handbrake使用案例">HandBrake使用案例</h2>
+<blockquote>
+<p>通过上面的学习，如果我们需要压缩本地的视频以此来增大我们硬盘空间，视频主要参数如下：
+- 分辨率：不变（当然分辨率高可以考虑下调） - 帧率：24帧-30帧 -
+码率：3Mbps-6Mbps（22RF）</p>
+</blockquote>
+<h3 id="工具推荐">工具推荐</h3>
+<ol type="1">
+<li><p>ffmpeg工具
+&gt;它是一个强大的视频处理的命令行工具。市面上大部分软件基本套壳它的，但上手难度高。</p></li>
+<li><p><a href="https://handbrake.fr/downloads.php">HandBrake</a>
+&gt;免费的视频处理工具。新手推荐使用它，下面我们简单来使用它。</p></li>
+</ol>
+<h3 id="导入视频">导入视频</h3>
+<p>可以直接拖动视频到窗口，也可以选择打开文件 <img src="file-20260223213644411.png"></p>
+<h3 id="参数配置">参数配置</h3>
+<p>按照下面图片依次设置，其他的可以不管 ①： <img src="file-20260223214249460.png"></p>
+<p>②：分辨率限制改为“无” <img src="file-20260223214601567.png">
+③：调节帧率为24帧—30帧中的一个值；码率可以直接固定码率为22RF，也可以选择平均比特率：3Mbps-6Mbps；编码方式如果确实需要压缩可以改为除包含H.264字符的任意方式，推荐AV1(更好)、H.265
+<img src="assets/视频压缩/file-20260223215426574.png"> &gt;解析：
+&gt;<strong>H.265 (x265)</strong>：x265代表使用CPU压缩视频
+&gt;<strong>H.26510bit
+(x265)</strong>：10bit代表画面中能表现的色彩数量，数量越多画面过多越平滑；H.265支持1670万种颜色，普通视频这个就行，10bit大概10.7亿种颜色，适合颜色丰富的视频
+&gt;<strong>H.26510bit (AMD VCE)</strong>：AMD
+VCE是程序会调用相应的GPU来压缩，速度会比CPU块很多，但画质会稍差一些，并且压缩后的文件会大一些</p>
+<p>④：可以点击预览观看效果</p>
+<p>⑤：点击开始编译，进行压缩视频 ## 视频大小要求</p>
+<blockquote>
+<p>通常我们上传视频到视频平台时，平台都有视频的标准，我们知道视频的大小和时长就可以计算出视频所需的码率</p>
+</blockquote>
+<p>计算实例：</p>
+<p>视频时长20秒，大小77.3MB</p>
+<p>一秒钟的信息量：77.3/20=3.87MB (字节表示)</p>
+<p>字节换算成比特：3.87*8=30.96Mb(比特表示)</p>
+<p>视频平均码率：30.96Mbps(比特能表示速率)</p>
+<p>（这不包含音频文件，一般忽略不计）</p>
+<p>换算单位：</p>
+<p>约等于</p>
+<p>1Mb=1000kb</p>
+<p>1Mbps=1000kbps</p>
+<p>码率=(视频大小/视频时长)*8</p>
+<h2 id="参考文章">参考文章</h2>
+<p><a href="https://www.bilibili.com/video/BV1D7aEzvEP5?spm_id_from=333.788.recommend_more_video.-1&amp;trackid=web_related_0.router-related-2481894-flpjl.1771855175914.785&amp;vd_source=ff90d309a66060821e097736f479cb41">HandBrake使用教程-小in分享</a></p>
+<p><a href="https://www.bilibili.com/video/BV1Wa411H7CR/?spm_id_from=333.1387.favlist.content.click&amp;vd_source=ff90d309a66060821e097736f479cb41">如何压缩视频，把文件变小，还没画质损失？-Mac云课堂</a></p>
+]]></content>
+      <categories>
+        <category>空间压缩</category>
+      </categories>
+      <tags>
+        <tag>视频</tag>
+        <tag>压缩技术</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hexo博客搭建所得</title>
     <url>/posts/ba484542.html/</url>
     <content><![CDATA[<hr />
@@ -822,6 +1446,114 @@ git config user.email<span aria-hidden="true" class="line-numbers-rows"><span></
         <tag>Hexo</tag>
         <tag>git</tag>
         <tag>css</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Could Flare CDN双域名优选</title>
+    <url>/posts/3474904c.html/</url>
+    <content><![CDATA[<hr />
+<p>Could
+Flare有免费的CDN，DDos防护，隐藏源站IP等一系列免费好用的服务，但CF的CDN服务在国内被称为“减速器”，使用它的CDN服务的网站访问速度会变慢，但是我们可以通过优选CDN的方式加速国内的访问。</p>
+<span id="more"></span>
+<p><strong>未优选</strong></p>
+<p><img src="%7B148DD6E3-2997-4D82-8BB8-F29811DC340B%7D.png" /></p>
+<p><strong>CF优选后</strong></p>
+<p><img src="file-20260303210429654.png" /></p>
+<h2 id="什么是优选">什么是优选？</h2>
+<p>简单来说，<strong>优选就是选择一个国内访问速度更快的Cloudflare节点</strong>。</p>
+<p>Cloudflare官方分配给我们的IP，在国内访问时延迟往往较高，甚至可能出现无法访问的情况。而通过优选，我们可以手动将域名解析到那些国内访问更快的Cloudflare
+IP，从而显著提升网站的访问速度和可用性。</p>
+<p>从上面的对比图可以看到，优选过的网站响应速度有很大提升，出口IP也变多了。这能让你的网站可用性大大提高，并且加载速度显著变快。</p>
+<p>要实现优选，我们需要做到两点：<strong>自己控制路由规则</strong> 和
+<strong>自己控制DNS解析</strong>。通过Cloudflare
+SaaS或Worker路由，我们可以同时实现这两点，下面会详细讲解。</p>
+<h2 id="优选原理">优选原理</h2>
+<p>首先我们要知道CDN是如何通过不同域名给不同内容的。</p>
+<p>我们可以将其抽象为2层：<strong>规则层</strong>和<strong>解析层</strong>。当我们普通的在Cloudflare添加一条开启了小黄云的解析，Cloudflare会为我们做两件事：</p>
+<ol type="1">
+<li>帮我们写一条DNS解析指向Cloudflare</li>
+<li>在Cloudflare创建一条路由规则</li>
+</ol>
+<p>如果你想要优选，实际上你是要手动更改这个DNS解析，使其指向一个更快的Cloudflare节点。</p>
+<p>但是，一旦你将小黄云关闭，路由规则也会被删除，再访问就会显示DNS直接指向IP——这就没法用了。</p>
+<p><strong>而SaaS和Worker路由的出现改变了这一切。</strong></p>
+<p>使用SaaS后，Cloudflare不再帮你做这两件事了，这两件事你都可以自己做了：</p>
+<ol type="1">
+<li>你可以自己写一条SaaS规则（规则层）</li>
+<li>你可以自己写一条CNAME解析到优选节点（解析层）</li>
+</ol>
+<p>使用Worker路由同理，你创建Worker路由规则后，DNS解析就可以随便指向任何优选节点了。</p>
+<p>这就是为什么经由SaaS或Worker路由的流量可以做优选的原因。</p>
+<h2 id="选择优选域名">选择优选域名</h2>
+<p>优选的核心就是选择一个国内访问速度更快的Cloudflare节点IP或域名。</p>
+<h3 id="传统优选域名">传统优选域名</h3>
+<p>常用的社区优选域名：</p>
+<p><a href="https://cf.090227.xyz">https://cf.090227.xyz</a></p>
+<p><a
+href="https://www.baota.me/post-411.html?scroll=comment-122">https://www.baota.me/post-411.html?scroll=comment-122</a></p>
+<p>这些优选域名通常是通过扫描Cloudflare官方IP段，找出国内延迟最低的IP整理而成。</p>
+<h2 id="基于saas的双域名优选">基于SAAS的双域名优选</h2>
+<h3 id="准备工作">准备工作</h3>
+<p><strong>两个域名</strong>，比如：frosh.dpdns.org（主力域名）和frosh.qzz.io（辅助域名）</p>
+<p id="div-border-left-yellow">
+如果你都是托管在could flare
+需要让他们的名称服务器不同；如果还不可用，可以将两个域名托管到不同账号。
+</p>
+<h3 id="具体步骤">具体步骤</h3>
+<ol type="1">
+<li>辅助域名绑定网站，开启小黄云（cf代理）。在辅助域名添加一个A记录指向你的网站IP。</li>
+<li>前往<strong>辅助域名</strong>的 SSL/TLS -&gt;
+自定义主机名。设置回退源为你刚才的DNS解析的域名：origin.frosh.qzz.io（这个回退源只要托管在cf的就行）
+<img src="file-20260303230407657.png" /></li>
+<li>点击添加自定义主机名。设置一个自定义主机名，比如
+<code>blog.frosh.dpdns.org</code>，然后选择<strong>自定义源服务器</strong>，填写第一步的域名，即
+<code>origin.frosh.qzz.io</code>。 <img
+src="file-20260303230513593.png" /></li>
+<li>在你的辅助域名添加一条解析。CNAME到优选节点：如cloudflare.182682.xyz，<strong>不开启cf代理</strong>
+<img src="file-20260303230614673.png" /></li>
+<li>在你的主力域名添加解析。域名为之前在辅助域名的自定义主机名（blog.frosh.dpdns.org），目标为刚才的cdn.frosh.qzz.io，<strong>不开启cf代理</strong>
+<img src="file-20260303230727964.png" /></li>
+<li>优选完成后尝试访问确保优选有效。 <img
+src="file-20260303230839362.png" /></li>
+</ol>
+<h2 id="优选出现的问题">?优选出现的问题</h2>
+<h3 id="使用主力域名访问404">使用主力域名访问404</h3>
+<p><img src="file-20260303231744211.png" /></p>
+<h4 id="问题分析">问题分析</h4>
+<blockquote>
+<p>我的网站是使用GitHub的GitHub Pages服务部署的。</p>
+</blockquote>
+<p>GitHub Pages是通过HTTP请求头中的 <code>Host</code>
+字段来识别要展示哪个站点的。如果主力域名不在Custom
+domain这里绑定，GitHub
+Pages收到主力域名的请求时，会发现这是一个“未注册”的访客，自然会返回404。这就像你有一栋房子（GitHub
+Pages源站），里面有很多个房间（不同域名的网站）。你只给辅助域名配了钥匙（在Custom
+domain里填写了它），主力域名没配钥匙，所以主力域名敲门时，自然会被拒之门外。</p>
+<h4 id="解决方式">解决方式</h4>
+<ul>
+<li><p>在 <strong>“Custom
+domain”</strong>（自定义域名）这一栏里，<strong>填入你的主力域名</strong>，然后点击保存。</p></li>
+<li><p><strong>验证</strong>：保存后，GitHub可能会尝试验证这个域名的所有权，并提示你添加一条TXT记录到你的DNS里。按照提示操作即可。之后等待几分钟再访问主力域名试试。</p></li>
+</ul>
+<h2 id="参考文章">参考文章</h2>
+<p>文章：</p>
+<p><a
+href="https://2x.nz/posts/cf-fastip/#%E4%BC%A0%E7%BB%9Fsaas%E4%BC%98%E9%80%89">试试Cloudflare
+IP优选！让Cloudflare在国内再也不是减速器！-二叉树树</a></p>
+<p>视频：</p>
+<p><a
+href="https://www.bilibili.com/video/BV1SM4m1176E/?spm_id_from=333.1387.favlist.content.click&amp;vd_source=ff90d309a66060821e097736f479cb41">#
+白嫖Cloudflare最优CDN给自己网站加速，尽情享受CF的免费服务-技术爬爬虾</a></p>
+]]></content>
+      <categories>
+        <category>个人笔记</category>
+        <category>Could Flare</category>
+      </categories>
+      <tags>
+        <tag>CDN</tag>
+        <tag>couldflare</tag>
+        <tag>cf</tag>
+        <tag>优选</tag>
       </tags>
   </entry>
   <entry>
@@ -1839,744 +2571,8 @@ Download Now</span> </a></p>
         <category>个人博客</category>
       </categories>
       <tags>
+        <tag>Next</tag>
         <tag>css</tag>
-        <tag>Next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo博客优化</title>
-    <url>/posts/94271a3a.html/</url>
-    <content><![CDATA[<hr />
-<blockquote>
-<p>这是关于Hexo博客的优化文章，收录了一些常用的插件和设置，自己按需设置即可，如果还想要设置更多的配置可要看看结尾处大佬的文章。</p>
-</blockquote>
-<span id="more"></span>
-<blockquote>
-<p>Hexo version：8.1.1，Next
-version：8.27.0，分别通过博客根目录和主题目录的package.json查看；
-使用的Next主题的Mist样式。</p>
-</blockquote>
-<blockquote>
-<p>阅读需知： - 文中命令执行的位置若没特别提醒，默认在博客根目录； -
-<code>root</code>：指的是博客根目录，即你创建的博客时的文件夹； -
-博客配置文件：指的是<code>root\_config.yml</code>； -
-主题配置文件：指的是<code>root\themes\next\_config.yml</code>； -
-博客模板文件：指的是<code>root\scaffolds\post.md</code>； -
-Front-matter字段：指的是<code>.md</code>文章的开头部分； -
-运行这三个命令<code>hexo cl</code>、<code>hexo d</code>、<code>hexo s</code>进行本地预览。</p>
-</blockquote>
-<h2 id="全局配置">全局配置</h2>
-<h3 id="博客基本信息">博客基本信息</h3>
-<blockquote>
-<p>设置博客的标题，副标题，描述，等等基本信息。
-yaml语言规定冒号后面内容需要先空格在输入内容</p>
-</blockquote>
-<p>在<code>博客配置文件</code>中 ，修改以下信息</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Site</span>
-<span class="token comment"># 博客标题</span>
-<span class="token key atrule">title</span><span class="token punctuation">:</span> FROSH
-<span class="token comment"># 博客副标题</span>
-<span class="token key atrule">subtitle</span><span class="token punctuation">:</span> <span class="token string">'时刻准备着'</span>
-<span class="token comment"># 站点描述</span>
-<span class="token key atrule">description</span><span class="token punctuation">:</span> <span class="token string">'要做的事还有很多，一件一件地来~'</span>
-<span class="token comment"># 网站关键词，对SEO的优化有一定作用</span>
-<span class="token key atrule">keywords</span><span class="token punctuation">:</span>
-<span class="token comment"># 作者</span>
-<span class="token key atrule">author</span><span class="token punctuation">:</span> kumiao
-<span class="token comment"># 网站使用的语言</span>
-<span class="token key atrule">language</span><span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN    <span class="token comment"># en</span>
-<span class="token comment"># 网站对应失去，不设置默认使用电脑时区，一般中国的时区可以设置为Asia/Shanghai</span>
-<span class="token key atrule">timezone</span><span class="token punctuation">:</span> <span class="token string">''</span>  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="next主题">next主题</h3>
-<h4 id="next主题文件下载及使用">next主题文件下载及使用：</h4>
-<p>进入 <a href="https://hexo.io/themes/">hexo 主题网址</a>，搜索
-next，点击名称进入 GitHub 项目仓库。
-每个主题都有操作文档，按照上面的步骤进行部署</p>
-<p>next文件下载</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/next-theme/hexo-theme-next themes/next<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这样你的<code>root\themes</code>目录下就有了一个<code>next</code>文件夹</p>
-<p>博客使用next主题</p>
-<p>修改<code>博客配置文件</code>
-，找<code>theme</code>，并修改为以下内容</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">theme</span><span class="token punctuation">:</span> next <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<blockquote>
-<p>next这个值主要看主题文件夹themes下的文件名称。</p>
-</blockquote>
-<h4 id="next主题样式选择">next主题样式选择</h4>
-<p>next主题有四种样式：Msse、Mist、Pisces、Gemini</p>
-<p>打开<code>主题配置文件</code>，查找<code>Schemes</code>，根据你的需要选择你的样式</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Schemes</span>
-<span class="token comment">#scheme: Muse</span>
-<span class="token key atrule">scheme</span><span class="token punctuation">:</span> Mist
-<span class="token comment">#scheme: Pisces</span>
-<span class="token comment">#scheme: Gemini</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="创建新的菜单页面">创建新的菜单页面</h3>
-<blockquote>
-<p>Mist样式菜单栏与标题栏合并在一起的；
-博客菜单选项，默认全关的，需要自己去添加。</p>
-</blockquote>
-<ol type="1">
-<li><p><code>主题配置文件</code>，查找<code>menu</code>一栏,，按需取消注释</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">menu</span><span class="token punctuation">:</span>
-<span class="token key atrule">home</span><span class="token punctuation">:</span> / <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>home				<span class="token comment">#首页</span>
-<span class="token key atrule">about</span><span class="token punctuation">:</span> /about/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>user			<span class="token comment">#关于</span>
-<span class="token comment">#tags: /tags/ || fa fa-tags			#标签</span>
-<span class="token key atrule">categories</span><span class="token punctuation">:</span> /categories/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>th		<span class="token comment">#分类</span>
-<span class="token key atrule">archives</span><span class="token punctuation">:</span> /archives/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>archive		<span class="token comment">#归档</span>
-<span class="token key atrule">album</span><span class="token punctuation">:</span> /album/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>camera<span class="token punctuation">-</span>retro		<span class="token comment">#相册</span>
-<span class="token key atrule">gallery</span><span class="token punctuation">:</span> /gallery/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>paint<span class="token punctuation">-</span>brush	<span class="token comment">#画廊</span>
-<span class="token key atrule">tools</span><span class="token punctuation">:</span> /tools/ <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>square			<span class="token comment">#工具</span>
-<span class="token comment">#schedule: /schedule/ || fa fa-calendar	#日历</span>
-<span class="token comment">#sitemap: /sitemap.xml || fa fa-sitemap	#站点地图</span>
-<span class="token comment">#commonweal: /404/ || fa fa-heartbeat		#腾讯公益404</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<blockquote>
-<p>“||”前面是对应路径，后面是图标名称。Next使用的图标库是<a
-href="https://fontawesome.com.cn/faicons/#web-application">Font
-Awesome</a>，可自行添加后更换心仪的图标。</p>
-</blockquote>
-<p>若想添加自定义菜单，则仿照其对应的元素、路径和图标，同时在themes/next/languages/zh-CN.yml
-里的 menu 下添加相对应的中文。</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">menu</span><span class="token punctuation">:</span>
-  <span class="token key atrule">home</span><span class="token punctuation">:</span> 首页
-  <span class="token key atrule">archives</span><span class="token punctuation">:</span> 归档
-  <span class="token key atrule">categories</span><span class="token punctuation">:</span> 分类
-  <span class="token key atrule">tags</span><span class="token punctuation">:</span> 标签
-  <span class="token key atrule">about</span><span class="token punctuation">:</span> 关于
-  <span class="token key atrule">search</span><span class="token punctuation">:</span> 搜索
-  <span class="token key atrule">schedule</span><span class="token punctuation">:</span> 日程表
-  <span class="token key atrule">sitemap</span><span class="token punctuation">:</span> 站点地图
-  <span class="token key atrule">commonweal</span><span class="token punctuation">:</span> 公益 404
-  <span class="token key atrule">gallery</span><span class="token punctuation">:</span> 画廊
-  <span class="token key atrule">album</span><span class="token punctuation">:</span> 相册
-  <span class="token key atrule">tools</span><span class="token punctuation">:</span> 工具<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<ol start="2" type="1">
-<li><p>执行下面命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">hexo new page <span class="token string">"菜单名称"</span> <span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>此时会在博客目录的sources文件下生成对应的文件夹，每个文件夹都有一个index.md文件，对文件内容进行修改。
-&gt;需要修改新建页面文件<code>tags</code>和<code>categories</code>，同时修改其<code>.md</code>文件，不然网页无法生效</p></li>
-</ol>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token title important"># tags.md
-<span class="token punctuation">---</span></span>
-title: 标签
-date: 2019-01-23 23:26:43
-<span class="token title important">type: tags
-<span class="token punctuation">---</span></span>
-
-<span class="token title important"># categories.md
-<span class="token punctuation">---</span></span>
-title: 类别
-date: 2019-01-23 23:27:04
-<span class="token title important">type: categories
-<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p><strong>注意 1：需要手动添加<code>type: xxx</code></strong>
-<strong>注意 2：需要手动设置中文<code>title</code></strong></p>
-</blockquote>
-<h3 id="本地搜索功能">本地搜索功能</h3>
-<ol type="1">
-<li><p>下载插件</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-searchdb<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p><code>主题配置文件</code>查找<code>local_serch</code>，将<code>enable</code>设置为<code>true</code></p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">local_search</span><span class="token punctuation">:</span>
-  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
-  <span class="token comment"># If auto, trigger search by changing input.</span>
-  <span class="token comment"># If manual, trigger search by pressing enter key or search button.</span>
-  <span class="token key atrule">trigger</span><span class="token punctuation">:</span> auto
-  <span class="token comment"># Show top n results per article, show all results by setting to -1</span>
-  <span class="token key atrule">top_n_per_article</span><span class="token punctuation">:</span> <span class="token number">1</span>
-  <span class="token comment"># Unescape html strings to the readable one.</span>
-  <span class="token key atrule">unescape</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token comment"># Preload the search data when the page loads.</span>
-  <span class="token key atrule">preload</span><span class="token punctuation">:</span> <span class="token boolean important">false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>在<code>博客配置文件</code>的末尾添加以下内容</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># hexo-generator-searchdb</span>
-<span class="token comment"># 本地搜索</span>
-<span class="token key atrule">search</span><span class="token punctuation">:</span>
-  <span class="token key atrule">path</span><span class="token punctuation">:</span> search.xml
-  <span class="token key atrule">field</span><span class="token punctuation">:</span> post
-  <span class="token key atrule">format</span><span class="token punctuation">:</span> html
-  <span class="token key atrule">limit</span><span class="token punctuation">:</span> <span class="token number">10</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="添加顶部加载条">添加顶部加载条</h3>
-<p>修改主题配置文件，将pace的选项设置为true <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">pace</span><span class="token punctuation">:</span>
-  enable<span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
-  <span class="token comment"># All available colors:</span>
-  <span class="token comment"># black | blue | green | orange | pink | purple | red | silver | white | yellow</span>
-  color<span class="token punctuation">:</span> green <span class="token comment">#blue</span>
-  <span class="token comment"># All available themes:</span>
-  <span class="token comment"># big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span>
-  <span class="token comment"># corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span>
-  theme<span class="token punctuation">:</span> minimal<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
-<h3 id="站点图标设置">站点图标设置</h3>
-<p><code>主题配置文件</code>里，favicon
-就是站点标签栏的小图标，默认是用的 Hexo 的小图标，如果我们有站点 Logo
-的图片的话，我们可以自己定制小图标。</p>
-<h4 id="获取图标">获取图标</h4>
-<p>可以通过 PS 制作也可以通过下面网站获取</p>
-<p><a
-href="https://realfavicongenerator.net/">https://realfavicongenerator.net</a></p>
-<h4 id="更换站点图标">更换站点图标</h4>
-<p>图标存放位置在博客目录下<code>root\themes\next\source\images</code>里，
-然后在<code>主题配置文件</code>里面找到<code>favicon</code>配置项，把一些相关路径配置进去即可，示例如下：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">favicon</span><span class="token punctuation">:</span>
-  <span class="token key atrule">small</span><span class="token punctuation">:</span> /images/favicon<span class="token punctuation">-</span>16x16<span class="token punctuation">-</span>next.png
-  <span class="token key atrule">medium</span><span class="token punctuation">:</span> /images/favicon<span class="token punctuation">-</span>32x32<span class="token punctuation">-</span>next.png
-  <span class="token key atrule">apple_touch_icon</span><span class="token punctuation">:</span> /images/apple<span class="token punctuation">-</span>touch<span class="token punctuation">-</span>icon<span class="token punctuation">-</span>next.png
-  <span class="token key atrule">safari_pinned_tab</span><span class="token punctuation">:</span> /images/logo.svg<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="github图标">GitHub图标</h3>
-<p><code>主题配置文件</code>中修改<code>github_banner</code>的<code>enable</code>的值</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># `Follow me on GitHub` banner in the top-right corner.</span>
-<span class="token key atrule">github_banner</span><span class="token punctuation">:</span>
-  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token comment"># 链接</span>
-  <span class="token key atrule">permalink</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//github.com/luumod
-  <span class="token key atrule">title</span><span class="token punctuation">:</span> Follow me on GitHub<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="添加评论模块giscus评论">添加评论模块——Giscus评论</h3>
-<blockquote>
-<p>Giscus是基于GitHub
-Discussions的评论插件。部署不用注册，支持多种主题，支持自定义配置。所有评论都存储在你的GitHub
-Discussions中，不易丢失，方便管理。不过评论需要登录。 #### 安装流程</p>
-</blockquote>
-<p><strong>第一步：创建GitHub仓库</strong>
-首先，创建的仓库必须是公开的，其次，需要安装<a
-href="github.com/apps/giscus">giscus</a>
-app，最后，<strong>Discussions</strong> 功能已在你的仓库中启用。
-这里说下Discussions功能的开启，先进入仓库里，然后接下来的操作：‘Settings-General-Features’，最后勾选Discussions的复选框就行了。
-<strong>第二步：在 <a href="https://giscus.app/zh-CN">giscus.app</a>
-创建你的配置</strong> 具体设置按照你的要求来，这里展示我的设置。
-映照关系：选第三个； Discussion 分类：Announcenments； 特性：选1，3，4；
-主题：用户偏好的色彩方案。
-这样你会得到一段script代码，将这代码改为yaml</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">giscus</span><span class="token punctuation">:</span>
-  enable<span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  repo<span class="token punctuation">:</span>   <span class="token comment"># Github repository name;你的 GitHub 仓库，格式：用户名/仓库名</span>
-  repo_id<span class="token punctuation">:</span>  <span class="token comment"># Github repository id; 从 giscus.app 获取的仓库ID</span>
-  category<span class="token punctuation">:</span> Announcements <span class="token comment"># Github discussion category;分类名</span>
-  category_id<span class="token punctuation">:</span>  <span class="token comment"># Github discussion category id;从 giscus.app 获取的分类ID</span>
-  <span class="token comment"># Available values: pathname | url | title | og:title</span>
-  mapping<span class="token punctuation">:</span> title <span class="token comment"># 页面与Discussion的映射关系，推荐pathname或title</span>
-  strict<span class="token punctuation">:</span> <span class="token number">0</span>
-  <span class="token comment"># Available values: 0 | 1</span>
-  reactions_enabled<span class="token punctuation">:</span> <span class="token number">1</span> <span class="token comment"># 是否开启表情反应</span>
-   <span class="token comment"># Available values: 0 | 1</span>
-  emit_metadata<span class="token punctuation">:</span> <span class="token number">0</span>
-  input_position<span class="token punctuation">:</span> top <span class="token comment"># 评论输入框位置：top 或 bottom</span>
-  <span class="token comment"># Available values: light | dark | dark_high_contrast | transparent_dark | preferred-color-scheme</span>
-  theme<span class="token punctuation">:</span> preferred_color_scheme <span class="token comment">#light ;主题，可设为 light, dark, preferred_color_scheme 等</span>
-  <span class="token comment"># Available values: en | zh-C</span>
-  lang<span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN  <span class="token comment"># 界面语言</span>
-  loading<span class="token punctuation">:</span> lazy <span class="token comment"># 懒加载</span>
-  <span class="token comment"># Available value: anonymous</span>
-  crossorigin<span class="token punctuation">:</span> anonymous
-  <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><strong>第三步：在主题配置文件中添加Giscus 配置</strong>
-在主题配置文件中的comments部分，添加Giscus
-配置，即第二部的yaml代码，不能留空哦。 #### 实现效果 博客页面： <img
-src="%7BD78D1E34-6764-48D2-AA50-D13BF241D8D5%7D.png" /> 仓库里的内容：
-<img src="%7BFCFD4B0C-B609-4CD3-89B3-B0A887435C00%7D.png" /> ####
-页面取消评论区</p>
-<blockquote>
-<p>设置完成后，默认为除首页外的每个页面添加评论区，这时候就需要为不需要的页面设置不显示评论。下面示例，仿照即可</p>
-</blockquote>
-<p>示例：标签页面 在页面文件的<strong>Front-matter</strong>
-部分（即开头以 <code>---</code> 包裹的区域）添加comments:
-false<code>配置项。 示例：取消标签页面的评论区 1. 定位文件：root/source/tags/index.md 2. 添加配置：在文件的 **Front-matter** 部分添加</code>comments:
-false` 配置项。如下： <pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
-<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 标签
-<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-24 00:00:00</span>
-<span class="token key atrule">type</span><span class="token punctuation">:</span> <span class="token string">"tags"</span>
-<span class="token key atrule">comments</span><span class="token punctuation">:</span> <span class="token boolean important">false</span></span> 
-<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
-<h3 id="点击放大图片">点击放大图片</h3>
-<p>将主题配置文件内 fancybox 的值置为 true 即可</p>
-<h3 id="打赏功能">打赏功能</h3>
-<p>在 <code>主题配置文件</code>中找到如下的
-<strong>raward功能</strong></p>
-<ol type="1">
-<li>enable选择打开，comment输入文字</li>
-<li>在缀主题的images文件夹中把你的<strong>付款码的图片放到 rootimages
-中</strong>，它会按照这个路径寻找图片</li>
-</ol>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Reward(Donate)</span>
-<span class="token comment"># Front-matter variable (unsupport animation).</span>
-<span class="token key atrule">reward_settings</span><span class="token punctuation">:</span>
-  <span class="token comment"># if true,reward will be displayed in every article by default.</span>
-  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token key atrule">animation</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token key atrule">comment</span><span class="token punctuation">:</span> <span class="token string">"您的支持将鼓励我继续创作！"</span>
-
-<span class="token key atrule">reward</span><span class="token punctuation">:</span>
-  <span class="token key atrule">wechatpay</span><span class="token punctuation">:</span> /images/wechat.png
-  <span class="token key atrule">alipay</span><span class="token punctuation">:</span> /images/zhifubao.jpg
-<span class="token comment"># paypal:/images/paypal png</span>
-<span class="token comment"># bitcoin:/images/bitcoin.png</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>这里你可以发现，这个images文件夹里面的图片都是可以修改的，找到合适的地点，然后更改你的图片即可换成你想要的图片了</p>
-<h3 id="添加rss订阅">添加RSS订阅</h3>
-<p>执行命令</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-generator-feed<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>在<code>博客配置文件</code>末尾添加以下内容</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml">  <span class="token comment"># feed  RSS订阅配置</span>
-<span class="token comment"># Dependencies: https://github.com/hexojs/hexo-generator-feed</span>
-<span class="token key atrule">feed</span><span class="token punctuation">:</span>
-  <span class="token key atrule">type</span><span class="token punctuation">:</span> atom <span class="token comment"># 或 rss2</span>
-  <span class="token key atrule">path</span><span class="token punctuation">:</span> atom.xml <span class="token comment"># 输出的文件路径</span>
-  <span class="token key atrule">limit</span><span class="token punctuation">:</span> <span class="token number">20</span> <span class="token comment"># 最多包含的文章数，设为 0 或 false 表示全部</span>
-  <span class="token key atrule">content</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 是否包含文章全文，建议设为 false，仅输出摘要</span>
-
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p>编辑<code>主题配置文件</code>，这步配置完成后，它会在每篇文章末尾生成一个RSS按钮。</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">follow_me</span><span class="token punctuation">:</span>
-  <span class="token key atrule">RSS</span><span class="token punctuation">:</span> /atom.xml <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>rss<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<p>运行 <code>hexo s</code>
-启动本地服务器，在浏览器中访问<code>http://localhost:4000/atom.xml</code>,能看到一个
-XML 格式的文档，说明 RSS 已生成成功</p>
-<h3 id="pjax">pjax</h3>
-<p>可能大家听说过 Ajax，没听说过 pjax，这个技术实际上就是利用 Ajax
-技术<strong>实现了局部页面刷新</strong>，既可以实现 URL
-的更换，有可以做到无刷新加载。</p>
-<p>要开启这个功能需要先将 pjax 功能开启，然后安装对应的 pjax
-依赖库，首先修改<code>主题配置文件</code> 修改如下：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">pjax</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后安装依赖库，切换到 <strong>next
-主题目录</strong>下，右击打开<code>git bash</code>，然后安装依赖库：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">git</span> clone https://github.com/theme-next/theme-next-pjax source/lib/pjax<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>这样它会在<code>root\themes\next\source\</code>生成lib文件夹以及它的子文件夹pjax。</p>
-<h2 id="侧边栏配置">侧边栏配置</h2>
-<h3 id="侧边栏头像设置">侧边栏头像设置</h3>
-<p>将自己的头像图片储存在 <code>root\themes\next\source\images</code>
-中；
-在<code>主题配置文件</code>中找到<code>avatar</code>，在<code>url</code>后面写上头像位置，将<code>false</code>改为<code>true</code>。</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">avatar</span><span class="token punctuation">:</span>
-  <span class="token comment"># Replace the default image and set the url here.</span>
-  <span class="token comment"># 图片位置，可以是网络路径</span>
-  <span class="token key atrule">url</span><span class="token punctuation">:</span> /images/avatar01.gif <span class="token comment">#/images/avatar.gif</span>
-  <span class="token comment"># If true, the avatar will be displayed in circle.</span>
-  <span class="token comment"># 圆框显示</span>
-  <span class="token key atrule">rounded</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false </span>
-  <span class="token comment"># If true, the avatar will be rotated with the cursor.</span>
-  <span class="token comment"># 鼠标悬停在头像时旋转</span>
-  <span class="token key atrule">rotated</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="添加-social-链接">添加 social 链接</h3>
-<p>打开主题配置文件，在 social 下添加链接：</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">social</span><span class="token punctuation">:</span>
-
-  GitHub<span class="token punctuation">:</span> https<span class="token punctuation">:</span>//github.com/froshblog <span class="token punctuation">|</span><span class="token punctuation">|</span> fab fa<span class="token punctuation">-</span>github
-  <span class="token comment"># 需要添加rss插件才能生效</span>
-  RSS<span class="token punctuation">:</span> /atom.xml <span class="token punctuation">|</span><span class="token punctuation">|</span> fa fa<span class="token punctuation">-</span>rss
-  <span class="token comment">#E-Mail: mailto:yourname@gmail.com || fa fa-envelope</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="添加链接">添加链接</h3>
-<p>打开<code>主题配置文件</code>，搜索关键词<strong>Blog
-rolls</strong>，设置即可：</p>
-<ul>
-<li>icon：设置图标</li>
-<li>title：标题</li>
-<li>links：输入你的友情链接，可以直接修改或者添加</li>
-</ul>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Blog rolls</span>
-<span class="token key atrule">links_settings</span><span class="token punctuation">:</span>
-  <span class="token key atrule">icon</span><span class="token punctuation">:</span> fa fa<span class="token punctuation">-</span>link
-  <span class="token comment"># Available values: block | inline</span>
-  <span class="token comment"># layout: block</span>
-  <span class="token key atrule">layout</span><span class="token punctuation">:</span> inline
-  
-
-<span class="token key atrule">links</span><span class="token punctuation">:</span>
-  <span class="token comment">#Title: https://example.com</span>
-  <span class="token key atrule">优设</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//www.uisdc.com/
-  <span class="token key atrule">Web前端导航</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//www.alloyteam.com/nav/
-  <span class="token key atrule">前端书籍资料</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//www.36zhen.com/t<span class="token punctuation">?</span>id=3448
-  <span class="token key atrule">百度前端技术学院</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//ife.baidu.com/
-  <span class="token key atrule">google前端开发基础</span><span class="token punctuation">:</span> http<span class="token punctuation">:</span>//wf.uisdc.com/cn/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h2 id="页脚配置">页脚配置</h2>
-<h3 id="隐藏底部由-强力驱动">隐藏底部由… 强力驱动</h3>
-<p>文件位置：<code>root\themes\next\layout\ _partials\footer.njk</code></p>
-<p>使用vscode打开，第82行（一般在末尾）的内容首尾加了 个 &lt;!- -
-–&gt;用于隐藏中间的内容</p>
-<pre class="line-numbers language-njk" data-language="njk"><code class="language-njk">&lt;!--&#123;&#123;- __(&#39;footer.powered&#39;, next_url(&#39;https:&#x2F;&#x2F;hexo.io&#39;, &#39;Hexo&#39;) + &#39; &amp; &#39; + next_url(next_site, &#39;NexT.&#39; + theme.scheme)) &#125;&#125;--&gt;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="文章配置">文章配置</h2>
-<h3
-id="首页只显示部分摘要不显示全文">首页只显示部分摘要(不显示全文)</h3>
-<p>首先，<code>主题配置文件</code>中的以下内容（默认开启）</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Use `description` in front-matter to specify post excerpt.</span>
-<span class="token key atrule">excerpt_description</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h4 id="方法一写概述">方法一：写概述</h4>
-<p>在博客文章中的<strong>Front-matter</strong>中添加<code>description</code>，只有其后内容会显示在首页上</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">title: hexo个人博客搭建
-date: 2026-01-15 00:32:06
-tags:
-<span class="token list punctuation">-</span> Hexo
-categories: 
-<span class="token list punctuation">-</span> 个人博客
-description: 
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<blockquote>
-<p>对于这种常用的文章设置，可以直接在博客模板文件的<strong>Front-matter</strong>中添加的字段。
-#### 方法二：文章截断</p>
-</blockquote>
-<p>在<code>.md</code>文件（博客文章）中，在需要显示在首页的内容后面添加以下内容：</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token comment">&lt;!--more--></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="置顶首页文章">置顶首页文章</h3>
-<p>在文章的<strong>Front-matter</strong>中添加<code>sticky</code>，数值越大，置顶优先级越高</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
-<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 文章标题
-<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-20</span>
-<span class="token key atrule">sticky</span><span class="token punctuation">:</span> <span class="token number">100</span></span>  
-<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="隐藏文章">隐藏文章</h3>
-<blockquote>
-<p>我是使用obsidian管理我的博客，直接创建文章就开写，有时卡文就可以使用这个功能将文章隐藏</p>
-</blockquote>
-<ol type="1">
-<li>安装Hexo插件 <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-hide-posts <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li>在<code>博客配置文件</code>的末尾添加以下内容 <pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 隐藏文章配置</span>
-<span class="token key atrule">hide_posts</span><span class="token punctuation">:</span>
-  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token comment"># 根据你的需要修改，比如隐藏哪些生成器中的文章</span>
-  <span class="token key atrule">filter</span><span class="token punctuation">:</span> hidden
-  <span class="token comment"># 可以指定从哪些生成器中隐藏，比如首页、标签、分类等;特别注意不要加入自己没有的生成器，不然会失效</span>
-  <span class="token key atrule">generators</span><span class="token punctuation">:</span>
-    <span class="token punctuation">-</span> index
-    <span class="token punctuation">-</span> tag
-    <span class="token punctuation">-</span> category
-    <span class="token punctuation">-</span> archive
-  <span class="token comment"># 也可以设置白名单，允许某些路径访问</span>
-  <span class="token comment"># allowlist: </span>
-  <span class="token comment">#   - /about/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li>在文章的
-<strong>Front-matter</strong>中添加<code>hidden</code>，true：表示隐藏，false：不隐藏
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
-<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 我的隐藏文章
-<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-20</span>
-<span class="token key atrule">hidden</span><span class="token punctuation">:</span> <span class="token boolean important">true</span></span>
-<span class="token punctuation">---</span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="修改首页分页文章数">修改首页分页文章数</h3>
-<p>在站点配置文件中找到 index_generator，修改 per_page 项：
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">index_generator</span><span class="token punctuation">:</span>
-  <span class="token key atrule">path</span><span class="token punctuation">:</span> <span class="token string">''</span>
-  <span class="token key atrule">per_page</span><span class="token punctuation">:</span> <span class="token number">5</span>
-  <span class="token key atrule">order_by</span><span class="token punctuation">:</span> <span class="token punctuation">-</span>date<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></p>
-<h3 id="关闭首页阅读更多按钮">关闭首页“阅读更多”按钮</h3>
-<p>在主题配置文件中找到 read_more_btn，修改其值为 false，即可关闭。</p>
-<h3 id="中英自动添加空格">中英自动添加空格</h3>
-<p>修改<code>主题配置文件</code>中<code>pangu</code>的值，将<code>false</code>改为<code>ture</code></p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">pangu</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h3 id="代码块一键复制">代码块一键复制</h3>
-<p>修改<code>主题配置文件l</code>的<code>copy_button</code>的值为<code>enable</code></p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">copy_button</span><span class="token punctuation">:</span>
-    <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
-    <span class="token comment"># Available values: default | flat | mac</span>
-    <span class="token key atrule">style</span><span class="token punctuation">:</span> flat<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="阅读时间字数提示">阅读时间字数提示</h3>
-<ol type="1">
-<li><p>下载插件</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-symbols-count-time<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-<li><p>修改<code>主题配置文件</code>，找到以下内容修改</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 设置博客单词统计</span>
-<span class="token key atrule">symbols_count_time</span><span class="token punctuation">:</span>
-  <span class="token comment"># 是否另起一行（true的话不和发表时间等同一行）</span>
-  <span class="token key atrule">separated_meta</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-   <span class="token comment"># 页面底部统计数量前是否显示文字描述（站点总字数、站点阅读时长）</span>
-  <span class="token key atrule">item_text_total</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token comment"># 首页文章统计数量前是否显示文字描述（本文字数、阅读时长）</span>
-  <span class="token key atrule">item_text_post</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>在<code>博客配置文件</code>的末尾添加以下内容</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">symbols_count_time</span><span class="token punctuation">:</span>
-  <span class="token comment"># 每篇文章显示</span>
-  <span class="token key atrule">symbols</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token key atrule">time</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token comment"># 文章底部显示</span>
-  <span class="token key atrule">total_symbols</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token key atrule">total_time</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token comment"># 是否统计代码块</span>
-  <span class="token key atrule">exclude_codeblock</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token key atrule">awl</span><span class="token punctuation">:</span> <span class="token number">2</span>    
-  <span class="token key atrule">wpm</span><span class="token punctuation">:</span> <span class="token number">275</span>
-  <span class="token key atrule">suffix</span><span class="token punctuation">:</span> <span class="token string">"mins."</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></li>
-</ol>
-<h3 id="取消文章目录自动编号">取消文章目录自动编号</h3>
-<p>修改<code>主题配置文件</code>中<code>wrap</code>,
-将<code>false</code>改为<code>true</code></p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">toc</span><span class="token punctuation">:</span>
-  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token comment"># Automatically add list number to toc.</span>
-  <span class="token key atrule">number</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token comment"># If true, all words will placed on next lines if header width longer then sidebar width. </span>
-  <span class="token key atrule">wrap</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#false</span>
-  <span class="token comment"># If true, all level of TOC in a post will be displayed, rather than the activated part of it.</span>
-  <span class="token comment"># 所有页面显示目录</span>
-  <span class="token key atrule">expand_all</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-  <span class="token comment"># Maximum heading depth of generated toc.</span>
-  <span class="token key atrule">max_depth</span><span class="token punctuation">:</span> <span class="token number">6</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h3 id="博客mathjax渲染数学公式">博客mathjax渲染数学公式</h3>
-<p>在博客主题配置文件中修改mathjax配置：
-在配置文件中搜寻<code>math</code>相关配置，并参考下方示例进行修改：
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Math Formulas Render Support</span>
-<span class="token key atrule">math</span><span class="token punctuation">:</span>
-  <span class="token comment"># 开启后，所有页面都会加载 MathJax 脚本。</span>
-  <span class="token comment"># 如果设为 false，则只会在 Front-matter 中设置了 `mathjax: true` 的文章页面加载。</span>
-  <span class="token key atrule">every_page</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
-
-  <span class="token key atrule">mathjax</span><span class="token punctuation">:</span>
-    <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>    <span class="token comment"># 启用 MathJax 引擎</span>
-    <span class="token comment"># 可选配置：公式编号功能。'ams' 可启用自动编号。</span>
-    <span class="token comment"># tags: 'ams'   </span>
-
-  <span class="token key atrule">katex</span><span class="token punctuation">:</span>
-    <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>   <span class="token comment"># 如果使用 MathJax，确保 KaTeX 是关闭的</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-修改完成后在需要显示公式的文章<code>Front-matter</code>中开启MathJax渲染：
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token front-matter-block"><span class="token punctuation">---</span>
-<span class="token front-matter yaml language-yaml"><span class="token key atrule">title</span><span class="token punctuation">:</span> 我的数学文章
-<span class="token key atrule">date</span><span class="token punctuation">:</span> <span class="token datetime number">2024-01-01 12:00:00</span>
-<span class="token key atrule">mathjax</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>  <span class="token comment"># 在这里开启</span></span>
-<span class="token punctuation">---</span></span>
-
-欢迎来到我的数学世界，下面是几个公式的例子。<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
-<p>markdown中公式的书写： <pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown">$$\begin&#123;matrix&#125;
-4K(3840 \times 2160) \\
-2K(2560 \cdot 1440) \\
-1080P(1920 \cdot 1080) \\
-720P(1280 \cdot 720)
-\end&#123;matrix&#125;
-$$
-
-实现多行显示需要<span class="token code-snippet code keyword">`\begin&#123;matrix&#125;……\end&#123;matrix&#125;`</span>与<span class="token code-snippet code keyword">`\\`</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> ### 博客插入图片</p>
-<ol type="1">
-<li><p>在<code>博客配置文件</code>中查找以下内容并修改</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">post_asset_folder</span><span class="token punctuation">:</span> <span class="token boolean important">true</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre></li>
-</ol>
-<p>这个操作能在你用<code>hexo new 文章名</code>创建博客时生成一个同名文件夹放置图片</p>
-<p>示例目录：</p>
-<p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">MacGesture2-Publish
-├── apppicker.jpg
-├── logo.jpg
-└── rules.jpg
-MacGesture2-Publish.md        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre></p>
-<ol start="2" type="1">
-<li><p><strong>配置渲染器</strong></p>
-<p>在<code>博客配置文件</code>中添加以下内容</p>
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># Markdown 配置（你可以添加这行注释，便于识别）</span>
-<span class="token key atrule">marked</span><span class="token punctuation">:</span>
-  <span class="token key atrule">prependRoot</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
-  <span class="token key atrule">postAsset</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>        <span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre></li>
-<li><p>只需使用<code>![logo](logo.jpg)</code>插入<code>logo.jpg</code></p></li>
-</ol>
-<h3 id="图片懒加载插件">图片懒加载插件</h3>
-<p>安装插件： <pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> hexo-lazyload-image <span class="token parameter variable">--save</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre> 博客配置文件的末尾添加以下内容：
-<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">lazyload</span><span class="token punctuation">:</span>
-  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 开启</span>
-  <span class="token key atrule">onlypost</span><span class="token punctuation">:</span> <span class="token boolean important">false</span> <span class="token comment"># 是否仅文章内图片生效。false：全站图片生效[citation:7][citation:10]</span>
-  <span class="token key atrule">loadingImg</span><span class="token punctuation">:</span> <span class="token comment"># 自定义加载占位图，留空则使用默认灰色图</span>
-  <span class="token key atrule">isSPA</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment"># 【关键】如果你的主题使用了Pjax（NexT主题默认开启），必须设为true以避免冲突[citation:10]</span>
-  <span class="token key atrule">preloadRatio</span><span class="token punctuation">:</span> <span class="token number">1</span> <span class="token comment"># 在图片进入视窗多少倍距离时开始加载，默认为1[citation:10]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre> ### 设置图片大小</p>
-<p>直接写html代码，比如原来的写法是</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token url"><span class="token operator">!</span>[<span class="token content">支付宝</span>](<span class="token url">/images/alipay.png</span>)</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>可以写成</p>
-<pre class="line-numbers language-markdown" data-language="markdown"><code class="language-markdown"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/images/alipay.png<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>支付宝<span class="token punctuation">"</span></span> <span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span> <span class="token attr-name">height</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>200<span class="token punctuation">"</span></span><span class="token punctuation">/></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<h2 id="seo搜索引擎优化">SEO（搜索引擎优化）</h2>
-<h3 id="待续">待续</h3>
-<p>可以看大佬的文章<a
-href="https://zcw-blog.top/posts/20220424a1/#seo%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96">SEO</a></p>
-<h2 id="geo">GEO</h2>
-<h3 id="待续-1">待续</h3>
-<h2 id="删除-hexo-博客">删除 hexo 博客</h2>
-<p>在命令提示符中，执行以下命令：</p>
-<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> uninstall hexo-cli <span class="token parameter variable">-g</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-<p>然后手动删除博客文件夹。</p>
-<p>另外，进行重装之前，如果还是在原来位置，必须手动清理了才能迁移安装。</p>
-<h2 id="参考文章">参考文章</h2>
-<p><a
-href="https://www.hancher.top/2025/01/09/site-hexo-comment-feature/">hexo建站增加自己的评论模块
-- 寒澈笔记</a></p>
-<p>https://zcw-blog.top/posts/20220424a1/</p>
-<p>http://shenzekun.cn/hexo%E7%9A%84next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E9%85%8D%E7%BD%AE%E6%95%99%E7%A8%8B.html</p>
-]]></content>
-      <categories>
-        <category>个人博客</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Next</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>视频压缩</title>
-    <url>/posts/8834618.html/</url>
-    <content><![CDATA[<hr>
-<blockquote>
-<p>需求：既要明显下降文件大小，又要画质肉眼看不出下降。</p>
-</blockquote>
-<blockquote>
-<p>视频是一张张画面交替出现形成的。想要压缩视频主要通过这几个参数调节：分辨率、帧率、码率、编码</p>
-</blockquote>
-<blockquote>
-<p>视频压缩是不可逆的，若有条件，建议将原文件进行冷数据备份（备份到云盘等）。</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="分辨率">分辨率</h2>
-<p><span class="math display"><mjx-container class="MathJax" jax="SVG" display="true" width="full" style="min-width: 28.071ex;"><svg style="vertical-align: -5.317ex; min-width: 28.071ex;" xmlns="http://www.w3.org/2000/svg" width="100%" height="11.765ex" role="img" focusable="false"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(0.0181,-0.0181) translate(0, -2850)"><g data-mml-node="math"><g data-mml-node="mtable" transform="translate(2078,0) translate(-2078,0)"><g transform="translate(0 2850) matrix(1 0 0 -1 0 0) scale(55.25)"><svg data-table="true" preserveAspectRatio="xMidYMid" viewBox="4125.7 -2850 1 5200"><g transform="matrix(1 0 0 -1 0 0)"><g data-mml-node="mlabeledtr"><g data-mml-node="mtd"><g data-mml-node="mtable"><g data-mml-node="mtr" transform="translate(0,2100)"><g data-mml-node="mtd" transform="translate(431,0)"><g data-mml-node="mn"><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D43E" d="M285 628Q285 635 228 637Q205 637 198 638T191 647Q191 649 193 661Q199 681 203 682Q205 683 214 683H219Q260 681 355 681Q389 681 418 681T463 682T483 682Q500 682 500 674Q500 669 497 660Q496 658 496 654T495 648T493 644T490 641T486 639T479 638T470 637T456 637Q416 636 405 634T387 623L306 305Q307 305 490 449T678 597Q692 611 692 620Q692 635 667 637Q651 637 651 648Q651 650 654 662T659 677Q662 682 676 682Q680 682 711 681T791 680Q814 680 839 681T869 682Q889 682 889 672Q889 650 881 642Q878 637 862 637Q787 632 726 586Q710 576 656 534T556 455L509 418L518 396Q527 374 546 329T581 244Q656 67 661 61Q663 59 666 57Q680 47 717 46H738Q744 38 744 37T741 19Q737 6 731 0H720Q680 3 625 3Q503 3 488 0H478Q472 6 472 9T474 27Q478 40 480 43T491 46H494Q544 46 544 71Q544 75 517 141T485 216L427 354L359 301L291 248L268 155Q245 63 245 58Q245 51 253 49T303 46H334Q340 37 340 35Q340 19 333 5Q328 0 317 0Q314 0 280 1T180 2Q118 2 85 2T49 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Z"></path></g><g data-mml-node="mo" transform="translate(1389,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(1778,0)"><path data-c="33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(500,0)"></path><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(4000.2,0)"><path data-c="D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path></g><g data-mml-node="mn" transform="translate(5000.4,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" transform="translate(500,0)"></path><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(7000.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g><g data-mml-node="mtr" transform="translate(0,700)"><g data-mml-node="mtd" transform="translate(681,0)"><g data-mml-node="mn"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path></g><g data-mml-node="mi" transform="translate(500,0)"><path data-c="1D43E" d="M285 628Q285 635 228 637Q205 637 198 638T191 647Q191 649 193 661Q199 681 203 682Q205 683 214 683H219Q260 681 355 681Q389 681 418 681T463 682T483 682Q500 682 500 674Q500 669 497 660Q496 658 496 654T495 648T493 644T490 641T486 639T479 638T470 637T456 637Q416 636 405 634T387 623L306 305Q307 305 490 449T678 597Q692 611 692 620Q692 635 667 637Q651 637 651 648Q651 650 654 662T659 677Q662 682 676 682Q680 682 711 681T791 680Q814 680 839 681T869 682Q889 682 889 672Q889 650 881 642Q878 637 862 637Q787 632 726 586Q710 576 656 534T556 455L509 418L518 396Q527 374 546 329T581 244Q656 67 661 61Q663 59 666 57Q680 47 717 46H738Q744 38 744 37T741 19Q737 6 731 0H720Q680 3 625 3Q503 3 488 0H478Q472 6 472 9T474 27Q478 40 480 43T491 46H494Q544 46 544 71Q544 75 517 141T485 216L427 354L359 301L291 248L268 155Q245 63 245 58Q245 51 253 49T303 46H334Q340 37 340 35Q340 19 333 5Q328 0 317 0Q314 0 280 1T180 2Q118 2 85 2T49 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Z"></path></g><g data-mml-node="mo" transform="translate(1389,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(1778,0)"><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path data-c="35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z" transform="translate(500,0)"></path><path data-c="36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(4000.2,0)"><path data-c="22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path></g><g data-mml-node="mn" transform="translate(4500.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" transform="translate(500,0)"></path><path data-c="34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(6500.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g><g data-mml-node="mtr" transform="translate(0,-700)"><g data-mml-node="mtd"><g data-mml-node="mn"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mi" transform="translate(2000,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(2751,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(3140,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="39" d="M352 287Q304 211 232 211Q154 211 104 270T44 396Q42 412 42 436V444Q42 537 111 606Q171 666 243 666Q245 666 249 666T257 665H261Q273 665 286 663T323 651T370 619T413 560Q456 472 456 334Q456 194 396 97Q361 41 312 10T208 -22Q147 -22 108 7T68 93T121 149Q143 149 158 135T173 96Q173 78 164 65T148 49T135 44L131 43Q131 41 138 37T164 27T206 22H212Q272 22 313 86Q352 142 352 280V287ZM244 248Q292 248 321 297T351 430Q351 508 343 542Q341 552 337 562T323 588T293 615T246 625Q208 625 181 598Q160 576 154 546T147 441Q147 358 152 329T172 282Q197 248 244 248Z" transform="translate(500,0)"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(5362.2,0)"><path data-c="22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path></g><g data-mml-node="mn" transform="translate(5862.4,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(500,0)"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(7862.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g><g data-mml-node="mtr" transform="translate(0,-2100)"><g data-mml-node="mtd" transform="translate(500,0)"><g data-mml-node="mn"><path data-c="37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(500,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1000,0)"></path></g><g data-mml-node="mi" transform="translate(1500,0)"><path data-c="1D443" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path></g><g data-mml-node="mo" transform="translate(2251,0)"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path></g><g data-mml-node="mn" transform="translate(2640,0)"><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(500,0)"></path><path data-c="38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z" transform="translate(1000,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1500,0)"></path></g><g data-mml-node="mo" transform="translate(4862.2,0)"><path data-c="22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path></g><g data-mml-node="mn" transform="translate(5362.4,0)"><path data-c="37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path><path data-c="32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z" transform="translate(500,0)"></path><path data-c="30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z" transform="translate(1000,0)"></path></g><g data-mml-node="mo" transform="translate(6862.4,0)"><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path></g></g></g></g></g></g></g></svg><svg data-labels="true" preserveAspectRatio="xMaxYMid" viewBox="1278 -2850 1 5200"><g data-labels="true" transform="matrix(1 0 0 -1 0 0)"><g data-mml-node="mtd" id="mjx-eqn:1"><g data-mml-node="mtext"><path data-c="28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path data-c="31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z" transform="translate(389,0)"></path><path data-c="29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z" transform="translate(889,0)"></path></g></g></g></svg></g></g></g></g></svg></mjx-container></span></p>
-<blockquote>
-<p>通常我们到手的视频已经是1080p甚至720p，再往下调整分辨率，必然影响到视频在不同设备上的播放清晰度。并且修改分辨率是最不可逆的损失。</p>
-</blockquote>
-<p>例如：2K转为1080P，你的原始视频每帧约有 830万像素，转码后降到了约
-210万像素。大约
-60%的像素细节被永久丢弃了。即使你用软件“放大”回2K，也只是通过算法猜测和填充缺失的像素，无法恢复真实的原始细节。</p>
-<h2 id="帧率">帧率</h2>
-<p>视频是一秒钟出现几个画面的视频就是几帧。比如：你的视频一秒钟出现了60个画面，那么这个视频就是60帧。
-若把60帧的视频去掉一半的画面变成30帧，视频体积一定会减少，但实际上大多的视频已经是30帧或者24帧，再往下调整会有明显的卡顿。</p>
-<blockquote>
-<p>一般24帧-30帧的视频就可以了 ## 码率</p>
-</blockquote>
-<p>码率就是单位时间内视频里所包含的数据信息，码率高就代表视频里面给算法还原的关键图片数量多。</p>
-<blockquote>
-<p>别称：数据速率(45.63兆位/秒)，比特率(44.82Mbps)，平均比特率，恒定质量(英文：CRF，数值从0到51，值越低质量越高,示例22RF)</p>
-</blockquote>
-<p>通常码率越高，视频画质越好。但存在阈值，超过阈值画质提升效果不明显。
-通过各个视频平台的视频要求看：码率在3Mbps-6Mbps <img src="file-20260223210412363.png"></p>
-<h3 id="单位转换">单位转换</h3>
-<blockquote>
-<p>比特能表示速率</p>
-</blockquote>
-<p><strong>1 Byte（B） = 8 bit</strong></p>
-<p><strong>1 Kilo Byte（KB） = 1024B</strong></p>
-<p><strong>1 Mega Byte（MB） = 1024 KB</strong></p>
-<p><strong>1 Giga Byte （GB）= 1024 MB</strong></p>
-<p><strong>1 Tera Byte（TB）= 1024 GB</strong></p>
-<p>1 Peta Byte（PB） = 1024 TB</p>
-<p>1 Exa Byte（EB） = 1024 PB</p>
-<p>1 Zetta Byte（ZB） = 1024 EB</p>
-<p>1Yotta Byte（YB）= 1024 ZB</p>
-<p>1 Bronto Byte（BB） = 1024 YB</p>
-<p>1Nona Byte（NB）=1024 BB</p>
-<p>1 Dogga Byte（DB）=1024 NB</p>
-<p>1 Corydon Byte（CB）=1024DB</p>
-<h3 id="恒定质量">恒定质量</h3>
-<p>RF值22的常见码率参考估算基于使用 <strong>x264</strong> 或
-<strong>x265</strong> 编码器进行编码的情况：</p>
-<table>
-<colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr>
-<th>分辨率</th>
-<th>内容复杂度</th>
-<th>预估平均码率范围 (H.265)</th>
-<th>预估平均码率范围 (H.264)</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>1080p</strong></td>
-<td>低 (如讲课、幻灯片)</td>
-<td>1.5 - 3 Mbps</td>
-<td>3 - 6 Mbps</td>
-<td>画面简单，码率需求低。</td>
-</tr>
-<tr>
-<td><strong>1080p</strong></td>
-<td>中 (普通电影、剧集)</td>
-<td>3 - 6 Mbps</td>
-<td>6 - 12 Mbps</td>
-<td>大多数影视内容的常见范围。</td>
-</tr>
-<tr>
-<td><strong>1080p</strong></td>
-<td>高 (快动作、复杂细节)</td>
-<td>6 - 10+ Mbps</td>
-<td>12 - 20+ Mbps</td>
-<td>如体育赛事、自然纪录片。</td>
-</tr>
-<tr>
-<td><strong>2K/1440p</strong></td>
-<td>中</td>
-<td>5 - 9 Mbps</td>
-<td>10 - 18 Mbps</td>
-<td>约为1080p码率的1.5-2倍。</td>
-</tr>
-<tr>
-<td><strong>4K/2160p</strong></td>
-<td>中</td>
-<td>10 - 20 Mbps</td>
-<td>20 - 40+ Mbps</td>
-<td>约为1080p码率的3-4倍。</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p>注：RF值22通常被认为是<strong>高质量</strong>和<strong>中等质量</strong>的分界线。如果你追求近乎无损的存档质量，可考虑使用<strong>RF
-18-20</strong>；如果追求高压缩率，则可使用<strong>RF
-24-26</strong>。</p>
-<p>⚠️ 重要注意事项</p>
-<ul>
-<li><p><strong>编码器差异</strong>：不同编码器（如x265与NVIDIA
-NVENC）即使用相同RF值，输出码率和画质也可能不同。</p></li>
-<li><p><strong>核心目的</strong>：使用CRF模式就是为了<strong>解放双手</strong>，无需纠结码率，让编码器自动为每一帧画面分配最合适的比特数，从而在整体上保持你设定的视觉质量。</p></li>
-</ul>
-<p>总结来说，对于一段中等复杂度的1080p电影，使用H.265编码并设定RF
-22，其平均码率很可能会落在 <strong>3-6 Mbps</strong> 的范围内。 ##
-视频编码 视频编码标准（如图） <img src="file-20260223175332462.png"></p>
-</blockquote>
-<p>其中，h.264编码标准兼容性好；h.265虽然压缩效率高于h.254，但是因专利费和解码占资源对老电脑支持性差等原因被网友称“h.265狗都不用”；AV1是最新的编码标准，开源、免专利，但不可避免的对硬件解码有一定要求，并且因为是新兴的标准，所有普及性没有前面的广（正在蓬勃发展），它的压缩效率与h.264相比，在相同画质下，比h.264节省30%的码率。</p>
-<h2 id="handbrake使用案例">HandBrake使用案例</h2>
-<blockquote>
-<p>通过上面的学习，如果我们需要压缩本地的视频以此来增大我们硬盘空间，视频主要参数如下：
-- 分辨率：不变（当然分辨率高可以考虑下调） - 帧率：24帧-30帧 -
-码率：3Mbps-6Mbps（22RF）</p>
-</blockquote>
-<h3 id="工具推荐">工具推荐</h3>
-<ol type="1">
-<li><p>ffmpeg工具
-&gt;它是一个强大的视频处理的命令行工具。市面上大部分软件基本套壳它的，但上手难度高。</p></li>
-<li><p><a href="https://handbrake.fr/downloads.php">HandBrake</a>
-&gt;免费的视频处理工具。新手推荐使用它，下面我们简单来使用它。</p></li>
-</ol>
-<h3 id="导入视频">导入视频</h3>
-<p>可以直接拖动视频到窗口，也可以选择打开文件 <img src="file-20260223213644411.png"></p>
-<h3 id="参数配置">参数配置</h3>
-<p>按照下面图片依次设置，其他的可以不管 ①： <img src="file-20260223214249460.png"></p>
-<p>②：分辨率限制改为“无” <img src="file-20260223214601567.png">
-③：调节帧率为24帧—30帧中的一个值；码率可以直接固定码率为22RF，也可以选择平均比特率：3Mbps-6Mbps；编码方式如果确实需要压缩可以改为除包含H.264字符的任意方式，推荐AV1(更好)、H.265
-<img src="assets/视频压缩/file-20260223215426574.png"> &gt;解析：
-&gt;<strong>H.265 (x265)</strong>：x265代表使用CPU压缩视频
-&gt;<strong>H.26510bit
-(x265)</strong>：10bit代表画面中能表现的色彩数量，数量越多画面过多越平滑；H.265支持1670万种颜色，普通视频这个就行，10bit大概10.7亿种颜色，适合颜色丰富的视频
-&gt;<strong>H.26510bit (AMD VCE)</strong>：AMD
-VCE是程序会调用相应的GPU来压缩，速度会比CPU块很多，但画质会稍差一些，并且压缩后的文件会大一些</p>
-<p>④：可以点击预览观看效果</p>
-<p>⑤：点击开始编译，进行压缩视频 ## 视频大小要求</p>
-<blockquote>
-<p>通常我们上传视频到视频平台时，平台都有视频的标准，我们知道视频的大小和时长就可以计算出视频所需的码率</p>
-</blockquote>
-<p>计算实例：</p>
-<p>视频时长20秒，大小77.3MB</p>
-<p>一秒钟的信息量：77.3/20=3.87MB (字节表示)</p>
-<p>字节换算成比特：3.87*8=30.96Mb(比特表示)</p>
-<p>视频平均码率：30.96Mbps(比特能表示速率)</p>
-<p>（这不包含音频文件，一般忽略不计）</p>
-<p>换算单位：</p>
-<p>约等于</p>
-<p>1Mb=1000kb</p>
-<p>1Mbps=1000kbps</p>
-<p>码率=(视频大小/视频时长)*8</p>
-<h2 id="参考文章">参考文章</h2>
-<p><a href="https://www.bilibili.com/video/BV1D7aEzvEP5?spm_id_from=333.788.recommend_more_video.-1&amp;trackid=web_related_0.router-related-2481894-flpjl.1771855175914.785&amp;vd_source=ff90d309a66060821e097736f479cb41">HandBrake使用教程-小in分享</a></p>
-<p><a href="https://www.bilibili.com/video/BV1Wa411H7CR/?spm_id_from=333.1387.favlist.content.click&amp;vd_source=ff90d309a66060821e097736f479cb41">如何压缩视频，把文件变小，还没画质损失？-Mac云课堂</a></p>
-]]></content>
-      <categories>
-        <category>空间压缩</category>
-      </categories>
-      <tags>
-        <tag>视频</tag>
-        <tag>压缩技术</tag>
       </tags>
   </entry>
 </search>
