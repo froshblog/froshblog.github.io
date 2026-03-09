@@ -1316,7 +1316,7 @@ pre code {
   transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #da943d;
+  background: #00a433;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
@@ -2656,7 +2656,7 @@ header.header {
   display: none;
 }
 .posts-expand .post-block:not(:first-of-type) {
-  margin-top: 60px;
+  margin-top: 40px;
 }
 .posts-expand .post-header {
   margin-bottom: 20px;
@@ -2827,6 +2827,32 @@ header.header {
 }
 .darkmode--activated .token.inserted {
   color: #008000 !important;
+}
+/* 减小分页器与上方文章列表的距离 */
+.pagination {
+  margin-top: 20px !important; /* 你可以根据需要调整这个值，比如10px、30px等 */
+}
+/* 分页器正常页码颜色 */
+.pagination .page-number {
+  color: #333 !important; /* 替换为你想要的颜色，例如深灰色 */
+}
+/* 当前页码（高亮）的颜色 */
+.pagination .page-number.current {
+  color: #fff !important; /* 当前页文字颜色 */
+  background-color: #555a5f !important; /* 可选：当前页背景色，可根据需要调整 */
+  border-color: #626a70 !important; /* 可选：边框色 */
+}
+/* 页码悬停时的颜色 */
+.pagination .page-number:hover {
+  color: #d61b1b !important; /* 悬停颜色，可自定义 */
+}
+/* 使用 darkmode--activated 插件深色模式下的页码颜色 */
+.darkmode--activated .pagination .page-number {
+  color: #ccc !important;
+}
+.darkmode--activated .pagination .page-number.current {
+  color: #000 !important;
+  background-color: #626a70 !important; /* 例如金色背景，可自定义 */
 }
 body {
   background: url("/images/20260202.webp");
