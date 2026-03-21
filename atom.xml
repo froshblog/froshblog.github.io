@@ -6,7 +6,7 @@
   <link href="https://www.frosh.qzz.io/atom.xml" rel="self"/>
   
   <link href="https://www.frosh.qzz.io/"/>
-  <updated>2026-03-06T14:36:17.120Z</updated>
+  <updated>2026-03-21T13:01:21.076Z</updated>
   <id>https://www.frosh.qzz.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>open claw-小龙虾部署 + 接入qq</title>
+    <link href="https://www.frosh.qzz.io/posts/663d54d4.html/"/>
+    <id>https://www.frosh.qzz.io/posts/663d54d4.html/</id>
+    <published>2026-03-20T09:12:03.000Z</published>
+    <updated>2026-03-21T13:01:21.076Z</updated>
+    
+    
+    <summary type="html">&lt;hr /&gt;
+&lt;blockquote&gt;
+&lt;p&gt;open claw本身问题： 权限高；成本高；风险高。&lt;/p&gt;
+&lt;/blockquote&gt;</summary>
+    
+    
+    
+    <category term="人工智能" scheme="https://www.frosh.qzz.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    <category term="open claw" scheme="https://www.frosh.qzz.io/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/open-claw/"/>
+    
+    
+    <category term="AI" scheme="https://www.frosh.qzz.io/tags/AI/"/>
+    
+    <category term="agent" scheme="https://www.frosh.qzz.io/tags/agent/"/>
+    
+  </entry>
   
   <entry>
     <title>Could Flare CDN双域名优选</title>
@@ -144,7 +170,7 @@ Action的功能实现同步备份。&lt;/p&gt;
     <link href="https://www.frosh.qzz.io/posts/7b194885.html/"/>
     <id>https://www.frosh.qzz.io/posts/7b194885.html/</id>
     <published>2026-02-04T09:38:01.000Z</published>
-    <updated>2026-02-27T03:16:46.962Z</updated>
+    <updated>2026-03-20T08:00:05.890Z</updated>
     
     
     <summary type="html">&lt;hr /&gt;
